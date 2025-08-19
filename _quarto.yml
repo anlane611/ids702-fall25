@@ -3,15 +3,20 @@ project:
   output-dir: docs
 
 website:
-  title: "ids702-fall25"
+  title: "IDS 702 - Fall 2025"
   navbar:
+    background: "#F16729"
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - schedule.qmd
 
 format:
   html:
-    theme: cosmo
+    theme: lux
     css: styles.css
-    toc: tru
+    toc: true
+    page-layout: full
+
+editor: visual
+
