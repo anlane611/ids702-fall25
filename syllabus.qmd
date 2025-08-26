@@ -1,0 +1,162 @@
+---
+title: "IDS 702: Data Modeling and Representation"
+subtitle: "Duke University"
+author: "Fall 2025"
+format: pdf
+editor: visual
+---
+
+## Course Overview
+
+**Meeting times**: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270
+
+**Instructor**: Andrea Lane, PhD, andrea.lane\@duke.edu
+
+Office hour: Thurs 4:30-5:30 PM, Gross Hall 270 (if unoccupied after class) or Gross Hall 223
+
+**Teaching Assistants**:
+
+Kayla Haeussler, kayla.haeussler\@duke.edu
+
+Office hour: TBA
+
+Atreya Tadepalli, atreya.tadepalli\@duke.edu
+
+Office hour: TBD
+
+\newpage
+
+## Course Objectives
+
+Developing an understanding of statistical modeling is a key component of becoming a data scientist. Statistical models are used to answer research questions and obtain meaningful insights from many kinds of data.
+
+Broadly, this course will cover the following topics:
+
+1.  Statistics Fundamentals
+2.  Linear Regression
+3.  Generalized Linear Models
+
+But here in the MIDS program, understanding the content is only the beginning. Successful data scientists are **critical thinkers**, **problem solvers**, **effective communicators**, and **enthusiastic collaborators**. With that in mind, this course aims to meet five key learning objectives:
+
+By the end of the course, students should be able to
+
+1.  Fit and interpret statistical models, including linear and generalized linear models.
+2.  Connect statistical modeling concepts to underlying statistics fundamentals including probability distributions and estimation.
+3.  Map a research question and dataset to the appropriate statistical model.
+4.  Make careful and critical decisions about model building and consider real-world implications.
+5.  Communicate (through written and oral communication) model results to a broad audience.
+
+## Course Materials
+
+### Textbooks
+
+I will assign readings from a few different textbooks throughout the semester. All of these books are available for free in electronic format either online or through the Duke Library.
+
+Intuitive Introductory Statistics by Douglas A. Wolfe and Grant Schneider. (Available through the Duke Library)
+
+[An Introduction to Statistical Learning with Applications in R, 2nd edition](https://www.statlearning.com/) by James, G., Witten, D., Hastie, T., and Tibshirani, R. (Available online)
+
+[Introduction to Modern Statistics](https://openintro-ims.netlify.app/), Second Edition by Mine Çetinkaya-Rundel and Johanna Hardin. (Available online)
+
+### Gradescope
+
+You will submit assignments through Gradescope, which you can access through Canvas. You can use this code to access the course: **R53EEW**
+
+### Slack
+
+Be sure to join the ids702-fa25 channel in the MIDS Slack workspace. I will post announcements on this channel.
+
+A note on communication: If you would like to contact me for any reason, you can reach out on either Slack **or** via email. If I do not respond within 48 hours during weekdays, you are welcome to follow up.
+
+## Course Components
+
+### Class preparation
+
+Before each class meeting, you will be required to engage with prep materials (reading or video). The prep materials will primarily cover theoretical concepts. Class meetings will then review the theory and implementation in R. Preparation assignments will be posted on the course website by Friday 11:59 PM the week before.
+
+Class preparation connects to the first two learning objectives.
+
+### Homework assignments
+
+You will have homework assignments to complete during the semester. The structure of the assignments will evolve with the course material, starting with a problem set structure and moving toward written analysis assignments.
+
+You are encouraged to talk to each other about general concepts, and to the instructor/TAs. However, the write-ups, solutions, and code MUST be entirely your own work. The assignments must be typed up using the provided Quarto templates (unless otherwise noted) and submitted on Gradescope. Note that you will not be able to make online submissions after the due date, so be sure to submit before the Gradescope-specified deadline.
+
+Homework assignments connect to all five learning objectives.
+
+### Statistics reflections
+
+Two of the homework assignments will be statistics reflections. I have assigned pieces that cover various topics related to the interaction between data science and society. You are to write a written reflection about the material that you select. Questions are provided as prompts, but you are not required to answer them in your reflection. Grades will be based on completion and thoughtful engagement.
+
+The chosen articles/videos address topics that may be sensitive and/or uncomfortable, including racism, eugenics, and gender identity. It is crucial that you engage in the reflections thoughtfully and respectfully. I seek to create a classroom environment that not only acknowledges diversity in all forms, but celebrates it. In that endeavor, I would be remiss not to acknowledge the discriminatory ways statistical science has been used both historically and currently. In having these important discussions, I want you to critically examine and appreciate the power (good and bad) of statistics as you begin your career as a data scientist. More information can be found on the statistics reflections page on the course website.
+
+Statistics reflections connect to the fourth course learning objective.
+
+### Quizzes and midterm
+
+Quizzes will be given at the end of units 1 and 3. They will not take the entire class period. A midterm exam will be held on Thursday, October 23rd in class, and cover the first two units with an emphasis on unit 2. The quizzes and midterm will assess conceptual understanding, not R programming.
+
+If you benefit from the use of testing accommodations, such as an isolated testing area or extra time, please connect with the [Student Disability Access Office](https://access.duke.edu/students) as soon as possible and reach out to me to discuss logistics.
+
+The assessments connect to the first two learning objectives.
+
+### Project
+
+You will work with a team to apply the knowledge and skills learned throughout this course and analyze a dataset that interests you. The project should be an in-depth statistical analysis of a particular research question. Your team will select the dataset. Teams will be assigned. More detailed information will be available on the course website later in the semester. The project will have the following components:
+
+-   Proposal (team)
+
+-   Written report (team)
+
+-   Recorded elevator pitch (individual)
+
+-   Team member evaluation
+
+The project connects to all four course learning objectives.
+
+## Grade Calculation
+
+| Component | Percentage |
+|----|----|
+| Participation (Wooclap questions, in-class exercises) | 10% |
+| Homework assignments, including statistics reflections | 45% |
+| Midterm exam, quizzes | 20% (15 and 5, respectively) |
+| Project | 25% |
+
+Letter grade scales may be adjusted at the end of the semester. Cumulative averages $\geq 90\%$ are guaranteed at least an A-, cumulative averages $\geq 80\%$ are guaranteed at least a B-, and cumulative averages $\geq 70\%$ are guaranteed at least a C-
+
+Regrade requests can be made on Gradescope within 24 hours of the assignment's grade release. Regrade requests for final project reports/presentations must be made within 12 hours of grade release. Note that regrade requests are appropriate if points were deducted but you can clearly point to where the correct answer is provided. A regrade request is not appropriate to argue that too many points were deducted for a given error.
+
+There are no make-ups for any graded work except for cases of medical/personal/familial emergencies. If you are facing extenuating circumstances during the semester, please don't hesitate to reach out to the instructor.
+
+## Course policies
+
+### Late submissions
+
+You (or your team when applicable) will lose 50% of the total points on each assignment if you submit within the first 24 hours after it is due. You will lose 100% of the total points if you submit later than that without explicit approval from the instructor.
+
+You can request a single-use, no-questions-asked 24-hour extension for one homework assignment during the semester. To use your extension, email the instructor and cc all TAs with the subject line "IDS 702 Single-use Extension." No explanation is needed as to why you are requesting the extension. The extension **cannot** be applied to the exam, project deliverables, or quizzes.
+
+### Academic integrity
+
+As a student in this course, you have agreed to uphold the [Duke Community Standard](https://studentaffairs.duke.edu/conduct/about-us/duke-community-standard) as well as the practices specific to this course. This means that the work you submit is your own, even if you discuss assignments with your classmates. Additionally, when consulting resources (books, internet articles including stackexchange, GenAI), you must cite them. If you have any questions about what should be cited in your work, please reach out to the instructor.
+
+Please read Nick Eubank's [ChatGPT advice linked here](https://nickeubank.github.io/practicaldatascience_book/notebooks/PDS_not_yet_in_coursera/99_advice/llms.html) and consider the downside of overreliance on LLMs during the learning process.
+
+### Inclusive community
+
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke's commitment to diversity and inclusion](https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion). Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.
+
+Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:
+
+-   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. If you prefer to speak with someone outside of the course, I encourage you to speak with MIDS administrators.
+
+-   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.
+
+## Resources
+
+-   [Duke Counseling & Psychological Services (CAPS)](https://studentaffairs.duke.edu/caps) helps Duke Students enhance strengths and develop abilities to successfully live, grow and learn in their personal and academic lives. CAPS offers many services to Duke students, including brief individual and group counseling, couples counseling and more. CAPS staff also provides outreach to student groups, particularly programs supportive of at-risk populations, on a wide range of issues impacting them in various aspects of campus life. CAPS provides services to students via Telehealth. To initiate services, you can contact their front desk at 919-660-1000.
+
+-   If there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations. The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
+
+-   The [Academic resource center](https://arc.duke.edu/learning-consultations/learning-resources) provides learning resources to help you maximize your academic capabilities.

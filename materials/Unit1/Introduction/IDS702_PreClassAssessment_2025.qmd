@@ -1,0 +1,145 @@
+---
+title: "IDS 702 Pre-course Assessment"
+subtitle: "Fall 2025"
+format: 
+  pdf:
+    fig-align: center
+    fig-asp: 0.618
+    margin-bottom: 1.8cm
+    margin-top: 1cm
+    margin-left: 1.75cm
+    margin-right: 1.75cm
+editor_options: 
+  chunk_output_type: console
+editor: visual
+---
+
+\vspace{-1cm}
+
+|  |  |  |  |
+|-----------|----------------------|-----------|------------------|
+| First name: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Last name: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| Net ID: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |  |  |
+
+\vspace{0.1cm}
+
+> I hereby state that I have not communicated with or gained information in any way from my classmates or unauthorized materials during this assessment, and that all work is my own.
+>
+> Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+The purpose of this assessment is for me to understand your current knowledge of statistical principles and statistical models. This will not factor into your course grade at all.
+
+For each question, indicate both your answer **and** your confidence in that answer. For example, in the question below, if I am somewhat confident that the answer is "simple random," I would circle **B2**. **Only one letter/number combination should be circled for each question.**
+
+*Example question:* Many statistical methods assume that data come from a \_\_\_\_\_\_\_\_\_\_\_\_\_ sample.
+
+|               | Not at all confident | Somewhat confident | Very confident |
+|---------------|:--------------------:|:------------------:|:--------------:|
+| Stratified    |          A1          |         A2         |       A3       |
+| Simple random |          B1          |         B2         |       B3       |
+| Cluster       |          C1          |         C2         |       C3       |
+| Multistage    |          D1          |         D2         |       D3       |
+
+{{< pagebreak >}}
+
+## Multiple Choice
+
+Circle the letter to mark your answer choice.
+
+1.  Let X be a random variable that represents the number of red-flowering plants in 100 crosses of pink flowering plants. Which distribution best fits X?
+
+|                | Not at all confident | Somewhat confident | Very confident |
+|----------------|:--------------------:|:------------------:|:--------------:|
+| Normal         |          A1          |         A2         |       A3       |
+| Hypergeometric |          B1          |         B2         |       B3       |
+| Poisson        |          C1          |         C2         |       C3       |
+| Binomial       |          D1          |         D2         |       D3       |
+
+\vspace{1cm}
+
+2.  I take repeated samples of size 100 from a left skewed distribution and calculate the mean of each sample. How will those sample means be distributed?
+
+|                      | Not at all confident | Somewhat confident | Very confident |
+|----------------------|:--------------------:|:------------------:|:--------------:|
+| Left skewed          |          A1          |         A2         |       A3       |
+| Normal               |          B1          |         B2         |       B3       |
+| Right skewed         |          C1          |         C2         |       C3       |
+| Cannot be determined |          D1          |         D2         |       D3       |
+
+\vspace{1cm}
+
+3.  Increasing the confidence level \_\_\_\_\_\_\_\_\_\_\_\_ the width of a confidence interval and increasing the sample size \_\_\_\_\_\_\_\_\_\_\_\_\_ the width of a confidence interval.
+
+|                      | Not at all confident | Somewhat confident | Very confident |
+|----------------------|:--------------------:|:------------------:|:--------------:|
+| increases; increases |          A1          |         A2         |       A3       |
+| increases; decreases |          B1          |         B2         |       B3       |
+| decreases; increases |          C1          |         C2         |       C3       |
+| decreases; decreases |          D1          |         D2         |       D3       |
+
+\vspace{1cm}
+
+4.  What is the dimension of the product of a 3x4 matrix and a 4x5 matrix?
+
+|     | Not at all confident | Somewhat confident | Very confident |
+|-----|:--------------------:|:------------------:|:--------------:|
+| 3x5 |          A1          |         A2         |       A3       |
+| 5x3 |          B1          |         B2         |       B3       |
+| 4x4 |          C1          |         C2         |       C3       |
+| 4x5 |          D1          |         D2         |       D3       |
+
+{{< pagebreak >}}
+
+5.  A p-value is the \_\_\_\_\_\_\_\_\_\_\_\_ of observing \_\_\_\_\_\_\_\_\_\_\_\_ as or more extreme than the observed, assuming the \_\_\_\_\_\_\_\_\_\_\_\_ is true.
+
+|   | Not at all confident | Somewhat confident | Very confident |
+|----|:--:|:--:|:--:|
+| statistic; point estimate; alternative hypothesis | A1 | A2 | A3 |
+| statistic; hypotheses; null hypothesis | B1 | B2 | B3 |
+| probability; data; alternative hypothesis | C1 | C2 | C3 |
+| probability; data; null hypothesis | D1 | D2 | D3 |
+
+\vspace{1cm}
+
+6.  Which type of question can NOT be answered with a linear model?
+
+|   | Not at all confident | Somewhat confident | Very confident |
+|----|:--:|:--:|:--:|
+| On average, how much does Y change per increase in X? | A1 | A2 | A3 |
+| On average, per increase in Y, how much does X change? | B1 | B2 | B3 |
+| What is the predicted value of Y for a given value of X? | C1 | C2 | C3 |
+| What is the average value of Y when X=0? | D1 | D2 | D3 |
+
+\vspace{1cm}
+
+7.  Which of the following statistical models would be most appropriate to assess the impact of student loan debt (measured in \$) on home ownership status (measured as yes/no), accounting for other financial variables such as income?
+
+|                     | Not at all confident | Somewhat confident | Very confident |
+|---------------------|:--------------------:|:------------------:|:--------------:|
+| Linear regression   |          A1          |         A2         |       A3       |
+| Logistic regression |          B1          |         B2         |       B3       |
+| Ordinal regression  |          C1          |         C2         |       C3       |
+| Poisson regression  |          D1          |         D2         |       D3       |
+
+{{< pagebreak >}}
+
+8.  Calculate the following:
+
+    $$
+    \frac{d}{d \theta} (4 \theta^3 + 2\beta)
+    $$
+
+|                     | Not at all confident | Somewhat confident | Very confident |
+|---------------------|:--------------------:|:------------------:|:--------------:|
+| $12\theta^2$        |          A1          |         A2         |       A3       |
+| $4\theta^2+2$       |          B1          |         B2         |       B3       |
+| $12\theta^3+2\beta$ |          C1          |         C2         |       C3       |
+| $4\theta+2\beta$    |          D1          |         D2         |       D3       |
+
+\vspace{1cm}
+
+9.  How would you describe your experience with statistics and confidence in fundamental principles of statistics (e.g., probability distributions, sampling distributions, hypothesis testing)
+
+\vspace{6cm}
+
+10. Finally, a question purely for fun: what's a movie that you wholeheartedly recommend?

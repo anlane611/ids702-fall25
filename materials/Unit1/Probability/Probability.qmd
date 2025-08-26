@@ -1,0 +1,77 @@
+---
+title: "Intro to Probability"
+format: 
+  revealjs:
+    incremental: true
+    embed-resources: true
+    slide-number: true
+editor: visual
+---
+
+## Motivation
+
+We rely on probability to draw conclusions about our population of interest
+
+![](simplerandom.png){fig-align="center" width="601"}
+
+## Probability terminology
+
+-   **Event**: a potential outcome
+
+-   **Probability** is a measure of how likely it is that an event occurs
+
+-   The sum of the probabilities of all events in a **sample space** is 1
+
+-   $0 \leq Pr(A) \leq 1$
+
+## Probability definitions
+
+-   The **complement** of event $A$ is denoted $A^c$ and it indicates that event $A$ does not occur. $Pr(A) = 1-Pr(A^c)$
+
+-   The occurrence of two events $A$ and $B$ at the same time is denoted by $A \cap B$ and $Pr(A\cap B)$ is known as the joint probability of $A$ and $B$
+
+-   The event that either $A$ or $B$ or both occur is denoted by $A \cup B$. $Pr(A\cup B) = Pr(A) + Pr(B) - Pr(A \cap B)$
+
+-   Mutually exclusive events: $Pr(A\cap B)=0$
+
+-   Conditional probability: $Pr(A|B)=\frac{Pr(A\cap B)}{Pr(B)}$
+
+## Independent Events
+
+If knowing about the occurrence of event $A$ does not give information about the probability of event $B$, then events $A$ and $B$ are **independent**.
+
+ 
+
+Mathematically: $Pr(A\cap B) = Pr(A)Pr(B)$
+
+ 
+
+and $Pr(A|B)=Pr(A)$
+
+## Bayes Theorem
+
+ 
+
+Bayes Theorem allows us to invert conditional probabilities. We can use it to update a belief based on prior knowledge.
+
+ 
+
+$Pr(B|A) = \frac{Pr(A|B)Pr(B)}{Pr(A)}$
+
+ 
+
+## Bayes Theorem Example
+
+You have 3 coins. 2 of them are fair and one is rigged so that it always lands on heads. You choose a coin at random and flip it; it lands on heads. Is the coin you chose likely to be fair or rigged?
+
+-   $Pr(F)=2/3$, $Pr(F^c)=1/3$
+
+-   $Pr(H|F)=1/2$, $Pr(H|F^c)=1$
+
+-   $Pr(F|H)=\frac{Pr(H|F)Pr(F)}{Pr(H)}$
+
+-   We can break down the denominator: $Pr(H)=Pr(H|F)Pr(F)+Pr(H|F^c)Pr(F^c)$
+
+-   So then we have: $Pr(F|H)=\frac{(1/2)(2/3)}{(1/2)(2/3)+1(1/3)}$
+
+-   $Pr(F|H)=1/2$

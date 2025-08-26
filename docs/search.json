@@ -4,7 +4,168 @@
     "href": "schedule.html",
     "title": "Schedule and Course Materials",
     "section": "",
-    "text": "Unit\n      Week\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      0\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D"
+    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      1\n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#section",
+    "href": "materials/Unit1/Introduction/Introduction.html#section",
+    "title": "Introduction",
+    "section": "",
+    "text": "How does statistics fit into data science?"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#where-do-data-come-from",
+    "href": "materials/Unit1/Introduction/Introduction.html#where-do-data-come-from",
+    "title": "Introduction",
+    "section": "Where do data come from?",
+    "text": "Where do data come from?\nStart with a research question\n\nWhat is the average mercury content in swordfish in the Atlantic Ocean?\nDoes a new vaccine reduce incidence rates for a particular disease?\nAre average hours of sleep per night related to GPA for graduate students?"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#types-of-research-questions",
+    "href": "materials/Unit1/Introduction/Introduction.html#types-of-research-questions",
+    "title": "Introduction",
+    "section": "Types of research questions",
+    "text": "Types of research questions\nBroadly speaking, we can categorize research questions into two categories:\n\nPrediction questions require training a model that will perform well on new data\nInference questions require a model that can assess relationships between an outcome and predictor variable(s)\n\n\nIn this class, we will focus on inference. Next semester, you will focus more on prediction."
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#where-do-data-come-from-1",
+    "href": "materials/Unit1/Introduction/Introduction.html#where-do-data-come-from-1",
+    "title": "Introduction",
+    "section": "Where do data come from?",
+    "text": "Where do data come from?\nBased on the research question, we can identify the population of interest.\nOften, it is unrealistic to collect data on the entire population, so we collect a sample.\nBut how?"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#sampling",
+    "href": "materials/Unit1/Introduction/Introduction.html#sampling",
+    "title": "Introduction",
+    "section": "Sampling",
+    "text": "Sampling\nSay I want a sample of five students in this class and I want to measure the proportion of the class that identify as extroverts. How could I choose five people?"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#simple-random-sampling",
+    "href": "materials/Unit1/Introduction/Introduction.html#simple-random-sampling",
+    "title": "Introduction",
+    "section": "Simple random sampling",
+    "text": "Simple random sampling\n\n\n\n\n\n\nGold standard, but not always practical\nMany statistical methods assume simple random sampling\n\n\n\nImage source: https://openintro-ims.netlify.app/data-design"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#section-1",
+    "href": "materials/Unit1/Introduction/Introduction.html#section-1",
+    "title": "Introduction",
+    "section": "",
+    "text": "Syllabus"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#instructor",
+    "href": "materials/Unit1/Introduction/Introduction.html#instructor",
+    "title": "Introduction",
+    "section": "Instructor",
+    "text": "Instructor\nAndrea Lane (you can call me Andrea!) she/her\nAssistant Professor of the Practice, MIDS and Dept of Statistical Sciences\n\nPhD in Biostatistics, Emory University\nWork in health/social justice/community-engaged applications\nHobbies: Sports (baseball, football, basketball), board games, moviesssss"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#course-topics",
+    "href": "materials/Unit1/Introduction/Introduction.html#course-topics",
+    "title": "Introduction",
+    "section": "Course Topics",
+    "text": "Course Topics\n\nStatistics Fundamentals\nLinear Regression\nGeneralized Linear Models"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#learning-objectives",
+    "href": "materials/Unit1/Introduction/Introduction.html#learning-objectives",
+    "title": "Introduction",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\n\nFit and interpret statistical models, including linear and generalized linear models.\nConnect statistical modeling concepts to underlying statistics fundamentals including probability distributions and estimation.\nMap a research question and dataset to the appropriate statistical model.\nMake careful and critical decisions about model building and consider real-world implications.\nCommunicate (through written and oral communication) model results to a broad audience."
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#course-materials",
+    "href": "materials/Unit1/Introduction/Introduction.html#course-materials",
+    "title": "Introduction",
+    "section": "Course Materials",
+    "text": "Course Materials\nTextbooks:\nIntuitive Introductory Statistics by Douglas A. Wolfe and Grant Schneider. (Available through the Duke Library)\nAn Introduction to Statistical Learning with Applications in R, 2nd edition by James, G., Witten, D., Hastie, T., and Tibshirani, R. (Available online)\nIntroduction to Modern Statistics, Second Edition by Mine Çetinkaya-Rundel and Johanna Hardin. (Available online)"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#course-materials-1",
+    "href": "materials/Unit1/Introduction/Introduction.html#course-materials-1",
+    "title": "Introduction",
+    "section": "Course Materials",
+    "text": "Course Materials\n\nCanvas has the link to the course website, which is where course materials will be posted\nAssignments will be submitted on Gradescope, which you can access through Canvas\nAnnouncements will be posted on the #ids702-fa25 Slack channel in the MIDS Workspace. You’re also welcome to post questions or resources there!"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#office-hours-communication",
+    "href": "materials/Unit1/Introduction/Introduction.html#office-hours-communication",
+    "title": "Introduction",
+    "section": "Office Hours & Communication",
+    "text": "Office Hours & Communication\nAndrea: Thursday after class (4:30-5:30) in the classroom if available or my office (Gross 223 - by the lockers)\nKayla and Atreya: TBD\nCommunication: Slack or email; follow up after 48 hours on weekdays"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#course-components",
+    "href": "materials/Unit1/Introduction/Introduction.html#course-components",
+    "title": "Introduction",
+    "section": "Course components",
+    "text": "Course components\n\nClass preparation and participation\nHomework assignments/Statistics Reflections\nQuizzes and midterm exam\nFinal project"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#course-policies",
+    "href": "materials/Unit1/Introduction/Introduction.html#course-policies",
+    "title": "Introduction",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nLate submissions:\n\n50% credit within 24 hours\nOne no-questions-asked 24-hour extension for homework or statistics reflection\nNo make-up assignments\n\nAcademic integrity:\n\nAs a Duke student, you agree to uphold the Duke Community Standard\nRead Nick Eubank’s advice on using ChatGPT"
+  },
+  {
+    "objectID": "materials/Unit1/Introduction/Introduction.html#resources",
+    "href": "materials/Unit1/Introduction/Introduction.html#resources",
+    "title": "Introduction",
+    "section": "Resources",
+    "text": "Resources\n\nDuke Counseling and Psychological Services (CAPS)\nStudent Disability Access Office (SDAO)\nAcademic Resource Center (ARC)"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#motivation",
+    "href": "materials/Unit1/Probability/Probability.html#motivation",
+    "title": "Intro to Probability",
+    "section": "Motivation",
+    "text": "Motivation\nWe rely on probability to draw conclusions about our population of interest"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#probability-terminology",
+    "href": "materials/Unit1/Probability/Probability.html#probability-terminology",
+    "title": "Intro to Probability",
+    "section": "Probability terminology",
+    "text": "Probability terminology\n\nEvent: a potential outcome\nProbability is a measure of how likely it is that an event occurs\nThe sum of the probabilities of all events in a sample space is 1\n\\(0 \\leq Pr(A) \\leq 1\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#probability-definitions",
+    "href": "materials/Unit1/Probability/Probability.html#probability-definitions",
+    "title": "Intro to Probability",
+    "section": "Probability definitions",
+    "text": "Probability definitions\n\nThe complement of event \\(A\\) is denoted \\(A^c\\) and it indicates that event \\(A\\) does not occur. \\(Pr(A) = 1-Pr(A^c)\\)\nThe occurrence of two events \\(A\\) and \\(B\\) at the same time is denoted by \\(A \\cap B\\) and \\(Pr(A\\cap B)\\) is known as the joint probability of \\(A\\) and \\(B\\)\nThe event that either \\(A\\) or \\(B\\) or both occur is denoted by \\(A \\cup B\\). \\(Pr(A\\cup B) = Pr(A) + Pr(B) - Pr(A \\cap B)\\)\nMutually exclusive events: \\(Pr(A\\cap B)=0\\)\nConditional probability: \\(Pr(A|B)=\\frac{Pr(A\\cap B)}{Pr(B)}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#independent-events",
+    "href": "materials/Unit1/Probability/Probability.html#independent-events",
+    "title": "Intro to Probability",
+    "section": "Independent Events",
+    "text": "Independent Events\nIf knowing about the occurrence of event \\(A\\) does not give information about the probability of event \\(B\\), then events \\(A\\) and \\(B\\) are independent.\n \nMathematically: \\(Pr(A\\cap B) = Pr(A)Pr(B)\\)\n \nand \\(Pr(A|B)=Pr(A)\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#bayes-theorem",
+    "href": "materials/Unit1/Probability/Probability.html#bayes-theorem",
+    "title": "Intro to Probability",
+    "section": "Bayes Theorem",
+    "text": "Bayes Theorem\n \nBayes Theorem allows us to invert conditional probabilities. We can use it to update a belief based on prior knowledge.\n \n\\(Pr(B|A) = \\frac{Pr(A|B)Pr(B)}{Pr(A)}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#bayes-theorem-example",
+    "href": "materials/Unit1/Probability/Probability.html#bayes-theorem-example",
+    "title": "Intro to Probability",
+    "section": "Bayes Theorem Example",
+    "text": "Bayes Theorem Example\nYou have 3 coins. 2 of them are fair and one is rigged so that it always lands on heads. You choose a coin at random and flip it; it lands on heads. Is the coin you chose likely to be fair or rigged?\n\n\\(Pr(F)=2/3\\), \\(Pr(F^c)=1/3\\)\n\\(Pr(H|F)=1/2\\), \\(Pr(H|F^c)=1\\)\n\\(Pr(F|H)=\\frac{Pr(H|F)Pr(F)}{Pr(H)}\\)\nWe can break down the denominator: \\(Pr(H)=Pr(H|F)Pr(F)+Pr(H|F^c)Pr(F^c)\\)\nSo then we have: \\(Pr(F|H)=\\frac{(1/2)(2/3)}{(1/2)(2/3)+1(1/3)}\\)\n\\(Pr(F|H)=1/2\\)"
   },
   {
     "objectID": "index.html",
@@ -18,13 +179,6 @@
     "href": "index.html#course-overview",
     "title": "IDS 702: Data Modeling and Representation",
     "section": "Course Overview",
-    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270\nInstructor  Andrea Lane, PhD  andrea.lane@duke.edu  Gross Hall 223  Office hours: Thurs 4:30-5:30 PM   Teaching Assistants  Kayla Haeussler  kayla.haeussler@duke.edu  Office hours: TBA   Atreya Tadepalli  atreya.tadepalli@duke.edu  Office hours: TBD"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270\nInstructor  Andrea Lane, PhD  andrea.lane@duke.edu  Gross Hall 223  Office hours: Thurs 4:30-5:30 PM   Teaching Assistants  Kayla Haeussler  kayla.haeussler@duke.edu  Office hours: TBD   Atreya Tadepalli  atreya.tadepalli@duke.edu  Office hours: TBD  \nClick here to download the syllabus"
   }
 ]

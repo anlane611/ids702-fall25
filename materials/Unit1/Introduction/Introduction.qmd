@@ -1,0 +1,159 @@
+---
+title: "Introduction"
+format: 
+  revealjs:
+    incremental: true
+    embed-resources: true
+    slide-number: true
+---
+
+::: {#title-slide .center style="font-size: 4em"}
+What is statistics?
+:::
+
+## 
+
+::: {.center style="font-size: 3em"}
+How does statistics fit into data science?
+:::
+
+## Where do data come from?
+
+Start with a **research question**
+
+1.  What is the average mercury content in swordfish in the Atlantic Ocean?
+2.  Does a new vaccine reduce incidence rates for a particular disease?
+3.  Are average hours of sleep per night related to GPA for graduate students?
+
+## Types of research questions
+
+Broadly speaking, we can categorize research questions into two categories:
+
+-   **Prediction** questions require training a model that will perform well on new data
+
+-   **Inference** questions require a model that can assess relationships between an outcome and predictor variable(s)
+
+. . .
+
+In this class, we will focus on **inference**. Next semester, you will focus more on **prediction**.
+
+## Where do data come from?
+
+Based on the research question, we can identify the **population of interest**.
+
+Often, it is unrealistic to collect data on the entire population, so we collect a **sample**.
+
+But how?
+
+![](simplerandom.png){fig-align="center" width="583"}
+
+## Sampling
+
+Say I want a sample of five students in this class and I want to measure the proportion of the class that identify as extroverts. How could I choose five people?
+
+## Simple random sampling
+
+![](simplerandom.png){fig-align="center" width="583"}
+
+-   Gold standard, but not always practical
+
+-   Many statistical methods assume simple random sampling
+
+::: aside
+Image source: <https://openintro-ims.netlify.app/data-design>
+:::
+
+## 
+
+::: {.center style="font-size: 4em"}
+Syllabus
+:::
+
+## Instructor
+
+Andrea Lane (you can call me Andrea!) she/her
+
+Assistant Professor of the Practice, MIDS and Dept of Statistical Sciences
+
+-   PhD in Biostatistics, Emory University
+
+-   Work in health/social justice/community-engaged applications
+
+-   Hobbies: Sports (baseball, football, basketball), board games, moviesssss
+
+## Course Topics
+
+1.  Statistics Fundamentals
+2.  Linear Regression
+3.  Generalized Linear Models
+
+## Learning Objectives
+
+::: {style="font-size: 0.8em"}
+1.  Fit and interpret statistical models, including linear and generalized linear models.
+
+2.  Connect statistical modeling concepts to underlying statistics fundamentals including probability distributions and estimation.
+
+3.  Map a research question and dataset to the appropriate statistical model.
+
+4.  Make careful and critical decisions about model building and consider real-world implications.
+
+5.  Communicate (through written and oral communication) model results to a broad audience.
+:::
+
+## Course Materials
+
+### Textbooks:
+
+Intuitive Introductory Statistics by Douglas A. Wolfe and Grant Schneider. (Available through the Duke Library)
+
+[An Introduction to Statistical Learning with Applications in R, 2nd edition](https://www.statlearning.com/) by James, G., Witten, D., Hastie, T., and Tibshirani, R. (Available online)
+
+[Introduction to Modern Statistics](https://openintro-ims.netlify.app/), Second Edition by Mine Çetinkaya-Rundel and Johanna Hardin. (Available online)
+
+## Course Materials
+
+-   Canvas has the link to the course website, which is where course materials will be posted
+
+-   Assignments will be submitted on Gradescope, which you can access through Canvas
+
+-   Announcements will be posted on the #ids702-fa25 Slack channel in the MIDS Workspace. You're also welcome to post questions or resources there!
+
+## Office Hours & Communication
+
+Andrea: Thursday after class (4:30-5:30) in the classroom if available or my office (Gross 223 - by the lockers)
+
+Kayla and Atreya: TBD
+
+Communication: Slack **or** email; follow up after 48 hours on weekdays
+
+## Course components
+
+1.  Class preparation and participation
+2.  Homework assignments/Statistics Reflections
+3.  Quizzes and midterm exam
+4.  Final project
+
+## Course Policies
+
+-   Late submissions:
+
+    -   50% credit within 24 hours
+
+    -   One no-questions-asked 24-hour extension for homework or statistics reflection
+
+    -   No make-up assignments
+
+-   Academic integrity:
+
+    -   As a Duke student, you agree to uphold the Duke Community Standard
+
+    -   Read Nick Eubank's advice on using ChatGPT
+
+## Resources
+
+-   Duke Counseling and Psychological Services (CAPS)
+
+-   Student Disability Access Office (SDAO)
+
+-   Academic Resource Center (ARC)
