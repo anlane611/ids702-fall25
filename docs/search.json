@@ -126,6 +126,13 @@
     "text": "Resources\n\nDuke Counseling and Psychological Services (CAPS)\nStudent Disability Access Office (SDAO)\nAcademic Resource Center (ARC)"
   },
   {
+    "objectID": "materials/Unit1/Probability/Probability.html#learning-objectives",
+    "href": "materials/Unit1/Probability/Probability.html#learning-objectives",
+    "title": "Intro to Probability",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nBy the end of the class, you should be able to:\n\napply the probability rules to a given scenario\ndescribe in words the concepts of independence, sensitivity, specificity, and Bayes rule"
+  },
+  {
     "objectID": "materials/Unit1/Probability/Probability.html#motivation",
     "href": "materials/Unit1/Probability/Probability.html#motivation",
     "title": "Intro to Probability",
@@ -154,18 +161,32 @@
     "text": "Independent Events\nIf knowing about the occurrence of event \\(A\\) does not give information about the probability of event \\(B\\), then events \\(A\\) and \\(B\\) are independent.\n \nMathematically: \\(Pr(A\\cap B) = Pr(A)Pr(B)\\)\n \nand \\(Pr(A|B)=Pr(A)\\)"
   },
   {
+    "objectID": "materials/Unit1/Probability/Probability.html#sensitivity-and-specificity",
+    "href": "materials/Unit1/Probability/Probability.html#sensitivity-and-specificity",
+    "title": "Intro to Probability",
+    "section": "Sensitivity and Specificity",
+    "text": "Sensitivity and Specificity\nWe can visualize the combination of two events in a 2x2 table and use this to calculate conditional probabilities"
+  },
+  {
     "objectID": "materials/Unit1/Probability/Probability.html#bayes-theorem",
     "href": "materials/Unit1/Probability/Probability.html#bayes-theorem",
     "title": "Intro to Probability",
     "section": "Bayes Theorem",
-    "text": "Bayes Theorem\n \nBayes Theorem allows us to invert conditional probabilities. We can use it to update a belief based on prior knowledge.\n \n\\(Pr(B|A) = \\frac{Pr(A|B)Pr(B)}{Pr(A)}\\)"
+    "text": "Bayes Theorem\n \nBayes Theorem allows us to invert conditional probabilities. We can use it to update a belief based on prior knowledge.\n \n\n\\(Pr(B|A) = \\frac{Pr(A|B)Pr(B)}{Pr(A)}\\)"
   },
   {
     "objectID": "materials/Unit1/Probability/Probability.html#bayes-theorem-example",
     "href": "materials/Unit1/Probability/Probability.html#bayes-theorem-example",
     "title": "Intro to Probability",
     "section": "Bayes Theorem Example",
-    "text": "Bayes Theorem Example\nYou have 3 coins. 2 of them are fair and one is rigged so that it always lands on heads. You choose a coin at random and flip it; it lands on heads. Is the coin you chose likely to be fair or rigged?\n\n\\(Pr(F)=2/3\\), \\(Pr(F^c)=1/3\\)\n\\(Pr(H|F)=1/2\\), \\(Pr(H|F^c)=1\\)\n\\(Pr(F|H)=\\frac{Pr(H|F)Pr(F)}{Pr(H)}\\)\nWe can break down the denominator: \\(Pr(H)=Pr(H|F)Pr(F)+Pr(H|F^c)Pr(F^c)\\)\nSo then we have: \\(Pr(F|H)=\\frac{(1/2)(2/3)}{(1/2)(2/3)+1(1/3)}\\)\n\\(Pr(F|H)=1/2\\)"
+    "text": "Bayes Theorem Example\nYou have 3 coins. 2 of them are fair and one is rigged so that it always lands on heads. You choose a coin at random and flip it; it lands on heads. Is the coin you chose likely to be fair or rigged?"
+  },
+  {
+    "objectID": "materials/Unit1/Probability/Probability.html#birthday-problem",
+    "href": "materials/Unit1/Probability/Probability.html#birthday-problem",
+    "title": "Intro to Probability",
+    "section": "Birthday Problem",
+    "text": "Birthday Problem\nWhat is the probability that two people in the class have the same birthday?"
   },
   {
     "objectID": "index.html",
