@@ -1,0 +1,6 @@
+---
+title: "HW 1"
+author: "YOUR NAME HERE"
+format: pdf
+editor: visual
+---

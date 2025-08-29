@@ -1,0 +1,66 @@
+---
+title: "Homework 1"
+format: html
+subtitle: "Due: Sunday, Sept 7th 11:59 PM"
+---
+
+Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.
+
+1.  In a Japanese cohort study, 5,322 male non-smokers and 7,019 male smokers were followed for four years. Of these men, 16 non-smokers and 77 smokers developed lung cancer.
+
+    a.  Fill in the 2x2 table for this problem:
+
+        |                | Developed lung cancer | Did not develop lung cancer | Total |
+        |----------------|-----------------------|-----------------------------|-------|
+        | **Smoker**     |                       |                             |       |
+        | **Non-smoker** |                       |                             |       |
+        | **Total**      |                       |                             |       |
+
+    b.  What is the probability that a randomly-selected non-smoker from this group developed lung cancer?
+
+    c.  What is the marginal probability of developing lung cancer in this group?
+
+    d.  Are the events "smoker" and "developed lung cancer" independent?
+
+2.  Suppose a particular disease is prevalent in a population with 60%. The sensitivity and specificity of the medical test for this disease are both 0.9. A patient from this population is visiting the physician and is tested for the disease.
+
+    a.  What is the probability that a person has the disease given that they had a positive test result?
+    b.  Drop the given statement that the specificity is 0.9. If the sensitivity is 0.9, what is the minimum required specificity of the test to know with at least 95% certainty that the patient has the disease given that they have a positive test?
+
+3.  A manager at a restaurant is training her new hostess and during the
+    discussion the new employee asks about the typical size of a group that needs
+    to be seated. The manager says company research indicates that one of the
+    following three probability models is appropriate.
+
+    | Group size | 1    | 2    | 3    | 4    | 5   |
+    |------------|------|------|------|------|-----|
+    | Model 1    | 0.1  | 0.25 | 0.2  | 0.2  | 0.1 |
+    | Model 2    | 0.15 | 0.35 | 0.25 | 0.25 | 0.1 |
+    | Model 3    | 0.1  | 0.35 | 0.15 | 0.3  | 0.1 |
+
+    a.  Identify the correct probability model and explain the problems with the other two models.
+
+    b.  What is the expected size of a group that needs to be seated? Is this different from the most likely size?
+
+4.  A potato chip manufacturer decides whether to purchase a truckload
+    of potatoes by selecting samples and inspecting them to see if they meet the
+    company standards. Suppose that 20 potatoes are randomly selected and the
+    company policy is to purchase the load of potatoes if fewer than 2 of the
+    potatoes are deemed unsatisfactory. Find the probability of purchasing a
+    load of potatoes for which
+
+    a.  5% are rotten
+
+    b.  10% are rotten
+
+5.  A soup company claims that one of its products contains 480 mg of
+    sodium per serving with a standard deviation of 6 mg. Assuming that the
+    amount of sodium in a particular serving varies according to the normal
+    distribution, what is the chance that a particular serving contains:
+
+    a.  fewer than 475 mg of sodium
+
+    b.  at least 490 mg of sodium
+
+    c.  Find the interval of sodium levels that contains 80% of the values for
+        the amount of sodium in a particular serving.

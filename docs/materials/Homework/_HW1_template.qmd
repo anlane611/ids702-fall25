@@ -1,0 +1,92 @@
+---
+title: "HW 1"
+author: "YOUR NAME HERE"
+format: pdf
+editor: visual
+---
+
+## Instructions
+
+First, fill in your name in the author line in the header above. Then, use the template below to complete the assignment. For questions 1-3, you can choose to upload an image of your work rather than typing out the math (if you do want to type it, [here is a helpful resource to get started](https://qmd4sci.njtierney.com/math)). To upload an image, click "Insert \> Figure/Image."
+
+For fraction calculations, you can simply type the fraction in a code chunk and R will show the answer when you render your document, e.g.,
+
+```{r}
+3/5
+```
+
+For problems 4 and 5, simply type the R code to complete the calculation, and the answer will appear below the code in your rendered document.
+
+Once you have completed the exercises, render your document and submit the pdf on Gradescope. Be sure to assign the appropriate pages to the exercise numbers when you submit.
+
+## Exercise answers
+
+### 1
+
+a\.
+
+|                | Developed lung cancer | Did not develop lung cancer | Total |
+|----------------|-----------------------|-----------------------------|-------|
+| **Smoker**     |                       |                             |       |
+| **Non-smoker** |                       |                             |       |
+| **Total**      |                       |                             |       |
+
+b\.
+
+```{r}
+
+```
+
+c\.
+
+```{r}
+
+```
+
+d\.
+
+### 2
+
+a\.
+
+b\.
+
+### 3
+
+a\.
+
+b\.
+
+### 4
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+### 5
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+c\.
+
+```{r}
+
+```

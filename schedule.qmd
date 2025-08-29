@@ -53,7 +53,7 @@ html-table-processing: none
 </td>
     </tr>
    <tr>
-      <th scope="row">1</th>
+      <th scope="row"></th>
       <td>8.28</td>
       <td>Probability</td>
       <td>Intuitive Introductory Statistics (IIS) Section 4.2 </br> (4.1 also recommended)</td>
@@ -64,7 +64,51 @@ html-table-processing: none
 </svg></a>
 </td>
     </tr>
-
+   <tr>
+      <th scope="row"></th>
+      <td>9.2</td>
+      <td>Probability Distributions</td>
+      <td>IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1</td>
+      <td>
+</td>
+    </tr>
+   <tr>
+      <th scope="row"></th>
+      <td>9.4</td>
+      <td>Sampling Distributions & CLT</td>
+      <td>5 up to 5.1.1</td>
+      <td>
+</td>
+    </tr>
+   <tr>
+      <th scope="row"></th>
+      <td>9.7</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td> HW1 due 9.7 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
+        <a href="materials/Homework/HW1.qmd"  target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+</svg></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="materials/Homework/_HW1_template.qmd" download>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="32" height="32" 
+     fill="currentColor" 
+     class="bi bi-filetype-qmd" 
+     viewBox="0 0 16 16">
+  <!-- File shape -->
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"/>
+  
+  <!-- Q -->
+  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
+  <!-- M -->
+  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
+  <!-- D -->
+  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
+</svg></a>
+</td>
+    </tr>
   </tbody>
 </table>
 ```
