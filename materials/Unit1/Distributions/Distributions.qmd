@@ -1,0 +1,109 @@
+---
+title: "Probability Distributions"
+format: 
+  revealjs:
+    incremental: true
+    embed-resources: true
+    slide-number: true
+editor: visual
+---
+
+## Announcements
+
+-   Reminder to join the ids702-fa25 Slack channel
+
+-   HW1 posted, due Sunday 11:59 PM
+
+## Warm-up Questions (Wooclap on Canvas \> Assignments)
+
+## Random Variables
+
+**Random variables** are variables that can take different values, and the value they take depends on a probabilistic process.
+
+Examples:
+
+| Y=Resting heart rate | Y=congestive heart failure status (1=Yes, 0=No) |
+|----------------------|-------------------------------------------------|
+| 80                   | 0                                               |
+| 82                   | 1                                               |
+| 78                   | 0                                               |
+| 90                   | 1                                               |
+| 65                   | 0                                               |
+
+## Probability Distributions
+
+A **probability distribution** is a function that maps a possible outcome of a random variable to its probability of occurrence.
+
+![](car_colors.gif){fig-align="center" width="457"}
+
+::: aside
+Image source: <https://blog.minitab.com/en/adventures-in-statistics-2/understanding-and-using-discrete-distributions>
+:::
+
+## Key Components of Probability Distributions
+
+-   Support: values that the distribution can take
+
+-   Parameters: values that characterize the distribution
+
+-   PDF/PMF: $f(x)$ , function whose output is a probability of a particular value or range of values
+
+-   CDF: $F(x)$ , function whose output is a cumulative probability up to a particular value
+
+-   Expected value/mean: $\mathbf{E}(X)$
+
+-   Variance: $\mathbf{E}[(X-\mu)^2]$
+
+## Example
+
+|          |     |     |     |     |
+|----------|-----|-----|-----|-----|
+| $X$      | 1   | 2   | 3   | 4   |
+| $P(X=x)$ | 0.2 | 0.4 | 0.3 | 0.1 |
+
+-   Is this a valid probability distribution?
+
+-   Is this a discrete or continuous distribution?
+
+-   What is the support?
+
+-   What is $P(X=3)$?
+
+-   What is $F(3)$?
+
+-   What is $\mathbf{E}(X)$?
+
+-   What is $Var(X)$?
+
+## Example answers
+
+-   Is this a valid probability distribution?
+
+-   Is this a discrete or continuous distribution?
+
+-   What is the support?
+
+-   What is $P(X=3)$?
+
+-   What is $F(3)$?
+
+## Example answers
+
+-   What is $\mathbf{E}(X)$?
+
+     
+
+-   What is $Var(X)$?
+
+    -   $Var(X)=\mathbf{E}[(X-\mu)^2]=\mathbf{E}[X^2]-\mathbf{E}[X]^2$ (do this on your own)
+
+## Common Probability Distributions
+
+1.  Normal
+2.  t
+3.  Bernoulli
+4.  Binomial
+5.  Uniform
+6.  Multinomial
+7.  Poisson
+8.  Negative Binomial

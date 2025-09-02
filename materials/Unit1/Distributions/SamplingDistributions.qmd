@@ -1,0 +1,125 @@
+---
+title: "Sampling Distributions"
+format: 
+  revealjs:
+    incremental: true
+    embed-resources: true
+    slide-number: true
+editor: visual
+---
+
+## Sampling Distribution Illustration
+
+## Central Limit Theorem
+
+ 
+
+Let $X_1,X_2,...,X_n$ have population mean $\mu$ and variance $\sigma^2$
+
+$$
+\bar{X} \sim N(\mu,\frac{\sigma^2}{n})
+$$
+
+ 
+
+As the sample size gets large, the sample mean becomes normally distributed, with mean $\mu$ and standard error $\sigma/\sqrt{n}$ , regardless of the distribution of $X_1,...,X_n$
+
+## Simulating the CLT in R
+
+Recall that the `rnorm` function can generate values from a normal distribution
+
+```{webr-r}
+rnorm(1, mean=10, sd=2)
+```
+
+ 
+
+Let's **simulate** taking a sample of size 10 from a population that is normally distributed with mean 10 and SD 2
+
+```{webr-r}
+set.seed(905)
+NormalSample_10 <- data.frame(means=rnorm(10, mean=10, sd=2))
+```
+
+## Simulate the CLT in R
+
+Let's generate a histogram.
+
+```{webr-r}
+ggplot(NormalSample_10, aes(x=means))+
+  geom_histogram()
+```
+
+## Simulate the CLT in R
+
+Now, let's simulate the process of taking 1000 different samples, each of size 10, and compute the mean of each sample.
+
+```{webr-r}
+Normalmeans_10 <- data.frame(means=NA)
+for(i in 1:1000){
+  set.seed(905+i)
+  NormalSample_10 <- rnorm(10, mean=10, sd=2)
+  Normalmeans_10[i,1] <- mean(NormalSample_10)
+}
+
+ggplot(Normalmeans_10, aes(x=means)) +
+  geom_histogram()
+```
+
+## Simulate the CLT in R
+
+Now, let's simulate the process of taking 1000 different samples, each of size 100
+
+```{webr-r}
+Normalmeans_100 <- data.frame(means=NA)
+for(i in 1:1000){
+  set.seed(905+i)
+  NormalSample_100 <- rnorm(100, mean=10, sd=2)
+  Normalmeans_100[i,1] <- mean(NormalSample_100)
+}
+
+ggplot(Normalmeans_100, aes(x=means)) +
+  geom_histogram()
+```
+
+## Simulate the CLT in R
+
+Finally, let's sample from a bimodal distribution.
+
+```{webr-r}
+plot(density(rbinorm(1000,35,62,5,5,0.3)),
+     main="Population Distribution - bimodal",
+     xlab="x",ylab="Density")
+```
+
+## Simulate the CLT in R
+
+Start with n=10
+
+```{webr-r}
+Bimodalmeans_10 <- data.frame(means=NA)
+for(i in 1:1000){
+  set.seed(905+i)
+  BimodalSample_10 <- rbinorm(10,35,62,5,5,0.3)
+  Bimodalmeans_10[i,1] <- mean(BimodalSample_10)
+}
+
+ggplot(Bimodalmeans_10, aes(x=means)) +
+  geom_histogram()
+```
+
+## Simulate the CLT in R
+
+Now let's do n=100
+
+```{webr-r}
+Bimodalmeans_100 <- data.frame(means=NA)
+for(i in 1:1000){
+  set.seed(905+i)
+  BimodalSample_100 <- rbinorm(100,35,62,5,5,0.3)
+  Bimodalmeans_100[i,1] <- mean(BimodalSample_100)
+}
+
+ggplot(Bimodalmeans_100, aes(x=means)) +
+  geom_histogram()
+```
