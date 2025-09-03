@@ -200,7 +200,7 @@
     "href": "index.html#course-overview",
     "title": "IDS 702: Data Modeling and Representation",
     "section": "Course Overview",
-    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270\nInstructor  Andrea Lane, PhD  andrea.lane@duke.edu  Gross Hall 223  Office hours: Thurs 4:30-5:30 PM   Teaching Assistants  Kayla Haeussler  kayla.haeussler@duke.edu  Office hours: TBD   Atreya Tadepalli  atreya.tadepalli@duke.edu  Office hours: TBD  \nClick here to download the syllabus"
+    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270\nInstructor  Andrea Lane, PhD  andrea.lane@duke.edu  Gross Hall 223  Office hours: Thurs 4:30-5:30 PM   Teaching Assistants  Kayla Haeussler  kayla.haeussler@duke.edu  Office hours: Weds 12-1 PM, Gross Hall 230K   Atreya Tadepalli  atreya.tadepalli@duke.edu  Office hours: Fri 1-2 PM, Gross Hall 230M  \nClick here to download the syllabus"
   },
   {
     "objectID": "materials/Homework/HW1.html",
@@ -271,5 +271,68 @@
     "title": "Probability Distributions",
     "section": "Common Probability Distributions",
     "text": "Common Probability Distributions\n\nNormal\nt\nBernoulli\nBinomial\nUniform\nMultinomial\nPoisson\nNegative Binomial"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#sampling-distribution-illustration",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#sampling-distribution-illustration",
+    "title": "Sampling Distributions",
+    "section": "Sampling Distribution Illustration",
+    "text": "Sampling Distribution Illustration"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#central-limit-theorem",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#central-limit-theorem",
+    "title": "Sampling Distributions",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n \nLet \\(X_1,X_2,...,X_n\\) have population mean \\(\\mu\\) and variance \\(\\sigma^2\\)\n\\[\n\\bar{X} \\sim N(\\mu,\\frac{\\sigma^2}{n})\n\\]\n \nAs the sample size gets large, the sample mean becomes normally distributed, with mean \\(\\mu\\) and standard error \\(\\sigma/\\sqrt{n}\\) , regardless of the distribution of \\(X_1,...,X_n\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulating-the-clt-in-r",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulating-the-clt-in-r",
+    "title": "Sampling Distributions",
+    "section": "Simulating the CLT in R",
+    "text": "Simulating the CLT in R\nRecall that the rnorm function can generate values from a normal distribution\nrnorm(1, mean=10, sd=2)\n \nLet’s simulate taking a sample of size 10 from a population that is normally distributed with mean 10 and SD 2\nset.seed(905)\nNormalSample_10 &lt;- data.frame(means=rnorm(10, mean=10, sd=2))"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r",
+    "title": "Sampling Distributions",
+    "section": "Simulate the CLT in R",
+    "text": "Simulate the CLT in R\nLet’s generate a histogram.\nggplot(NormalSample_10, aes(x=means))+\n  geom_histogram()"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-1",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-1",
+    "title": "Sampling Distributions",
+    "section": "Simulate the CLT in R",
+    "text": "Simulate the CLT in R\nNow, let’s simulate the process of taking 1000 different samples, each of size 10, and compute the mean of each sample.\nNormalmeans_10 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  NormalSample_10 &lt;- rnorm(10, mean=10, sd=2)\n  Normalmeans_10[i,1] &lt;- mean(NormalSample_10)\n}\n\nggplot(Normalmeans_10, aes(x=means)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-2",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-2",
+    "title": "Sampling Distributions",
+    "section": "Simulate the CLT in R",
+    "text": "Simulate the CLT in R\nNow, let’s simulate the process of taking 1000 different samples, each of size 100\nNormalmeans_100 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  NormalSample_100 &lt;- rnorm(100, mean=10, sd=2)\n  Normalmeans_100[i,1] &lt;- mean(NormalSample_100)\n}\n\nggplot(Normalmeans_100, aes(x=means)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-3",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-3",
+    "title": "Sampling Distributions",
+    "section": "Simulate the CLT in R",
+    "text": "Simulate the CLT in R\nFinally, let’s sample from a bimodal distribution.\nplot(density(rbinorm(1000,35,62,5,5,0.3)),\n     main=\"Population Distribution - bimodal\",\n     xlab=\"x\",ylab=\"Density\")"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-4",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-4",
+    "title": "Sampling Distributions",
+    "section": "Simulate the CLT in R",
+    "text": "Simulate the CLT in R\nStart with n=10\nBimodalmeans_10 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  BimodalSample_10 &lt;- rbinorm(10,35,62,5,5,0.3)\n  Bimodalmeans_10[i,1] &lt;- mean(BimodalSample_10)\n}\n\nggplot(Bimodalmeans_10, aes(x=means)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-5",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-5",
+    "title": "Sampling Distributions",
+    "section": "Simulate the CLT in R",
+    "text": "Simulate the CLT in R\nNow let’s do n=100\nBimodalmeans_100 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  BimodalSample_100 &lt;- rbinorm(100,35,62,5,5,0.3)\n  Bimodalmeans_100[i,1] &lt;- mean(BimodalSample_100)\n}\n\nggplot(Bimodalmeans_100, aes(x=means)) +\n  geom_histogram()"
   }
 ]
