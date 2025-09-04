@@ -1,0 +1,146 @@
+---
+title: "Statistics Reflections"
+format: html
+subtitle: "Due: Sunday, Sept 14th 11:59 PM and Sunday, Nov 2nd 11:59 PM"
+editor: visual
+---
+
+## Motivation
+
+In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as "amoral," but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.
+
+This assignment connects to the fourth course learning objective: *Make careful and critical decisions about model building and consider real-world implications.*
+
+## Instructions
+
+You are required to complete two statistics reflections during the semester. You can select any material from the list of materials below.
+
+-   Begin your assignment with a header that includes your name and the title and source of your selected material
+
+-   Reflect on the material selected. What did it make you think about? How does it affect your work as a data scientist? Note that you are required to engage with the material and provide your thoughts/reactions; you should NOT be summarizing the piece.
+
+-   While there is no minimum word count for the reflections, you are expected to **meaningfully engage** with the material (2-3 paragraphs). You can use the suggested questions to get started, but you are not required to answer them in your response.
+
+-   You can use Word or any other text editor to complete this assignment, as long as you submit a PDF to Gradescope. You do not need to use R/Quarto for this assignment.
+
+-   In Gradescope, select the appropriate reflection assignment based on the due date. All of the assignments are already available, so you can complete them at any time!
+
+I am always available if you have any questions or comments about the content presented in these materials. Additionally, if you come across a piece that is not on this list and you would like to use it for a statistics reflection, you are welcome to send me an email. Please include a link to the piece and a brief description of how it connects data science and society.
+
+Note: It is not appropriate to use ChatGPT for this assignment. The task is to offer your personal reflections/thoughts; there are no right or wrong answers here.
+
+## Materials
+
+```{=html}
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        A Primer on Non-Binary Gender and Big Data (<em>article</em>)
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="A Primer on Non-Binary Gender and Big Data – MIT Center for Civic Media.pdf" download>A Primer on Non-Binary Gender and Big Data</a> </br>
+        The author offers several questions you may want to consider in your response: </br>
+        <ul>
+          <li>What potential insights might we derive from working with non-binary gender and data?</li>
+          <li>What are the risks to gener minorities in relation to data?</li>
+          <li>What kinds of variation do we see across culture, context, and history?</li>
+          <li>How might non-binary gender and data deal with intersectionality (<em><a href=https://www.ywcaworks.org/blogs/ywca/what-is-intersectionality target="_blank" rel="noopener noreferrer">Click this link to learn more about intersectionality</a></em>)</li>
+        </ul>
+        Additionally, you may want to consider: 
+        <ul>
+          <li>Is it always useful/important to collect data on gender? In which domains might it be more important than others?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        How Eugenics Shaped Statistics (<em>article - highly recommended!</em>)
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="https://nautil.us/how-eugenics-shaped-statistics-238014/" target="_blank" rel="noopener noreferrer">How eugenics shaped statistics</a> </br>
+        <ul>
+          <li>Consider this quote: <em>"The separation was everything—not how much, what else might explain it, or why it mattered, just that it was there."</em> Reflect on what this means for you as a data scientist</li>
+          <li>The article argues that you cannot separate the science from the scientist. Do you agree?</li>
+          <li>Reflect on the argument that Galton, Pearson, and Fisher's views are "a product of their time."</li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        To predict and serve? (<em>article</em>)
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1740-9713.2016.00960.x" target="_blank" rel="noopener noreferrer">To predict and serve?</a> </br>This article may be of particular interest to those interested in social justice. The authors work with the <a href="https://hrdag.org/" target="blank" rel="noopener noreferrer">Human Rights Data Analysis Group</a> (and Kristian Lum is a Duke alum!) </br>
+        <ul>
+          <li>In data analysis, we often use the phrase "garbage in, garbage out" to refer to models based on bad data. How does this relate to the problem of using biased data for predictive policing?</li>
+          <li>The last sentence states that data-driven approaches should be inclusive. How do you think this can be done? Is it possible to use biased data without reaching biased predictions?</li>
+          <li>Can you think of other examples in which using data to predict future behavior could do more harm than good?
+</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Data sonification (<em>podcast</em>)
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="https://www.loudnumbers.net/podcast" target="_blank" rel="noopener noreferrer">Loud Numbers:</a> Listen to whichever one of the podcast episodes looks most interesting to you. Also, read the FAQs under the What We Do tab. You might also be interested in the Talks and Articles listed under the Community tab. </br>
+        <ul>
+          <li>One of the FAQs mentions accessibility. Consider the limitations of only representing data visually and how data sonification may make data more accessible.
+</li>
+          <li>How might we use the other senses (touch, smell, taste) to represent data? Have you seen data represented in any of these ways before?
+</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Fairness in Machine Learning with Sherri Rose (<em>podcast</em>)
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="https://casualinfer.libsyn.com/fairness-in-machine-learning-with-sherri-rose-episode-03" target="_blank" rel="noopener noreferrer">Fairness in Machine Learning with Sherri Rose </a> (interview starts at 8:15 and ends at 46:00)</br>
+        <ul>
+          <li>Reflect on Dr. Rose's recommendations for ensuring fairness in machine learning</li>
+          <li>Consider Dr. Rose's comments about the "single metric leaderboard" and what it means for you as a data scientist.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSix">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Peter Donnelly: How stats fool juries (<em>video</em>)
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="https://www.youtube.com/watch?v=kLmzxmRcUTo" target="_blank" rel="noopener noreferrer">Peter Donnelly: How stats fool juries </a>(you can skip past the stats jokes and start at 3:30) </br>
+        <ul>
+          <li>This talk is from 2007. Can you think of more recent examples of misleading statistics/misuse of statistical principles?</li>
+          <li>How do you think situations like the trial Donnelly describes can be avoided?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <div class="accordion-item">
+    <h

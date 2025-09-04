@@ -1,0 +1,218 @@
+---
+title: "Simulating the CLT"
+---
+
+```{r}
+library(tidyverse)
+library(sn)
+library(FamilyRank)
+```
+
+To see how the central limit theorem works, I will ask all of you to "collect data" from different distributions. You will then calculate a sample mean and we will visualize our class distribution of sample means.
+
+Let's start with a normal distribution. Say we are interested in the amount of time (in hours) graduate students spend studying per week. Let's suppose that we know that the **true population distribution** of hours spent studying is $N(35,15)$. Now imagine that each of you conduct your own study in which you randomly select 100 students and ask them how many hours they spent studying last week. You then calculate the **sample mean** of the 100 students that you selected.
+
+```{r, echo=FALSE}
+plot((35-15*3):(35+15*3),
+      dnorm((35-15*3):(35+15*3),35,15),
+     main="Population Distribution - normal",
+     xlab="x",type="l",ylab="Density")
+```
+
+1.  `rnorm()` draws a random sample of size 100 from a normal distribution. Set your seed with a unique value, and then run the code to calculate the sample mean of your sample.
+
+```{r}
+set.seed(611) #set your seed!
+mysample.100 <- rnorm(100,35,15)
+(mysamplemean.100 <- mean(mysample.100))
+```
+
+Enter your sample mean in Wooclap
+
+ 
+
+ 
+
+2\. Now let's change our **sample size**. Imagine that you each survey 5 students. Calculate the sample mean and enter it in Wooclap.
+
+```{r}
+set.seed(611) #change the seed!
+mysample.5 <- rnorm(5,35,15)
+(mysamplemean.5 <- mean(mysample.5))
+```
+
+3\. Finally, take a sample of size 500. Calculate the sample mean and enter it in Wooclap.
+
+```{r}
+set.seed(611) #change the seed!
+mysample.500 <- rnorm(500,35,15)
+(mysamplemean.500 <- mean(mysample.500))
+```
+
+As the sample size increases, the standard deviation of the **distribution of the sample mean** decreases!
+
+```{r}
+#create an empty dataframe to store the sample means 
+means.NormalPop <- data.frame(means_5=NA,means_100=NA,means_500=NA) 
+
+for(i in 1:1000){
+  set.seed(i) #ensure that we have a different sample each time
+  sample_5 <- rnorm(5,35,15)
+  sample_100 <- rnorm(100,35,15)
+  sample_500 <- rnorm(500,35,15)
+  means.NormalPop[i,] <- c(mean(sample_5),mean(sample_100),mean(sample_500))
+}
+
+means.NormalPop.long <- pivot_longer(means.NormalPop,
+                                     cols = c(means_5,means_100,means_500),
+                                     names_to = "N",
+                                     values_to = "sample_mean")
+
+means.NormalPop.long$N <- factor(means.NormalPop.long$N,
+                                 levels=c("means_5","means_100","means_500"),
+                                 labels=c("N=5","N=100","N=500"))
+
+ggplot(means.NormalPop.long, aes(x=sample_mean)) +
+  geom_histogram()+
+  facet_grid(N ~.) +
+  labs(title="Sampling Distributions of the Sample Mean \n when Population is Normal")
+```
+
+ 
+
+ 
+
+Now let's compare different population distributions.
+
+Say the population distribution of study hours looks more like this:
+
+```{r, echo=FALSE}
+x <- seq(0, 100, length.out = 1000)
+y <- dlnorm(x, meanlog = 3, sdlog = 1)
+plot(x, y, type = "l", main = "Log-normal distribution")
+```
+
+4.Use the following code to generate a sample of size 5. Calculate the sample mean and enter it in Wooclap.
+
+```{r}
+set.seed(611) #change the seed
+mysample.skew.5 <- rlnorm(5,meanlog = 3, sdlog = 1)
+(mysamplemean.skew.5 <- mean(mysample.skew.5))
+
+```
+
+5\. Now increase your sample to size 100. Calculate the sample mean and enter it in Wooclap.
+
+```{r}
+set.seed(611) #change the seed
+mysample.skew.100 <- rlnorm(100,meanlog = 3, sdlog = 1)
+(mysamplemean.skew.100 <- mean(mysample.skew.100))
+```
+
+ 
+
+6\. Let's increase the sample size to 500. Calculate the sample mean and enter it in Wooclap.
+
+```{r}
+set.seed(611) #change the seed
+mysample.skew.500 <- rlnorm(500,meanlog = 3, sdlog = 1)
+(mysamplemean.skew.500 <- mean(mysample.skew.500))
+```
+
+ 
+
+ 
+
+```{r}
+#create an empty dataframe to store the sample means 
+means.SkewedPop <- data.frame(means_5=NA,means_100=NA,means_500=NA) 
+
+for(i in 1:1000){
+  set.seed(i) #ensure that we have a different sample each time
+  sample_5 <- rlnorm(5,meanlog = 3, sdlog = 1)
+  sample_100 <- rlnorm(100,meanlog = 3, sdlog = 1)
+  sample_500 <- rlnorm(100,meanlog = 3, sdlog = 1)
+  means.SkewedPop[i,] <- c(mean(sample_5),mean(sample_100),mean(sample_500))
+}
+
+means.SkewedPop.long <- pivot_longer(means.SkewedPop,
+                                     cols = c(means_5,means_100,means_500),
+                                     names_to = "N",
+                                     values_to = "sample_mean")
+
+means.SkewedPop.long$N <- factor(means.SkewedPop.long$N,
+                                 levels=c("means_5","means_100","means_500"),
+                                 labels=c("N=5","N=100","N=500"))
+
+ggplot(means.SkewedPop.long, aes(x=sample_mean)) +
+  geom_histogram()+
+  facet_grid(N ~.) +
+  labs(title="Sampling Distributions of the Sample Mean \n when Population is Skewed")
+```
+
+Now imagine the population distribution is bimodal:
+
+```{r, echo=FALSE}
+plot(density(rbinorm(1000,15,45,5,5,0.3)),
+     main="Population Distribution - bimodal",
+     xlab="x",ylab="Density")
+```
+
+7\. Use the following code to generate a sample of size 5. Enter the sample mean in Wooclap.
+
+```{r}
+set.seed(611) #change the seed!
+mysample.bimod.5 <- rbinorm(5,15,45,5,5,0.3)
+(mysamplemean.bimod.5 <- mean(mysample.bimod.5))
+
+```
+
+8\. Finally, generate a sample of size 100. Enter the sample mean in Wooclap.
+
+```{r}
+set.seed(611) #change the seed!
+mysample.bimod.100 <- rbinorm(100,15,45,5,5,0.3)
+(mysamplemean.bimod.100 <- mean(mysample.bimod.100))
+
+```
+
+ 
+
+ 
+
+```{r}
+#create an empty dataframe to store the sample means 
+means.BimodalPop <- data.frame(means_5=NA,means_100=NA,means_500=NA) 
+
+for(i in 1:1000){
+  set.seed(i) #ensure that we have a different sample each time
+  sample_5 <- rbinorm(5,15,45,5,5,0.3)
+  sample_100 <- rbinorm(100,15,45,5,5,0.3)
+  sample_500 <- rbinorm(500,15,45,5,5,0.3)
+  means.BimodalPop[i,] <- c(mean(sample_5),mean(sample_100),mean(sample_500))
+}
+
+means.BimodalPop.long <- pivot_longer(means.BimodalPop,
+                                     cols = c(means_5,means_100,means_500),
+                                     names_to = "N",
+                                     values_to = "sample_mean")
+
+means.BimodalPop.long$N <- factor(means.BimodalPop.long$N,
+                                 levels=c("means_5","means_100","means_500"),
+                                 labels=c("N=5","N=100","N=500"))
+
+ggplot(means.BimodalPop.long, aes(x=sample_mean)) +
+  geom_histogram()+
+  facet_grid(N ~.) +
+  labs(title="Sampling Distributions of the Sample Mean \n when Population is Bimodal")
+```
+
+ 
+
+ 
+
+ 
+
+## Does this work for the median?
+
+Write the code on your own to simulate the sampling distribution of the sample median when the population is skewed and the sample size is 100. Does the central limit theorem seem to apply to the sample median?
