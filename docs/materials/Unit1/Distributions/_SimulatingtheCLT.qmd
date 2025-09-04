@@ -89,7 +89,7 @@ Say the population distribution of study hours looks more like this:
 ```{r, echo=FALSE}
 x <- seq(0, 100, length.out = 1000)
 y <- dlnorm(x, meanlog = 3, sdlog = 1)
-plot(x, y, type = "l", main = "Log-normal distribution")
+plot(x, y, type = "l", main = "Population distribution - skewed")
 ```
 
 4.Use the following code to generate a sample of size 5. Calculate the sample mean and enter it in Wooclap.

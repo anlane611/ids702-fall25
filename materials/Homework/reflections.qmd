@@ -143,4 +143,20 @@ Note: It is not appropriate to use ChatGPT for this assignment. The task is to o
     </div>
   </div>
     <div class="accordion-item">
-    <h
+    <h2 class="accordion-header" id="headingSeven">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        Here’s how an AI tool may flag parents with disabilities (<em>article</em>)
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <a href="https://apnews.com/article/child-protective-services-algorithms-artificial-intelligence-disability-02469a9ad3ed3e9a31ddae68838bc76e" target="_blank" rel="noopener noreferrer">Here’s how an AI tool may flag parents with disabilities</a></br>
+        <ul>
+          <li>Do you think a data-driven approach to child welfare monitoring could be ethical? If so, how do you think the approach described in the article could be modified to avoid pitfalls like the ones described?</li>
+          <li>LA County’s Department of Children and Family Services Director Brandon Nichols is quoted in the article saying that the algorithm being used is beyond the department's expertise. What role can data scientists play in government sectors where algorithms like this are being used?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+```
