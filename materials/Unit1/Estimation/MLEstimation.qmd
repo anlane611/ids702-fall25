@@ -1,0 +1,130 @@
+---
+title: "Maximum Likelihood Estimation"
+format: 
+  revealjs:
+    incremental: true
+    embed-resources: true
+    slide-number: true
+    html-math-method: mathjax
+editor: visual
+---
+
+## Announcements
+
+-   Statistics reflection due Sunday 9/14 11:59 PM
+
+## Estimation
+
+Say we have data on home ownership in North Carolina, collected as yes/no
+
+::: {style="font-size: 0.8em"}
+| Owns a home (1=Yes) |
+|---------------------|
+| 0                   |
+| 1                   |
+| 1                   |
+| ...                 |
+| 0                   |
+:::
+
+. . .
+
+We want to know about the proportion of home ownership in the state. Using the data, what might be our best guess?
+
+## Natural Estimators
+
+Similarly, if I want to know about each of the parameters given below, what might be the best guess using a sample?
+
+-   mean $\mu$
+
+-   median $\eta$
+
+-   standard deviation $\sigma$
+
+. . .
+
+These **estimators** (like $\bar{x}$ for $\mu$) are intuitive. But sometimes it's not so simple!
+
+## Maximum Likelihood Estimation
+
+Let $X_1, X_2, ..., X_n \stackrel{iid}{\sim} F_{\theta}$
+
+ 
+
+. . .
+
+Then the **joint distribution** of ($X_1, ..., X_n$) is given by $f_{\theta}(x_1,...,x_n)=\prod_{i=1}^{n} f_{\theta}(x_i)$
+
+ 
+
+. . .
+
+Now, we define the **likelihood function** as a function of the fixed population parameter $\theta$ : $L(\theta)=f_{\theta}(X_1,...,X_n)=\prod_{i=1}^nf_{\theta}(X_i)$
+
+We want to find the value of $\theta$ that maximizes the likelihood function and call it $\hat{\theta}$
+
+## Illustration
+
+Going back to our example of home ownership, let's say we have n=100, where 70 own their home. What distribution can we assume for this variable?
+
+ 
+
+. . .
+
+We can use the Bernoulli distribution, so
+
+$\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}$ and $L(p)=p^{70}(1-p)^{30}$
+
+## Illustration
+
+We can plot $L(p)=p^{70}(1-p)^{30}$ over a range of values of $p$
+
+```{r, echo=FALSE, fig.align='center'}
+p = seq(0,1,length=100)
+L= function(p){p^70 * (1-p)^30}
+plot(p,L(p),ylab="L(p)",xlab="p",type="l",cex.axis=1.5, cex.lab=1.5)
+```
+
+## General mechanics for finding the MLE
+
+1.  Assume a distribution for the population
+2.  Define the likelihood: joint probability of the data
+3.  Take the log of the likelihood
+4.  Find the value of $\theta$ that maximizes the likelihood:
+    1.  Differentiate the log-likelihood with respect to $\theta$
+    2.  Set the derivative to 0
+    3.  Solve for $\theta$
+
+## Example
+
+$L(p) = \prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}$
+
+## Evaluating Estimators
+
+::: {style="font-size: 0.9em"}
+-   Bias: Average distance from the population parameter
+
+    -   Bias($\hat{\theta}$) = $\mathbf{E}[\hat{\theta}]-\theta$
+
+<!-- -->
+
+-   Standard Error (SE): standard deviation of the estimator (i.e., SD of the sampling distribution)
+
+    -   STD($\hat{\theta}$)= $\sqrt{\mathbf{E}[\hat{\theta}-\mathbf{E}(\hat{\theta})]^2}$
+
+-   Mean Squared Error (MSE): combines standard error and bias
+
+    -   MSE($\hat{\theta}$)= $\mathbf{E}[\hat{\theta}-\theta]^2$ = SE$^2$ + Bias$^2$
+
+-   Consistency: the estimate converges to the true value as $n \rightarrow \infty$
+:::
+
+## Evaluating Estimators
+
+## Example
+
+Let $X_1, X_2, ..., X_n \stackrel{iid}{\sim} Poisson(\lambda)$
+
+Derive the MLE, $\hat{\lambda}$, and determine if this is an unbiased estimator of $\lambda$
+
+$P(X=x)=\frac{\lambda^x e^{-\lambda}}{x !}$

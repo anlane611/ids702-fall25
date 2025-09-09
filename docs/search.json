@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule and Course Materials",
     "section": "",
-    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n    \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection"
+    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n    \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n \n\n  \n\n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection"
   },
   {
     "objectID": "about.html",
@@ -369,5 +369,89 @@
     "title": "Sampling Distributions",
     "section": "Announcements",
     "text": "Announcements\n\nHW 1 due Sunday 11:59 PM\nStatistics reflections posted"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#estimation",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#estimation",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Estimation",
+    "text": "Estimation\nSay we have data on home ownership in North Carolina, collected as yes/no\n\n\n\n\nOwns a home (1=Yes)\n\n\n\n\n0\n\n\n1\n\n\n1\n\n\n…\n\n\n0\n\n\n\n\n\nWe want to know about the proportion of home ownership in the state. Using the data, what might be our best guess?"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#maximum-likelihood-estimation",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#maximum-likelihood-estimation",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Maximum Likelihood Estimation",
+    "text": "Maximum Likelihood Estimation\nLet \\(X_1, X_2, ..., X_n \\stackrel{iid}{\\sim} F_{\\theta}\\)\n \n\nThen the joint distribution of (\\(X_1, ..., X_n\\)) is given by \\(f_{\\theta}(x_1,...,x_n)=\\prod_{i=1}^{n} f_{\\theta}(x_i)\\)\n \n\n\nNow, we define the likelihood function as a function of the fixed population parameter \\(\\theta\\) : \\(L(\\theta)=f_{\\theta}(X_1,...,X_n)=\\prod_{i=1}^nf_{\\theta}(X_i)\\)\nWe want to find the value of \\(\\theta\\) that maximizes the likelihood function and call it \\(\\hat{\\theta}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#illustration",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#illustration",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Illustration",
+    "text": "Illustration\nGoing back to our example of home ownership, let’s say we have n=100, where 70 own their home. What distribution can we assume for this variable?\n \n\nWe can use the Bernoulli distribution, so\n\\(\\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}\\) and \\(L(p)=p^{70}(1-p)^{30}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics",
+    "title": "Maximum Likelihood Estimation",
+    "section": "General mechanics",
+    "text": "General mechanics\n\nAssume a distribution for the population\nDefine the likelihood: joint probability of the data\nTake the log of the likelihood\nFind the value of \\(\\theta\\) that maximizes the likelihood:\n\nDifferentiate the log-likelihood with respect to \\(\\theta\\)\nSet the derivative to 0\nSolve for \\(\\theta\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Evaluating Estimators",
+    "text": "Evaluating Estimators\n\n\nBias: Average distance from the population parameter\n\nBias(\\(\\hat{\\theta}\\)) = \\(\\mathbf{E}[\\hat{\\theta}]-\\theta\\)\n\n\n\n\nStandard Error (SE): standard deviation of the estimator (i.e., SD of the sampling distribution)\n\nSTD(\\(\\hat{\\theta}\\))= \\(\\sqrt{\\mathbf{E}[\\hat{\\theta}-\\mathbf{E}(\\hat{\\theta})]^2}\\)\n\nMean Squared Error (MSE): combines standard error and bias\n\nMSE(\\(\\hat{\\theta}\\))= \\(\\mathbf{E}[\\hat{\\theta}-\\theta]^2\\) = SE\\(^2\\) + Bias\\(^2\\)\n\nConsistency: the estimate converges to the true value as \\(n \\rightarrow \\infty\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#example",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#example",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Example",
+    "text": "Example\n\\(L(p) = \\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#natural-estimators",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#natural-estimators",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Natural Estimators",
+    "text": "Natural Estimators\nSimilarly, if I want to know about each of the parameters given below, what might be the best guess using a sample?\n\nmean \\(\\mu\\)\nmedian \\(\\eta\\)\nstandard deviation \\(\\sigma\\)\n\n\nThese estimators (like \\(\\bar{x}\\) for \\(\\mu\\)) are intuitive. But sometimes it’s not so simple!"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#illustration-1",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#illustration-1",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Illustration",
+    "text": "Illustration\nWe can plot \\(L(p)=p^{70}(1-p)^{30}\\) over a range of values of \\(p\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#example-1",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#example-1",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Example",
+    "text": "Example\nLet \\(X_1, X_2, ..., X_n \\stackrel{iid}{\\sim} Poisson(\\lambda)\\)\nDerive the MLE, \\(\\hat{\\lambda}\\), and determine if this is an unbiased estimator of \\(\\lambda\\)\n\\(P(X=x)=\\frac{\\lambda^x e^{-\\lambda}}{x !}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics-for-finding-the-mle",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics-for-finding-the-mle",
+    "title": "Maximum Likelihood Estimation",
+    "section": "General mechanics for finding the MLE",
+    "text": "General mechanics for finding the MLE\n\nAssume a distribution for the population\nDefine the likelihood: joint probability of the data\nTake the log of the likelihood\nFind the value of \\(\\theta\\) that maximizes the likelihood:\n\nDifferentiate the log-likelihood with respect to \\(\\theta\\)\nSet the derivative to 0\nSolve for \\(\\theta\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators-1",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators-1",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Evaluating Estimators",
+    "text": "Evaluating Estimators"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#announcements",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#announcements",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Announcements",
+    "text": "Announcements\n\nStatistics reflection due Sunday 9/14 11:59 PM"
   }
 ]
