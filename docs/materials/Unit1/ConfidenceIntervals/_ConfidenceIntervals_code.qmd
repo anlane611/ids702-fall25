@@ -1,0 +1,123 @@
+---
+title: "Confidence Intervals"
+subtitle: "IDS 702"
+format: html
+---
+
+## Load packages
+
+```{r load-libraries, warning = F, message = F}
+library(tidyverse)
+library(tidymodels)
+```
+
+## Load Data
+
+```{r load-data, warning = F, message = F}
+manhattan <- read_csv(
+  "https://sta101-fa22.netlify.app/static/appex/data/manhattan.csv"
+  )
+```
+
+## Calculating confidence intervals with bootstrap
+
+Fill in the following code to generate 1000 bootstrap means for rent price
+
+```{r, eval=FALSE}
+sample_mean <- manhattan |>
+  summarise(mean(rent)) |>
+  pull()
+
+set.seed(2)
+boot_dist_rent <-  |>
+  specify(response = ) |>
+  generate(reps = , type = ) |>
+  calculate(stat= )
+```
+
+Generate the histogram of bootstrap means:
+
+```{r, eval=FALSE}
+ggplot(boot_dist_rent, aes(x=stat))+
+  geom_histogram()
+```
+
+ 
+
+ 
+
+We will use this histogram/distribution of the bootstrap means to construct a confidence interval for the population mean.
+
+Let's set our confidence level to 95% (90, 95, and 99 are standard). We want to identify the values on the x-axis of this distribution that capture 95% of the bootstrap means (i.e., 950 out of the 1000 bootstrap means).
+
+The **quantile** function will give us these values based on a probability. For 95% confidence, we want probabilities of 0.025 and 0.975. **Why?**
+
+```{r confidence-interval-95, eval=FALSE}
+boot_dist_rent |>
+  get_confidence_interval(level = 0.95, type = "percentile")
+```
+
+#### Visualize the interval
+
+```{r, echo=FALSE, message=FALSE}
+boot_CI <- boot_dist_rent |>
+  get_confidence_interval(level = 0.95, type = "percentile")
+
+ggplot(boot_dist_rent, aes(x=stat))+
+  geom_histogram()+
+  geom_vline(xintercept=c(boot_CI$lower_ci, boot_CI$upper_ci),
+             color="red")+
+  geom_vline(xintercept = sample_mean, color="blue")
+```
+
+#### Interpret the interval
+
+If we calculated a confidence interval for each bootstrap sample, we would expect 95% of the intervals to contain the true population mean. Therefore, we can be confident that the true mean rent is between
+
+## Confidence intervals with the central limit theorem
+
+In general, the confidence interval can be written as
+
+$$
+\bar{x} \pm z^* \times \sigma/\sqrt{n}
+$$ where $z^*$ is the quantile of a standard normal distribution associated with our level of confidence.
+
+What about when we don't know $\sigma$ (which is nearly always the case)?
+
+We approximate $\mu$ by $\bar{x}$ and $\sigma$ by the standard deviation $s$. However, $s$ may be smaller than $\sigma$ and our confidence interval could be too narrow. **What is the problem with a confidence interval being too narrow?**
+
+To account for this uncertainty, we will use a distribution with thicker tails. This sampling distribution is called a **t-distribution**.
+
+The t-distribution has a bell shape but the extra thick tails help us correct for the variability introduced by using *s* instead of *σ*.
+
+The t-distribution, like the standard normal, is always centered at zero. Therefore, the t-distribution has only a single parameter: degrees of freedom. The degrees of freedom describes the precise form of the bell-shaped t-distribution. In general, we'll use a t-distribution with $df=n−1$ to model the sample mean when the sample size is $n$.
+
+We can use `qt` and `pt` to find quantiles and probabilities respectively under the t-distribution.
+
+To construct our practical confidence interval (where we don't know $\sigma$) we use the t-distribution:
+
+$$
+\bar{x} \pm t^*_{n-1} \times \frac{s}{\sqrt{n}}
+$$
+
+#### 
+
+Calculate the 95% confidence interval for rent price using the t-distribution.
+
+```{r clt-ci}
+sample_size <- nrow(manhattan)
+t.star <- abs(qt(.025,sample_size-1))
+std.error <- manhattan |>
+  summarise(sd(rent)/sqrt(sample_size)) |>
+  pull()
+
+sample_mean - t.star*std.error
+sample_mean + t.star*std.error
+
+```
+
+#### Interpret the interval
+
+If we collected many samples from the population and calculated a confidence interval for each sample, we would expect 95% of the intervals to contain the true mean rent. Therefore, we can be confident that the true mean rent is between .
+
+How does this compare to the 95% bootstrap confidence interval?

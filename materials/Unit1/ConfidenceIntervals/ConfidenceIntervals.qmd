@@ -66,4 +66,4 @@ In other cases, it is difficult or impossible to characterize the sampling distr
 
 -   **True or False**: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.
 
--   **True or Fal
+-   **True or False**: Once I produce a 95% confidence interval, there is a 95% probability that the sample estimate lies in that interval.
