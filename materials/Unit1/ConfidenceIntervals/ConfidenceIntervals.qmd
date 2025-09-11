@@ -1,0 +1,69 @@
+---
+title: "Confidence Intervals"
+format: 
+  revealjs:
+    incremental: true
+    embed-resources: true
+    slide-number: true
+    html-math-method: mathjax
+editor: visual
+---
+
+## Announcements
+
+-   Statistics reflection HW due Sunday 11:59 PM
+
+-   My office hour will go until 5 today
+
+-   Notes from Tuesday posted on the course website
+
+-   Don't need to let me know if you won't be in class on a given day
+
+## Confidence interval activity
+
+## Confidence intervals overview
+
+Once we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest
+
+## Two ways of producing confidence intervals
+
+1.  Analytical method
+2.  Resampling method
+
+## Analytical method
+
+In some cases, we can rely on certain assumptions about the population and characterize the sampling distribution, e.g., when the assumptions for the CLT hold and we are interested in the sample mean.
+
+ 
+
+In this case, we can generate a confidence interval of the form: $$
+\bar{x} \pm z^* \times \sigma/\sqrt{n}
+$$
+
+Or, more generally: $\hat{\theta} \pm t^* \times \sigma_{\hat{\theta}}$
+
+## Resampling method
+
+In other cases, it is difficult or impossible to characterize the sampling distribution. In these cases, a resampling method called the **bootstrap** is useful.
+
+-   We mimic the process of collecting many different samples from the population by sampling **with replacement** from the data
+
+-   We calculate the statistic of interest in each bootstrap sample to form the estimated sampling distribution
+
+-   We use the estimated sampling distribution to calculate a confidence interval
+
+## Bootstrap illustration
+
+## Factors that affect confidence intervals
+
+1.  Sample size
+2.  Standard error
+3.  Confidence level
+
+## Confidence intervals in R
+
+## Interpretation
+
+-   **True or False**: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.
+
+-   **True or Fal

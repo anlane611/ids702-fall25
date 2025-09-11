@@ -453,5 +453,66 @@
     "title": "Maximum Likelihood Estimation",
     "section": "Announcements",
     "text": "Announcements\n\nStatistics reflection due Sunday 9/14 11:59 PM"
-  }
-]
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#announcements",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#announcements",
+    "title": "Confidence Intervals",
+    "section": "Announcements",
+    "text": "Announcements\n\nStatistics reflection HW due Sunday 11:59 PM\nMy office hour will go until 5 today\nNotes from Tuesday posted on the course website\nDon’t need to let me know if you won’t be in class on a given day"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#motivation",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#motivation",
+    "title": "Confidence Intervals",
+    "section": "Motivation",
+    "text": "Motivation\nOnce we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#two-ways-of-producing-confidence-intervals",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#two-ways-of-producing-confidence-intervals",
+    "title": "Confidence Intervals",
+    "section": "Two ways of producing confidence intervals",
+    "text": "Two ways of producing confidence intervals\n\nAnalytical method\nResampling method"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#analytical-method",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#analytical-method",
+    "title": "Confidence Intervals",
+    "section": "Analytical method",
+    "text": "Analytical method\nIn some cases, we can rely on certain assumptions about the population and characterize the sampling distribution, e.g., when the assumptions for the CLT hold and we are interested in the sample mean.\n \nIn this case, we can generate a confidence interval of the form: \\[\n\\bar{x} \\pm z^* \\times \\sigma/\\sqrt{n}\n\\]\nOr, more generally: \\(\\hat{\\theta} \\pm t^* \\times \\sigma_{\\hat{\\theta}}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#resampling-method",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#resampling-method",
+    "title": "Confidence Intervals",
+    "section": "Resampling method",
+    "text": "Resampling method\nIn other cases, it is difficult or impossible to characterize the sampling distribution. In these cases, a resampling method called the bootstrap is useful.\n\nWe mimic the process of collecting many different samples from the population by sampling with replacement from the data\nWe calculate the statistic of interest in each bootstrap sample to form the estimated sampling distribution\nWe use the estimated sampling distribution to calculate a confidence interval"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#bootstrap-illustration",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#bootstrap-illustration",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap illustration",
+    "text": "Bootstrap illustration"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#factors-that-affect-confidence-intervals",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#factors-that-affect-confidence-intervals",
+    "title": "Confidence Intervals",
+    "section": "Factors that affect confidence intervals",
+    "text": "Factors that affect confidence intervals\n\nSample size\nStandard error\nConfidence level"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals in R",
+    "text": "Confidence intervals in R"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
+    "title": "Confidence Intervals",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.\nTrue or False: Once I produce a 95% confidence interval, there is a
