@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Schedule and Course Materials – IDS 702 - Fall 2025</title>
+<title>Homework 2 – IDS 702 - Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +67,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">IDS 702 - Fall 2025</span>
     </a>
   </div>
@@ -89,11 +118,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule and Course Materials</span></a>
   </li>  
 </ul>
@@ -115,7 +144,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule and Course Materials</h1>
+<h1 class="title">Homework 2</h1>
+<p class="subtitle lead">Due: Sunday, Sept 21st 11:59 PM</p>
 </div>
 
 
@@ -132,246 +162,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<hr><table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Unit</th>
-      <th scope="col">Date</th>
-      <th scope="col">Topic</th>
-      <th scope="col">Class prep</th>
-      <th scope="col">Class materials</th> 
-      <th scope="col">Assignment due</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">0</th>
-      <td>8.20</td>
-      <td>Bootcamp: Exploring data in R</td>
-      <td>Install R/RStudio or <br> use the <a href="https://cmgr.oit.duke.edu/containers" target="_blank">Duke R container</a></td>
-      <td>
-        <a href="materials/Unit0/_unit0.qmd" download="">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-qmd" viewbox="0 0 16 16">
-  <!-- File shape -->
-  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"></path>
-  
-  <!-- Q -->
-  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
-  <!-- M -->
-  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
-  <!-- D -->
-  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
-</svg></a>
-</td>
-    </tr>
-   <tr>
-      <th scope="row">1</th>
-      <td>8.26</td>
-      <td>Introduction</td>
-      <td>None</td>
-      <td>
-        <a href="./materials/Unit1/Introduction/Introduction.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-display" viewbox="0 0 16 16">
-  <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"></path>
-</svg></a>
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>8.28</td>
-      <td>Probability</td>
-      <td>Intuitive Introductory Statistics (IIS) Section 4.2 <br> (4.1 also recommended)</td>
-      <td>
-                <a href="./materials/Unit1/Probability/Probability.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-display" viewbox="0 0 16 16">
-  <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"></path>
-</svg></a>
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.2</td>
-      <td>Probability Distributions</td>
-      <td>IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1</td>
-      <td>
-                <a href="./materials/Unit1/Distributions/Distributions.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-display" viewbox="0 0 16 16">
-  <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"></path>
-</svg></a>&nbsp;
-                <a href="https://duke.box.com/s/esazheg7bb4iczrqssouicjqx024vxx8" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-link-45deg" viewbox="0 0 16 16">
-  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"></path>
-  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"></path>
-</svg></a>&nbsp;
-                <a href="https://docs.google.com/presentation/d/13C32G2ci6cicOZlKZCKrUhF1UZKv8OWWvbCDm0Zkb10/edit?usp=sharing" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-link-45deg" viewbox="0 0 16 16">
-  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"></path>
-  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"></path>
-</svg></a>&nbsp;&nbsp;&nbsp;&nbsp;
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.4</td>
-      <td>Sampling Distributions &amp; CLT</td>
-      <td>5 up to 5.1.1</td>
-      <td>
-         <a href="./materials/Unit1/Distributions/SamplingDistributions.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-display" viewbox="0 0 16 16">
-  <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"></path>
-</svg></a>&nbsp;
-<a href="materials/Unit1/Distributions/_SimulatingtheCLT.qmd" download="">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-qmd" viewbox="0 0 16 16">
-  <!-- File shape -->
-  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"></path>
-  
-  <!-- Q -->
-  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
-  <!-- M -->
-  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
-  <!-- D -->
-  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
-</svg></a>
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.7</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td> HW1 due 9.7 11:59 PM <br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope <br>
-        <a href="./materials/Homework/HW1.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewbox="0 0 16 16">
-  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"></path>
-</svg></a>&nbsp;&nbsp;
-<a href="materials/Homework/_HW1_template.qmd" download="">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-qmd" viewbox="0 0 16 16">
-  <!-- File shape -->
-  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"></path>
-  
-  <!-- Q -->
-  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
-  <!-- M -->
-  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
-  <!-- D -->
-  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
-</svg></a>
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.9</td>
-      <td>Maximum Likelihood Estimation</td>
-      <td>
-        <a href="https://www.youtube.com/watch?v=XepXtl9YKwc" target="_blank">Maximum Likelihood Estimation video </a>
-      </td>
-      <td>
- <a href="./materials/Unit1/Estimation/MLEstimation.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-display" viewbox="0 0 16 16">
-  <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"></path>
-</svg></a>
-        <a href="materials/Unit1/Estimation/IDS 702 - Fall 2025 – Maximum Likelihood Estimation - filled in.pdf" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewbox="0 0 16 16">
-  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"></path>
-</svg></a>
-      </td>
-      <td> 
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.11</td>
-      <td>Confidence Intervals/Bootstrap</td>
-      <td>
-        <a href="https://openintro-ims.netlify.app/foundations-bootstrapping" target="_blank">Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 </a>
-      </td>
-      <td>
-  <a href="./materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-display" viewbox="0 0 16 16">
-  <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145"></path>
-</svg></a>       
-        
-<a href="materials/Unit1/ConfidenceIntervals/_ConfidenceIntervals_code.qmd" download="">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-qmd" viewbox="0 0 16 16">
-  <!-- File shape -->
-  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"></path>
-  
-  <!-- Q -->
-  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
-  <!-- M -->
-  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
-  <!-- D -->
-  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
-</svg></a>        
-      </td>
-      <td> 
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.14</td>
-      <td></td>
-            <td></td>
-      <td> 
-</td>
-      <td> First statistics reflection
-        <a href="./materials/Homework/reflections.html" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewbox="0 0 16 16">
-  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"></path>
-</svg></a>
-      </td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.16</td>
-      <td>Inference I</td>
-            <td>
-               <a href="https://openintro-ims.netlify.app/foundations-randomization" target="_blank">IMS Chapter 11 (13 could also be useful)</a>
-            </td>
-      <td> 
-</td>
-      <td>
-      </td>
-    </tr>
-    
-   <tr>
-      <th scope="row"></th>
-      <td>9.18</td>
-      <td>Inference II</td>
-            <td><a href="https://openintro-ims.netlify.app/inference-two-means" target="_blank">IMS Chapter 20 sections 20.3 and 20.4 </a>
-            </td>
-      <td> 
-</td>
-      <td> 
-      </td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
-      <td>9.21</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td> HW2 due 9.21 11:59 PM <br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope <br>
-        <a href="./materials/Homework/HW2.html" target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewbox="0 0 16 16">
-  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"></path>
-</svg></a>&nbsp;&nbsp;
-<a href="materials/Homework/_HW2_template.qmd" download="">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-qmd" viewbox="0 0 16 16">
-  <!-- File shape -->
-  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"></path>
-  
-  <!-- Q -->
-  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
-  <!-- M -->
-  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
-  <!-- D -->
-  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
-</svg></a>
-</td>
-    </tr>
-  
-    
-  </tbody>
-</table>
+<p>Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.</p>
+<p>&nbsp;</p>
+<ol type="1">
+<li><p>Let <span class="math inline">\(X_1,X_2,...,X_n \stackrel {iid}{\sim} N(\mu,1)\)</span>, and recall the Normal PDF: <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi\sigma^2 }} e^{\frac{-(x-\mu)^2 }{2\sigma^2} }\)</span></p>
+<p>a. Write the likelihood function <span class="math inline">\(L(\mu)\)</span></p>
+<p>b. Write the log-likelihood function <span class="math inline">\(l(\mu)\)</span></p>
+<p>c. Find the maximum likelihood estimator of <span class="math inline">\(\mu\)</span></p>
+<p>d. Determine if the MLE <span class="math inline">\(\hat{\mu}\)</span> is an unbiased estimator of <span class="math inline">\(\mu\)</span></p></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Questions 2-5 use the <code>births14</code> dataset in the openintro package. <a href="https://www.openintro.org/data/index.php?data=births14">Read about the dataset and reference the codebook here</a></p>
+<ol start="2" type="1">
+<li><p>(6 points) First, do some initial data exploration:</p>
+<p>a. How many observations and how many variables are in the dataset? What does each row represent (i.e., what is the observational unit?)</p>
+<p>b. Which variables, if any, contain missing data?</p>
+<p>c. What is the count and percentage of low birth weight vs not low birth weight babies?</p></li>
+</ol>
+<p>&nbsp;</p>
+<ol start="3" type="1">
+<li><p>(10 points) Is the median birth weight different when the mother smokes? Conduct a hypothesis test to investigate:</p>
+<p>a. Write the null and alternative hypotheses.</p>
+<p>b. Calculate the observed statistic.</p>
+<p>c. Simulate the null distribution and calculate the p-value. Interpret the p-value in the context of the problem.</p>
+<p>d. Generate a bootstrap confidence interval and interpret the interval.</p>
+<p>e. Generate a plot to illustrate the median birth weight when the mother smokes vs doesn’t smoke.</p>
+<p>&nbsp;</p></li>
+<li><p>(8 points) Is there a relationship between premature birth and low birth weight? Conduct a hypothesis test to investigate:</p>
+<p>a. Create a 2x2 table to show the counts of the two relevant variables</p>
+<p>b. What are the necessary conditions to conduct a Chi-square test of independence, and are those conditions met?</p>
+<p>c. Conduct the appropriate test. Write the null and alternative hypotheses, calculate and report the p-value, and interpret it in the context of the problem.</p>
+<p>d. Generate a plot to illustrate the relationship between premature birth and low birth weight.</p>
+<p>&nbsp;</p></li>
+<li><p>(10 points) Is there a relationship between hospital visits during pregnancy and mean mother’s age? Conduct a hypothesis test to investigate:</p>
+<p>a. Create a new variable that categorizes the number of visits as: 10 or fewer, 11-15, more than 15</p>
+<p>b. Calculate the mean of mother’s age for each of the visit categories that you created in part a.</p>
+<p>c. What is the appropriate test to assess the research question? Write the null and alternative hypotheses.</p>
+<p>d. Conduct the appropriate test; calculate and report the p-value and interpret it in the context of the problem.</p>
+<p>e. Generate a plot to illustrate the relationship between mother’s age and the categorized visit variable.</p></li>
+</ol>
 
 
 

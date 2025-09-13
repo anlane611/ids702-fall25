@@ -27,10 +27,7 @@ Using the provided Qmd template, complete the following exercises and submit the
     a.  What is the probability that a person has the disease given that they had a positive test result?
     b.  Drop the given statement that the specificity is 0.9. If the sensitivity is 0.9, what is the minimum required specificity of the test to know with at least 95% certainty that the patient has the disease given that they have a positive test?
 
-3.  A manager at a restaurant is training her new hostess and during the
-    discussion the new employee asks about the typical size of a group that needs
-    to be seated. The manager says company research indicates that one of the
-    following three probability models is appropriate.
+3.  A manager at a restaurant is training her new hostess and during the discussion the new employee asks about the typical size of a group that needs to be seated. The manager says company research indicates that one of the following three probability models is appropriate.
 
     | Group size | 1    | 2    | 3    | 4    | 5   |
     |------------|------|------|------|------|-----|
@@ -42,25 +39,16 @@ Using the provided Qmd template, complete the following exercises and submit the
 
     b.  What is the expected size of a group that needs to be seated? Is this different from the most likely size?
 
-4.  A potato chip manufacturer decides whether to purchase a truckload
-    of potatoes by selecting samples and inspecting them to see if they meet the
-    company standards. Suppose that 20 potatoes are randomly selected and the
-    company policy is to purchase the load of potatoes if fewer than 2 of the
-    potatoes are deemed unsatisfactory. Find the probability of purchasing a
-    load of potatoes for which
+4.  A potato chip manufacturer decides whether to purchase a truckload of potatoes by selecting samples and inspecting them to see if they meet the company standards. Suppose that 20 potatoes are randomly selected and the company policy is to purchase the load of potatoes if fewer than 2 of the potatoes are deemed unsatisfactory. Find the probability of purchasing a load of potatoes for which
 
     a.  5% are rotten
 
     b.  10% are rotten
 
-5.  A soup company claims that one of its products contains 480 mg of
-    sodium per serving with a standard deviation of 6 mg. Assuming that the
-    amount of sodium in a particular serving varies according to the normal
-    distribution, what is the chance that a particular serving contains:
+5.  A soup company claims that one of its products contains 480 mg of sodium per serving with a standard deviation of 6 mg. Assuming that the amount of sodium in a particular serving varies according to the normal distribution, what is the chance that a particular serving contains:
 
     a.  fewer than 475 mg of sodium
 
     b.  at least 490 mg of sodium
 
-    c.  Find the interval of sodium levels that contains 80% of the values for
-        the amount of sodium in a particular serving.
+    c.  Find the interval of sodium levels that contains 80% of the values for the amount of sodium in a particular serving.

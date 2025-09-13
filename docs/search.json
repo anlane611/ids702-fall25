@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule and Course Materials",
     "section": "",
-    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n    \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n \n\n  \n\n        \n  \n\n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n  \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection\n        \n  \n\n      \n    \n   \n      \n      9.16\n      Inference I\n            \n               IMS Chapter 11 (13 could also be useful)\n            \n       \n\n      \n      \n    \n    \n   \n      \n      9.18\n      Inference II\n            IMS Chapter 20 sections 20.3 and 20.4"
+    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n \n\n  \n\n        \n  \n\n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n  \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection\n        \n  \n\n      \n    \n   \n      \n      9.16\n      Inference I\n            \n               IMS Chapter 11 (13 could also be useful)\n            \n       \n\n      \n      \n    \n    \n   \n      \n      9.18\n      Inference II\n            IMS Chapter 20 sections 20.3 and 20.4 \n            \n       \n\n       \n      \n    \n   \n      \n      9.21\n      \n      \n      \n       HW2 due 9.21 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D"
   },
   {
     "objectID": "about.html",
@@ -505,30 +505,4 @@
   },
   {
     "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
-    "title": "Confidence Intervals",
-    "section": "Confidence intervals in R",
-    "text": "Confidence intervals in R"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
-    "title": "Confidence Intervals",
-    "section": "Interpretation",
-    "text": "Interpretation\n\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the sample estimate lies in that interval."
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
-    "title": "Confidence Intervals",
-    "section": "Confidence interval activity",
-    "text": "Confidence interval activity"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
-    "title": "Confidence Intervals",
-    "section": "Confidence intervals overview",
-    "text": "Confidence intervals overview\nOnce we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest"
-  }
-]
+    "href": "materials/Unit1/ConfidenceInterva

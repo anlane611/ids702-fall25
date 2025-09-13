@@ -1,0 +1,67 @@
+---
+title: "HW 2 "
+author: "KEY"
+format: pdf
+editor: visual
+execute:
+  message: false
+---
+
+## Instructions
+
+First, fill in your name in the author line in the header above. Then, use the template below to complete the assignment. For question 1, you can choose to upload an image of your work rather than typing out the math (if you do want to type it, [here is a helpful resource to get started](https://qmd4sci.njtierney.com/math)). To upload an image, click "Insert \> Figure/Image." For question 2, use the provided code boxes and then write the narrative answers underneath.
+
+Once you have completed the exercises, render your document and submit the pdf on Gradescope. Be sure to assign the appropriate pages to the exercise numbers when you submit.
+
+## Exercise answers
+
+### 1
+
+a\. $L(\mu)=\prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}} e^{\frac{-(x_i-\mu)^2 }{2} }$ (take the product for the joint likelihood, plug in $\sigma^2=1$, and add $_i$ to $x$)
+
+b\. $l(\mu)=\sum_{i=1}^{n} \log{\frac{1}{\sqrt{2 \pi}}}-\frac{(x_i-\mu)^2}{2}=-\frac{n}{2}\log{2\pi}-\frac{(x_i-\mu)^2}{2}$ (not required to simplify to the second expression)
+
+c\. $\frac{d}{d \mu} (-\frac{n}{2}\log{2\pi}-\frac{(x_i-\mu)^2}{2})=\sum_{i=1}^{n} (x_i-\mu)=\sum_{i=1}^n x_i -n \mu$
+
+Setting this to 0 and solving for $\mu$, we get $\hat{\mu}=\frac{\sum_{i=1}^{n} x_i}{n}$
+
+d\. $E[\hat{\mu}]=E[\frac{\sum_{i=1}^n x_i}{n}]=\frac{\sum_{i=1}^n E[x_i]}{n}=\frac{n \mu}{n}=\mu$, so $\hat{\mu}$ is unbiased.
+
+### 2
+
+```{r}
+library(tidyverse)
+population <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/population.csv", header=TRUE)
+```
+
+a\.
+
+```{r}
+mean(population$Y)
+
+#OR
+
+population |>
+  summarise(mean(Y))
+```
+
+b\.
+
+```{r}
+population |>
+  group_by(X2) |>
+  summarise(mean(Y))
+
+population |>
+  count(X2)
+```
+
+```{r}
+SRSmeans <- data.frame(means=NA) #create an empty dataframe to store the sample means
+for(i in 1:1000){
+  set.seed(i) #ensure that we have a different sample each time
+  SRS.sample <- population |> slice(sample(1:n(),size=100)) 
+  #the slice function selects rows of the specified data (population),
+  #and the sample function randomly selects 100 numbers out of the 
+  #sequence 1:100000
+  SRSmeans[i,1]

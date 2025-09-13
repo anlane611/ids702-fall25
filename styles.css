@@ -1,6 +1,1 @@
 /* css styles */
-/* Reduce padding inside table cells */
-.table td, 
-.table th {
-  padding: 0.15rem; /* default is ~0.75rem, adjust smaller if you like */
-}

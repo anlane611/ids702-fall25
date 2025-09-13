@@ -1,0 +1,32 @@
+---
+title: "HW 2"
+author: "YOUR NAME HERE"
+format: pdf
+editor: visual
+execute:
+  message: false
+---
+
+## Instructions
+
+First, fill in your name in the author line in the header above. Then, use the template below to complete the assignment. For question 1, you can choose to upload an image of your work rather than typing out the math (if you do want to type it, [here is a helpful resource to get started](https://qmd4sci.njtierney.com/math)). To upload an image, click "Insert \> Figure/Image." For question 2, use the provided code boxes and then write the narrative answers underneath.
+
+Once you have completed the exercises, render your document and submit the pdf on Gradescope. Be sure to assign the appropriate pages to the exercise numbers when you submit.
+
+## Exercise answers
+
+### 1
+
+a\.
+
+b\.
+
+c\.
+
+d\.
+
+### 2
+
+```{r}
+library(tidyverse)
+population <- read.csv("https://raw.githubuserconten
