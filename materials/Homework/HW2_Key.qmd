@@ -64,4 +64,98 @@ for(i in 1:1000){
   #the slice function selects rows of the specified data (population),
   #and the sample function randomly selects 100 numbers out of the 
   #sequence 1:100000
-  SRSmeans[i,1]
+  SRSmeans[i,1] <- SRS.sample |> summarise(mean(Y)) 
+  #calculate the mean of each sample
+}
+
+ggplot(SRSmeans, aes(x=means)) +
+  geom_histogram()+
+  labs(title="Sampling distribution of the mean under simple random sampling (N=100)")
+```
+
+c\.
+
+```{r}
+mean(SRSmeans$means)
+```
+
+The distribution looks approximately normal and the mean of the sampling distribution is nearly identical to the true population mean.
+
+d\.
+
+```{r}
+SRSmeans_10 <- data.frame(means=NA) 
+
+for(i in 1:1000){
+  set.seed(i) 
+  SRS.sample <- population |> slice(sample(1:n(),size=10))
+  SRSmeans_10[i,1] <- SRS.sample |> summarise(mean(Y))
+}
+
+ggplot(SRSmeans_10, aes(x=means)) +
+  geom_histogram()+
+  labs(title="Sampling distribution of the mean under simple random sampling (N=10)")
+
+mean(SRSmeans_10$means)
+```
+
+The shape is similar and the mean is still close to the population mean (though not as accurate as the previous part), and the distribution is more spread out (i.e., the standard error is higher).
+
+e\.
+
+```{r}
+Stratmeans <- data.frame(means=NA) 
+
+for(i in 1:1000){
+  set.seed(i)
+  Stratified.sample <- population |>  
+                        group_by(X2) |>
+                        slice(sample(1:n(),size=50)) |>
+                        ungroup()
+  Stratmeans[i,1] <- Stratified.sample |> summarise(mean(Y))
+}
+
+ggplot(Stratmeans, aes(x=means)) +
+  geom_histogram()+
+  labs(title="Sampling distribution of the mean under stratified sampling")
+```
+
+f\.
+
+```{r}
+mean(Stratmeans$means)
+```
+
+The distribution is approximately normal, but the mean is higher than the population mean.
+
+g\. We oversample from the group that has a higher mean, which pulls the mean of the sampling distribution up. If observations do not have an equal probability of being sampled, the sampling distribution may not be accurate.
+
+### Bonus:
+
+```{r}
+population |>
+  group_by(X1) |>
+  summarise(mean(Y))
+
+population |>
+  count(X1)
+
+Stratmeans_x1 <- data.frame(means=NA)
+
+for(i in 1:1000){
+  set.seed(i) 
+  Stratified.sample <- population |>  
+                        group_by(X1) |>
+                        slice(sample(1:n(),size=20)) |>
+                        ungroup()
+  Stratmeans_x1[i,1] <- Stratified.sample |> summarise(mean(Y))
+}
+
+ggplot(Stratmeans_x1, aes(x=means)) +
+  geom_histogram()+
+  labs(title="Sampling distribution of the mean under stratified sampling - X1")
+
+mean(Stratmeans_x1$means)
+```
+
+This sampling distribution looks similar to the one we generated for simple random sampling. The distribution is approximately normal and the mean is close to the population mean. In this case, the strata are balanced, and the true mean in each stratum is close to the population mean. We can conclude that regardless of the sampling scheme, the sample must reflect the population for the sampling distribution to be accurate.

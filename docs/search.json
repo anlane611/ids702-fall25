@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule and Course Materials",
     "section": "",
-    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n \n\n  \n\n        \n  \n\n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n  \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection\n        \n  \n\n      \n    \n   \n      \n      9.16\n      Inference I\n            \n               IMS Chapter 11 (13 could also be useful)\n            \n       \n\n      \n      \n    \n    \n   \n      \n      9.18\n      Inference II\n            IMS Chapter 20 sections 20.3 and 20.4 \n            \n       \n\n       \n      \n    \n   \n      \n      9.21\n      \n      \n      \n       HW2 due 9.21 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D"
+    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n \n\n  \n\n        \n  \n\n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n  \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection\n        \n  \n\n      \n    \n   \n      \n      9.16\n      Inference I\n            \n               IMS Chapter 11 (13 could also be useful)\n            \n       \n\n      \n      \n    \n    \n   \n      \n      9.18\n      Inference II\n            IMS Chapter 20 sections 20.3 and 20.4 \n            \n       \n        \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n\n\n       \n      \n    \n   \n      \n      9.21\n      \n      \n      \n       HW2 due 9.21 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D"
   },
   {
     "objectID": "about.html",
@@ -505,4 +505,219 @@
   },
   {
     "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
-    "href": "materials/Unit1/ConfidenceInterva
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals in R",
+    "text": "Confidence intervals in R"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
+    "title": "Confidence Intervals",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the sample estimate lies in that interval."
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
+    "title": "Confidence Intervals",
+    "section": "Confidence interval activity",
+    "text": "Confidence interval activity"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals overview",
+    "text": "Confidence intervals overview\nOnce we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest"
+  },
+  {
+    "objectID": "materials/Homework/HW2.html",
+    "href": "materials/Homework/HW2.html",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n \n\nLet \\(X_1,X_2,...,X_n \\stackrel {iid}{\\sim} N(\\mu,1)\\), and recall the Normal PDF: \\(f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2 }} e^{\\frac{-(x-\\mu)^2 }{2\\sigma^2} }\\)\na. Write the likelihood function \\(L(\\mu)\\)\nb. Write the log-likelihood function \\(l(\\mu)\\)\nc. Find the maximum likelihood estimator of \\(\\mu\\)\nd. Determine if the MLE \\(\\hat{\\mu}\\) is an unbiased estimator of \\(\\mu\\)\n\n \n\nIn this exercise, you will conduct a simulation in R to evaluate the effect of sample size and sampling scheme on the sampling distribution of the mean.\n\nWe will use the dataset provided below to conduct the simulation. The dataset contains 100000 observations, so we will treat this as our population of interest. The dataset has 3 variables: 1 continuous variable (Y) and 2 categorical variables (X1 and X2).\n\nlibrary(tidyverse)\npopulation &lt;- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/population.csv\", header=TRUE)\n\nFirst, let’s understand our population. Our main variable of interest will be Y.\n\nWhat is the mean of Y? This will be our true parameter value, \\(\\mu\\).\nWhat is the mean of Y for each level of X2? How many observations are in each level of X2?\n\n \nThe code below simulates the sampling distribution of the mean if the data are collected using simple random sampling, where each member of the population has the same probability of being selected. Each sample is of size 100, and we will take 1000 different samples to understand the sampling distribution.\n\nSRSmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  SRS.sample &lt;- population |&gt; slice(sample(1:n(),size=100)) #the slice function selects rows of the specified data (population), and the sample function randomly selects 100 numbers out of the sequence 1:100000\n  SRSmeans[i,1] &lt;- SRS.sample |&gt; summarise(mean(Y)) #calculate the mean of each sample\n}\n\nggplot(SRSmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under simple random sampling\")\n\n\n\n\n\n\n\n\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nChange the sample size of each sample from 100 to 10. Does the sampling distribution change in i) shape, ii) mean, and/or iii) spread compared to part c?\n\n \nNext, we will explore the sampling distribution of the sample mean of Y under stratified sampling, where simple random samples are taken within subgroups. Here, we will use X2 as the group variable.\n\nFill in the two blanks in the code below to simulate the sampling distribution of the sample mean under stratified sampling for samples of size 100.\n\nStratmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  Stratified.sample &lt;- population |&gt;  \n                        group_by(__) |&gt;\n                        slice(sample(1:n(),size=50)) |&gt;\n                        ungroup()\n  Stratmeans[i,1] &lt;- Stratified.sample |&gt; summarise(____(Y)) #calculate the mean of each sample\n}\n\nggplot(Stratmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under stratified sampling\")\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nUsing your answers to parts b and f, what can you conclude about how sampling scheme can affect the sampling distribution of the mean?\n\n \nBonus: Simulate the sampling distribution under stratified sampling using X1 as the group variable. Start by calculating the sample size of each stratum and the true mean of Y in each stratum. Describe what you observe with the sampling distribution, how it compares to the sampling distribution you simulated in part e, and what this means for sampling scheme and sampling distributions."
+  },
+  {
+    "objectID": "materials/Homework/HW3.html",
+    "href": "materials/Homework/HW3.html",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n \nQuestions 2-5 use the births14 dataset in the openintro package. Read about the dataset and reference the codebook here\n\n(6 points) First, do some initial data exploration:\na. How many observations and how many variables are in the dataset? What does each row represent (i.e., what is the observational unit?)\nb. Which variables, if any, contain missing data?\nc. What is the count and percentage of low birth weight vs not low birth weight babies?\n\n \n\n(10 points) Is the median birth weight different when the mother smokes? Conduct a hypothesis test to investigate:\na. Write the null and alternative hypotheses.\nb. Calculate the observed statistic.\nc. Simulate the null distribution and calculate the p-value. Interpret the p-value in the context of the problem.\nd. Generate a bootstrap confidence interval and interpret the interval.\ne. Generate a plot to illustrate the median birth weight when the mother smokes vs doesn’t smoke.\n \n(8 points) Is there a relationship between premature birth and low birth weight? Conduct a hypothesis test to investigate:\na. Create a 2x2 table to show the counts of the two relevant variables\nb. What are the necessary conditions to conduct a Chi-square test of independence, and are those conditions met?\nc. Conduct the appropriate test. Write the null and alternative hypotheses, calculate and report the p-value, and interpret it in the context of the problem.\nd. Generate a plot to illustrate the relationship between premature birth and low birth weight.\n \n(10 points) Is there a relationship between hospital visits during pregnancy and mean mother’s age? Conduct a hypothesis test to investigate:\na. Create a new variable that categorizes the number of visits as: 10 or fewer, 11-15, more than 15\nb. Calculate the mean of mother’s age for each of the visit categories that you created in part a.\nc. What is the appropriate test to assess the research question? Write the null and alternative hypotheses.\nd. Conduct the appropriate test; calculate and report the p-value and interpret it in the context of the problem.\ne. Generate a plot to illustrate the relationship between mother’s age and the categorized visit variable."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing",
+    "href": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing",
+    "title": "Inference",
+    "section": "What is hypothesis testing?",
+    "text": "What is hypothesis testing?\nHypothesis testing is the procedure that assesses the evidence from the data in favor of or against some claims (hypotheses) about the population.\n \nWe will use information from the sample (data) to draw conclusions about the population"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing-1",
+    "href": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing-1",
+    "title": "Inference",
+    "section": "What is hypothesis testing?",
+    "text": "What is hypothesis testing?\nUsually we have two hypotheses to test:\n\nNull (\\(H_0\\)): Formally, the null hypothesis makes a claim or assumption about a population parameter. Conceptually, it’s the “nothing special is going on” hypothesis.\nAlternative (\\(H_A\\)): A statement that is contradictory to the null hypothesis. Conceptually, it is the “something special is going on” or “the variables are associated” hypothesis."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#poll",
+    "href": "materials/Unit1/Inference/InferenceI.html#poll",
+    "title": "Inference",
+    "section": "Poll",
+    "text": "Poll\nAs we test the hypotheses, do you think it would be better scientific practice to operate under the assumption that the null hypothesis is true (i.e., nothing special is going on) or that the alternative hypothesis is true (something special is going on/the variables are related)?\nFor example, imagine you work for the FDA and you are assessing whether or not a new drug should be approved. Do you think it is better practice to 1) assume that the drug is not effective until the data prove otherwise, or 2) assume that the drug is effective until the data prove otherwise?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#hypothesis-testing-framework",
+    "href": "materials/Unit1/Inference/InferenceI.html#hypothesis-testing-framework",
+    "title": "Inference",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\nStart with two hypotheses about the population: \\(H_0\\) (null) and \\(H_A\\) (alternative).\nChoose a representative sample.\nAssess how likely the sample data can be observed given that the \\(H_0\\) is true.\nIf the data are very unlikely to be observed when \\(H_0\\) is true, then we reject \\(H_0\\); otherwise, we cannot reject the null hypothesis."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#p-value",
+    "href": "materials/Unit1/Inference/InferenceI.html#p-value",
+    "title": "Inference",
+    "section": "P-value",
+    "text": "P-value\nThe probability of observing the data or even more extreme values assuming that \\(H_0\\) is true.\n\n\\(H_0:\\mu=0;H_A:\\mu&gt;0\\).\nThen p-value \\(=P(X&gt;x_{obs})\\) when \\(\\mu=0\\)\nIt is NOT the probability of \\(H_0\\) is true\nWhat if \\(H_A: \\mu \\neq 0\\) ?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#example",
+    "href": "materials/Unit1/Inference/InferenceI.html#example",
+    "title": "Inference",
+    "section": "Example",
+    "text": "Example\nYou want to determine if a coin is a biased coin. You perform an experiment with the coin in question.\n\nSpecify the null and alternative hypotheses\nCollect data\nCalculate the p-value"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#example-1",
+    "href": "materials/Unit1/Inference/InferenceI.html#example-1",
+    "title": "Inference",
+    "section": "Example",
+    "text": "Example\nData: TTHTHHTHHH\n \n\nCalculate p-value:\n\n2*(1-pbinom(6,10,0.5))\n\n[1] 0.34375\n\n\nDo you think the coin is biased?\n\n\nWhat if we increased our sample size but saw the same proportion?\n\n2*(1-pbinom(60,100,0.5))\n\n[1] 0.0352002\n\n\nDo you think the coin is biased?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#significance-level",
+    "href": "materials/Unit1/Inference/InferenceI.html#significance-level",
+    "title": "Inference",
+    "section": "Significance level",
+    "text": "Significance level\nA predetermined threshold used to tell whether a result is statistically significant; usually denoted by \\(\\alpha\\) and set as 0.05.\n\nIf the p-value is smaller than \\(\\alpha=0.05\\), then we can reject \\(H_0\\) at 0.05-significant level.\nIf the p-value is greater than \\(\\alpha=0.05\\), then we fail to reject \\(H_0\\) at 0.05-significant level.\n\n\nNote: We can NEVER say we accept the null hypothesis, even if the p-value is greater than the significance level."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#null-distribution-illustration",
+    "href": "materials/Unit1/Inference/InferenceI.html#null-distribution-illustration",
+    "title": "Inference",
+    "section": "Null Distribution Illustration",
+    "text": "Null Distribution Illustration"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#simulation-based-inference-vs.-parametric-inference",
+    "href": "materials/Unit1/Inference/InferenceI.html#simulation-based-inference-vs.-parametric-inference",
+    "title": "Inference",
+    "section": "Simulation-based Inference vs. Parametric Inference",
+    "text": "Simulation-based Inference vs. Parametric Inference\nSimulation-based inference\n\nSimulate the null distribution with resampling methods\nVery flexible, but requires computation power\n\n\nParametric Inference\n\nMake assumptions about the probability distribution of our population\nRelies on statistical theory such as central limit theorem"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#why-learn-both-approaches",
+    "href": "materials/Unit1/Inference/InferenceI.html#why-learn-both-approaches",
+    "title": "Inference",
+    "section": "Why learn both approaches?",
+    "text": "Why learn both approaches?\n\nSimulation-based inference can be intuitive, and is more flexible\nParametric inference has been around for a long time and you will likely see it more in practice\n\n\nNote: There is also non-parametric inference, where we don’t make distributional assumptions (e.g., Wilcoxon tests)"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/InferenceI.html#an-ethical-decision",
+    "href": "materials/Unit1/Inference/InferenceI.html#an-ethical-decision",
+    "title": "Inference",
+    "section": "An ethical decision",
+    "text": "An ethical decision"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing",
+    "href": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing",
+    "title": "Inference",
+    "section": "What is hypothesis testing?",
+    "text": "What is hypothesis testing?\nHypothesis testing is the procedure that assesses the evidence from the data in favor of or against some claims (hypotheses) about the population.\n \nWe will use information from the sample (data) to draw conclusions about the population"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing-1",
+    "href": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing-1",
+    "title": "Inference",
+    "section": "What is hypothesis testing?",
+    "text": "What is hypothesis testing?\nUsually we have two hypotheses to test:\n\nNull (\\(H_0\\)): Formally, the null hypothesis makes a claim or assumption about a population parameter. Conceptually, it’s the “nothing special is going on” hypothesis.\nAlternative (\\(H_A\\)): A statement that is contradictory to the null hypothesis. Conceptually, it is the “something special is going on” or “the variables are associated” hypothesis."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#poll",
+    "href": "materials/Unit1/Inference/Inference.html#poll",
+    "title": "Inference",
+    "section": "Poll",
+    "text": "Poll\nAs we test the hypotheses, do you think it would be better scientific practice to operate under the assumption that the null hypothesis is true (i.e., nothing special is going on) or that the alternative hypothesis is true (something special is going on/the variables are related)?\nFor example, imagine you work for the FDA and you are assessing whether or not a new drug should be approved. Do you think it is better practice to 1) assume that the drug is not effective until the data prove otherwise, or 2) assume that the drug is effective until the data prove otherwise?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#hypothesis-testing-framework",
+    "href": "materials/Unit1/Inference/Inference.html#hypothesis-testing-framework",
+    "title": "Inference",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\nStart with two hypotheses about the population: \\(H_0\\) (null) and \\(H_A\\) (alternative).\nChoose a representative sample.\nAssess how likely the sample data can be observed given that the \\(H_0\\) is true.\nIf the data are very unlikely to be observed when \\(H_0\\) is true, then we reject \\(H_0\\); otherwise, we cannot reject the null hypothesis."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#p-value",
+    "href": "materials/Unit1/Inference/Inference.html#p-value",
+    "title": "Inference",
+    "section": "P-value",
+    "text": "P-value\nThe probability of observing the data or even more extreme values assuming that \\(H_0\\) is true.\n\n\\(H_0:\\mu=0;H_A:\\mu&gt;0\\).\nThen p-value \\(=P(X&gt;x_{obs})\\) when \\(\\mu=0\\)\nIt is NOT the probability of \\(H_0\\) is true\nWhat if \\(H_A: \\mu \\neq 0\\) ?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#example",
+    "href": "materials/Unit1/Inference/Inference.html#example",
+    "title": "Inference",
+    "section": "Example",
+    "text": "Example\nYou want to determine if a coin is a biased coin. You perform an experiment with the coin in question.\n\nSpecify the null and alternative hypotheses\nCollect data\nCalculate the p-value"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#example-1",
+    "href": "materials/Unit1/Inference/Inference.html#example-1",
+    "title": "Inference",
+    "section": "Example",
+    "text": "Example\nData: TTHTHHTHHH\n \n\nCalculate p-value:\n\n2*(1-pbinom(6,10,0.5))\n\n[1] 0.34375\n\n\nDo you think the coin is biased?\n\n\nWhat if we increased our sample size but saw the same proportion?\n\n2*(1-pbinom(60,100,0.5))\n\n[1] 0.0352002\n\n\nDo you think the coin is biased?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#significance-level",
+    "href": "materials/Unit1/Inference/Inference.html#significance-level",
+    "title": "Inference",
+    "section": "Significance level",
+    "text": "Significance level\nA predetermined threshold used to tell whether a result is statistically significant; usually denoted by \\(\\alpha\\) and set as 0.05.\n\nIf the p-value is smaller than \\(\\alpha=0.05\\), then we can reject \\(H_0\\) at 0.05-significant level.\nIf the p-value is greater than \\(\\alpha=0.05\\), then we fail to reject \\(H_0\\) at 0.05-significant level.\n\n\nNote: We can NEVER say we accept the null hypothesis, even if the p-value is greater than the significance level."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#null-distribution-illustration",
+    "href": "materials/Unit1/Inference/Inference.html#null-distribution-illustration",
+    "title": "Inference",
+    "section": "Null Distribution Illustration",
+    "text": "Null Distribution Illustration"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#simulation-based-inference-vs.-parametric-inference",
+    "href": "materials/Unit1/Inference/Inference.html#simulation-based-inference-vs.-parametric-inference",
+    "title": "Inference",
+    "section": "Simulation-based Inference vs. Parametric Inference",
+    "text": "Simulation-based Inference vs. Parametric Inference\nSimulation-based inference\n\nSimulate the null distribution with resampling methods\nVery flexible, but requires computation power\n\n\nParametric Inference\n\nMake assumptions about the probability distribution of our population\nRelies on statistical theory such as central limit theorem"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#why-learn-both-approaches",
+    "href": "materials/Unit1/Inference/Inference.html#why-learn-both-approaches",
+    "title": "Inference",
+    "section": "Why learn both approaches?",
+    "text": "Why learn both approaches?\n\nSimulation-based inference can be intuitive, and is more flexible\nParametric inference has been around for a long time and you will likely see it more in practice\n\n\nNote: There is also non-parametric inference, where we don’t make distributional assumptions (e.g., Wilcoxon tests)"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#an-ethical-decision",
+    "href": "materials/Unit1/Inference/Inference.html#an-ethical-decision",
+    "title": "Inference",
+    "section": "An ethical decision",
+    "text": "An ethical decision"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#announcements",
+    "href": "materials/Unit1/Inference/Inference.html#announcements",
+    "title": "Inference",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 2 due Sunday\nQuiz 1 on Tuesday: covers all of unit 1, no code"
+  }
+]

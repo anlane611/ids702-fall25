@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -163,15 +134,6 @@ window.Quarto = {
 
 
 <p>Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.</p>
-<p>&nbsp;</p>
-<ol type="1">
-<li><p>Let <span class="math inline">\(X_1,X_2,...,X_n \stackrel {iid}{\sim} N(\mu,1)\)</span>, and recall the Normal PDF: <span class="math inline">\(f(x)=\frac{1}{\sqrt{2\pi\sigma^2 }} e^{\frac{-(x-\mu)^2 }{2\sigma^2} }\)</span></p>
-<p>a. Write the likelihood function <span class="math inline">\(L(\mu)\)</span></p>
-<p>b. Write the log-likelihood function <span class="math inline">\(l(\mu)\)</span></p>
-<p>c. Find the maximum likelihood estimator of <span class="math inline">\(\mu\)</span></p>
-<p>d. Determine if the MLE <span class="math inline">\(\hat{\mu}\)</span> is an unbiased estimator of <span class="math inline">\(\mu\)</span></p></li>
-</ol>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>Questions 2-5 use the <code>births14</code> dataset in the openintro package. <a href="https://www.openintro.org/data/index.php?data=births14">Read about the dataset and reference the codebook here</a></p>
 <ol start="2" type="1">

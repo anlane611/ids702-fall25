@@ -61,4 +61,28 @@ d.  Change the sample size of each sample from 100 to 10. Does the sampling dist
 
 Next, we will explore the sampling distribution of the sample mean of Y under stratified sampling, where simple random samples are taken within subgroups. Here, we will use X2 as the group variable.
 
-e.  Fill in the two blanks in the code below to simulate the sampling distribution of the sample mean 
+e.  Fill in the two blanks in the code below to simulate the sampling distribution of the sample mean under stratified sampling for samples of size 100.
+
+    ```{r, eval=FALSE}
+    Stratmeans <- data.frame(means=NA) #create an empty dataframe to store the sample means
+    for(i in 1:1000){
+      set.seed(i) #ensure that we have a different sample each time
+      Stratified.sample <- population |>  
+                            group_by(__) |>
+                            slice(sample(1:n(),size=50)) |>
+                            ungroup()
+      Stratmeans[i,1] <- Stratified.sample |> summarise(____(Y)) #calculate the mean of each sample
+    }
+
+    ggplot(Stratmeans, aes(x=means)) +
+      geom_histogram()+
+      labs(title="Sampling distribution of the mean under stratified sampling")
+    ```
+
+f.  Does the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?
+
+g.  Using your answers to parts b and f, what can you conclude about how sampling scheme can affect the sampling distribution of the mean?
+
+ 
+
+**Bonus**: Simulate the sampling distribution under stratified sampling using X1 as the group variable. Start by calculating the sample size of each stratum and the true mean of Y in each stratum. Describe what you observe with the sampling distribution, how it compares to the sampling distribution you simulated in part e, and what this means for sampling scheme and sampling distributions.

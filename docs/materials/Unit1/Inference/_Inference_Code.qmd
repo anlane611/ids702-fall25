@@ -1,0 +1,149 @@
+---
+title: "Inference"
+subtitle: "IDS 702"
+format: html
+editor: visual
+---
+
+## Load packages
+
+```{r load-libraries, warning = F, message = F}
+library(tidyverse)
+library(tidymodels)
+```
+
+### Data
+
+```{r load-data, message = F, warning = F}
+push_pull <- read_csv("https://sta101-fa22.netlify.app/static/appex/data/push_pull.csv")
+```
+
+```{r peak-at-data}
+push_pull |>
+  slice(1:3, 24:26)
+```
+
+The `push_pull` dataset comes from a "mini study" by [mountain tactical institute](https://mtntactical.com/knowledge/mini-study-grease-the-groove-beats-density-for-push-up-pull-up-improvement/).
+
+26 individuals completed 1 of 2 exercise regiments for 3.5 weeks to increase their pushups and pullups. Codebook below:
+
+-   `participant_id`: unique identifier for each participant
+-   `age`: age of participant
+-   `push1/2`: push-ups at beginning and end of program respectively
+-   `pull1/2`: pull-ups at beginning and end of program respectively
+-   `training`: which training protocol the individual participated in
+
+## Summary
+
+### Hypothesis testing procedure
+
+1.  Specify the null and alternative hypothesis. Choose or know $\alpha$.
+2.  Collect/examine the data. Compute the observed statistic.
+3.  Simulate **under the null** and compute the p-value using the **observed statistic** and the **alternative hypothesis**.
+4.  Compare the p-value to your significance level $\alpha$ and reject or fail to reject the null. Interpret your result in context.
+
+We typically also compute a confidence interval using the observed statistic for additional information about the parameter of interest.
+
+## Hypothesis test: Which training method is better?
+
+Two exercise regimes:
+
+-   "density" training
+-   "grease-the-groove" (gtg)
+
+We want to know, is the average pull-up percent increase of a gtg trainee significantly different than a density trainee?
+
+In other words, does the **categorical variable** `training` affect the **numeric variable** average percentage increase in pull-ups?
+
+**State the null hypothesis**:
+
+$H_0: \mu_d = \mu_{gtg}$
+
+In other words: $H_0: \mu_d-\mu_{gtg}=0$
+
+$H_A: \mu_d-\mu_{gtg} \neq 0$
+
+**Assumption:** The observations (within and across groups!) are independent
+
+First, we'll compute the observed statistic.
+
+```{r, results = 'hide'}
+push_pull <- push_pull |>
+  mutate(pct_pull_inc = (pull2 / pull1) - 1)
+
+# observed statistic
+obs_stat <- push_pull |>
+  specify(response = pct_pull_inc, #response=numeric
+          explanatory = training) |> #exp=categorical
+  calculate(stat = "diff in means", 
+            order = c("density", "gtg"))
+```
+
+Now we'll simulate under the null and compute the p-value:
+
+```{r}
+set.seed(1)
+# simulate null
+# null distribution here is the distribution of the difference in the two means when there is no relationship between the categorical and numeric variables
+# "permute" shuffles the training assignments to "break" the potential relationship between training and pct increase
+null_dist <- push_pull |>
+  specify(response = pct_pull_inc, 
+          explanatory = training) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in means", 
+            order = c("density", "gtg"))
+
+# get p-value
+p_value <- null_dist |>
+  get_p_value(obs_stat, direction = "both")
+
+# visualize
+visualize(null_dist) +
+  shade_p_value(obs_stat, direction = "both")
+```
+
+-   State your conclusion with $\alpha$= 0.05
+
+-   Generate a bootstrap confidence interval for the mean difference of density and gtg training percent increase in pull ups
+
+```{r, eval=FALSE}
+set.seed(1)
+boot_dist <- push_pull |>
+  specify(response = pct_pull_inc, 
+          explanatory = training) |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "diff in means", 
+            order=c("density", "gtg"))
+
+get_confidence_interval(boot_dist, level=0.95, 
+                        type="percentile")
+```
+
+## Hypothesis test: Is the median pull-up percent increase of a gtg trainee significantly greater than a density trainee?
+
+$H_0: \eta_d=\eta_{gtg}$ or $H_0: \eta_{gtg}-\eta_{d} = 0$
+
+$H_A: \eta_{gtg}>\eta_{d}$ or $\eta_{gtg}-\eta_{d}>0$
+
+```{r, eval=FALSE}
+obs_stat <- push_pull |>
+  specify(response = pct_pull_inc, #response=numeric
+          explanatory = training) |> #exp=categorical
+  calculate(stat = "diff in medians", 
+            order = c())
+
+#simulate null distribution
+set.seed(1)
+null_dist <- push_pull |>
+  specify(response = pct_pull_inc, 
+          explanatory = training) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 1000, type = "permute") |>
+  calculate(stat = "diff in medians", 
+            order = c())
+
+# get p-value
+p_value <- null_dist |>
+  get_p_value(obs_stat, direction = "")
+```
