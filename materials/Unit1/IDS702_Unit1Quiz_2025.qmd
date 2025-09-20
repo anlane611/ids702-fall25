@@ -1,0 +1,144 @@
+---
+title: "IDS 702 Unit 1 Quiz"
+subtitle: "Fall 2025"
+format: 
+  pdf:
+    fig-align: center
+    fig-asp: 0.618
+    margin-bottom: 1.8cm
+    margin-top: 1cm
+    margin-left: 1.75cm
+    margin-right: 1.75cm
+editor_options: 
+  chunk_output_type: console
+editor: visual
+---
+
+\vspace{-1cm}
+
+|  |  |  |  |
+|----------------|-----------------------|----------------|------------------|
+| First name: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Last name: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
+| Net ID: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |  |  |
+
+\vspace{0.1cm}
+
+> I hereby state that I have not communicated with or gained information in any way from my classmates or unauthorized materials during this assessment, and that all work is my own.
+>
+> Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+|     |
+|:---:|
+|     |
+
+{{< pagebreak >}}
+
+## Multiple Choice
+
+Circle the letter to mark your answer choice.
+
+1.  Which of the following scenarios is best modeled by the binomial distribution?
+
+<!-- -->
+
+a.  Jane has 3 board games and 6 card games on her shelf. We want to know the probability that, if she chooses 4 games from her shelf, 2 of them will be strategy games.
+
+b.  The probability that Jane wins a single Solitaire game is 0.65. We want to know the probability that it will take 5 games for her to win 3 times.
+
+c.  The probability that Jane wins a game of Scrabble is 0.4, the probability that John wins is 0.3, and the probability that Jim wins is 0.3. We want to know the probability that, out of 5 games, Jane will win 2, John will win 2, and Jim will win 1.
+
+d.  The probability that Jane wins a single chess game is 0.65. We want to know the probability that she will win all 5 games in a competition.
+
+\vspace{1cm}
+
+2.  Which of the following is **not** a step in creating a bootstrap sampling distribution?
+
+<!-- -->
+
+a.  Specifying the sampling distribution according to the central limit theorem
+
+b.  Sampling with replacement from the data
+
+c.  Calculating a sample mean for each bootstrap sample
+
+d.  Identifying the sample statistic that corresponds to the research question
+
+\vspace{1cm}
+
+3.  Increasing the sample size \_\_\_\_\_\_\_\_\_\_\_\_ the width of a confidence interval and increasing the standard error \_\_\_\_\_\_\_\_\_\_\_\_\_ the width of a confidence interval.
+
+<!-- -->
+
+a.  increases; increases
+
+b.  increases; decreases
+
+c.  decreases; increases
+
+d.  decreases; decreases
+
+\vspace{1cm}
+
+4.  What is the distinction between standard deviation and standard error?
+
+<!-- -->
+
+a.  Standard error is the standard deviation of the sampling distribution
+
+b.  Standard deviation is the standard error of the sampling distribution
+
+c.  Standard error is the standard deviation of the population distribution
+
+d.  Standard deviation is the standard error of the population distribution
+
+{{< pagebreak >}}
+
+5.  A p-value is the \_\_\_\_\_\_\_\_\_\_\_\_ of observing \_\_\_\_\_\_\_\_\_\_\_\_ as or more extreme than the observed, assuming the \_\_\_\_\_\_\_\_\_\_\_\_ is true.
+
+<!-- -->
+
+a.  statistic; point estimate; alternative hypothesis
+
+b.  statistic; hypotheses; null hypothesis
+
+c.  probability; data; alternative hypothesis
+
+d.  probability; data; null hypothesis
+
+\vspace{1cm}
+
+6.  Which of the following is guaranteed to be contained in a theoretical confidence interval?
+
+<!-- -->
+
+a.  The sample statistic
+
+b.  The population parameter
+
+c.  The test statistic
+
+d.  The null value
+
+7.  According to the central limit theorem, what is the relationship between the sample size and the standard error?
+
+<!-- -->
+
+a.  The standard error will increase as the sample size increases.
+
+b.  The standard error will decrease as the sample size increases.
+
+c.  The standard error will remain constant as the sample size increases.
+
+d.  The standard error is not related to the sample size.
+
+8.  Which of the following is **not** a step in creating a bootstrap sampling distribution?
+
+<!-- -->
+
+a.  Specifying the sampling distribution according to the central limit theorem
+
+b.  Sampling with replacement from the data
+
+c.  Calculating a sample mean for each bootstrap sample
+
+d.  Identifying the sample statistic that corresponds to the research question
