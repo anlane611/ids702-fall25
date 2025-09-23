@@ -17,9 +17,11 @@ editor: visual
 \vspace{-1cm}
 
 |  |  |  |  |
-|----------------|-----------------------|----------------|------------------|
+|-----------------|----------------------|-----------------|-----------------|
 | First name: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Last name: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |
 | Net ID: | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ |  |  |
+
+You are not permitted to use any materials (class notes, internet, etc.) on this assessment. Use of unauthorized materials or conferring with classmates will result in a 0 on the quiz and a report to the Office of Student Conduct.
 
 \vspace{0.1cm}
 
@@ -35,13 +37,13 @@ editor: visual
 
 ## Multiple Choice
 
-Circle the letter to mark your answer choice.
+Circle the letter to mark your answer choice. Each question has one correct answer.
 
 1.  Which of the following scenarios is best modeled by the binomial distribution?
 
 <!-- -->
 
-a.  Jane has 3 board games and 6 card games on her shelf. We want to know the probability that, if she chooses 4 games from her shelf, 2 of them will be strategy games.
+a.  Jane has 3 board games and 6 card games on her shelf. She chooses 4 games without replacement. We want to know the probability that exactly 2 of them are board games.
 
 b.  The probability that Jane wins a single Solitaire game is 0.65. We want to know the probability that it will take 5 games for her to win 3 times.
 
@@ -107,17 +109,21 @@ d.  probability; data; null hypothesis
 
 \vspace{1cm}
 
-6.  Which of the following is guaranteed to be contained in a theoretical confidence interval?
+6.  Which of the following is guaranteed to be contained in a theoretical confidence interval of a mean?
 
 <!-- -->
 
-a.  The sample statistic
+a.  The sample mean
 
-b.  The population parameter
+b.  The population mean
 
-c.  The test statistic
+c.  The critical value
 
 d.  The null value
+
+    \vspace{1cm}
+
+<!-- -->
 
 7.  According to the central limit theorem, what is the relationship between the sample size and the standard error?
 
@@ -131,14 +137,75 @@ c.  The standard error will remain constant as the sample size increases.
 
 d.  The standard error is not related to the sample size.
 
-8.  Which of the following is **not** a step in creating a bootstrap sampling distribution?
+    \vspace{1cm}
 
 <!-- -->
 
-a.  Specifying the sampling distribution according to the central limit theorem
+8.  What is the distinction between the joint distribution and the likelihood function?
 
-b.  Sampling with replacement from the data
+<!-- -->
 
-c.  Calculating a sample mean for each bootstrap sample
+a.  The joint distribution describes the population, while the likelihood function describes the sample.
 
-d.  Identifying the sample statistic that corresponds to the research question
+b.  The joint distribution is obtained by maximizing the likelihood function.
+
+c.  The joint distribution is a function of the data, while the likelihood function is a function of the unknown parameter.
+
+d.  The joint distribution depends only on the parameter, while the likelihood function depends only on the data.
+
+    {{< pagebreak >}}
+
+<!-- -->
+
+9.  Systolic blood pressure of adults in the U.S. is normally distributed with mean 128.4 and standard deviation 19.6. If the probability that a randomly selected adult has blood pressure less than 115 is 0.25 (dark region below), what is the probability that a randomly selected adult has blood pressure greater than 115?
+
+```{r, echo=FALSE, fig.width=5, message=FALSE}
+library(tidyverse)
+ ggplot(NULL, aes(c(50,200))) +
+  geom_area(stat = "function", fun = dnorm,
+            args = list(mean = 128.4, sd = 19.6),
+            fill = "darkgray", xlim = c(50, 115)) +
+  geom_area(stat = "function", fun = dnorm, args = list(mean = 128.4, 
+                                                        sd = 19.6),
+            fill = "lightgray", xlim = c(115, 200)) +
+  labs(x = "z", y = "") +
+  theme_bw() + 
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(breaks = c(115, 128.4))
+```
+
+a.  0.75
+
+b.  0.5
+
+c.  0.25
+
+d.  There is not enough information to calculate the probability
+
+\vspace{0.5cm}
+
+### True or False (circle one)
+
+10. If two events are independent, their probabilities may not sum to 1.
+
+\vspace{0.5cm}
+
+\qquad \qquad \qquad \qquad \qquad \qquad True \hspace{3cm} False
+
+\vspace{1cm}
+
+11. Sensitivity and specificity are examples of conditional probabilities.
+
+\vspace{0.5cm}
+
+\qquad \qquad \qquad \qquad \qquad \qquad True \hspace{3cm} False
+
+\vspace{1cm}
+
+12. The log-likelihood function is often used instead of the likelihood function because it is easier to work with mathematically.
+
+\vspace{0.5cm}
+
+\qquad \qquad \qquad \qquad \qquad \qquad True \hspace{3cm} False
+
+\vspace{1cm}
