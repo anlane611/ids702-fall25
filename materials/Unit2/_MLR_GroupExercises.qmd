@@ -1,0 +1,30 @@
+---
+title: "MLR Group Exercises"
+author: "Group member names"
+format: pdf
+editor: visual
+execute: 
+  echo: true
+---
+
+Complete the following exercises when prompted. Only one person needs to submit on Canvas per group. **Fill in your group member names at the top, but do not include group members if they are not present.**
+
+### Part 1
+
+In your group, discuss and write your answers to the following questions:
+
+1.  What is $\hat{y}$ ? How is it different than $y$?
+
+2.  What is $\hat{\beta}$ ? How is it different than $\beta$?
+
+3.  What is a residual?
+
+4.  What is a confounding variable? Why are confounding variables relevant to MLR?
+
+5.  Use the Auto data given below to answer the following (note that you can use `?Auto` after loading the data to see the description and codebook):
+
+    a\. How many rows and columns are in the data? What does each row represent?
+
+    b\. How many distinct years are in the data?
+
+    c\. If I regress mpg on horsepower, weight, and year, what are the dimensions of the outcome vector, the design matrix, and the parameter vector? You do not need any code to answer

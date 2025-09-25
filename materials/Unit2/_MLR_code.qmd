@@ -1,0 +1,121 @@
+---
+title: "Multiple Linear Regression"
+subtitle: "IDS 702"
+format: html
+editor: visual
+---
+
+## Exercise Part 1 (complete in template)
+
+In your group, discuss and write your answers to the following questions:
+
+1.  What is $\hat{y}$ ? How is it different than $y$ ?
+
+2.  What is $\hat{\beta}$ ? How is it different than $\beta$ ?
+
+3.  What is a residual?
+
+4.  What is a confounding variable? Why are confounding variables relevant to MLR?
+
+5.  Use the Auto data given below to answer the following (note that you can use `?Auto` after loading the data to see the description and codebook):
+
+    a\. How many rows and columns are in the data? What does each row represent?
+
+    b\. How many distinct years are in the data?
+
+    c\. If I regress mpg on horsepower, weight, and year, what are the dimensions of the outcome vector, the design matrix, and the parameter vector? You do not need any code to answer this question.
+
+**Load packages and data**
+
+```{r load-libraroies, warning = F, message = F}
+library(tidyverse)
+library(tidymodels)
+library(ISLR2)
+```
+
+Today's data is called "Auto" and is contained in the ISLR2 library
+
+```{r load-data, warning = F, message = F}
+data("Auto")
+```
+
+## Multiple linear regression model and notation
+
+$y=\beta_0+\beta_1x_1+...+\beta_px_p+\epsilon, \epsilon \sim N(0,\sigma^2)$
+
+-   $y$ : the **outcome** variable. Also called the "response" or "dependent variable". In prediction problems, this is what we are interested in predicting. In linear regression, we use continuous variables for the outcome.
+
+-   $x_i$: the $i^{th}$ predictor. Also commonly referred to as "regressor", "independent variable", "covariate", "feature".
+
+-   $\beta$ : "constants" or **coefficients** i.e. fixed numbers. These are **population parameters**.
+
+-   $\epsilon$ : the **error**. This quantity represents observational error, i.e. the difference between our observation and the true population-level expected value
+
+Effectively this model says our data $y$ is linearly related to the $x_1$ ,...,$x_p$ but is not perfectly observed due to some error.
+
+**Matrix Notation**:
+
+$$
+\begin{bmatrix}y_1\\y_2\\\vdots\\y_n\end{bmatrix}=\begin{bmatrix}1 & x_{11} & \dots & x_{1p}\\1 & x_{21} & ... & x_{2p}\\ \vdots & \vdots & \vdots & \vdots \\ 1 & x_{n1} & \dots & x_{np}\end{bmatrix}\begin{bmatrix}\beta_0\\ \beta_1\\ \vdots \\\beta_p \end{bmatrix} + \begin{bmatrix} \epsilon_1 \\ \vdots \\ \epsilon_n \end{bmatrix}
+$$
+
+where $\begin{bmatrix}1 & x_{11} & \dots & x_{1p}\\1 & x_{21} & ... & x_{2p}\\ \vdots & \vdots & \vdots & \vdots \\ 1 & x_{n1} & \dots & x_{np}\end{bmatrix}$ is the **design matrix**
+
+Why does the design matrix matter? The columns must be **linearly independent** for the coefficients to be estimated.
+
+Then, the OLS estimates are given by $\mathbf{(X'X)^{-1}X'Y}$
+
+ 
+
+ 
+
+## Fitting a multiple regression model in R
+
+```         
+myModelFit <- lm(outcome ~ predictor1 + predictor2 + predictor3 + ..., data = data-set-here)
+```
+
+we can simply 'add' in new predictors! This code template will fit the model according to the ordinary least squares (OLS) objective function, i.e., we are finding the equation that minimizes the sum of squared residuals.
+
+You can subsequently print the coefficient estimates ($\hat{\beta}$) to the screen by calling the `summary()` function on your fitted model, e.g. `summary(myModelFit)`.
+
+Let's fit the model regressing MPG on weight and horsepower:
+
+```{r}
+AutoModel <- lm(mpg ~ weight + horsepower, data = Auto)
+
+summary(AutoModel)
+```
+
+The fitted model equation:
+
+ 
+
+ 
+
+ 
+
+## Interpreting the multiple linear regression coefficient estimates
+
+-   $\hat{\beta_0}$ : the value of the outcome when all predictors=0
+
+-   $\hat{\beta_i}$ : the amount that the outcome increases, on average, per unit increase in the $i^{th}$ predictor, **holding all other predictors constant (or controlling for the other predictors)**
+
+-   $\hat{y}$ : the predicted value of the outcome given a set of values of the predictors, according to the model
+
+In the context of our problem:
+
+-   When a car has weight=0 and horsepower=0, its average mpg is 45.6
+
+-   For each 1 lb increase in a vehicle's weight, the mean mpg decreases by .006, holding horsepower constant.
+
+-   For each increase in horsepower, the mean mpg decreases by .05, holding weight constant
+
+-   For a car that weighs 3500 lbs and has a horsepower of 130, the predicted mpg is 18.1.
+
+    Note that predictions should be made within the range of the observed predictors. Making predictions on values outside of the range of the observed values is called **extrapolation**
+
+    ## Exercise Part 2 (complete in template)
+
+    1.  Fit a model regressing mpg on weight and acceleration. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are statistically significant?
+    2.  Fit a model regressing mpg on displacement, weight, acceleration, and year. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are
