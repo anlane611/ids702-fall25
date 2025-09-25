@@ -351,12 +351,4 @@ html-table-processing: none
   <!-- D -->
    <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
 </svg></a>  
-      </td>
-
-</td>
-      <td> 
-      </td>
-    </tr>
-  </tbody>
-</table>
-```
+       <a href="materials/Unit2/Multiple Linear R
