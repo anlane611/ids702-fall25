@@ -1,0 +1,76 @@
+---
+title: "Homework 3"
+format: html
+subtitle: "Due: Sunday, Oct 5th 11:59 PM"
+editor: visual
+---
+
+Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write "There are XX observations and each observation represents a \_\_\_\_\_"; it is insufficient to just show the code.
+
+ 
+
+This assignment will use a modified version of a College Completion dataset. [You can read more about the dataset here.](https://data.world/sharon/higher-ed/workspace/project-summary?agentid=databeats&datasetid=college-completion). The relevant portion of the codebook is provided below.
+
+| Variable | Description |
+|----|----|
+| control | Control of institution (Public, Private not-for-profit, Private for-profit) |
+| basic | Carnegie Foundation for the Advancement of Teaching Basic Classification (2010 version) |
+| student_count | Total number of undergraduates in 2010 |
+| ft_pct | The percentage of full-time students |
+| med_sat_value | The median estimated SAT score |
+| endow_value | End-of-year endowment value per full-time equivalent student |
+| grad_100_value | The graduation rate within 100% of normal time |
+| grad_150_value | The graduation rate within 150% of normal time |
+| retain_value | share of freshman students retained for a second year |
+
+You want to understand factors that affect graduation rate.
+
+## Questions
+
+First, we need to explore the data.
+
+1.  Let's start by understanding the sample size and missing values.
+
+    a.  What is the sample size? What does each observation represent?
+
+    b.  How many, if any, missing observations are in each of the variables listed in the codebook above (you can use `sum(is.na())` or `summary()` to find the number of missing values). Use the provided code to subset the data to omit observations with missing data in those variables.
+
+2.  Next, let's explore the categorical variables. Fill in the provided table with the count and percentage for each level of `basic` and `control`.
+
+3.  Now, let's explore the outcome.
+
+    a.  Fill in the code provided to generate a histogram of `grad_100_value`. Describe what you observe in the plot. Is this what you would expect to see? Why or why not?
+
+    b.  Generate a histogram of `grad_150_value`. Describe what you observe in the plot compared to the histogram of `grad_100_value`. Which variable seems to contain more reliable data (hint: it might be helpful to look at particular observations, such as Northeastern University).
+
+4.  Use the code provided to create scatter plots to illustrate the relationship between the variables listed below and the graduation rate within 150% of normal time. Be sure to include appropriate axis and legend labels as shown in the template. For each plot, describe what you observe in **one sentence**. (Note: you should create factor variables for the categorical variables)
+
+    -   median SAT score (`med_sat_value`), colored by private vs. public institution (`control`)
+
+    -   median SAT score (`med_sat_value`) colored by basic classification (`basic`)
+
+    -   endowment value (`endow_value`) colored by private vs. public institution (`control`)
+
+    -   endowment value (`endow_value`) colored by basic classification (`basic`)
+
+    -   enrollment total (`student_count`) colored by private vs. public institution (`control`)
+
+    -   enrollment total (`student_count`) colored by basic classification (`basic`)
+
+    -   \% full-time students (`ft_pct`) colored by private vs. public institution (`control`)
+
+    -   \% full-time students (`ft_pct`) colored by basic classification (`basic`)
+
+    -   first-year retention (`retain_value`) colored by private vs. public institution (`control`)
+
+    -   first-year retention (`retain_value`) colored by basic classification (`basic`)
+
+     
+
+    **No code is necessary for questions 5-7**.
+
+5.  If you were to fit a model with the basic classification as a covariate, would you choose to combine baccalaureate colleges into a single category and research universities into a single category (such that the resulting covariate has two levels instead of 4)? Consider the number of observations in each level and the interpretation in the model as you justify your decision.
+
+6.  Write the theoretical model regressing graduation rate within 150% of normal time on student count and control (public vs private).
+
+7.  Write the theoretical model for a model that assesses how the relationship between full-time student percentage and graduation rate within 150% of normal time depends on institution control (public vs private), controlling for retention rate and median SAT score. Be sure to define all terms. Then, write the separate theoretical models for public and private schools.

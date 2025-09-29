@@ -1,0 +1,44 @@
+---
+title: "IDS 702 HW 3"
+author: "KEY"
+format: pdf
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+**Instructions**: Use this template to complete your assignment. When you click "Render," you should get a PDF document that contains both your answers and code. You must show your work/justify your answers to receive credit. Submit your rendered PDF file on Gradescope. **Remember to render frequently**, as this will help you to catch errors in your code before the last minute. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write "There are XX observations and each observation represents a \_\_\_\_\_"; it is insufficient to just show the code.
+
+**Add your name in the Author section in the header**
+
+### Load Data
+
+```{r}
+library(tidyverse)
+library(gridExtra)
+
+colleges <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/colleges.csv")
+```
+
+## Part 1
+
+### 1
+
+a\. 797 observations and each observation is a college/university. (No code necessarily required, and can be something like `glimpse()` instead of `nrow()`)
+
+```{r}
+nrow(colleges)
+```
+
+b\.
+
+```{r}
+summary(colleges[,c("control","basic","student_count","ft_pct",
+                    "med_sat_value","endow_value",
+                    "grad_100_value","grad_150_value",
+                    "retain_value")])
+```
+
+The following variables have missing values:

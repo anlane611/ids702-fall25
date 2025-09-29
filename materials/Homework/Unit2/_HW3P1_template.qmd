@@ -1,0 +1,160 @@
+---
+title: "IDS 702 HW 3 Part 1"
+author: "Your Name Here"
+format: pdf
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+**Instructions**: Use this template to complete your assignment. When you click "Render," you should get a PDF document that contains both your answers and code. You must show your work/justify your answers to receive credit. Submit your rendered PDF file on Gradescope. **Remember to render frequently**, as this will help you to catch errors in your code before the last minute. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write "There are XX observations and each observation represents a \_\_\_\_\_"; it is insufficient to just show the code.
+
+**Add your name in the Author section in the header**
+
+## Load data
+
+```{r}
+library(tidyverse)
+
+colleges <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/colleges.csv")
+```
+
+## 1
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+```{r}
+colleges_full <- colleges |>
+  filter(complete.cases(control, basic, student_count,
+                        ft_pct, med_sat_value, endow_value,
+                        grad_100_value, grad_150_value,
+                        retain_value))
+```
+
+## 2
+
+```{r}
+
+```
+
+|   | Count (n) | Proportion or % |
+|------------------------------------------|---------------|---------------|
+| **Basic classification** |  |  |
+|      Baccalaureate Colleges--Arts & Sciences |  |  |
+|      Baccalaureate Colleges--Diverse Fields |  |  |
+|      Research Universities--high research activity |  |  |
+|      Research Universities--very high research activity |  |  |
+| **Control of institution** |  |  |
+|      Private not-for-profit |  |  |
+|      Public |  |  |
+
+## 3
+
+a\.
+
+```{r}
+ggplot(__________, aes(x=__________))+
+  geom_histogram()+
+  labs(x="Graduation rate within 100% of normal time")
+```
+
+b\.
+
+```{r}
+
+
+```
+
+## 4
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot(__________, aes(x=_________, y=grad_150_value,
+                                   col=_________))+
+  geom_point()+
+  labs(x="Median SAT score",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+### 5
+
+### 6
+
+### 7

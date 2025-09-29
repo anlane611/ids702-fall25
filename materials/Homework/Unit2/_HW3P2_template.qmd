@@ -1,0 +1,132 @@
+---
+title: "IDS 702 HW 3"
+author: "Your Name Here"
+format: pdf
+---
+
+**Instructions**: Use this template to complete your assignment. When you click "Render," you should get a PDF document that contains both your answers and code. You must show your work/justify your answers to receive credit. Submit your rendered PDF file on Gradescope. **Remember to render frequently**, as this will help you to catch errors in your code before the last minute.
+
+**Add your name in the Author section in the header**
+
+## Load data
+
+```{r}
+library(tidyverse)
+
+college <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/colleges.csv")
+```
+
+## Exercise 1
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+c\.
+
+```{r}
+
+```
+
+| Level | Count (n) | Proportion or % |
+|-------|-----------|-----------------|
+|       |           |                 |
+|       |           |                 |
+|       |           |                 |
+|       |           |                 |
+
+d\.
+
+```{r}
+
+```
+
+| Level | Count (n) | Proportion or % |
+|-------|-----------|-----------------|
+|       |           |                 |
+|       |           |                 |
+
+e\.
+
+```{r}
+
+
+```
+
+## Exercise 2
+
+a\.
+
+b\.
+
+c\.
+
+```{r}
+
+```
+
+d\.
+
+```{r}
+
+```
+
+e\.
+
+```{r}
+
+```
+
+f\.
+
+```{r}
+
+```
+
+g\.
+
+h\.
+
+```{r}
+
+```
+
+## Exercise 3
+
+a\.
+
+b\.
+
+c\.
+
+```{r}
+
+```
+
+d\.
+
+```{r}
+
+```
+
+e\.
+
+```{r}
+
+```
+
+f\.
+
+```{r}
+
+```
+
+g\.

@@ -121,11 +121,11 @@ html-table-processing: none
       <td></td>
       <td></td>
       <td> HW1 due 9.7 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
-        <a href="materials/Homework/HW1.qmd"  target="_blank">
+        <a href="materials/Homework/Unit1/HW1.qmd"  target="_blank">
 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
   <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
 </svg></a>&nbsp;&nbsp;
-<a href="materials/Homework/_HW1_template.qmd" download>
+<a href="materials/Homework/Unit1/_HW1_template.qmd" download>
 <svg xmlns="http://www.w3.org/2000/svg" 
      width="25" height="25" 
      fill="currentColor" 
@@ -141,7 +141,7 @@ html-table-processing: none
   <!-- D -->
   <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
 </svg></a>&nbsp;&nbsp;
-        <a href="materials/Homework/HW1_key.pdf"  target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
+        <a href="materials/Homework/Unit1/HW1_key.pdf"  target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
   <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
 </svg></a>
 </td>
@@ -265,11 +265,11 @@ html-table-processing: none
       <td></td>
       <td></td>
       <td> HW2 due 9.21 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
-        <a href="materials/Homework/HW2.qmd"  target="_blank">
+        <a href="materials/Homework/Unit1/HW2.qmd"  target="_blank">
 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
   <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
 </svg></a>&nbsp;&nbsp;
-<a href="materials/Homework/_HW2_template.qmd" download>
+<a href="materials/Homework/Unit1/_HW2_template.qmd" download>
 <svg xmlns="http://www.w3.org/2000/svg" 
      width="25" height="25" 
      fill="currentColor" 
@@ -437,6 +437,35 @@ html-table-processing: none
 </td>
       <td> 
       </td>
+    </tr>
+   <tr>
+      <th scope="row"></th>
+      <td>9.21</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td> HW3 Part 1 due 10.5 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
+        <a href="materials/Homework/Unit2/HW3P1.qmd"  target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+</svg></a>&nbsp;&nbsp;
+<a href="materials/Homework/Unit2/_HW3P1_template.qmd" download>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="25" height="25" 
+     fill="currentColor" 
+     class="bi bi-filetype-qmd" 
+     viewBox="0 0 16 16">
+  <!-- File shape -->
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"/>
+  
+  <!-- Q -->
+  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
+  <!-- M -->
+  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
+  <!-- D -->
+  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
+</svg></a>
+</td>
     </tr>
   </tbody>
 </table>
