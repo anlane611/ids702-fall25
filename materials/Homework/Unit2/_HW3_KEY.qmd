@@ -41,4 +41,200 @@ summary(colleges[,c("control","basic","student_count","ft_pct",
                     "retain_value")])
 ```
 
-The following variables have missing values:
+The following variables have missing values: med_sat_value (168), endow_value (71), grad_100_value (7), grad_150_value (7), and retain_value (5).
+
+```{r}
+colleges_full <- colleges |>
+  filter(complete.cases(control, basic, student_count,
+                        ft_pct, med_sat_value, endow_value,
+                        grad_100_value, grad_150_value,
+                        retain_value))
+```
+
+### 2
+
+```{r}
+colleges_full |>
+  count(basic) |>
+  mutate(prop=n/sum(n))
+
+colleges_full |>
+  count(control) |>
+  mutate(prop=n/sum(n))
+```
+
+|   | Count (n) | Proportion or % |
+|--------------------------------------------|--------------|--------------|
+| **Basic classification** |  |  |
+|      Baccalaureate Colleges--Arts & Sciences | 195 | 32 |
+|      Baccalaureate Colleges--Diverse Fields | 231 | 38 |
+|      Research Universities--high research activity | 84 | 14 |
+|      Research Universities--very high research activity | 105 | 17 |
+| **Control of institution** |  |  |
+|      Private not-for-profit | 409 | 67 |
+|      Public | 206 | 33 |
+
+### 3
+
+a\.
+
+```{r}
+ggplot(colleges_full, aes(x=grad_100_value))+
+  geom_histogram()+
+  labs(x="Graduation rate within 100% of normal time")
+```
+
+The distribution is relatively evenly spread across the full range 0-100, which is not necessarily what we would expect to see. Many institutions have graduation rates below 50%, which is lower than we might expect.
+
+b\.
+
+```{r}
+ggplot(colleges_full, aes(x=grad_150_value))+
+  geom_histogram()+
+  labs(x="Graduation rate within 150% of normal time")
+
+colleges_full[which(colleges_full$chronname=="Northeastern University"),
+              c("grad_100_value","grad_150_value")]
+```
+
+The distribution of graduation rate within 150% of normal time looks more like what we would expect, with a large proportion of institutions having a rate above \~40%. Looking at Northwestern, we see that the grad_100_value is 0, while grad_150_value is 82.6. This is likely a data error, so grad_150_value seems to have more reliable data.
+
+### 4
+
+```{r, fig.height=4, fig.width=8}
+colleges_full$basic_fac <- factor(colleges_full$basic)
+colleges_full$control_fac <- factor(colleges_full$control)
+
+ggplot(colleges_full, aes(x=med_sat_value, y=grad_150_value,
+                                   col=basic_fac))+
+  geom_point()+
+  labs(x="Median SAT score",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+
+```
+
+Graduation rates increase as median SAT score increases, generally, and the research universities tend to have higher median SAT scores and graduation rates.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=med_sat_value, y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="Median SAT score",y="Grad. rate within 150% normal time",
+       col="Control")
+```
+
+Graduation rates increase as median SAT score increases, generally, and there doesn't seem to be a difference between public and private schools.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=endow_value, y=grad_150_value,
+                                   col=basic_fac))+
+  geom_point()+
+  labs(x="Endowment",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+```
+
+There is not a clear trend because many schools have a small endowment and a few have large endowments.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=endow_value, y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="Endowment",y="Grad. rate within 150% normal time",
+       col="Control")
+```
+
+The schools with large endowments are private, and the schools with large endowments also have high graduation rates.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=student_count, y=grad_150_value,
+                                   col=basic_fac))+
+  geom_point()+
+  labs(x="Number of students",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+```
+
+The research universities have higher enrollments, and there doesn't seem to be a clear trend for enrollment count and graduation rates for public vs private schools.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=student_count, y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="Number of students",y="Grad. rate within 150% normal time",
+       col="Control")
+```
+
+The public schools have higher enrollment numbers, and there doesn't seem to be a clear trend for enrollment count and graduation rates for public vs private schools.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=ft_pct, y=grad_150_value,
+                                   col=basic_fac))+
+  geom_point()+
+  labs(x="% full-time students",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+```
+
+In general, the schools with higher % full-time students have higher graduation rates, though the trend with classification is unclear.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=ft_pct, y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="% full time students",y="Grad. rate within 150% normal time",
+       col="Control")
+```
+
+There doesn't seem to be a difference in the relationship between % full-time students and graduation rate for private and public schools.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=retain_value, y=grad_150_value,
+                                   col=basic_fac))+
+  geom_point()+
+  labs(x="First year retention",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+```
+
+Retention and graduation rate seem to have a strong positive relationship, and the research universities have higher retention and graduation rates.
+
+```{r, fig.height=4, fig.width=8}
+ggplot(colleges_full, aes(x=retain_value, y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="First year retention",y="Grad. rate within 150% normal time",
+       col="Control")
+```
+
+There doesn't seem to be a difference in the relationship between retention and graduation rate for private and public schools.
+
+### 5
+
+Students can choose either to combine the levels to make interpretation easier, or say that it is better to leave the levels as is because there is sufficient sample size in each level.
+
+### 6
+
+$Y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \epsilon$, $\epsilon \sim N(0,\sigma^2)$
+
+where $Y=$ graduation rate within 150% of normal time
+
+$x_1=$ student count
+
+$x_2=1$ if control=Public, 0 otherwise
+
+### 7
+
+$Y=\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3+\beta_4x_4+\beta_5x_1x_2+\epsilon$, $\epsilon \sim N(0,\sigma^2)$
+
+where $Y=$ graduation rate within 150% of normal time
+
+$x_1=$ full-time %
+
+$x_2=1$ if control=Public, 0 otherwise
+
+$x_3=$ retention rate
+
+$x_4=$ median SAT score
+
+Model for public schools: $Y=(\beta_0+\beta_2)+(\beta_1+\beta_5)x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2)$
+
+Model for private schools: $Y=\beta_0+\beta_1x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2$
+
+###  
