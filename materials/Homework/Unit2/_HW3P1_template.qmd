@@ -52,4 +52,109 @@ colleges_full <- colleges |>
 |   | Count (n) | Proportion or % |
 |------------------------------------------|---------------|---------------|
 | **Basic classification** |  |  |
-|      Baccalaureate Colleges-
+|      Baccalaureate Colleges--Arts & Sciences |  |  |
+|      Baccalaureate Colleges--Diverse Fields |  |  |
+|      Research Universities--high research activity |  |  |
+|      Research Universities--very high research activity |  |  |
+| **Control of institution** |  |  |
+|      Private not-for-profit |  |  |
+|      Public |  |  |
+
+## 3
+
+a\.
+
+```{r}
+ggplot(__________, aes(x=__________))+
+  geom_histogram()+
+  labs(x="Graduation rate within 100% of normal time")
+```
+
+b\.
+
+```{r}
+
+
+```
+
+## 4
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot(__________, aes(x=_________, y=grad_150_value,
+                                   col=_________))+
+  geom_point()+
+  labs(x="Median SAT score",y="Grad. rate within 150% normal time",
+       col="Basic classification")
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+```{r, fig.height=4, fig.width=8}
+
+ggplot()
+```
+
+Description:
+
+### 5
+
+### 6
+
+### 7

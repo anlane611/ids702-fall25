@@ -27,24 +27,4 @@ In your group, discuss and write your answers to the following questions:
 
     b\. How many distinct years are in the data?
 
-    c\. If I regress mpg on horsepower, weight, and year, what are the dimensions of the outcome vector, the design matrix, and the parameter vector? You do not need any code to answer this question.
-
-**Load packages and data**
-
-```{r load-libraroies, warning = F, message = F}
-library(tidyverse)
-library(tidymodels)
-library(ISLR2)
-```
-
-Today's data is called "Auto" and is contained in the ISLR2 library
-
-```{r load-data, warning = F, message = F}
-data("Auto")
-```
-
-### Part 2
-
-1.  Fit a model regressing mpg on weight and acceleration. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are statistically significant?
-2.  Fit a model regressing mpg on displacement, weight, acceleration, and year. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are statistically significant? Based on the t values, which predictor has the biggest impact on the outcome? Is this surprising?
-3.  Compare your results for 1 and 2. What does the difference in the results say about the possible confounders for this problem?
+    c\. If I regress mpg on horsepower, weight, and year, what are the dimensions of the outcome vector, the design matrix, and the parameter vector? You do not need any code to answer

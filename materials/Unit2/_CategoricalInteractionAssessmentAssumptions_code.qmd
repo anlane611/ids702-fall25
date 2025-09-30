@@ -1,0 +1,238 @@
+---
+title: "Categorical Predictors, Interaction terms, Assessment, Assumptions"
+subtitle: "IDS 702"
+format: html
+---
+
+**Load packages and data**
+
+```{r load-libraroies, warning = F, message = F}
+library(tidyverse)
+library(tidymodels)
+library(palmerpenguins)
+```
+
+Today's data is called "penguins" from the palmerpenguins library. The data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu/), a member of the [Long Term Ecological Research Network](https://lternet.edu/).
+
+## Work through these data exploration exercises and fill in your answers in Wooclap:
+
+-   What are the sample size and number of variables?
+
+-   Which variables are categorical and which are numeric? Are the categorical variables stored appropriately?
+
+-   Which variables have missing data, and how many observations are missing in these variables? You can use the `summary()` function below. Then, use the provided code to create a subset that omits observations where bill depth, body mass, sex, or species are missing. How many observations are in the complete dataset?
+
+```{r}
+glimpse(penguins)
+summary(penguins)
+
+penguins_nomiss <- penguins |>
+  filter(complete.cases(bill_depth_mm, body_mass_g,
+                        sex, species))
+
+```
+
+Next, fill in the provided code to create three plots:
+
+-   a scatter plot to illustrate the relationship between bill depth and body mass. Describe what you see in the plot.
+
+-   a scatter plot of bill depth and body mass, with the points colored by sex. You can use the code below as a template. Describe what you see.
+
+-   a scatter plot of bill depth and body mass, with the points colored by species. Describe what you see.
+
+```{r}
+ggplot(penguins_nomiss, aes(x=________, y=__________))+
+  geom_point()
+```
+
+```{r}
+ggplot(penguins_nomiss, aes(x=________, y=________, color=________))+
+  geom_point()+
+  geom_smooth(method="lm",se=F)
+```
+
+```{r}
+ggplot(penguins_nomiss, aes(x=________, y=________, color=________))+
+  geom_point()+
+  geom_smooth(method="lm",se=F)
+```
+
+## Categorical predictors and interaction terms
+
+**Categorical Predictors**
+
+We will use **dummy variables** to represent categorical factors in the regression model. These variables take a value of 1 for a certain level, and 0 otherwise. We always have \# levels -1 dummy variables (**why?**)
+
+When we have a categorical predictor in the model, we are fitting **parallel lines**. In this case, we are changing the **intercept** based on the levels of the categorical predictor.
+
+Let's say we regress body mass on bill depth and sex. Mathematically, the theoretical model would be:
+
+$$
+Y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \epsilon
+$$
+
+where $x_1$ = bill depth (mm), and $x_2$ = 1 when sex=male, and 0 otherwise.
+
+Thus, for male penguins, the model is: $Y=(\beta_0+\beta_2)+\beta_1x_1+\epsilon$, and for female penguins, the model is: $Y=\beta_0+\beta_1x_1+\epsilon$
+
+Let's fit the model:
+
+```{r}
+mod1_sex <- lm(body_mass_g ~ bill_depth_mm + sex, 
+               data=penguins_nomiss)
+
+summary(mod1_sex)
+```
+
+Fitted models:
+
+Male penguins: $\hat{\text{body mass}} = (8779.1+1122.1)-299.3(\text{bill depth})$
+
+Female penguins: $\hat{\text{body mass}} = 8779.1-299.3(\text{bill depth})$
+
+Interpretations:
+
+-   Controlling for sex, per mm increase in bill depth, body mass in g decreases by 299, on average. This relationship is statistically significant (p\<0.001).
+
+-   Controlling for bill depth, male penguins have a body mass that is 1122.1g higher than female penguins, on average. This difference is statistically significant (p\<0.001).
+
+**Interaction terms**
+
+When we have an interaction term in the model, we are fitting lines with **different slopes**. Interaction terms allow us to assess how the **relationship between a predictor and an outcome changes based on the value of another predictor**. We will focus on interaction terms between a continuous predictor and a categorical predictor.
+
+~*Note:\ R\ selects\ the\ level\ that\ comes\ first\ alphanumerically\ as\ the\ reference\ level*~
+
+Let's regress body mass on bill depth with an interaction term with species. Mathematically, the theoretical model would be:
+
+$$
+Y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_4x_1x_2 + \beta_5x_1x_3 + \epsilon, \epsilon \sim N(0,\sigma^2)
+$$
+
+where $x_1$ is bill depth in mm, $x_2$=1 for Chinstrap penguins, 0 otherwise, and $x_3$=1 for Gentoo penguins, 0 otherwise
+
+Then, we can write species-specific models.
+
+Adelie penguins: $Y=\beta_0+\beta_1x_1+\epsilon$
+
+Chinstrap penguins: $Y=(\beta_0+\beta_2) + (\beta_1+\beta_4)x_1+\epsilon$
+
+Gentoo penguins: $Y=(\beta_0+\beta_3)+(\beta_1+\beta_5)x_1+\epsilon$
+
+Let's fit the model:
+
+```{r}
+mod2_species <- lm(body_mass_g~bill_depth_mm*species, data=penguins_nomiss)
+```
+
+Fitted models:
+
+Interpretations:
+
+**Nested F test**
+
+We often want to know if a categorical predictor or an interaction term **as a whole** is statistically significant. Because we have multiple coefficients for these terms, we need an alternative approach to assess the factors as a whole. We can do this with nested F tests, which compare a **full model** to a **reduced model**.
+
+Let's assess whether or not the species interaction term is statistically significant as a whole:
+
+The full model is what we fit above: $Y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_4x_1x_2 + \beta_5x_1x_3 + \epsilon$
+
+The reduced model is the model without the interaction term: $Y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \epsilon$
+
+This test will compare the sum of squared errors for the two models. Remember that a lower SSE indicates a better model. If the SSE is significantly lower for the full model than the reduced model, the full model would be considered a better model, and we would say the term being test is statistically significant.
+
+We can use the `anova` function to conduct the test:
+
+```{r}
+mod_full <- mod2_species
+mod_reduced <- lm(body_mass_g~bill_depth_mm+species, data=penguins_nomiss)
+
+anova(mod_reduced, mod_full, test="F")
+```
+
+We do not need to do this if the categorical variable only has two levels. **Why?**
+
+## Assessing Models
+
+*Can we quantify our model's performance?*
+
+We will discuss two model metrics: mean square error and (adjusted) $R^2$
+
+**(Root) Mean square error**
+
+$$
+MSE=\frac{1}{n} \sum_{i=1}^n (y_i-\hat{y}_i)^2
+$$
+
+RMSE is the square root of MSE. Taking the square root puts the metric on the same scale as the outcome. (R)MSE is useful for comparing models, but can be difficult to interpret on its own.
+
+**(Adjusted)** $R^2$
+
+$$
+R^2=1-\frac{SSR}{SST}
+$$
+
+$R^2$ **will always increase when you add more predictors to the model**. Adjusted $R^2$ adds a penalty term for the number of predictors, so it is the better choice for multiple linear regression.
+
+**Important notes**:
+
+-   There is no "correct" threshold for these metrics. Your goal is not to keep fitting models until you find a model that reaches a certain threshold. These metrics are often domain-dependent.
+
+-   When focused on statistical inference (which is the focus of this class), we often select predictors a priori, or we select a few models to compare. This differs from the modeling process when your goal is prediction, which you will see more next semester. Here, we are not necessarily seeking to move predictors in and out until we find the "best" model metric value. We will focus on adjusted $R^2$ to get a sense of the amount of variability explained by the model, which can inform whether or not additional analysis and/or data collection is required.
+
+## Addressing Model Assumptions
+
+*How well does our model fit the data? Are our inferences valid?*
+
+**L**inearity: the relationship between the predictors and the outcome is linear
+
+**I**ndependence: the errors are independent
+
+**N**ormality: the errors have a normal distribution (note: not the outcome by itself)
+
+**E**qual variance: the errors have equal variance (also called homoscedasticity)
+
+We evaluate model assumptions by examining **diagnostic plots**, which typically plot the **residuals** (i.e., estimated errors)
+
+We can generate these plots in R by using the `plot()` function on our model object. We will focus on the first two plots
+
+```{r}
+plot(mod2_species, which=1:2)
+```
+
+We should examine the first plot to determine if we should transform a **predictor variable**
+
+We should examine the second plot to determine if we should transform the **outcome variable**
+
+*How important are these assumptions?*
+
+Recall our conversations about estimation vs inference. The Gauss-Markov Theorem states that under the assumptions that the errors have mean 0 and equal variance $\sigma^2$, the OLS estimator $\hat{\beta}=(X'X)^{-1}X'Y$ is the Best Linear Unbiased Estimator of $\beta$, where "best" means it has the lowest sampling variance. **Thus, even without assuming normality, we get great estimates of** $\beta$**!**
+
+We add the normality assumption for accurate inference, though linear regression is quite robust to violations there as well. Because adding transformations changes our model interpretation, avoid being overzealous with transformations.
+
+## Exercise (use the groups on Canvas)
+
+Use the Auto dataset in the ISLR2 library to answer the questions below.
+
+```{r}
+library(ISLR2)
+data("Auto")
+```
+
+1.  Create a factor variable for the cylinders variable by running the code below (an argument can be made to treat this as numeric, but let's treat it as categorical for now)
+
+```{r}
+Auto <- Auto |>
+  mutate(cyl_fac = factor(cylinders))
+```
+
+2.  Fit a model regressing `mpg` on `displacement,` `horsepower`, and `cylinders`.
+    -   What do you notice about the standard errors of the `cylinders` levels compared to the other predictors?
+    -   Use the `count()` function to generate a table showing how many cars are in each `cylinder` level. Only having a few observations for a particular level of a categorical variable causes problems for the model. We can either 1) exclude those observations, or 2) create a new variable combining levels. Decide which option you would like to use here and clean the data accordingly. (Note: if you choose to exclude the observations, you can use the `filter()` function to subset the data).
+    -   Look at the residual and qq plots for this model. What do you observe? Do any of the regression assumptions appear to be violated here? If so, which one(s)?
+3.  Generate a plot of `mpg` and `displacement`.
+    -   Do you think a transformation of the `displacement` variable might be appropriate? If so, which one and why?
+
+    -   Add color to your plot for `cylinders`. Is an interaction term appropriate?
+4.  Decide if you want to use a transformation on `displacement` and/or an interaction term. Consider the implications of estimate interpretations. Fit the model based on your decision, and generate the residual and qq plots. What do you notice compared to what you saw in #2?
+
+## 
