@@ -118,4 +118,7 @@ In the context of our problem:
     ## Exercise Part 2 (complete in template)
 
     1.  Fit a model regressing mpg on weight and acceleration. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are statistically significant?
-    2.  Fit a model regressing mpg on displacement, weight, acceleration, and year. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are
+    2.  Fit a model regressing mpg on displacement, weight, acceleration, and year. Show the summary table and write interpretations for the predictor estimates (you don't need to interpret the intercept). Which predictors are statistically significant? Based on the t values, which predictor has the biggest impact on the outcome? Is this surprising?
+    3.  Compare your results for 1 and 2. What does the difference in the results say about the possible confounders for this problem?
+
+## 

@@ -9,7 +9,7 @@ Using the provided Qmd template, complete the following exercises and submit the
 
  
 
-This assignment will use a modified version of a College Completion dataset. [You can read more about the dataset here.](https://data.world/sharon/higher-ed/workspace/project-summary?agentid=databeats&datasetid=college-completion). The relevant portion of the codebook is provided below.
+This assignment will use a modified version of a College Completion dataset. [You can read more about the dataset here.](https://data.world/sharon/higher-ed/workspace/project-summary?agentid=databeats&datasetid=college-completion) ([or here](https://www.kaggle.com/datasets/thedevastator/boost-student-success-with-college-completion-da/data), if that link doesn't work for you). The relevant portion of the codebook is provided below.
 
 | Variable | Description |
 |----|----|

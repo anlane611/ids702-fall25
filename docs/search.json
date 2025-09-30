@@ -837,7 +837,7 @@
     "href": "materials/Homework/Unit2/HW3P1.html",
     "title": "Homework 3",
     "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write “There are XX observations and each observation represents a _____”; it is insufficient to just show the code.\nThis assignment will use a modified version of a College Completion dataset. You can read more about the dataset here.. The relevant portion of the codebook is provided below.\nYou want to understand factors that affect graduation rate."
+    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write “There are XX observations and each observation represents a _____”; it is insufficient to just show the code.\nThis assignment will use a modified version of a College Completion dataset. You can read more about the dataset here. (or here, if that link doesn’t work for you). The relevant portion of the codebook is provided below.\nYou want to understand factors that affect graduation rate."
   },
   {
     "objectID": "materials/Homework/Unit2/HW3P1.html#questions",
