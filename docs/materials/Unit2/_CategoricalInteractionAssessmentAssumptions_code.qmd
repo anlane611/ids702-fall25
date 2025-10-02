@@ -177,7 +177,7 @@ $R^2$ **will always increase when you add more predictors to the model**. Adjust
 
 -   There is no "correct" threshold for these metrics. Your goal is not to keep fitting models until you find a model that reaches a certain threshold. These metrics are often domain-dependent.
 
--   When focused on statistical inference (which is the focus of this class), we often select predictors a priori, or we select a few models to compare. This differs from the modeling process when your goal is prediction, which you will see more next semester. Here, we are not necessarily seeking to move predictors in and out until we find the "best" model metric value. We will focus on adjusted $R^2$ to get a sense of the amount of variability explained by the model, which can inform whether or not additional analysis and/or data collection is required.
+-   When focused on statistical inference (which is the focus of this class), we often select predictors *a priori*, or we select a few models to compare. This differs from the modeling process when your goal is prediction, which you will see more next semester. Here, we are not necessarily seeking to move predictors in and out until we find the "best" model metric value. We will focus on adjusted $R^2$ to get a sense of the amount of variability explained by the model, which can inform whether or not additional analysis and/or data collection is required.
 
 ## Addressing Model Assumptions
 
@@ -205,7 +205,7 @@ We should examine the second plot to determine if we should transform the **outc
 
 *How important are these assumptions?*
 
-Recall our conversations about estimation vs inference. The Gauss-Markov Theorem states that under the assumptions that the errors have mean 0 and equal variance $\sigma^2$, the OLS estimator $\hat{\beta}=(X'X)^{-1}X'Y$ is the Best Linear Unbiased Estimator of $\beta$, where "best" means it has the lowest sampling variance. **Thus, even without assuming normality, we get great estimates of** $\beta$**!**
+Recall our conversations about estimation vs inference. The **Gauss-Markov Theorem** states that under the assumptions that the errors have mean 0 and equal variance $\sigma^2$, the OLS estimator $\hat{\beta}=(X'X)^{-1}X'Y$ is the Best Linear Unbiased Estimator of $\beta$, where "best" means it has the lowest sampling variance. **Thus, even without assuming normality, we get great estimates of** $\beta$**!**
 
 We add the normality assumption for accurate inference, though linear regression is quite robust to violations there as well. Because adding transformations changes our model interpretation, avoid being overzealous with transformations.
 
