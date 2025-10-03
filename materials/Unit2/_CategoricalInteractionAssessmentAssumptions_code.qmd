@@ -234,5 +234,3 @@ Auto <- Auto |>
 
     -   Add color to your plot for `cylinders`. Is an interaction term appropriate?
 4.  Decide if you want to use a transformation on `displacement` and/or an interaction term. Consider the implications of estimate interpretations. Fit the model based on your decision, and generate the residual and qq plots. What do you notice compared to what you saw in #2?
-
-## 
