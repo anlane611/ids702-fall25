@@ -64,15 +64,15 @@ colleges_full |>
 ```
 
 |   | Count (n) | Proportion or % |
-|--------------------------------------------|--------------|--------------|
+|----|----|----|
 | **Basic classification** |  |  |
-|      Baccalaureate Colleges--Arts & Sciences | 195 | 32 |
-|      Baccalaureate Colleges--Diverse Fields | 231 | 38 |
-|      Research Universities--high research activity | 84 | 14 |
-|      Research Universities--very high research activity | 105 | 17 |
+| Baccalaureate Colleges--Arts & Sciences | 195 | 32 |
+| Baccalaureate Colleges--Diverse Fields | 231 | 38 |
+| Research Universities--high research activity | 84 | 14 |
+| Research Universities--very high research activity | 105 | 17 |
 | **Control of institution** |  |  |
-|      Private not-for-profit | 409 | 67 |
-|      Public | 206 | 33 |
+| Private not-for-profit | 409 | 67 |
+| Public | 206 | 33 |
 
 ### 3
 
@@ -235,6 +235,10 @@ $x_4=$ median SAT score
 
 Model for public schools: $Y=(\beta_0+\beta_2)+(\beta_1+\beta_5)x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2)$
 
-Model for private schools: $Y=\beta_0+\beta_1x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2$
+Model for private schools: $Y=\beta_0+\beta_1x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2)$
 
-###  
+## Part 2
+
+### 1
+
+### 

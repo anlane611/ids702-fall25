@@ -50,15 +50,15 @@ colleges_full <- colleges |>
 ```
 
 |   | Count (n) | Proportion or % |
-|------------------------------------------|---------------|---------------|
+|----|----|----|
 | **Basic classification** |  |  |
-|      Baccalaureate Colleges--Arts & Sciences |  |  |
-|      Baccalaureate Colleges--Diverse Fields |  |  |
-|      Research Universities--high research activity |  |  |
-|      Research Universities--very high research activity |  |  |
+| Baccalaureate Colleges--Arts & Sciences |  |  |
+| Baccalaureate Colleges--Diverse Fields |  |  |
+| Research Universities--high research activity |  |  |
+| Research Universities--very high research activity |  |  |
 | **Control of institution** |  |  |
-|      Private not-for-profit |  |  |
-|      Public |  |  |
+| Private not-for-profit |  |  |
+| Public |  |  |
 
 ## 3
 

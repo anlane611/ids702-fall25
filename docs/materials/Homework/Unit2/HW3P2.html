@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 3 – IDS 702 - Fall 2025</title>
+<title>Homework 3 Part 2 – IDS 702 - Fall 2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,7 +141,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#questions" id="toc-questions" class="nav-link active" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link active" data-scroll-target="#questions">Questions</a>
+  <ul class="collapse">
+  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus">Bonus</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -150,7 +153,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 3</h1>
+<h1 class="title">Homework 3 Part 2</h1>
+<p class="subtitle lead">Due: Friday, October 17th 11:59 PM</p>
 </div>
 
 
@@ -167,60 +171,104 @@ window.Quarto = {
 </header>
 
 
-<p><strong>Deadline</strong>: Sunday, October 13, 11:59 PM</p>
-<p><strong>Instructions</strong>: Use the provided Quarto template to complete your assignment. Submit the PDF rendered by your Quarto document on Gradescope. You must show your work/justify your answers to receive credit.</p>
-<p><a href="_IDS702HW3Template.qmd"><em>Click here to download the template</em></a> <em>(right click and choose “save link as”)</em></p>
+<p>Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write “There are XX observations and each observation represents a _____”; it is insufficient to just show the code.</p>
 <p>&nbsp;</p>
-<p>This assignment will use a modified version of a College Completion dataset. <a href="https://www.kaggle.com/datasets/thedevastator/boost-student-success-with-college-completion-da">Read about the dataset and reference the codebook here</a>. You should use the codebook under “cc_institution details” with the addition of the variable <code>grad_100_value</code>, which is the graduation rate within 100% of the normal time.</p>
-<p><strong>Important note</strong>: For this assignment, there can be multiple answers to several of the questions. You will be graded based on your ability to logically justify your choice. Statistical modeling often involves subjective decision-making, so it is important to be able to carefully consider what you see in the data and make these decisions. For example, a question like “is it necessary to combine categories? how will the interpretation change by doing so?” could lead you to choose to combine categories of a variable or not, but you should explain why you’ve made your decision.</p>
-<p>You want to understand which factors are related to graduation rate.</p>
+<p>This assignment will use a modified version of a College Completion dataset. <a href="https://data.world/sharon/higher-ed/workspace/project-summary?agentid=databeats&amp;datasetid=college-completion">You can read more about the dataset here.</a> (<a href="https://www.kaggle.com/datasets/thedevastator/boost-student-success-with-college-completion-da/data">or here</a>, if that link doesn’t work for you). The relevant portion of the codebook is provided below.</p>
+<table class="caption-top table">
+<caption>You want to understand factors that affect graduation rate.</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>control</td>
+<td>Control of institution (Public, Private not-for-profit, Private for-profit)</td>
+</tr>
+<tr class="even">
+<td>basic</td>
+<td>Carnegie Foundation for the Advancement of Teaching Basic Classification (2010 version)</td>
+</tr>
+<tr class="odd">
+<td>student_count</td>
+<td>Total number of undergraduates in 2010</td>
+</tr>
+<tr class="even">
+<td>ft_pct</td>
+<td>The percentage of full-time students</td>
+</tr>
+<tr class="odd">
+<td>med_sat_value</td>
+<td>The median estimated SAT score</td>
+</tr>
+<tr class="even">
+<td>endow_value</td>
+<td>End-of-year endowment value per full-time equivalent student</td>
+</tr>
+<tr class="odd">
+<td>grad_100_value</td>
+<td>The graduation rate within 100% of normal time</td>
+</tr>
+<tr class="even">
+<td>grad_150_value</td>
+<td>The graduation rate within 150% of normal time</td>
+</tr>
+<tr class="odd">
+<td>retain_value</td>
+<td>share of freshman students retained for a second year</td>
+</tr>
+</tbody>
+</table>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<p><em>Use the complete case dataset with factored categorical variables created in HW 3 part 1.</em></p>
 <ol type="1">
-<li><p>First, as always, we need to explore the data.</p>
-<p>a. What is the sample size? What does each observation represent?</p>
-<p>b. How many, if any, missing observations are in each of the following variables: <code>grad_100_value</code>, <code>med_sat_value</code>, <code>endow_value</code>, <code>student_count</code>, <code>basic</code>, <code>control</code>. Go ahead and create a subset that excludes observations with missing data in those variables (note: not the whole dataset).</p>
-<p>c. What are the different levels of the categorical variable <code>basic</code>? How many observations are in each level? Fill in the provided table with the count <strong>and</strong> proportion.</p>
-<p>d. What are the different levels of the categorical variable <code>control</code>? How many observations are in each level? Fill in the provided table with the count <strong>and</strong> proportion.</p>
-<p>e. Create a grid of six scatter plots to illustrate the relationship between the variables listed below and the graduation rate (<code>grad_100_value</code>). For each plot, describe what you observe in one sentence. (Note: you should create factor variables for the categorical variables)</p>
-<ul>
-<li><p>median SAT score (<code>med_sat_value</code>), colored by private vs.&nbsp;public institution (<code>control</code>)</p></li>
-<li><p>median SAT score (<code>med_sat_value</code>) colored by institution type (<code>basic</code>)</p></li>
-<li><p>endowment value (<code>endow_value</code>) colored by private vs.&nbsp;public institution (<code>control</code>)</p></li>
-<li><p>endowment value (<code>endow_value</code>) colored by institution type (<code>basic</code>)</p></li>
-<li><p>enrollment total (<code>student_count</code>) colored by private vs.&nbsp;public institution (<code>control</code>)</p></li>
-<li><p>enrollment total (<code>student_count</code>) colored by institution type (<code>basic</code>)</p></li>
-</ul>
-<p>&nbsp;</p></li>
-<li><p>First, consider a model regressing graduation rate on endowment value and institution type.</p>
-<p>a. Considering both the number of observations in each level and the model interpretation, decide whether or not you should combine the levels of institution types into 2 levels: baccalaureate colleges and research universities. Justify your choice.</p>
-<p>b. Write the theoretical model based on your decision in part a.</p>
-<p>c. Fit the model in R and display the summary table. Write the full fitted model <strong>and</strong> the fitted model for each institution type.</p>
-<p>d. Generate the diagnostic plots for your model. Comment on what you observe in the residuals vs fitted plot and the QQ-plot. Based on the plot you generated in #1, are these diagnostic plots surprising? Why or why not?</p>
-<p>e. Fit a model regressing graduation rate on log(endowment value) and institution type (again based on your decision in part a) and show the summary table. Generate the diagnostic plots for this model. Comment on what you observe in the residuals vs fitted plot and QQ-plot here compared to what you saw in part c.</p>
-<p>f. What are the adjusted <span class="math inline">\(R^2\)</span> values for the two models?</p>
-<p>g. Based on the results in parts e and f, which of these two models do you think is better? Write the final fitted model for each institution type based on your choice.</p>
-<p>h. Write an interpretation for the coefficient estimates, p-values, and 95% confidence intervals in the context of the problem.</p></li>
+<li>First, consider the model regressing graduation rate within 150% of normal time on student count and control (public vs private).
+<ol type="a">
+<li><p>Fit the model.</p></li>
+<li><p>Generate the residual vs fitted and QQ diagnostic plots for the model. Comment on what you observe in the residuals vs fitted plot and the QQ-plot.</p>
+<ol type="i">
+<li><p>Based on the diagnostic plots, does the linearity assumption appear to be violated?</p></li>
+<li><p>Based on the diagnostic plots, does the normality assumption appear to be violated?</p></li>
+<li><p>Based on the diagnostic plots, does the homoscedasticity assumption appear to be violated?</p></li>
+<li><p>Based on the scatter plot you generated in HW 3 part 1 with these variables, are these diagnostic plots surprising? Why or why not?</p></li>
+</ol></li>
+<li><p>Generate two scatter plots of student count vs graduation rate for private vs public institutions, but use log(student count) on the x-axis for one plot and sqrt(student count) for the other. Based on what you observe in these plots, which transformation might be best to improve linearity?</p></li>
+<li><p>Fit the model again using the transformation you selected in part c.&nbsp;Generate the diagnostic plots for this model. Comment on what you observe in the residuals vs fitted plot and QQ-plot here compared to what you saw in part b.</p></li>
+<li><p>What are the adjusted <span class="math inline">\(R^2\)</span> values for the two models (part a and part d)?</p></li>
+<li><p>Based on the results for parts a-e, which of these two models do you think is better? Display the summary table and 95% confidence intervals. Then, write the final fitted model.</p></li>
+<li><p>Write an interpretation for the coefficient estimates, p-values, and 95% confidence intervals in the context of the problem. You do not need to write interpretations for the intercept.</p></li>
+<li><p>What are some possible next steps to further improve this model? You do not need to fit a new model.</p></li>
+</ol></li>
 </ol>
 <p>&nbsp;</p>
-<ol start="3" type="1">
-<li><p>Next, consider building a model to evaluate five factors that relate to graduation rate: median SAT score, endowment value, total enrollment, and private vs public institution.</p>
-<p>a. Decide which interaction term(s) for private vs public institution to include in your model, and justify your decision (you must include at least one interaction term). You should base your decision on the exploratory analysis you conducted in #1.</p>
-<p>b. Write the full theoretical model for a model regressing graduation rate on median SAT score, endowment value, total enrollment, private vs public institution, and the interaction term(s) you selected in part a. Be sure to define the predictor terms (i.e., <span class="math inline">\(x_1=\)</span> median SAT score). Then, write the separate theoretical models for private and public institutions.</p>
-<p>c. Fit your model, show the summary table, and generate the diagnostic plots. Comment on what you observe. Specifically, address the following:</p>
-<ul>
-<li><p>Based on the diagnostic plots, does the linearity assumption appear to be violated? If so, how could the model be improved?</p></li>
-<li><p>Based on the diagnostic plots, does the normality assumption appear to be violated? If so, how could the model be improved?</p></li>
-<li><p>Based on the diagnostic plots, does the homoscedasticity assumption appear to be violated? If so, how could the model be improved?</p></li>
-<li><p>Do you notice any residual values that stand out? If so, investigate the relevant observation(s). Are there data entries that appear to be unusual? Consider what might be the issue here and whether or not the observation(s) should be excluded.</p></li>
-</ul>
-<p>d. Fit your model again, this time incorporating any changes you made based on your answers to part c.&nbsp;Show the summary table. Write the fitted model for private and public institutions. Generate the diagnostic plots for this model and comment on the difference(s) you observe compared to part c.&nbsp;Has the model improved?</p>
-<p>e. Conduct a nested F test to assess whether or not your interaction term(s), as a whole, significantly contribute to the model. What do you conclude based on this test?</p>
-<p>f. Interpret the results of your final model. Which terms are statistically significant? Write interpretations for the coefficient estimates that are statistically significant and include 95% confidence intervals. Write an interpretation of the adjusted <span class="math inline">\(R^2\)</span> value for your model.</p>
-<p>g. Imagine that the president of a large public institution approaches you to inquire about which factors are related to graduation rate. Write 1-2 sentences to explain to them, in non-technical terms, the results of your analysis. Include next steps that could be taken to improve the analysis (i.e., should more data be collected? If so, what kinds of information could be helpful?). No code is needed for this question.</p></li>
+<!-- -->
+<ol start="2" type="1">
+<li><p>Next, consider the model that assesses how the relationship between full-time student percentage and graduation rate within 150% of normal time depends on institution control (public vs private), controlling for retention rate and median SAT score.</p>
+<ol type="a">
+<li><p>Fit the model and generate the diagnostic plots. Comment on what you observe. Specifically, address the following:</p>
+<ol type="i">
+<li><p>Based on the diagnostic plots, does the linearity assumption appear to be violated?</p></li>
+<li><p>Based on the diagnostic plots, does the normality assumption appear to be violated?</p></li>
+<li><p>Based on the diagnostic plots, does the homoscedasticity assumption appear to be violated?</p></li>
+</ol></li>
+<li><p>Display the summary table. Write the fitted models for public and private institutions. Is the relationship between percentage of full-time students and graduation rate stronger for public or private institutions?</p></li>
+<li><p>What is the adjusted <span class="math inline">\(R^2\)</span> for this model? Write an interpretation for this metric.</p></li>
+<li><p>Fit the same model but with a log transformation of the outcome. Generate the diagnostic plots. Are the diagnostics improved compared to part a?</p></li>
+</ol></li>
 </ol>
+<section id="bonus" class="level3">
+<h3 class="anchored" data-anchor-id="bonus">Bonus</h3>
+<p>One way to address heteroscedasticity in linear models is by using <strong>robust standard errors</strong>, which account for non-constant variance. Use <a href="https://library.virginia.edu/data/articles/understanding-robust-standard-errors">this page</a> to learn about robust standard errors and how to use the <code>sandwich</code> and <code>lmtest</code> packages to incorporate them into a linear model in R. Choose the model from 1 or 2 for which robust standard errors would be more appropriate. Refit the model using these packages and compare the results to what you originally observed.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -330,13 +378,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-          // default icon
-          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

@@ -433,11 +433,27 @@ Notes continued from Tuesday, but here's the filled-in version, including answer
     </tr>
    <tr>
       <th scope="row"></th>
-      <td>10.5</td>
+      <td>10.7</td>
+      <td>Problems that can arise</td>
+            <td>2 videos: <a href="https://duke.zoom.us/rec/share/bpyl-LwD7ji4BVWnO4_RWep5Bj4ZcA4hpTS7iFQ4isNzSg44YNrLVr-idgNNc-ps.EVd2zdsGcnGTJH4g?startTime=1694318380000"  target="_blank">Influential Points,</a> 
+            <a href="https://duke.zoom.us/rec/share/bpyl-LwD7ji4BVWnO4_RWep5Bj4ZcA4hpTS7iFQ4isNzSg44YNrLVr-idgNNc-ps.EVd2zdsGcnGTJH4g?startTime=1694319819000"  target="_blank">Multicollinearity</a>
+   </br>
+   Slides for reference:
+               <a href="materials/Unit2/IDS702_influentialpoints.pdf"  target="_blank">Influential points</a>, <a href="materials/Unit2/IDS702_multicollinearity.pdf"  target="_blank">Multicollinearity</a>
+          </br>
+          Optional/supplementary reading: ISLR section 3.3.3 #4-6
+            </td>
+      <td></td>
+      <td> 
+</td>
+    </tr>
+   <tr>
+      <th scope="row"></th>
+      <td>10.8</td>
       <td></td>
        <td></td>
         <td></td>
-      <td> HW3 Part 1 due 10.5 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
+      <td> HW3 Part 1 due 10.8 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
         <a href="materials/Homework/Unit2/HW3P1.qmd"  target="_blank">
 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
   <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
@@ -462,22 +478,6 @@ Notes continued from Tuesday, but here's the filled-in version, including answer
     </tr>
    <tr>
       <th scope="row"></th>
-      <td>10.7</td>
-      <td>Problems that can arise</td>
-            <td>2 videos: <a href="https://duke.zoom.us/rec/share/bpyl-LwD7ji4BVWnO4_RWep5Bj4ZcA4hpTS7iFQ4isNzSg44YNrLVr-idgNNc-ps.EVd2zdsGcnGTJH4g?startTime=1694318380000"  target="_blank">Influential Points,</a> 
-            <a href="https://duke.zoom.us/rec/share/bpyl-LwD7ji4BVWnO4_RWep5Bj4ZcA4hpTS7iFQ4isNzSg44YNrLVr-idgNNc-ps.EVd2zdsGcnGTJH4g?startTime=1694319819000"  target="_blank">Multicollinearity</a>
-   </br>
-   Slides for reference:
-               <a href="materials/Unit2/IDS702_influentialpoints.pdf"  target="_blank">Influential points</a>, <a href="materials/Unit2/IDS702_multicollinearity.pdf"  target="_blank">Multicollinearity</a>
-          </br>
-          Optional/supplementary reading: ISLR section 3.3.3 #4-6
-            </td>
-      <td></td>
-      <td> 
-</td>
-    </tr>
-   <tr>
-      <th scope="row"></th>
       <td>10.9</td>
       <td>Model Selection</td>
             <td>First read ISLR 3.2.2 part "Two: Deciding on Important Variables"
@@ -489,7 +489,50 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
       <td> 
 </td>
     </tr>
-
+       <tr>
+      <th scope="row"></th>
+      <td>10.14</td>
+      <td>NO CLASS</td>
+       <td></td>
+        <td></td>
+          </tr>
+   <tr>
+      <th scope="row"></th>
+      <td>10.16</td>
+      <td>NO CLASS</td>
+       <td></td>
+        <td></td>
+  </tr>
+    
+   <tr>
+      <th scope="row"></th>
+      <td>10.17</td>
+      <td></td>
+       <td></td>
+        <td></td>
+      <td> HW3 Part 2 due 10.17 11:59 PM </br> Open the file to view questions, download template to complete, render to pdf and submit on gradescope </br>
+        <a href="materials/Homework/Unit2/HW3P2.qmd"  target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+</svg></a>&nbsp;&nbsp;
+<a href="materials/Homework/Unit2/_HW3P2_template.qmd" download>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="25" height="25" 
+     fill="currentColor" 
+     class="bi bi-filetype-qmd" 
+     viewBox="0 0 16 16">
+  <!-- File shape -->
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"/>
+  
+  <!-- Q -->
+  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
+  <!-- M -->
+  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
+  <!-- D -->
+  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
+</svg></a>
+</td>
+    </tr>
   </tbody>
 </table>
 ```

@@ -100,7 +100,7 @@ Interpretations:
 
 When we have an interaction term in the model, we are fitting lines with **different slopes**. Interaction terms allow us to assess how the **relationship between a predictor and an outcome changes based on the value of another predictor**. We will focus on interaction terms between a continuous predictor and a categorical predictor.
 
-~*Note:\ R\ selects\ the\ level\ that\ comes\ first\ alphanumerically\ as\ the\ reference\ level*~
+~*Note: R selects the level that comes first alphanumerically as the reference level*~
 
 Let's regress body mass on bill depth with an interaction term with species. Mathematically, the theoretical model would be:
 
