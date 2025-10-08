@@ -1,0 +1,207 @@
+---
+title: Cleaning and exploring data in R
+format: html
+editor: visual
+---
+
+A crucial first step of data analysis is exploring the dataset (and then cleaning, as needed). Today, we will practice exploring and cleaning data in R.
+
+### Learning objectives
+
+By the end of this session, students should be able to:
+
+-   distinguish between the different types of variables
+
+-   use the tidyverse functions to explore and clean data in R
+
+-   use ggplot2 to visualize data
+
+Note: If you are comfortable with "base R," you can use that for data cleaning and exploration this semester. However, I encourage you to learn the tidyverse functions!
+
+## Types of variables in our data
+
+Numeric variables take numerical values and it makes sense to perform calculations on the values (e.g., addition, mean)
+
+-   Discrete variables can not take decimal values (e.g., Number of required statistics courses in a major)
+
+-   Continuous variables can take decimal values (e.g., height in cm)
+
+Categorical variables are variables that have categories, where each category is called a level
+
+-   Nominal variables do not have an order (e.g., eye color)
+
+-   Ordinal variables do have an order (e.g., education categories)
+
+## Types of variables in R
+
+-   Numeric/double: a number that can take decimal values
+
+-   Integer: a number that takes integer values
+
+-   Character: a string (denoted by quotes)
+
+-   Logical: TRUE/FALSE
+
+### Exercise
+
+In your group, discuss the following:
+
+[Link to survey for reference](https://forms.gle/Uhpiu4aEXZZYRLwT6)
+
+1.  Classify each of the survey questions as discrete, continuous, nominal, or ordinal.
+2.  Can you identify/guess how each variable will be stored in R before you read in the data?
+3.  What does it mean to clean data? Identify how the survey data may need to be cleaned just by looking at the questions.
+
+## First steps in R
+
+```{r}
+library(tidyverse) #if you get an error, run install.packages("tidyverse") in the CONSOLE
+library(janitor)
+```
+
+```{r}
+survey <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/IDS702Bootcampsurvey2025.csv", header=TRUE)
+glimpse(survey)
+```
+
+Let's remove the timestamp variable
+
+Note: The `select` function will create a subset by columns, while the `filter` function will create a subset by rows
+
+```{r}
+survey_sub <- survey |> 
+              select(-c("Timestamp"))
+```
+
+Let's make our variable names more concise (but still descriptive!). Note that R is case-sensitive, so the variable name "Interest" is distinct from "interest"
+
+```{r}
+survey_clean <- janitor::clean_names(survey_sub)
+
+names(survey_sub) <- c("Interest","Languages",
+                       "Siblings","AgeRange",
+                       "Sushi")
+```
+
+## Cleaning and exploring variables
+
+### Siblings (changing a particular value)
+
+Let's start with the Siblings variable. What information do we need to know to clean the variable?
+
+```{r}
+survey_sub |> count(Siblings)
+```
+
+Always always always:
+
+-   create a new variable instead of overwriting the original
+
+-   perform a quality control check
+
+Here, we were able to find out that the value of "-1" should be 1. We often don't have access to the original data source, so we would have to make this a missing value. It is always dangerous to make assumptions during the data cleaning process!
+
+```{r}
+survey_sub |> count(Siblings)
+
+survey_sub <- survey_sub |> #use the assignment <- since we're creating a var
+              mutate(Siblings_clean = case_when(
+                      Siblings== "-1" ~ 1,
+                      TRUE ~ as.numeric(Siblings)
+                      ))
+
+## How can we do a quality control check?
+survey_sub |> count(Siblings, Siblings_clean)
+```
+
+### Languages (Creating categories)
+
+```{r}
+survey_sub |> count(Languages)
+```
+
+Often, we need to combine categories if we have too few observations in multiple categories. Let's say we want to create a new numeric variable that collapses the Languages variable into 3 categories using the following values:
+
+0: 0 languages
+
+1: 1-3 languages
+
+2: 4 or more languages
+
+First, we need to create a numeric version of the Languages variable since we have a value of "10 or more"
+
+```{r}
+survey_sub <- survey_sub |>
+  mutate(Lang_num = case_when(
+    Languages == "10 or more" ~ 0,
+    TRUE ~ as.numeric(Languages)
+  ))
+
+survey_sub <- survey_sub |>
+  mutate(Lang_cat = case_when(
+    Lang_num == 0 ~ 0,
+    Lang_num < 4 ~ 1,
+    TRUE ~ 2
+  ))
+
+
+## How can we perform a quality control check in this case? Use the code below as a hint and replace the blanks
+
+survey_sub |> 
+  group_by(_________) |>
+  summarise(min(________), max(_________))
+```
+
+### Outliers/implausible values
+
+Now consider the sushi variable. Based on our glimpse output, we have integer values. Let's check the minimum and maximum values.
+
+```{r}
+survey_sub |> summarise(min(Sushi),max(Sushi))
+
+survey_sub |> #this will show us which values are above 30
+  filter(Sushi>30) |>
+  count(Sushi)
+```
+
+It's important to pay attention to implausible values. What would be an implausible value in this case? How should we handle it?
+
+For the quality control check, let's use the `summary` function. This shows us the minimum, maximum, and number of missing values. This is a base R function, so we need to use the \$ symbol to designate the variable instead of using the pipe operator \|\>
+
+```{r}
+survey_sub <- survey_sub |>
+  mutate(Sushi_clean = case_when(
+    Sushi == 999 ~ NA,
+    TRUE ~ Sushi #this says to keep all other values the same
+  ))
+
+summary(survey_sub$Sushi_clean)
+```
+
+## Exercises (time permitting)
+
+In your group, complete the following (*one of these is an impossible task! Can you identify which one?*):
+
+1.  For the application area of interest variable, how many students responded with "other"? What does this say about the survey design?
+
+```{r}
+
+```
+
+2.  Convert the AgeRange variable to a continuous variable so that we have more information about specific ages.
+
+```{r}
+
+```
+
+3.  Create a histogram of the Sushi variable. Change the color of the bars to a new color of your choice. Add a descriptive title and axis labels.
+
+```{r}
+
+```
+
+5.  How can we visualize the relationship between application area of interest and age range?
+
+```{r}
+
+```

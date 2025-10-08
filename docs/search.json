@@ -14,6 +14,195 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
+    "objectID": "materials/Homework/Unit1/HW2.html",
+    "href": "materials/Homework/Unit1/HW2.html",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n \n\nLet \\(X_1,X_2,...,X_n \\stackrel {iid}{\\sim} N(\\mu,1)\\), and recall the Normal PDF: \\(f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2 }} e^{\\frac{-(x-\\mu)^2 }{2\\sigma^2} }\\)\na. Write the likelihood function \\(L(\\mu)\\)\nb. Write the log-likelihood function \\(l(\\mu)\\)\nc. Find the maximum likelihood estimator of \\(\\mu\\)\nd. Determine if the MLE \\(\\hat{\\mu}\\) is an unbiased estimator of \\(\\mu\\)\n\n \n\nIn this exercise, you will conduct a simulation in R to evaluate the effect of sample size and sampling scheme on the sampling distribution of the mean.\n\nWe will use the dataset provided below to conduct the simulation. The dataset contains 100000 observations, so we will treat this as our population of interest. The dataset has 3 variables: 1 continuous variable (Y) and 2 categorical variables (X1 and X2).\n\nlibrary(tidyverse)\npopulation &lt;- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/population.csv\", header=TRUE)\n\nFirst, let’s understand our population. Our main variable of interest will be Y.\n\nWhat is the mean of Y? This will be our true parameter value, \\(\\mu\\).\nWhat is the mean of Y for each level of X2? How many observations are in each level of X2?\n\n \nThe code below simulates the sampling distribution of the mean if the data are collected using simple random sampling, where each member of the population has the same probability of being selected. Each sample is of size 100, and we will take 1000 different samples to understand the sampling distribution.\n\nSRSmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  SRS.sample &lt;- population |&gt; slice(sample(1:n(),size=100)) #the slice function selects rows of the specified data (population), and the sample function randomly selects 100 numbers out of the sequence 1:100000\n  SRSmeans[i,1] &lt;- SRS.sample |&gt; summarise(mean(Y)) #calculate the mean of each sample\n}\n\nggplot(SRSmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under simple random sampling\")\n\n\n\n\n\n\n\n\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nChange the sample size of each sample from 100 to 10. Does the sampling distribution change in i) shape, ii) mean, and/or iii) spread compared to part c?\n\n \nNext, we will explore the sampling distribution of the sample mean of Y under stratified sampling, where simple random samples are taken within subgroups. Here, we will use X2 as the group variable.\n\nFill in the two blanks in the code below to simulate the sampling distribution of the sample mean under stratified sampling for samples of size 100.\n\nStratmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  Stratified.sample &lt;- population |&gt;  \n                        group_by(__) |&gt;\n                        slice(sample(1:n(),size=50)) |&gt;\n                        ungroup()\n  Stratmeans[i,1] &lt;- Stratified.sample |&gt; summarise(____(Y)) #calculate the mean of each sample\n}\n\nggplot(Stratmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under stratified sampling\")\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nUsing your answers to parts b and f, what can you conclude about how sampling scheme can affect the sampling distribution of the mean?\n\n \nBonus: Simulate the sampling distribution under stratified sampling using X1 as the group variable. Start by calculating the sample size of each stratum and the true mean of Y in each stratum. Describe what you observe with the sampling distribution, how it compares to the sampling distribution you simulated in part e, and what this means for sampling scheme and sampling distributions."
+  },
+  {
+    "objectID": "materials/Homework/Reflections/reflections.html",
+    "href": "materials/Homework/Reflections/reflections.html",
+    "title": "Statistics Reflections",
+    "section": "",
+    "text": "In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as “amoral,” but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.\nThis assignment connects to the fourth course learning objective: Make careful and critical decisions about model building and consider real-world implications."
+  },
+  {
+    "objectID": "materials/Homework/Reflections/reflections.html#motivation",
+    "href": "materials/Homework/Reflections/reflections.html#motivation",
+    "title": "Statistics Reflections",
+    "section": "",
+    "text": "In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as “amoral,” but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.\nThis assignment connects to the fourth course learning objective: Make careful and critical decisions about model building and consider real-world implications."
+  },
+  {
+    "objectID": "materials/Homework/Reflections/reflections.html#instructions",
+    "href": "materials/Homework/Reflections/reflections.html#instructions",
+    "title": "Statistics Reflections",
+    "section": "Instructions",
+    "text": "Instructions\nYou are required to complete two statistics reflections during the semester. You can select any material from the list of materials below.\n\nBegin your assignment with a header that includes your name and the title and source of your selected material\nReflect on the material selected. What did it make you think about? How does it affect your work as a data scientist? Note that you are required to engage with the material and provide your thoughts/reactions; you should NOT be summarizing the piece.\nWhile there is no minimum word count for the reflections, you are expected to meaningfully engage with the material (2-3 paragraphs). You can use the suggested questions to get started, but you are not required to answer them in your response.\nYou can use Word or any other text editor to complete this assignment, as long as you submit a PDF to Gradescope. You do not need to use R/Quarto for this assignment.\nIn Gradescope, select the appropriate reflection assignment based on the due date. All of the assignments are already available, so you can complete them at any time!\n\nI am always available if you have any questions or comments about the content presented in these materials. Additionally, if you come across a piece that is not on this list and you would like to use it for a statistics reflection, you are welcome to send me an email. Please include a link to the piece and a brief description of how it connects data science and society.\nNote: It is not appropriate to use ChatGPT for this assignment. The task is to offer your personal reflections/thoughts; there are no right or wrong answers here."
+  },
+  {
+    "objectID": "materials/Homework/Reflections/reflections.html#materials",
+    "href": "materials/Homework/Reflections/reflections.html#materials",
+    "title": "Statistics Reflections",
+    "section": "Materials",
+    "text": "Materials\n\n  \n    \n      \n        A Primer on Non-Binary Gender and Big Data (article)\n      \n    \n    \n      \n        A Primer on Non-Binary Gender and Big Data \n        The author offers several questions you may want to consider in your response: \n        \n          What potential insights might we derive from working with non-binary gender and data?\n          What are the risks to gener minorities in relation to data?\n          What kinds of variation do we see across culture, context, and history?\n          How might non-binary gender and data deal with intersectionality (Click this link to learn more about intersectionality)\n        \n        Additionally, you may want to consider: \n        \n          Is it always useful/important to collect data on gender? In which domains might it be more important than others?\n        \n      \n    \n  \n  \n    \n      \n        How Eugenics Shaped Statistics (article - highly recommended!)\n      \n    \n    \n      \n        How eugenics shaped statistics \n        \n          Consider this quote: \"The separation was everything—not how much, what else might explain it, or why it mattered, just that it was there.\" Reflect on what this means for you as a data scientist\n          The article argues that you cannot separate the science from the scientist. Do you agree?\n          Reflect on the argument that Galton, Pearson, and Fisher's views are \"a product of their time.\"\n        \n        \n      \n    \n  \n  \n    \n      \n        To predict and serve? (article)\n      \n    \n    \n      \n        To predict and serve? This article may be of particular interest to those interested in social justice. The authors work with the Human Rights Data Analysis Group (and Kristian Lum is a Duke alum!) \n        \n          In data analysis, we often use the phrase \"garbage in, garbage out\" to refer to models based on bad data. How does this relate to the problem of using biased data for predictive policing?\n          The last sentence states that data-driven approaches should be inclusive. How do you think this can be done? Is it possible to use biased data without reaching biased predictions?\n          Can you think of other examples in which using data to predict future behavior could do more harm than good?\n\n        \n      \n    \n  \n    \n    \n      \n        Data sonification (podcast)\n      \n    \n    \n      \n        Loud Numbers: Listen to whichever one of the podcast episodes looks most interesting to you. Also, read the FAQs under the What We Do tab. You might also be interested in the Talks and Articles listed under the Community tab. \n        \n          One of the FAQs mentions accessibility. Consider the limitations of only representing data visually and how data sonification may make data more accessible.\n\n          How might we use the other senses (touch, smell, taste) to represent data? Have you seen data represented in any of these ways before?\n\n        \n      \n    \n  \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose (podcast)\n      \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose  (interview starts at 8:15 and ends at 46:00)\n        \n          Reflect on Dr. Rose's recommendations for ensuring fairness in machine learning\n          Consider Dr. Rose's comments about the \"single metric leaderboard\" and what it means for you as a data scientist.\n        \n      \n    \n  \n    \n    \n      \n        Peter Donnelly: How stats fool juries (video)\n      \n    \n    \n      \n        Peter Donnelly: How stats fool juries (you can skip past the stats jokes and start at 3:30) \n        \n          This talk is from 2007. Can you think of more recent examples of misleading statistics/misuse of statistical principles?\n          How do you think situations like the trial Donnelly describes can be avoided?\n        \n      \n    \n  \n    \n    \n      \n        Here’s how an AI tool may flag parents with disabilities (article)\n      \n    \n    \n      \n        Here’s how an AI tool may flag parents with disabilities\n        \n          Do you think a data-driven approach to child welfare monitoring could be ethical? If so, how do you think the approach described in the article could be modified to avoid pitfalls like the ones described?\n          LA County’s Department of Children and Family Services Director Brandon Nichols is quoted in the article saying that the algorithm being used is beyond the department's expertise. What role can data scientists play in government sectors where algorithms like this are being used?"
+  },
+  {
+    "objectID": "materials/Homework/Unit2/HW3P2.html",
+    "href": "materials/Homework/Unit2/HW3P2.html",
+    "title": "Homework 3 Part 2",
+    "section": "",
+    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write “There are XX observations and each observation represents a _____”; it is insufficient to just show the code.\nThis assignment will use a modified version of a College Completion dataset. You can read more about the dataset here. (or here, if that link doesn’t work for you). The relevant portion of the codebook is provided below."
+  },
+  {
+    "objectID": "materials/Homework/Unit2/HW3P2.html#questions",
+    "href": "materials/Homework/Unit2/HW3P2.html#questions",
+    "title": "Homework 3 Part 2",
+    "section": "Questions",
+    "text": "Questions\nUse the complete case dataset with factored categorical variables created in HW 3 part 1.\n\nFirst, consider the model regressing graduation rate within 150% of normal time on student count and control (public vs private).\n\nFit the model.\nGenerate the residual vs fitted and QQ diagnostic plots for the model. Comment on what you observe in the residuals vs fitted plot and the QQ-plot.\n\nBased on the diagnostic plots, does the linearity assumption appear to be violated?\nBased on the diagnostic plots, does the normality assumption appear to be violated?\nBased on the diagnostic plots, does the homoscedasticity assumption appear to be violated?\nBased on the scatter plot you generated in HW 3 part 1 with these variables, are these diagnostic plots surprising? Why or why not?\n\nGenerate two scatter plots of student count vs graduation rate for private vs public institutions, but use log(student count) on the x-axis for one plot and sqrt(student count) for the other. Based on what you observe in these plots, which transformation might be best to improve linearity?\nFit the model again using the transformation you selected in part c. Generate the diagnostic plots for this model. Comment on what you observe in the residuals vs fitted plot and QQ-plot here compared to what you saw in part b.\nWhat are the adjusted \\(R^2\\) values for the two models (part a and part d)?\nBased on the results for parts a-e, which of these two models do you think is better? Display the summary table and 95% confidence intervals. Then, write the final fitted model.\nWrite an interpretation for the coefficient estimates, p-values, and 95% confidence intervals in the context of the problem. You do not need to write interpretations for the intercept.\nWhat are some possible next steps to further improve this model? You do not need to fit a new model.\n\n\n \n\n\nNext, consider the model that assesses how the relationship between full-time student percentage and graduation rate within 150% of normal time depends on institution control (public vs private), controlling for retention rate and median SAT score.\n\nFit the model and generate the diagnostic plots. Comment on what you observe. Specifically, address the following:\n\nBased on the diagnostic plots, does the linearity assumption appear to be violated?\nBased on the diagnostic plots, does the normality assumption appear to be violated?\nBased on the diagnostic plots, does the homoscedasticity assumption appear to be violated?\n\nDisplay the summary table. Write the fitted models for public and private institutions. Is the relationship between percentage of full-time students and graduation rate stronger for public or private institutions?\nWhat is the adjusted \\(R^2\\) for this model? Write an interpretation for this metric.\nFit the same model but with a log transformation of the outcome. Generate the diagnostic plots. Are the diagnostics improved compared to part a?\n\n\n\nBonus\nOne way to address heteroscedasticity in linear models is by using robust standard errors, which account for non-constant variance. Use this page to learn about robust standard errors and how to use the sandwich and lmtest packages to incorporate them into a linear model in R. Choose the model from 1 or 2 for which robust standard errors would be more appropriate. Refit the model using these packages and compare the results to what you originally observed."
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#announcements",
+    "href": "materials/Unit1/Distributions/Distributions.html#announcements",
+    "title": "Probability Distributions",
+    "section": "Announcements",
+    "text": "Announcements\n\nReminder to join the ids702-fa25 Slack channel\nHW1 posted, due Sunday 11:59 PM"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#warm-up-questions-wooclap-on-canvas-assignments",
+    "href": "materials/Unit1/Distributions/Distributions.html#warm-up-questions-wooclap-on-canvas-assignments",
+    "title": "Probability Distributions",
+    "section": "Warm-up Questions (Wooclap on Canvas > Assignments)",
+    "text": "Warm-up Questions (Wooclap on Canvas &gt; Assignments)"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#random-variables",
+    "href": "materials/Unit1/Distributions/Distributions.html#random-variables",
+    "title": "Probability Distributions",
+    "section": "Random Variables",
+    "text": "Random Variables\nRandom variables are variables that can take different values, and the value they take depends on a probabilistic process.\nExamples:\n\n\n\n\n\n\n\nY=Resting heart rate\nY=congestive heart failure status (1=Yes, 0=No)\n\n\n\n\n80\n0\n\n\n82\n1\n\n\n78\n0\n\n\n90\n1\n\n\n65\n0"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#probability-distributions",
+    "href": "materials/Unit1/Distributions/Distributions.html#probability-distributions",
+    "title": "Probability Distributions",
+    "section": "Probability Distributions",
+    "text": "Probability Distributions\nA probability distribution is a function that maps a possible outcome of a random variable to its probability of occurrence.\n\n\n\n\n\n\n\nImage source: https://blog.minitab.com/en/adventures-in-statistics-2/understanding-and-using-discrete-distributions"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#key-components-of-probability-distributions",
+    "href": "materials/Unit1/Distributions/Distributions.html#key-components-of-probability-distributions",
+    "title": "Probability Distributions",
+    "section": "Key Components of Probability Distributions",
+    "text": "Key Components of Probability Distributions\n\nSupport: values that the distribution can take\nParameters: values that characterize the distribution\nPDF/PMF: \\(f(x)\\) , function whose output is a probability of a particular value or range of values\nCDF: \\(F(x)\\) , function whose output is a cumulative probability up to a particular value\nExpected value/mean: \\(\\mathbf{E}(X)\\)\nVariance: \\(\\mathbf{E}[(X-\\mu)^2]\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#example",
+    "href": "materials/Unit1/Distributions/Distributions.html#example",
+    "title": "Probability Distributions",
+    "section": "Example",
+    "text": "Example\n\n\n\n\\(X\\)\n1\n2\n3\n4\n\n\n\\(P(X=x)\\)\n0.2\n0.4\n0.3\n0.1\n\n\n\n\nIs this a valid probability distribution?\nIs this a discrete or continuous distribution?\nWhat is the support?\nWhat is \\(P(X=3)\\)?\nWhat is \\(F(3)\\)?\nWhat is \\(\\mathbf{E}(X)\\)?\nWhat is \\(Var(X)\\)?"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#example-answers",
+    "href": "materials/Unit1/Distributions/Distributions.html#example-answers",
+    "title": "Probability Distributions",
+    "section": "Example answers",
+    "text": "Example answers\n\nIs this a valid probability distribution?\nIs this a discrete or continuous distribution?\nWhat is the support?\nWhat is \\(P(X=3)\\)?\nWhat is \\(F(3)\\)?"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#example-answers-1",
+    "href": "materials/Unit1/Distributions/Distributions.html#example-answers-1",
+    "title": "Probability Distributions",
+    "section": "Example answers",
+    "text": "Example answers\n\nWhat is \\(\\mathbf{E}(X)\\)?\n \nWhat is \\(Var(X)\\)?\n\n\\(Var(X)=\\mathbf{E}[(X-\\mu)^2]=\\mathbf{E}[X^2]-\\mathbf{E}[X]^2\\) (do this on your own)"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/Distributions.html#common-probability-distributions",
+    "href": "materials/Unit1/Distributions/Distributions.html#common-probability-distributions",
+    "title": "Probability Distributions",
+    "section": "Common Probability Distributions",
+    "text": "Common Probability Distributions\n\nNormal\nt\nBernoulli\nBinomial\nUniform\nMultinomial\nPoisson\nNegative Binomial"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#announcements",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#announcements",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Announcements",
+    "text": "Announcements\n\nStatistics reflection due Sunday 9/14 11:59 PM"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#estimation",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#estimation",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Estimation",
+    "text": "Estimation\nSay we have data on home ownership in North Carolina, collected as yes/no\n\n\n\n\nOwns a home (1=Yes)\n\n\n\n\n0\n\n\n1\n\n\n1\n\n\n…\n\n\n0\n\n\n\n\n\nWe want to know about the proportion of home ownership in the state. Using the data, what might be our best guess?"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#natural-estimators",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#natural-estimators",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Natural Estimators",
+    "text": "Natural Estimators\nSimilarly, if I want to know about each of the parameters given below, what might be the best guess using a sample?\n\nmean \\(\\mu\\)\nmedian \\(\\eta\\)\nstandard deviation \\(\\sigma\\)\n\n\nThese estimators (like \\(\\bar{x}\\) for \\(\\mu\\)) are intuitive. But sometimes it’s not so simple!"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#maximum-likelihood-estimation",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#maximum-likelihood-estimation",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Maximum Likelihood Estimation",
+    "text": "Maximum Likelihood Estimation\nLet \\(X_1, X_2, ..., X_n \\stackrel{iid}{\\sim} F_{\\theta}\\)\n \n\nThen the joint distribution of (\\(X_1, ..., X_n\\)) is given by \\(f_{\\theta}(x_1,...,x_n)=\\prod_{i=1}^{n} f_{\\theta}(x_i)\\)\n \n\n\nNow, we define the likelihood function as a function of the fixed population parameter \\(\\theta\\) : \\(L(\\theta)=f_{\\theta}(X_1,...,X_n)=\\prod_{i=1}^nf_{\\theta}(X_i)\\)\nWe want to find the value of \\(\\theta\\) that maximizes the likelihood function and call it \\(\\hat{\\theta}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#illustration",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#illustration",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Illustration",
+    "text": "Illustration\nGoing back to our example of home ownership, let’s say we have n=100, where 70 own their home. What distribution can we assume for this variable?\n \n\nWe can use the Bernoulli distribution, so\n\\(\\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}\\) and \\(L(p)=p^{70}(1-p)^{30}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#illustration-1",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#illustration-1",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Illustration",
+    "text": "Illustration\nWe can plot \\(L(p)=p^{70}(1-p)^{30}\\) over a range of values of \\(p\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics-for-finding-the-mle",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics-for-finding-the-mle",
+    "title": "Maximum Likelihood Estimation",
+    "section": "General mechanics for finding the MLE",
+    "text": "General mechanics for finding the MLE\n\nAssume a distribution for the population\nDefine the likelihood: joint probability of the data\nTake the log of the likelihood\nFind the value of \\(\\theta\\) that maximizes the likelihood:\n\nDifferentiate the log-likelihood with respect to \\(\\theta\\)\nSet the derivative to 0\nSolve for \\(\\theta\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#example",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#example",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Example",
+    "text": "Example\n\\(L(p) = \\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Evaluating Estimators",
+    "text": "Evaluating Estimators\n\n\nBias: Average distance from the population parameter\n\nBias(\\(\\hat{\\theta}\\)) = \\(\\mathbf{E}[\\hat{\\theta}]-\\theta\\)\n\n\n\n\nStandard Error (SE): standard deviation of the estimator (i.e., SD of the sampling distribution)\n\nSTD(\\(\\hat{\\theta}\\))= \\(\\sqrt{\\mathbf{E}[\\hat{\\theta}-\\mathbf{E}(\\hat{\\theta})]^2}\\)\n\nMean Squared Error (MSE): combines standard error and bias\n\nMSE(\\(\\hat{\\theta}\\))= \\(\\mathbf{E}[\\hat{\\theta}-\\theta]^2\\) = SE\\(^2\\) + Bias\\(^2\\)\n\nConsistency: the estimate converges to the true value as \\(n \\rightarrow \\infty\\)"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators-1",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators-1",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Evaluating Estimators",
+    "text": "Evaluating Estimators"
+  },
+  {
+    "objectID": "materials/Unit1/Estimation/MLEstimation.html#example-1",
+    "href": "materials/Unit1/Estimation/MLEstimation.html#example-1",
+    "title": "Maximum Likelihood Estimation",
+    "section": "Example",
+    "text": "Example\nLet \\(X_1, X_2, ..., X_n \\stackrel{iid}{\\sim} Poisson(\\lambda)\\)\nDerive the MLE, \\(\\hat{\\lambda}\\), and determine if this is an unbiased estimator of \\(\\lambda\\)\n\\(P(X=x)=\\frac{\\lambda^x e^{-\\lambda}}{x !}\\)"
+  },
+  {
     "objectID": "materials/Unit1/Introduction/Introduction.html#section",
     "href": "materials/Unit1/Introduction/Introduction.html#section",
     "title": "Introduction",
@@ -189,550 +378,18 @@
     "text": "Birthday Problem\nWhat is the probability that two people in the class have the same birthday?"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IDS 702: Data Modeling and Representation",
+    "objectID": "materials/Unit2/schedule.html",
+    "href": "materials/Unit2/schedule.html",
+    "title": "Schedule and Course Materials",
     "section": "",
-    "text": "Welcome to IDS 702: Data Modeling and Representation!"
+    "text": "Unit\n      Date\n      Topic\n      Class prep\n      Class materials \n      Assignment due\n  \n  \n    \n      0\n      8.20\n      Bootcamp: Exploring data in R\n      Install R/RStudio or  use the Duke R container\n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      1\n      8.26\n      Introduction\n      None\n      \n        \n\n  \n\n\n    \n   \n      \n      8.28\n      Probability\n      Intuitive Introductory Statistics (IIS) Section 4.2  (4.1 also recommended)\n      \n                \n\n  \n\n\n    \n   \n      \n      9.2\n      Probability Distributions\n      IIS 4.3 intro and 4.3.1, 4.5, 4.7 intro and 4.7.1\n      \n                \n\n  \n \n                \n\n  \n  \n \n                \n\n  \n  \n    \n\n    \n   \n      \n      9.4\n      Sampling Distributions & CLT\n      5 up to 5.1.1\n      \n         \n\n  \n \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      9.7\n      \n      \n      \n       HW1 due 9.7 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n  \n        \n  \n\n\n    \n   \n      \n      9.9\n      Maximum Likelihood Estimation\n      \n        Maximum Likelihood Estimation video \n      \n      \n \n\n  \n\n        \n  \n\n      \n       \n\n    \n   \n      \n      9.11\n      Confidence Intervals/Bootstrap\n      \n        Introduction to Modern Statistics (IMS) Ch 12 up to 12.4 \n      \n      \n  \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n       \n\n    \n   \n      \n      9.14\n      \n            \n       \n\n       First statistics reflection\n        \n  \n\n      \n    \n   \n      \n      9.16\n      Inference I\n            \n               IMS Chapter 11 (13 could also be useful)\n            \n       \n\n      \n      \n    \n    \n   \n      \n      9.18\n      Inference II\n            IMS Chapter 20 sections 20.3 and 20.4 \n            \n       \n        \n\n  \n       \n        \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n        \n      \n\n\n       \n      \n    \n   \n      \n      9.21\n      \n      \n      \n       HW2 due 9.21 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      2\n      9.23\n      Simple Linear Regression\n            \n               Introduction to Statistical Learning with Applications in R (ISLR) 2nd edition: Chapter 3 up to 3.1.3\n            \n       Quiz 1 in class \n          \n\n  \n  \n\n      \n      \n    \n    \n   \n      \n      9.25\n      Multiple Linear Regression\n            3 videos: Multiple Linear Regression, \n            MLR Inference , and\n            MLR estimation and matrix notation\n   \n   Slides for reference:\n               First two videos, Third video\n          \n          Optional/supplementary reading: ISLR 3.2 up to \"deciding on important variables\"\n            \n       \n\n\n --&gt;  \n  \n   \n  \n  \n   Q\n  \n   M\n  \n   D\n    \n\n --&gt;  \n  \n   \n  \n  \n   Q\n  \n   M\n  \n   D\n  \n       \n  \n\n      \n\n\n       \n      \n    \n       \n      \n      9.30\n      Categorical Predictors & Interaction Terms\n    \n            2 videos: Categorical Predictors, \n            Interaction Terms\n   \n   Slides for reference:\n               Categorical Predictors, Interaction Terms\n          \n          Optional/supplementary reading: ISLR section 3.3 up to “Nonlinear Relationships”\n            \n      \n    \n --&gt;  \n  \n  \n  \n  \n   Q\n  \n  M\n  \n  D\n\n\n      \n      \n    \n    \n   \n      \n      10.2\n      Assessment & Assumptions\n            2 videos: Assessing the Model, \n            Regression Assumptions\n   \n   Slides for reference:\n               Assessment, Assumptions\n          \n          Optional/supplementary reading: ISLR section 3.2.2 section “Three: Model Fit”; 3.3.3 #1-3 (Non-linearity, correlation of error terms, non-constant variance)\n            \n       \nNotes continued from Tuesday, but here's the filled-in version, including answers to the exercise \n\n --&gt;  \n  \n  \n  \n  \n  Q\n  \n  M\n  \n   D\n\n      \n\n\n       \n      \n    \n   \n      \n      10.7\n      Problems that can arise\n            2 videos: Influential Points, \n            Multicollinearity\n   \n   Slides for reference:\n               Influential points, Multicollinearity\n          \n          Optional/supplementary reading: ISLR section 3.3.3 #4-6\n            \n      \n        \n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n      \n       \n\n    \n   \n      \n      10.8\n      \n       \n        \n       HW3 Part 1 due 10.8 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D\n\n\n    \n   \n      \n      10.9\n      Model Selection\n            First read ISLR 3.2.2 part \"Two: Deciding on Important Variables\"\n\nThen, read Step Away from Stepwise by Gary Smith. Focus on the introduction and the conclusion. After reading, you should be able to describe in general terms why Smith argues against using stepwise variable selection, particularly with large datasets.\n            \n\n      \n       \n\n    \n       \n      \n      10.14\n      NO CLASS\n       \n        \n          \n   \n      \n      10.16\n      NO CLASS\n       \n        \n  \n    \n   \n      \n      10.17\n      \n       \n        \n       HW3 Part 2 due 10.17 11:59 PM  Open the file to view questions, download template to complete, render to pdf and submit on gradescope \n        \n\n  \n  \n\n\n  \n  \n  \n  \n  Q\n  \n  M\n  \n  D"
   },
   {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "IDS 702: Data Modeling and Representation",
-    "section": "Course Overview",
-    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270\nInstructor  Andrea Lane, PhD  andrea.lane@duke.edu  Gross Hall 223  Office hours: Thurs 4:30-5:30 PM   Teaching Assistants  Kayla Haeussler  kayla.haeussler@duke.edu  Office hours: Weds 12-1 PM, Gross Hall 230K   Atreya Tadepalli  atreya.tadepalli@duke.edu  Office hours: Fri 1-2 PM, Gross Hall 230M  \nClick here to download the syllabus"
-  },
-  {
-    "objectID": "materials/Homework/HW1.html",
-    "href": "materials/Homework/HW1.html",
-    "title": "Homework 1",
-    "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n\nIn a Japanese cohort study, 5,322 male non-smokers and 7,019 male smokers were followed for four years. Of these men, 16 non-smokers and 77 smokers developed lung cancer.\n\nFill in the 2x2 table for this problem:\n\n\n\n\n\n\n\n\n\n\nDeveloped lung cancer\nDid not develop lung cancer\nTotal\n\n\n\n\nSmoker\n\n\n\n\n\nNon-smoker\n\n\n\n\n\nTotal\n\n\n\n\n\n\nWhat is the probability that a randomly-selected non-smoker from this group developed lung cancer?\nWhat is the marginal probability of developing lung cancer in this group?\nAre the events “smoker” and “developed lung cancer” independent?\n\nSuppose a particular disease is prevalent in a population with 60%. The sensitivity and specificity of the medical test for this disease are both 0.9. A patient from this population is visiting the physician and is tested for the disease.\n\nWhat is the probability that a person has the disease given that they had a positive test result?\nDrop the given statement that the specificity is 0.9. If the sensitivity is 0.9, what is the minimum required specificity of the test to know with at least 95% certainty that the patient has the disease given that they have a positive test?\n\nA manager at a restaurant is training her new hostess and during the discussion the new employee asks about the typical size of a group that needs to be seated. The manager says company research indicates that one of the following three probability models is appropriate.\n\n\n\nGroup size\n1\n2\n3\n4\n5\n\n\n\n\nModel 1\n0.1\n0.25\n0.2\n0.2\n0.1\n\n\nModel 2\n0.15\n0.35\n0.25\n0.25\n0.1\n\n\nModel 3\n0.1\n0.35\n0.15\n0.3\n0.1\n\n\n\n\nIdentify the correct probability model and explain the problems with the other two models.\nWhat is the expected size of a group that needs to be seated? Is this different from the most likely size?\n\nA potato chip manufacturer decides whether to purchase a truckload of potatoes by selecting samples and inspecting them to see if they meet the company standards. Suppose that 20 potatoes are randomly selected and the company policy is to purchase the load of potatoes if fewer than 2 of the potatoes are deemed unsatisfactory. Find the probability of purchasing a load of potatoes for which\n\n5% are rotten\n10% are rotten\n\nA soup company claims that one of its products contains 480 mg of sodium per serving with a standard deviation of 6 mg. Assuming that the amount of sodium in a particular serving varies according to the normal distribution, what is the chance that a particular serving contains:\n\nfewer than 475 mg of sodium\nat least 490 mg of sodium\nFind the interval of sodium levels that contains 80% of the values for the amount of sodium in a particular serving."
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#announcements",
-    "href": "materials/Unit1/Distributions/Distributions.html#announcements",
-    "title": "Probability Distributions",
+    "objectID": "materials/Unit2/SLR.html#announcements",
+    "href": "materials/Unit2/SLR.html#announcements",
+    "title": "Simple Linear Regression",
     "section": "Announcements",
-    "text": "Announcements\n\nReminder to join the ids702-fa25 Slack channel\nHW1 posted, due Sunday 11:59 PM"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#warm-up-questions-wooclap-on-canvas-assignments",
-    "href": "materials/Unit1/Distributions/Distributions.html#warm-up-questions-wooclap-on-canvas-assignments",
-    "title": "Probability Distributions",
-    "section": "Warm-up Questions (Wooclap on Canvas > Assignments)",
-    "text": "Warm-up Questions (Wooclap on Canvas &gt; Assignments)"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#random-variables",
-    "href": "materials/Unit1/Distributions/Distributions.html#random-variables",
-    "title": "Probability Distributions",
-    "section": "Random Variables",
-    "text": "Random Variables\nRandom variables are variables that can take different values, and the value they take depends on a probabilistic process.\nExamples:\n\n\n\n\n\n\n\nY=Resting heart rate\nY=congestive heart failure status (1=Yes, 0=No)\n\n\n\n\n80\n0\n\n\n82\n1\n\n\n78\n0\n\n\n90\n1\n\n\n65\n0"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#probability-distributions",
-    "href": "materials/Unit1/Distributions/Distributions.html#probability-distributions",
-    "title": "Probability Distributions",
-    "section": "Probability Distributions",
-    "text": "Probability Distributions\nA probability distribution is a function that maps a possible outcome of a random variable to its probability of occurrence.\n\n\n\n\n\n\n\nImage source: https://blog.minitab.com/en/adventures-in-statistics-2/understanding-and-using-discrete-distributions"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#key-components-of-probability-distributions",
-    "href": "materials/Unit1/Distributions/Distributions.html#key-components-of-probability-distributions",
-    "title": "Probability Distributions",
-    "section": "Key Components of Probability Distributions",
-    "text": "Key Components of Probability Distributions\n\nSupport: values that the distribution can take\nParameters: values that characterize the distribution\nPDF/PMF: \\(f(x)\\) , function whose output is a probability of a particular value or range of values\nCDF: \\(F(x)\\) , function whose output is a cumulative probability up to a particular value\nExpected value/mean: \\(\\mathbf{E}(X)\\)\nVariance: \\(\\mathbf{E}[(X-\\mu)^2]\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#example",
-    "href": "materials/Unit1/Distributions/Distributions.html#example",
-    "title": "Probability Distributions",
-    "section": "Example",
-    "text": "Example\n\n\n\n\\(X\\)\n1\n2\n3\n4\n\n\n\\(P(X=x)\\)\n0.2\n0.4\n0.3\n0.1\n\n\n\n\nIs this a valid probability distribution?\nIs this a discrete or continuous distribution?\nWhat is the support?\nWhat is \\(P(X=3)\\)?\nWhat is \\(F(3)\\)?\nWhat is \\(\\mathbf{E}(X)\\)?\nWhat is \\(Var(X)\\)?"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#example-answers",
-    "href": "materials/Unit1/Distributions/Distributions.html#example-answers",
-    "title": "Probability Distributions",
-    "section": "Example answers",
-    "text": "Example answers\n\nIs this a valid probability distribution?\nIs this a discrete or continuous distribution?\nWhat is the support?\nWhat is \\(P(X=3)\\)?\nWhat is \\(F(3)\\)?"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#example-answers-1",
-    "href": "materials/Unit1/Distributions/Distributions.html#example-answers-1",
-    "title": "Probability Distributions",
-    "section": "Example answers",
-    "text": "Example answers\n\nWhat is \\(\\mathbf{E}(X)\\)?\n \nWhat is \\(Var(X)\\)?\n\n\\(Var(X)=\\mathbf{E}[(X-\\mu)^2]=\\mathbf{E}[X^2]-\\mathbf{E}[X]^2\\) (do this on your own)"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/Distributions.html#common-probability-distributions",
-    "href": "materials/Unit1/Distributions/Distributions.html#common-probability-distributions",
-    "title": "Probability Distributions",
-    "section": "Common Probability Distributions",
-    "text": "Common Probability Distributions\n\nNormal\nt\nBernoulli\nBinomial\nUniform\nMultinomial\nPoisson\nNegative Binomial"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#sampling-distribution-illustration",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#sampling-distribution-illustration",
-    "title": "Sampling Distributions",
-    "section": "Sampling Distribution Illustration",
-    "text": "Sampling Distribution Illustration"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#central-limit-theorem",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#central-limit-theorem",
-    "title": "Sampling Distributions",
-    "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n \nLet \\(X_1,X_2,...,X_n\\) have population mean \\(\\mu\\) and variance \\(\\sigma^2\\)\n\\[\n\\bar{X} \\sim N(\\mu,\\frac{\\sigma^2}{n})\n\\]\n \nAs the sample size gets large, the sample mean becomes normally distributed, with mean \\(\\mu\\) and standard error \\(\\sigma/\\sqrt{n}\\) , regardless of the distribution of \\(X_1,...,X_n\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulating-the-clt-in-r",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulating-the-clt-in-r",
-    "title": "Sampling Distributions",
-    "section": "Simulating the CLT in R",
-    "text": "Simulating the CLT in R\nRecall that the rnorm function can generate values from a normal distribution\nrnorm(1, mean=10, sd=2)\n \nLet’s simulate taking a sample of size 10 from a population that is normally distributed with mean 10 and SD 2\nset.seed(905)\nNormalSample_10 &lt;- data.frame(means=rnorm(10, mean=10, sd=2))"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r",
-    "title": "Sampling Distributions",
-    "section": "Simulate the CLT in R",
-    "text": "Simulate the CLT in R\nLet’s generate a histogram.\nggplot(NormalSample_10, aes(x=means))+\n  geom_histogram()"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-1",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-1",
-    "title": "Sampling Distributions",
-    "section": "Simulate the CLT in R",
-    "text": "Simulate the CLT in R\nNow, let’s simulate the process of taking 1000 different samples, each of size 10, and compute the mean of each sample.\nNormalmeans_10 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  NormalSample_10 &lt;- rnorm(10, mean=10, sd=2)\n  Normalmeans_10[i,1] &lt;- mean(NormalSample_10)\n}\n\nggplot(Normalmeans_10, aes(x=means)) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-2",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-2",
-    "title": "Sampling Distributions",
-    "section": "Simulate the CLT in R",
-    "text": "Simulate the CLT in R\nNow, let’s simulate the process of taking 1000 different samples, each of size 100\nNormalmeans_100 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  NormalSample_100 &lt;- rnorm(100, mean=10, sd=2)\n  Normalmeans_100[i,1] &lt;- mean(NormalSample_100)\n}\n\nggplot(Normalmeans_100, aes(x=means)) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-3",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-3",
-    "title": "Sampling Distributions",
-    "section": "Simulate the CLT in R",
-    "text": "Simulate the CLT in R\nFinally, let’s sample from a bimodal distribution.\nplot(density(rbinorm(1000,35,62,5,5,0.3)),\n     main=\"Population Distribution - bimodal\",\n     xlab=\"x\",ylab=\"Density\")"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-4",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-4",
-    "title": "Sampling Distributions",
-    "section": "Simulate the CLT in R",
-    "text": "Simulate the CLT in R\nStart with n=10\nBimodalmeans_10 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  BimodalSample_10 &lt;- rbinorm(10,35,62,5,5,0.3)\n  Bimodalmeans_10[i,1] &lt;- mean(BimodalSample_10)\n}\n\nggplot(Bimodalmeans_10, aes(x=means)) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-5",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#simulate-the-clt-in-r-5",
-    "title": "Sampling Distributions",
-    "section": "Simulate the CLT in R",
-    "text": "Simulate the CLT in R\nNow let’s do n=100\nBimodalmeans_100 &lt;- data.frame(means=NA)\nfor(i in 1:1000){\n  set.seed(905+i)\n  BimodalSample_100 &lt;- rbinorm(100,35,62,5,5,0.3)\n  Bimodalmeans_100[i,1] &lt;- mean(BimodalSample_100)\n}\n\nggplot(Bimodalmeans_100, aes(x=means)) +\n  geom_histogram()"
-  },
-  {
-    "objectID": "materials/Homework/reflections.html",
-    "href": "materials/Homework/reflections.html",
-    "title": "Statistics Reflections",
-    "section": "",
-    "text": "In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as “amoral,” but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.\nThis assignment connects to the fourth course learning objective: Make careful and critical decisions about model building and consider real-world implications."
-  },
-  {
-    "objectID": "materials/Homework/reflections.html#motivation",
-    "href": "materials/Homework/reflections.html#motivation",
-    "title": "Statistics Reflections",
-    "section": "",
-    "text": "In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as “amoral,” but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.\nThis assignment connects to the fourth course learning objective: Make careful and critical decisions about model building and consider real-world implications."
-  },
-  {
-    "objectID": "materials/Homework/reflections.html#instructions",
-    "href": "materials/Homework/reflections.html#instructions",
-    "title": "Statistics Reflections",
-    "section": "Instructions",
-    "text": "Instructions\nYou are required to complete two statistics reflections during the semester. You can select any material from the list of materials below.\n\nBegin your assignment with a header that includes your name and the title and source of your selected material\nReflect on the material selected. What did it make you think about? How does it affect your work as a data scientist? Note that you are required to engage with the material and provide your thoughts/reactions; you should NOT be summarizing the piece.\nWhile there is no minimum word count for the reflections, you are expected to meaningfully engage with the material (2-3 paragraphs). You can use the suggested questions to get started, but you are not required to answer them in your response.\nYou can use Word or any other text editor to complete this assignment, as long as you submit a PDF to Gradescope. You do not need to use R/Quarto for this assignment.\nIn Gradescope, select the appropriate reflection assignment based on the due date. All of the assignments are already available, so you can complete them at any time!\n\nI am always available if you have any questions or comments about the content presented in these materials. Additionally, if you come across a piece that is not on this list and you would like to use it for a statistics reflection, you are welcome to send me an email. Please include a link to the piece and a brief description of how it connects data science and society.\nNote: It is not appropriate to use ChatGPT for this assignment. The task is to offer your personal reflections/thoughts; there are no right or wrong answers here."
-  },
-  {
-    "objectID": "materials/Homework/reflections.html#materials",
-    "href": "materials/Homework/reflections.html#materials",
-    "title": "Statistics Reflections",
-    "section": "Materials",
-    "text": "Materials\n\n  \n    \n      \n        A Primer on Non-Binary Gender and Big Data (article)\n      \n    \n    \n      \n        A Primer on Non-Binary Gender and Big Data \n        The author offers several questions you may want to consider in your response: \n        \n          What potential insights might we derive from working with non-binary gender and data?\n          What are the risks to gener minorities in relation to data?\n          What kinds of variation do we see across culture, context, and history?\n          How might non-binary gender and data deal with intersectionality (Click this link to learn more about intersectionality)\n        \n        Additionally, you may want to consider: \n        \n          Is it always useful/important to collect data on gender? In which domains might it be more important than others?\n        \n      \n    \n  \n  \n    \n      \n        How Eugenics Shaped Statistics (article - highly recommended!)\n      \n    \n    \n      \n        How eugenics shaped statistics \n        \n          Consider this quote: \"The separation was everything—not how much, what else might explain it, or why it mattered, just that it was there.\" Reflect on what this means for you as a data scientist\n          The article argues that you cannot separate the science from the scientist. Do you agree?\n          Reflect on the argument that Galton, Pearson, and Fisher's views are \"a product of their time.\"\n        \n        \n      \n    \n  \n  \n    \n      \n        To predict and serve? (article)\n      \n    \n    \n      \n        To predict and serve? This article may be of particular interest to those interested in social justice. The authors work with the Human Rights Data Analysis Group (and Kristian Lum is a Duke alum!) \n        \n          In data analysis, we often use the phrase \"garbage in, garbage out\" to refer to models based on bad data. How does this relate to the problem of using biased data for predictive policing?\n          The last sentence states that data-driven approaches should be inclusive. How do you think this can be done? Is it possible to use biased data without reaching biased predictions?\n          Can you think of other examples in which using data to predict future behavior could do more harm than good?\n\n        \n      \n    \n  \n    \n    \n      \n        Data sonification (podcast)\n      \n    \n    \n      \n        Loud Numbers: Listen to whichever one of the podcast episodes looks most interesting to you. Also, read the FAQs under the What We Do tab. You might also be interested in the Talks and Articles listed under the Community tab. \n        \n          One of the FAQs mentions accessibility. Consider the limitations of only representing data visually and how data sonification may make data more accessible.\n\n          How might we use the other senses (touch, smell, taste) to represent data? Have you seen data represented in any of these ways before?\n\n        \n      \n    \n  \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose (podcast)\n      \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose  (interview starts at 8:15 and ends at 46:00)\n        \n          Reflect on Dr. Rose's recommendations for ensuring fairness in machine learning\n          Consider Dr. Rose's comments about the \"single metric leaderboard\" and what it means for you as a data scientist.\n        \n      \n    \n  \n    \n    \n      \n        Peter Donnelly: How stats fool juries (video)\n      \n    \n    \n      \n        Peter Donnelly: How stats fool juries (you can skip past the stats jokes and start at 3:30) \n        \n          This talk is from 2007. Can you think of more recent examples of misleading statistics/misuse of statistical principles?\n          How do you think situations like the trial Donnelly describes can be avoided?\n        \n      \n    \n  \n    \n    \n      \n        Here’s how an AI tool may flag parents with disabilities (article)\n      \n    \n    \n      \n        Here’s how an AI tool may flag parents with disabilities\n        \n          Do you think a data-driven approach to child welfare monitoring could be ethical? If so, how do you think the approach described in the article could be modified to avoid pitfalls like the ones described?\n          LA County’s Department of Children and Family Services Director Brandon Nichols is quoted in the article saying that the algorithm being used is beyond the department's expertise. What role can data scientists play in government sectors where algorithms like this are being used?"
-  },
-  {
-    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#announcements",
-    "href": "materials/Unit1/Distributions/SamplingDistributions.html#announcements",
-    "title": "Sampling Distributions",
-    "section": "Announcements",
-    "text": "Announcements\n\nHW 1 due Sunday 11:59 PM\nStatistics reflections posted"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#estimation",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#estimation",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Estimation",
-    "text": "Estimation\nSay we have data on home ownership in North Carolina, collected as yes/no\n\n\n\n\nOwns a home (1=Yes)\n\n\n\n\n0\n\n\n1\n\n\n1\n\n\n…\n\n\n0\n\n\n\n\n\nWe want to know about the proportion of home ownership in the state. Using the data, what might be our best guess?"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#maximum-likelihood-estimation",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#maximum-likelihood-estimation",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Maximum Likelihood Estimation",
-    "text": "Maximum Likelihood Estimation\nLet \\(X_1, X_2, ..., X_n \\stackrel{iid}{\\sim} F_{\\theta}\\)\n \n\nThen the joint distribution of (\\(X_1, ..., X_n\\)) is given by \\(f_{\\theta}(x_1,...,x_n)=\\prod_{i=1}^{n} f_{\\theta}(x_i)\\)\n \n\n\nNow, we define the likelihood function as a function of the fixed population parameter \\(\\theta\\) : \\(L(\\theta)=f_{\\theta}(X_1,...,X_n)=\\prod_{i=1}^nf_{\\theta}(X_i)\\)\nWe want to find the value of \\(\\theta\\) that maximizes the likelihood function and call it \\(\\hat{\\theta}\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#illustration",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#illustration",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Illustration",
-    "text": "Illustration\nGoing back to our example of home ownership, let’s say we have n=100, where 70 own their home. What distribution can we assume for this variable?\n \n\nWe can use the Bernoulli distribution, so\n\\(\\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}\\) and \\(L(p)=p^{70}(1-p)^{30}\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics",
-    "title": "Maximum Likelihood Estimation",
-    "section": "General mechanics",
-    "text": "General mechanics\n\nAssume a distribution for the population\nDefine the likelihood: joint probability of the data\nTake the log of the likelihood\nFind the value of \\(\\theta\\) that maximizes the likelihood:\n\nDifferentiate the log-likelihood with respect to \\(\\theta\\)\nSet the derivative to 0\nSolve for \\(\\theta\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Evaluating Estimators",
-    "text": "Evaluating Estimators\n\n\nBias: Average distance from the population parameter\n\nBias(\\(\\hat{\\theta}\\)) = \\(\\mathbf{E}[\\hat{\\theta}]-\\theta\\)\n\n\n\n\nStandard Error (SE): standard deviation of the estimator (i.e., SD of the sampling distribution)\n\nSTD(\\(\\hat{\\theta}\\))= \\(\\sqrt{\\mathbf{E}[\\hat{\\theta}-\\mathbf{E}(\\hat{\\theta})]^2}\\)\n\nMean Squared Error (MSE): combines standard error and bias\n\nMSE(\\(\\hat{\\theta}\\))= \\(\\mathbf{E}[\\hat{\\theta}-\\theta]^2\\) = SE\\(^2\\) + Bias\\(^2\\)\n\nConsistency: the estimate converges to the true value as \\(n \\rightarrow \\infty\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#example",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#example",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Example",
-    "text": "Example\n\\(L(p) = \\prod_{i=1}^{n}p^{x_i} (1-p)^{1-x_i}\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#natural-estimators",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#natural-estimators",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Natural Estimators",
-    "text": "Natural Estimators\nSimilarly, if I want to know about each of the parameters given below, what might be the best guess using a sample?\n\nmean \\(\\mu\\)\nmedian \\(\\eta\\)\nstandard deviation \\(\\sigma\\)\n\n\nThese estimators (like \\(\\bar{x}\\) for \\(\\mu\\)) are intuitive. But sometimes it’s not so simple!"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#illustration-1",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#illustration-1",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Illustration",
-    "text": "Illustration\nWe can plot \\(L(p)=p^{70}(1-p)^{30}\\) over a range of values of \\(p\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#example-1",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#example-1",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Example",
-    "text": "Example\nLet \\(X_1, X_2, ..., X_n \\stackrel{iid}{\\sim} Poisson(\\lambda)\\)\nDerive the MLE, \\(\\hat{\\lambda}\\), and determine if this is an unbiased estimator of \\(\\lambda\\)\n\\(P(X=x)=\\frac{\\lambda^x e^{-\\lambda}}{x !}\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics-for-finding-the-mle",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#general-mechanics-for-finding-the-mle",
-    "title": "Maximum Likelihood Estimation",
-    "section": "General mechanics for finding the MLE",
-    "text": "General mechanics for finding the MLE\n\nAssume a distribution for the population\nDefine the likelihood: joint probability of the data\nTake the log of the likelihood\nFind the value of \\(\\theta\\) that maximizes the likelihood:\n\nDifferentiate the log-likelihood with respect to \\(\\theta\\)\nSet the derivative to 0\nSolve for \\(\\theta\\)"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators-1",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#evaluating-estimators-1",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Evaluating Estimators",
-    "text": "Evaluating Estimators"
-  },
-  {
-    "objectID": "materials/Unit1/Estimation/MLEstimation.html#announcements",
-    "href": "materials/Unit1/Estimation/MLEstimation.html#announcements",
-    "title": "Maximum Likelihood Estimation",
-    "section": "Announcements",
-    "text": "Announcements\n\nStatistics reflection due Sunday 9/14 11:59 PM"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#announcements",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#announcements",
-    "title": "Confidence Intervals",
-    "section": "Announcements",
-    "text": "Announcements\n\nStatistics reflection HW due Sunday 11:59 PM\nMy office hour will go until 5 today\nNotes from Tuesday posted on the course website\nDon’t need to let me know if you won’t be in class on a given day"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#motivation",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#motivation",
-    "title": "Confidence Intervals",
-    "section": "Motivation",
-    "text": "Motivation\nOnce we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#two-ways-of-producing-confidence-intervals",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#two-ways-of-producing-confidence-intervals",
-    "title": "Confidence Intervals",
-    "section": "Two ways of producing confidence intervals",
-    "text": "Two ways of producing confidence intervals\n\nAnalytical method\nResampling method"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#analytical-method",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#analytical-method",
-    "title": "Confidence Intervals",
-    "section": "Analytical method",
-    "text": "Analytical method\nIn some cases, we can rely on certain assumptions about the population and characterize the sampling distribution, e.g., when the assumptions for the CLT hold and we are interested in the sample mean.\n \nIn this case, we can generate a confidence interval of the form: \\[\n\\bar{x} \\pm z^* \\times \\sigma/\\sqrt{n}\n\\]\nOr, more generally: \\(\\hat{\\theta} \\pm t^* \\times \\sigma_{\\hat{\\theta}}\\)"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#resampling-method",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#resampling-method",
-    "title": "Confidence Intervals",
-    "section": "Resampling method",
-    "text": "Resampling method\nIn other cases, it is difficult or impossible to characterize the sampling distribution. In these cases, a resampling method called the bootstrap is useful.\n\nWe mimic the process of collecting many different samples from the population by sampling with replacement from the data\nWe calculate the statistic of interest in each bootstrap sample to form the estimated sampling distribution\nWe use the estimated sampling distribution to calculate a confidence interval"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#bootstrap-illustration",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#bootstrap-illustration",
-    "title": "Confidence Intervals",
-    "section": "Bootstrap illustration",
-    "text": "Bootstrap illustration"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#factors-that-affect-confidence-intervals",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#factors-that-affect-confidence-intervals",
-    "title": "Confidence Intervals",
-    "section": "Factors that affect confidence intervals",
-    "text": "Factors that affect confidence intervals\n\nSample size\nStandard error\nConfidence level"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
-    "title": "Confidence Intervals",
-    "section": "Confidence intervals in R",
-    "text": "Confidence intervals in R"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
-    "title": "Confidence Intervals",
-    "section": "Interpretation",
-    "text": "Interpretation\n\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the sample estimate lies in that interval."
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
-    "title": "Confidence Intervals",
-    "section": "Confidence interval activity",
-    "text": "Confidence interval activity"
-  },
-  {
-    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
-    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
-    "title": "Confidence Intervals",
-    "section": "Confidence intervals overview",
-    "text": "Confidence intervals overview\nOnce we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest"
-  },
-  {
-    "objectID": "materials/Homework/HW2.html",
-    "href": "materials/Homework/HW2.html",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n \n\nLet \\(X_1,X_2,...,X_n \\stackrel {iid}{\\sim} N(\\mu,1)\\), and recall the Normal PDF: \\(f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2 }} e^{\\frac{-(x-\\mu)^2 }{2\\sigma^2} }\\)\na. Write the likelihood function \\(L(\\mu)\\)\nb. Write the log-likelihood function \\(l(\\mu)\\)\nc. Find the maximum likelihood estimator of \\(\\mu\\)\nd. Determine if the MLE \\(\\hat{\\mu}\\) is an unbiased estimator of \\(\\mu\\)\n\n \n\nIn this exercise, you will conduct a simulation in R to evaluate the effect of sample size and sampling scheme on the sampling distribution of the mean.\n\nWe will use the dataset provided below to conduct the simulation. The dataset contains 100000 observations, so we will treat this as our population of interest. The dataset has 3 variables: 1 continuous variable (Y) and 2 categorical variables (X1 and X2).\n\nlibrary(tidyverse)\npopulation &lt;- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/population.csv\", header=TRUE)\n\nFirst, let’s understand our population. Our main variable of interest will be Y.\n\nWhat is the mean of Y? This will be our true parameter value, \\(\\mu\\).\nWhat is the mean of Y for each level of X2? How many observations are in each level of X2?\n\n \nThe code below simulates the sampling distribution of the mean if the data are collected using simple random sampling, where each member of the population has the same probability of being selected. Each sample is of size 100, and we will take 1000 different samples to understand the sampling distribution.\n\nSRSmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  SRS.sample &lt;- population |&gt; slice(sample(1:n(),size=100)) #the slice function selects rows of the specified data (population), and the sample function randomly selects 100 numbers out of the sequence 1:100000\n  SRSmeans[i,1] &lt;- SRS.sample |&gt; summarise(mean(Y)) #calculate the mean of each sample\n}\n\nggplot(SRSmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under simple random sampling\")\n\n\n\n\n\n\n\n\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nChange the sample size of each sample from 100 to 10. Does the sampling distribution change in i) shape, ii) mean, and/or iii) spread compared to part c?\n\n \nNext, we will explore the sampling distribution of the sample mean of Y under stratified sampling, where simple random samples are taken within subgroups. Here, we will use X2 as the group variable.\n\nFill in the two blanks in the code below to simulate the sampling distribution of the sample mean under stratified sampling for samples of size 100.\n\nStratmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  Stratified.sample &lt;- population |&gt;  \n                        group_by(__) |&gt;\n                        slice(sample(1:n(),size=50)) |&gt;\n                        ungroup()\n  Stratmeans[i,1] &lt;- Stratified.sample |&gt; summarise(____(Y)) #calculate the mean of each sample\n}\n\nggplot(Stratmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under stratified sampling\")\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nUsing your answers to parts b and f, what can you conclude about how sampling scheme can affect the sampling distribution of the mean?\n\n \nBonus: Simulate the sampling distribution under stratified sampling using X1 as the group variable. Start by calculating the sample size of each stratum and the true mean of Y in each stratum. Describe what you observe with the sampling distribution, how it compares to the sampling distribution you simulated in part e, and what this means for sampling scheme and sampling distributions."
-  },
-  {
-    "objectID": "materials/Homework/HW3.html",
-    "href": "materials/Homework/HW3.html",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n \nQuestions 2-5 use the births14 dataset in the openintro package. Read about the dataset and reference the codebook here\n\n(6 points) First, do some initial data exploration:\na. How many observations and how many variables are in the dataset? What does each row represent (i.e., what is the observational unit?)\nb. Which variables, if any, contain missing data?\nc. What is the count and percentage of low birth weight vs not low birth weight babies?\n\n \n\n(10 points) Is the median birth weight different when the mother smokes? Conduct a hypothesis test to investigate:\na. Write the null and alternative hypotheses.\nb. Calculate the observed statistic.\nc. Simulate the null distribution and calculate the p-value. Interpret the p-value in the context of the problem.\nd. Generate a bootstrap confidence interval and interpret the interval.\ne. Generate a plot to illustrate the median birth weight when the mother smokes vs doesn’t smoke.\n \n(8 points) Is there a relationship between premature birth and low birth weight? Conduct a hypothesis test to investigate:\na. Create a 2x2 table to show the counts of the two relevant variables\nb. What are the necessary conditions to conduct a Chi-square test of independence, and are those conditions met?\nc. Conduct the appropriate test. Write the null and alternative hypotheses, calculate and report the p-value, and interpret it in the context of the problem.\nd. Generate a plot to illustrate the relationship between premature birth and low birth weight.\n \n(10 points) Is there a relationship between hospital visits during pregnancy and mean mother’s age? Conduct a hypothesis test to investigate:\na. Create a new variable that categorizes the number of visits as: 10 or fewer, 11-15, more than 15\nb. Calculate the mean of mother’s age for each of the visit categories that you created in part a.\nc. What is the appropriate test to assess the research question? Write the null and alternative hypotheses.\nd. Conduct the appropriate test; calculate and report the p-value and interpret it in the context of the problem.\ne. Generate a plot to illustrate the relationship between mother’s age and the categorized visit variable."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing",
-    "href": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing",
-    "title": "Inference",
-    "section": "What is hypothesis testing?",
-    "text": "What is hypothesis testing?\nHypothesis testing is the procedure that assesses the evidence from the data in favor of or against some claims (hypotheses) about the population.\n \nWe will use information from the sample (data) to draw conclusions about the population"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing-1",
-    "href": "materials/Unit1/Inference/InferenceI.html#what-is-hypothesis-testing-1",
-    "title": "Inference",
-    "section": "What is hypothesis testing?",
-    "text": "What is hypothesis testing?\nUsually we have two hypotheses to test:\n\nNull (\\(H_0\\)): Formally, the null hypothesis makes a claim or assumption about a population parameter. Conceptually, it’s the “nothing special is going on” hypothesis.\nAlternative (\\(H_A\\)): A statement that is contradictory to the null hypothesis. Conceptually, it is the “something special is going on” or “the variables are associated” hypothesis."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#poll",
-    "href": "materials/Unit1/Inference/InferenceI.html#poll",
-    "title": "Inference",
-    "section": "Poll",
-    "text": "Poll\nAs we test the hypotheses, do you think it would be better scientific practice to operate under the assumption that the null hypothesis is true (i.e., nothing special is going on) or that the alternative hypothesis is true (something special is going on/the variables are related)?\nFor example, imagine you work for the FDA and you are assessing whether or not a new drug should be approved. Do you think it is better practice to 1) assume that the drug is not effective until the data prove otherwise, or 2) assume that the drug is effective until the data prove otherwise?"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#hypothesis-testing-framework",
-    "href": "materials/Unit1/Inference/InferenceI.html#hypothesis-testing-framework",
-    "title": "Inference",
-    "section": "Hypothesis testing framework",
-    "text": "Hypothesis testing framework\n\nStart with two hypotheses about the population: \\(H_0\\) (null) and \\(H_A\\) (alternative).\nChoose a representative sample.\nAssess how likely the sample data can be observed given that the \\(H_0\\) is true.\nIf the data are very unlikely to be observed when \\(H_0\\) is true, then we reject \\(H_0\\); otherwise, we cannot reject the null hypothesis."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#p-value",
-    "href": "materials/Unit1/Inference/InferenceI.html#p-value",
-    "title": "Inference",
-    "section": "P-value",
-    "text": "P-value\nThe probability of observing the data or even more extreme values assuming that \\(H_0\\) is true.\n\n\\(H_0:\\mu=0;H_A:\\mu&gt;0\\).\nThen p-value \\(=P(X&gt;x_{obs})\\) when \\(\\mu=0\\)\nIt is NOT the probability of \\(H_0\\) is true\nWhat if \\(H_A: \\mu \\neq 0\\) ?"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#example",
-    "href": "materials/Unit1/Inference/InferenceI.html#example",
-    "title": "Inference",
-    "section": "Example",
-    "text": "Example\nYou want to determine if a coin is a biased coin. You perform an experiment with the coin in question.\n\nSpecify the null and alternative hypotheses\nCollect data\nCalculate the p-value"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#example-1",
-    "href": "materials/Unit1/Inference/InferenceI.html#example-1",
-    "title": "Inference",
-    "section": "Example",
-    "text": "Example\nData: TTHTHHTHHH\n \n\nCalculate p-value:\n\n2*(1-pbinom(6,10,0.5))\n\n[1] 0.34375\n\n\nDo you think the coin is biased?\n\n\nWhat if we increased our sample size but saw the same proportion?\n\n2*(1-pbinom(60,100,0.5))\n\n[1] 0.0352002\n\n\nDo you think the coin is biased?"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#significance-level",
-    "href": "materials/Unit1/Inference/InferenceI.html#significance-level",
-    "title": "Inference",
-    "section": "Significance level",
-    "text": "Significance level\nA predetermined threshold used to tell whether a result is statistically significant; usually denoted by \\(\\alpha\\) and set as 0.05.\n\nIf the p-value is smaller than \\(\\alpha=0.05\\), then we can reject \\(H_0\\) at 0.05-significant level.\nIf the p-value is greater than \\(\\alpha=0.05\\), then we fail to reject \\(H_0\\) at 0.05-significant level.\n\n\nNote: We can NEVER say we accept the null hypothesis, even if the p-value is greater than the significance level."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#null-distribution-illustration",
-    "href": "materials/Unit1/Inference/InferenceI.html#null-distribution-illustration",
-    "title": "Inference",
-    "section": "Null Distribution Illustration",
-    "text": "Null Distribution Illustration"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#simulation-based-inference-vs.-parametric-inference",
-    "href": "materials/Unit1/Inference/InferenceI.html#simulation-based-inference-vs.-parametric-inference",
-    "title": "Inference",
-    "section": "Simulation-based Inference vs. Parametric Inference",
-    "text": "Simulation-based Inference vs. Parametric Inference\nSimulation-based inference\n\nSimulate the null distribution with resampling methods\nVery flexible, but requires computation power\n\n\nParametric Inference\n\nMake assumptions about the probability distribution of our population\nRelies on statistical theory such as central limit theorem"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#why-learn-both-approaches",
-    "href": "materials/Unit1/Inference/InferenceI.html#why-learn-both-approaches",
-    "title": "Inference",
-    "section": "Why learn both approaches?",
-    "text": "Why learn both approaches?\n\nSimulation-based inference can be intuitive, and is more flexible\nParametric inference has been around for a long time and you will likely see it more in practice\n\n\nNote: There is also non-parametric inference, where we don’t make distributional assumptions (e.g., Wilcoxon tests)"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/InferenceI.html#an-ethical-decision",
-    "href": "materials/Unit1/Inference/InferenceI.html#an-ethical-decision",
-    "title": "Inference",
-    "section": "An ethical decision",
-    "text": "An ethical decision"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing",
-    "href": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing",
-    "title": "Inference",
-    "section": "What is hypothesis testing?",
-    "text": "What is hypothesis testing?\nHypothesis testing is the procedure that assesses the evidence from the data in favor of or against some claims (hypotheses) about the population.\n \nWe will use information from the sample (data) to draw conclusions about the population"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing-1",
-    "href": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing-1",
-    "title": "Inference",
-    "section": "What is hypothesis testing?",
-    "text": "What is hypothesis testing?\nUsually we have two hypotheses to test:\n\nNull (\\(H_0\\)): Formally, the null hypothesis makes a claim or assumption about a population parameter. Conceptually, it’s the “nothing special is going on” hypothesis.\nAlternative (\\(H_A\\)): A statement that is contradictory to the null hypothesis. Conceptually, it is the “something special is going on” or “the variables are associated” hypothesis."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#poll",
-    "href": "materials/Unit1/Inference/Inference.html#poll",
-    "title": "Inference",
-    "section": "Poll",
-    "text": "Poll\nAs we test the hypotheses, do you think it would be better scientific practice to operate under the assumption that the null hypothesis is true (i.e., nothing special is going on) or that the alternative hypothesis is true (something special is going on/the variables are related)?\nFor example, imagine you work for the FDA and you are assessing whether or not a new drug should be approved. Do you think it is better practice to 1) assume that the drug is not effective until the data prove otherwise, or 2) assume that the drug is effective until the data prove otherwise?"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#hypothesis-testing-framework",
-    "href": "materials/Unit1/Inference/Inference.html#hypothesis-testing-framework",
-    "title": "Inference",
-    "section": "Hypothesis testing framework",
-    "text": "Hypothesis testing framework\n\nStart with two hypotheses about the population: \\(H_0\\) (null) and \\(H_A\\) (alternative).\nChoose a representative sample.\nAssess how likely the sample data can be observed given that the \\(H_0\\) is true.\nIf the data are very unlikely to be observed when \\(H_0\\) is true, then we reject \\(H_0\\); otherwise, we cannot reject the null hypothesis."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#p-value",
-    "href": "materials/Unit1/Inference/Inference.html#p-value",
-    "title": "Inference",
-    "section": "P-value",
-    "text": "P-value\nThe probability of observing the data or even more extreme values assuming that \\(H_0\\) is true.\n\n\\(H_0:\\mu=0;H_A:\\mu&gt;0\\).\nThen p-value \\(=P(X&gt;x_{obs})\\) when \\(\\mu=0\\)\nIt is NOT the probability of \\(H_0\\) is true\nWhat if \\(H_A: \\mu \\neq 0\\) ?"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#example",
-    "href": "materials/Unit1/Inference/Inference.html#example",
-    "title": "Inference",
-    "section": "Example",
-    "text": "Example\nYou want to determine if a coin is a biased coin. You perform an experiment with the coin in question.\n\nSpecify the null and alternative hypotheses\nCollect data\nCalculate the p-value"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#example-1",
-    "href": "materials/Unit1/Inference/Inference.html#example-1",
-    "title": "Inference",
-    "section": "Example",
-    "text": "Example\nData: TTHTHHTHHH\n \n\nCalculate p-value:\n\n2*(1-pbinom(6,10,0.5))\n\n[1] 0.34375\n\n\nDo you think the coin is biased?\n\n\nWhat if we increased our sample size but saw the same proportion?\n\n2*(1-pbinom(60,100,0.5))\n\n[1] 0.0352002\n\n\nDo you think the coin is biased?"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#significance-level",
-    "href": "materials/Unit1/Inference/Inference.html#significance-level",
-    "title": "Inference",
-    "section": "Significance level",
-    "text": "Significance level\nA predetermined threshold used to tell whether a result is statistically significant; usually denoted by \\(\\alpha\\) and set as 0.05.\n\nIf the p-value is smaller than \\(\\alpha=0.05\\), then we can reject \\(H_0\\) at 0.05-significant level.\nIf the p-value is greater than \\(\\alpha=0.05\\), then we fail to reject \\(H_0\\) at 0.05-significant level.\n\n\nNote: We can NEVER say we accept the null hypothesis, even if the p-value is greater than the significance level."
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#null-distribution-illustration",
-    "href": "materials/Unit1/Inference/Inference.html#null-distribution-illustration",
-    "title": "Inference",
-    "section": "Null Distribution Illustration",
-    "text": "Null Distribution Illustration"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#simulation-based-inference-vs.-parametric-inference",
-    "href": "materials/Unit1/Inference/Inference.html#simulation-based-inference-vs.-parametric-inference",
-    "title": "Inference",
-    "section": "Simulation-based Inference vs. Parametric Inference",
-    "text": "Simulation-based Inference vs. Parametric Inference\nSimulation-based inference\n\nSimulate the null distribution with resampling methods\nVery flexible, but requires computation power\n\n\nParametric Inference\n\nMake assumptions about the probability distribution of our population\nRelies on statistical theory such as central limit theorem"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#why-learn-both-approaches",
-    "href": "materials/Unit1/Inference/Inference.html#why-learn-both-approaches",
-    "title": "Inference",
-    "section": "Why learn both approaches?",
-    "text": "Why learn both approaches?\n\nSimulation-based inference can be intuitive, and is more flexible\nParametric inference has been around for a long time and you will likely see it more in practice\n\n\nNote: There is also non-parametric inference, where we don’t make distributional assumptions (e.g., Wilcoxon tests)"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#an-ethical-decision",
-    "href": "materials/Unit1/Inference/Inference.html#an-ethical-decision",
-    "title": "Inference",
-    "section": "An ethical decision",
-    "text": "An ethical decision"
-  },
-  {
-    "objectID": "materials/Unit1/Inference/Inference.html#announcements",
-    "href": "materials/Unit1/Inference/Inference.html#announcements",
-    "title": "Inference",
-    "section": "Announcements",
-    "text": "Announcements\n\nHW 2 due Sunday\nQuiz 1 on Tuesday: covers all of unit 1, no code"
-  },
-  {
-    "objectID": "materials/Unit1/IDS702_Unit1Quiz_2025.html",
-    "href": "materials/Unit1/IDS702_Unit1Quiz_2025.html",
-    "title": "IDS 702 Unit 1 Quiz",
-    "section": "",
-    "text": "First name:\n________________\nLast name:\n________________\n\n\nNet ID:\n________________"
-  },
-  {
-    "objectID": "materials/Unit1/IDS702_Unit1Quiz_2025.html#multiple-choice",
-    "href": "materials/Unit1/IDS702_Unit1Quiz_2025.html#multiple-choice",
-    "title": "IDS 702 Unit 1 Quiz",
-    "section": "Multiple Choice",
-    "text": "Multiple Choice\nCircle the letter to mark your answer choice.\n\nWhich of the following scenarios is best modeled by the binomial distribution?\n\n\n\nJane has 3 board games and 6 card games on her shelf. We want to know the probability that, if she chooses 4 games from her shelf, 2 of them will be strategy games.\nThe probability that Jane wins a single Solitaire game is 0.65. We want to know the probability that it will take 5 games for her to win 3 times.\nThe probability that Jane wins a game of Scrabble is 0.4, the probability that John wins is 0.3, and the probability that Jim wins is 0.3. We want to know the probability that, out of 5 games, Jane will win 2, John will win 2, and Jim will win 1.\nThe probability that Jane wins a single chess game is 0.65. We want to know the probability that she will win all 5 games in a competition.\n\n\nWhich of the following is not a step in creating a bootstrap sampling distribution?\n\n\n\nSpecifying the sampling distribution according to the central limit theorem\nSampling with replacement from the data\nCalculating a sample mean for each bootstrap sample\nIdentifying the sample statistic that corresponds to the research question\n\n\nIncreasing the sample size ____________ the width of a confidence interval and increasing the standard error _____________ the width of a confidence interval.\n\n\n\nincreases; increases\nincreases; decreases\ndecreases; increases\ndecreases; decreases\n\n\nWhat is the distinction between standard deviation and standard error?\n\n\n\nStandard error is the standard deviation of the sampling distribution\nStandard deviation is the standard error of the sampling distribution\nStandard error is the standard deviation of the population distribution\nStandard deviation is the standard error of the population distribution\n\n\n\nA p-value is the ____________ of observing ____________ as or more extreme than the observed, assuming the ____________ is true.\n\n\n\nstatistic; point estimate; alternative hypothesis\nstatistic; hypotheses; null hypothesis\nprobability; data; alternative hypothesis\nprobability; data; null hypothesis\n\n\nWhich of the following is guaranteed to be contained in a theoretical confidence interval?\n\n\n\nThe sample statistic\nThe population parameter\nThe test statistic\nThe null value\n\n\nAccording to the central limit theorem, what is the relationship between the sample size and the standard error?\n\n\n\nThe standard error will increase as the sample size increases.\nThe standard error will decrease as the sample size increases.\nThe standard error will remain constant as the sample size increases.\nThe standard error is not related to the sample size.\n\n\nWhich of the following is not a step in creating a bootstrap sampling distribution?\n\n\n\nSpecifying the sampling distribution according to the central limit theorem\nSampling with replacement from the data\nCalculating a sample mean for each bootstrap sample\nIdentifying the sample statistic that corresponds to the research question"
+    "text": "Announcements\n\nNo HW this Sunday!"
   },
   {
     "objectID": "materials/Unit2/SLR.html#motivating-example",
@@ -826,11 +483,186 @@
     "text": "Exercise\nFit a model to assess the relationship between family income and gift aid. Write the fitted model and interpret the results."
   },
   {
-    "objectID": "materials/Unit2/SLR.html#announcements",
-    "href": "materials/Unit2/SLR.html#announcements",
-    "title": "Simple Linear Regression",
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#announcements",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#announcements",
+    "title": "Confidence Intervals",
     "section": "Announcements",
-    "text": "Announcements\n\nNo HW this Sunday!"
+    "text": "Announcements\n\nStatistics reflection HW due Sunday 11:59 PM\nMy office hour will go until 5 today\nNotes from Tuesday posted on the course website\nDon’t need to let me know if you won’t be in class on a given day"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-interval-activity",
+    "title": "Confidence Intervals",
+    "section": "Confidence interval activity",
+    "text": "Confidence interval activity"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-overview",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals overview",
+    "text": "Confidence intervals overview\nOnce we have our estimate and our sampling distribution, we can use the sampling distribution to provide an interval that contains likely values of the population parameter of interest"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#two-ways-of-producing-confidence-intervals",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#two-ways-of-producing-confidence-intervals",
+    "title": "Confidence Intervals",
+    "section": "Two ways of producing confidence intervals",
+    "text": "Two ways of producing confidence intervals\n\nAnalytical method\nResampling method"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#analytical-method",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#analytical-method",
+    "title": "Confidence Intervals",
+    "section": "Analytical method",
+    "text": "Analytical method\nIn some cases, we can rely on certain assumptions about the population and characterize the sampling distribution, e.g., when the assumptions for the CLT hold and we are interested in the sample mean.\n \nIn this case, we can generate a confidence interval of the form: \\[\n\\bar{x} \\pm z^* \\times \\sigma/\\sqrt{n}\n\\]\nOr, more generally: \\(\\hat{\\theta} \\pm t^* \\times \\sigma_{\\hat{\\theta}}\\)"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#resampling-method",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#resampling-method",
+    "title": "Confidence Intervals",
+    "section": "Resampling method",
+    "text": "Resampling method\nIn other cases, it is difficult or impossible to characterize the sampling distribution. In these cases, a resampling method called the bootstrap is useful.\n\nWe mimic the process of collecting many different samples from the population by sampling with replacement from the data\nWe calculate the statistic of interest in each bootstrap sample to form the estimated sampling distribution\nWe use the estimated sampling distribution to calculate a confidence interval"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#bootstrap-illustration",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#bootstrap-illustration",
+    "title": "Confidence Intervals",
+    "section": "Bootstrap illustration",
+    "text": "Bootstrap illustration"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#factors-that-affect-confidence-intervals",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#factors-that-affect-confidence-intervals",
+    "title": "Confidence Intervals",
+    "section": "Factors that affect confidence intervals",
+    "text": "Factors that affect confidence intervals\n\nSample size\nStandard error\nConfidence level"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#confidence-intervals-in-r",
+    "title": "Confidence Intervals",
+    "section": "Confidence intervals in R",
+    "text": "Confidence intervals in R"
+  },
+  {
+    "objectID": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
+    "href": "materials/Unit1/ConfidenceIntervals/ConfidenceIntervals.html#interpretation",
+    "title": "Confidence Intervals",
+    "section": "Interpretation",
+    "text": "Interpretation\n\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the true parameter value lies in that interval.\nTrue or False: Once I produce a 95% confidence interval, there is a 95% probability that the sample estimate lies in that interval."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#announcements",
+    "href": "materials/Unit1/Inference/Inference.html#announcements",
+    "title": "Inference",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 2 due Sunday\nQuiz 1 on Tuesday: covers all of unit 1, no code"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing",
+    "href": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing",
+    "title": "Inference",
+    "section": "What is hypothesis testing?",
+    "text": "What is hypothesis testing?\nHypothesis testing is the procedure that assesses the evidence from the data in favor of or against some claims (hypotheses) about the population.\n \nWe will use information from the sample (data) to draw conclusions about the population"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing-1",
+    "href": "materials/Unit1/Inference/Inference.html#what-is-hypothesis-testing-1",
+    "title": "Inference",
+    "section": "What is hypothesis testing?",
+    "text": "What is hypothesis testing?\nUsually we have two hypotheses to test:\n\nNull (\\(H_0\\)): Formally, the null hypothesis makes a claim or assumption about a population parameter. Conceptually, it’s the “nothing special is going on” hypothesis.\nAlternative (\\(H_A\\)): A statement that is contradictory to the null hypothesis. Conceptually, it is the “something special is going on” or “the variables are associated” hypothesis."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#poll",
+    "href": "materials/Unit1/Inference/Inference.html#poll",
+    "title": "Inference",
+    "section": "Poll",
+    "text": "Poll\nAs we test the hypotheses, do you think it would be better scientific practice to operate under the assumption that the null hypothesis is true (i.e., nothing special is going on) or that the alternative hypothesis is true (something special is going on/the variables are related)?\nFor example, imagine you work for the FDA and you are assessing whether or not a new drug should be approved. Do you think it is better practice to 1) assume that the drug is not effective until the data prove otherwise, or 2) assume that the drug is effective until the data prove otherwise?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#hypothesis-testing-framework",
+    "href": "materials/Unit1/Inference/Inference.html#hypothesis-testing-framework",
+    "title": "Inference",
+    "section": "Hypothesis testing framework",
+    "text": "Hypothesis testing framework\n\nStart with two hypotheses about the population: \\(H_0\\) (null) and \\(H_A\\) (alternative).\nChoose a representative sample.\nAssess how likely the sample data can be observed given that the \\(H_0\\) is true.\nIf the data are very unlikely to be observed when \\(H_0\\) is true, then we reject \\(H_0\\); otherwise, we cannot reject the null hypothesis."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#p-value",
+    "href": "materials/Unit1/Inference/Inference.html#p-value",
+    "title": "Inference",
+    "section": "P-value",
+    "text": "P-value\nThe probability of observing the data or even more extreme values assuming that \\(H_0\\) is true.\n\n\\(H_0:\\mu=0;H_A:\\mu&gt;0\\).\nThen p-value \\(=P(X&gt;x_{obs})\\) when \\(\\mu=0\\)\nIt is NOT the probability of \\(H_0\\) is true\nWhat if \\(H_A: \\mu \\neq 0\\) ?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#example",
+    "href": "materials/Unit1/Inference/Inference.html#example",
+    "title": "Inference",
+    "section": "Example",
+    "text": "Example\nYou want to determine if a coin is a biased coin. You perform an experiment with the coin in question.\n\nSpecify the null and alternative hypotheses\nCollect data\nCalculate the p-value"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#example-1",
+    "href": "materials/Unit1/Inference/Inference.html#example-1",
+    "title": "Inference",
+    "section": "Example",
+    "text": "Example\nData: TTHTHHTHHH\n \n\nCalculate p-value:\n\n2*(1-pbinom(6,10,0.5))\n\n[1] 0.34375\n\n\nDo you think the coin is biased?\n\n\nWhat if we increased our sample size but saw the same proportion?\n\n2*(1-pbinom(60,100,0.5))\n\n[1] 0.0352002\n\n\nDo you think the coin is biased?"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#significance-level",
+    "href": "materials/Unit1/Inference/Inference.html#significance-level",
+    "title": "Inference",
+    "section": "Significance level",
+    "text": "Significance level\nA predetermined threshold used to tell whether a result is statistically significant; usually denoted by \\(\\alpha\\) and set as 0.05.\n\nIf the p-value is smaller than \\(\\alpha=0.05\\), then we can reject \\(H_0\\) at 0.05-significant level.\nIf the p-value is greater than \\(\\alpha=0.05\\), then we fail to reject \\(H_0\\) at 0.05-significant level.\n\n\nNote: We can NEVER say we accept the null hypothesis, even if the p-value is greater than the significance level."
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#null-distribution-illustration",
+    "href": "materials/Unit1/Inference/Inference.html#null-distribution-illustration",
+    "title": "Inference",
+    "section": "Null Distribution Illustration",
+    "text": "Null Distribution Illustration"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#simulation-based-inference-vs.-parametric-inference",
+    "href": "materials/Unit1/Inference/Inference.html#simulation-based-inference-vs.-parametric-inference",
+    "title": "Inference",
+    "section": "Simulation-based Inference vs. Parametric Inference",
+    "text": "Simulation-based Inference vs. Parametric Inference\nSimulation-based inference\n\nSimulate the null distribution with resampling methods\nVery flexible, but requires computation power\n\n\nParametric Inference\n\nMake assumptions about the probability distribution of our population\nRelies on statistical theory such as central limit theorem"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#why-learn-both-approaches",
+    "href": "materials/Unit1/Inference/Inference.html#why-learn-both-approaches",
+    "title": "Inference",
+    "section": "Why learn both approaches?",
+    "text": "Why learn both approaches?\n\nSimulation-based inference can be intuitive, and is more flexible\nParametric inference has been around for a long time and you will likely see it more in practice\n\n\nNote: There is also non-parametric inference, where we don’t make distributional assumptions (e.g., Wilcoxon tests)"
+  },
+  {
+    "objectID": "materials/Unit1/Inference/Inference.html#an-ethical-decision",
+    "href": "materials/Unit1/Inference/Inference.html#an-ethical-decision",
+    "title": "Inference",
+    "section": "An ethical decision",
+    "text": "An ethical decision"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#announcements",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#announcements",
+    "title": "Sampling Distributions",
+    "section": "Announcements",
+    "text": "Announcements\n\nHW 1 due Sunday 11:59 PM\nStatistics reflections posted"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#sampling-distribution-illustration",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#sampling-distribution-illustration",
+    "title": "Sampling Distributions",
+    "section": "Sampling Distribution Illustration",
+    "text": "Sampling Distribution Illustration"
+  },
+  {
+    "objectID": "materials/Unit1/Distributions/SamplingDistributions.html#central-limit-theorem",
+    "href": "materials/Unit1/Distributions/SamplingDistributions.html#central-limit-theorem",
+    "title": "Sampling Distributions",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n \nLet \\(X_1,X_2,...,X_n\\) have population mean \\(\\mu\\) and variance \\(\\sigma^2\\)\n\\[\n\\bar{X} \\sim N(\\mu,\\frac{\\sigma^2}{n})\n\\]\n \nAs the sample size gets large, the sample mean becomes normally distributed, with mean \\(\\mu\\) and standard error \\(\\sigma/\\sqrt{n}\\) , regardless of the distribution of \\(X_1,...,X_n\\)"
   },
   {
     "objectID": "materials/Homework/Unit2/HW3P1.html",
@@ -847,87 +679,24 @@
     "text": "Questions\nFirst, we need to explore the data.\n\nLet’s start by understanding the sample size and missing values.\n\nWhat is the sample size? What does each observation represent?\nHow many, if any, missing observations are in each of the variables listed in the codebook above (you can use sum(is.na()) or summary() to find the number of missing values). Use the provided code to subset the data to omit observations with missing data in those variables.\n\nNext, let’s explore the categorical variables. Fill in the provided table with the count and percentage for each level of basic and control.\nNow, let’s explore the outcome.\n\nFill in the code provided to generate a histogram of grad_100_value. Describe what you observe in the plot. Is this what you would expect to see? Why or why not?\nGenerate a histogram of grad_150_value. Describe what you observe in the plot compared to the histogram of grad_100_value. Which variable seems to contain more reliable data (hint: it might be helpful to look at particular observations, such as Northeastern University).\n\nUse the code provided to create scatter plots to illustrate the relationship between the variables listed below and the graduation rate within 150% of normal time. Be sure to include appropriate axis and legend labels as shown in the template. For each plot, describe what you observe in one sentence. (Note: you should create factor variables for the categorical variables)\n\nmedian SAT score (med_sat_value), colored by private vs. public institution (control)\nmedian SAT score (med_sat_value) colored by basic classification (basic)\nendowment value (endow_value) colored by private vs. public institution (control)\nendowment value (endow_value) colored by basic classification (basic)\nenrollment total (student_count) colored by private vs. public institution (control)\nenrollment total (student_count) colored by basic classification (basic)\n% full-time students (ft_pct) colored by private vs. public institution (control)\n% full-time students (ft_pct) colored by basic classification (basic)\nfirst-year retention (retain_value) colored by private vs. public institution (control)\nfirst-year retention (retain_value) colored by basic classification (basic)\n\n \nNo code is necessary for questions 5-7.\nIf you were to fit a model with the basic classification as a covariate, would you choose to combine baccalaureate colleges into a single category and research universities into a single category (such that the resulting covariate has two levels instead of 4)? Consider the number of observations in each level and the interpretation in the model as you justify your decision.\nWrite the theoretical model regressing graduation rate within 150% of normal time on student count and control (public vs private).\nWrite the theoretical model for a model that assesses how the relationship between full-time student percentage and graduation rate within 150% of normal time depends on institution control (public vs private), controlling for retention rate and median SAT score. Be sure to define all terms. Then, write the separate theoretical models for public and private schools."
   },
   {
-    "objectID": "materials/Homework/Unit1/HW2.html",
-    "href": "materials/Homework/Unit1/HW2.html",
-    "title": "Homework 2",
-    "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n \n\nLet \\(X_1,X_2,...,X_n \\stackrel {iid}{\\sim} N(\\mu,1)\\), and recall the Normal PDF: \\(f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2 }} e^{\\frac{-(x-\\mu)^2 }{2\\sigma^2} }\\)\na. Write the likelihood function \\(L(\\mu)\\)\nb. Write the log-likelihood function \\(l(\\mu)\\)\nc. Find the maximum likelihood estimator of \\(\\mu\\)\nd. Determine if the MLE \\(\\hat{\\mu}\\) is an unbiased estimator of \\(\\mu\\)\n\n \n\nIn this exercise, you will conduct a simulation in R to evaluate the effect of sample size and sampling scheme on the sampling distribution of the mean.\n\nWe will use the dataset provided below to conduct the simulation. The dataset contains 100000 observations, so we will treat this as our population of interest. The dataset has 3 variables: 1 continuous variable (Y) and 2 categorical variables (X1 and X2).\n\nlibrary(tidyverse)\npopulation &lt;- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/population.csv\", header=TRUE)\n\nFirst, let’s understand our population. Our main variable of interest will be Y.\n\nWhat is the mean of Y? This will be our true parameter value, \\(\\mu\\).\nWhat is the mean of Y for each level of X2? How many observations are in each level of X2?\n\n \nThe code below simulates the sampling distribution of the mean if the data are collected using simple random sampling, where each member of the population has the same probability of being selected. Each sample is of size 100, and we will take 1000 different samples to understand the sampling distribution.\n\nSRSmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  SRS.sample &lt;- population |&gt; slice(sample(1:n(),size=100)) #the slice function selects rows of the specified data (population), and the sample function randomly selects 100 numbers out of the sequence 1:100000\n  SRSmeans[i,1] &lt;- SRS.sample |&gt; summarise(mean(Y)) #calculate the mean of each sample\n}\n\nggplot(SRSmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under simple random sampling\")\n\n\n\n\n\n\n\n\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nChange the sample size of each sample from 100 to 10. Does the sampling distribution change in i) shape, ii) mean, and/or iii) spread compared to part c?\n\n \nNext, we will explore the sampling distribution of the sample mean of Y under stratified sampling, where simple random samples are taken within subgroups. Here, we will use X2 as the group variable.\n\nFill in the two blanks in the code below to simulate the sampling distribution of the sample mean under stratified sampling for samples of size 100.\n\nStratmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  Stratified.sample &lt;- population |&gt;  \n                        group_by(__) |&gt;\n                        slice(sample(1:n(),size=50)) |&gt;\n                        ungroup()\n  Stratmeans[i,1] &lt;- Stratified.sample |&gt; summarise(____(Y)) #calculate the mean of each sample\n}\n\nggplot(Stratmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under stratified sampling\")\n\nDoes the histogram show an approximately normal distribution? What is its mean and how does it compare to the population mean?\nUsing your answers to parts b and f, what can you conclude about how sampling scheme can affect the sampling distribution of the mean?\n\n \nBonus: Simulate the sampling distribution under stratified sampling using X1 as the group variable. Start by calculating the sample size of each stratum and the true mean of Y in each stratum. Describe what you observe with the sampling distribution, how it compares to the sampling distribution you simulated in part e, and what this means for sampling scheme and sampling distributions."
-  },
-  {
-    "objectID": "materials/Homework/Unit1/HW2_Key.html",
-    "href": "materials/Homework/Unit1/HW2_Key.html",
-    "title": "HW 2",
-    "section": "",
-    "text": "First, fill in your name in the author line in the header above. Then, use the template below to complete the assignment. For question 1, you can choose to upload an image of your work rather than typing out the math (if you do want to type it, here is a helpful resource to get started). To upload an image, click “Insert &gt; Figure/Image.” For question 2, use the provided code boxes and then write the narrative answers underneath.\nOnce you have completed the exercises, render your document and submit the pdf on Gradescope. Be sure to assign the appropriate pages to the exercise numbers when you submit."
-  },
-  {
-    "objectID": "materials/Homework/Unit1/HW2_Key.html#instructions",
-    "href": "materials/Homework/Unit1/HW2_Key.html#instructions",
-    "title": "HW 2",
-    "section": "",
-    "text": "First, fill in your name in the author line in the header above. Then, use the template below to complete the assignment. For question 1, you can choose to upload an image of your work rather than typing out the math (if you do want to type it, here is a helpful resource to get started). To upload an image, click “Insert &gt; Figure/Image.” For question 2, use the provided code boxes and then write the narrative answers underneath.\nOnce you have completed the exercises, render your document and submit the pdf on Gradescope. Be sure to assign the appropriate pages to the exercise numbers when you submit."
-  },
-  {
-    "objectID": "materials/Homework/Unit1/HW2_Key.html#exercise-answers",
-    "href": "materials/Homework/Unit1/HW2_Key.html#exercise-answers",
-    "title": "HW 2",
-    "section": "Exercise answers",
-    "text": "Exercise answers\n\n1\na. \\(L(\\mu)=\\prod_{i=1}^{n} \\frac{1}{\\sqrt{2\\pi}} e^{\\frac{-(x_i-\\mu)^2 }{2} }\\) (take the product for the joint likelihood, plug in \\(\\sigma^2=1\\), and add \\(_i\\) to \\(x\\))\nb. \\(l(\\mu)=\\sum_{i=1}^{n} \\log{\\frac{1}{\\sqrt{2 \\pi}}}-\\frac{(x_i-\\mu)^2}{2}=-\\frac{n}{2}\\log{2\\pi}-\\frac{(x_i-\\mu)^2}{2}\\) (not required to simplify to the second expression)\nc. \\(\\frac{d}{d \\mu} (-\\frac{n}{2}\\log{2\\pi}-\\frac{(x_i-\\mu)^2}{2})=\\sum_{i=1}^{n} (x_i-\\mu)=\\sum_{i=1}^n x_i -n \\mu\\)\nSetting this to 0 and solving for \\(\\mu\\), we get \\(\\hat{\\mu}=\\frac{\\sum_{i=1}^{n} x_i}{n}\\)\nd. \\(E[\\hat{\\mu}]=E[\\frac{\\sum_{i=1}^n x_i}{n}]=\\frac{\\sum_{i=1}^n E[x_i]}{n}=\\frac{n \\mu}{n}=\\mu\\), so \\(\\hat{\\mu}\\) is unbiased.\n\n\n2\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──\n\n\n✔ ggplot2 3.4.0     ✔ purrr   0.3.4\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.2.0     ✔ stringr 1.4.0\n✔ readr   2.1.2     ✔ forcats 0.5.1\n\n\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\npopulation &lt;- read.csv(\"https://raw.githubusercontent.com/anlane611/datasets/main/population.csv\", header=TRUE)\n\na.\n\nmean(population$Y)\n\n[1] 19.97579\n\n#OR\n\npopulation |&gt;\n  summarise(mean(Y))\n\n   mean(Y)\n1 19.97579\n\n\nb.\n\npopulation |&gt;\n  group_by(X2) |&gt;\n  summarise(mean(Y))\n\n# A tibble: 2 × 2\n     X2 `mean(Y)`\n  &lt;int&gt;     &lt;dbl&gt;\n1     0      33.7\n2     1      19.9\n\npopulation |&gt;\n  count(X2)\n\n  X2     n\n1  0   807\n2  1 99193\n\n\n\nSRSmeans &lt;- data.frame(means=NA) #create an empty dataframe to store the sample means\nfor(i in 1:1000){\n  set.seed(i) #ensure that we have a different sample each time\n  SRS.sample &lt;- population |&gt; slice(sample(1:n(),size=100)) \n  #the slice function selects rows of the specified data (population),\n  #and the sample function randomly selects 100 numbers out of the \n  #sequence 1:100000\n  SRSmeans[i,1] &lt;- SRS.sample |&gt; summarise(mean(Y)) \n  #calculate the mean of each sample\n}\n\nggplot(SRSmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under simple random sampling (N=100)\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nc.\n\nmean(SRSmeans$means)\n\n[1] 19.97874\n\n\nThe distribution looks approximately normal and the mean of the sampling distribution is nearly identical to the true population mean.\nd.\n\nSRSmeans_10 &lt;- data.frame(means=NA) \n\nfor(i in 1:1000){\n  set.seed(i) \n  SRS.sample &lt;- population |&gt; slice(sample(1:n(),size=10))\n  SRSmeans_10[i,1] &lt;- SRS.sample |&gt; summarise(mean(Y))\n}\n\nggplot(SRSmeans_10, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under simple random sampling (N=10)\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\nmean(SRSmeans_10$means)\n\n[1] 20.01105\n\n\nThe shape is similar and the mean is still close to the population mean (though not as accurate as the previous part), and the distribution is more spread out (i.e., the standard error is higher).\ne.\n\nStratmeans &lt;- data.frame(means=NA) \n\nfor(i in 1:1000){\n  set.seed(i)\n  Stratified.sample &lt;- population |&gt;  \n                        group_by(X2) |&gt;\n                        slice(sample(1:n(),size=50)) |&gt;\n                        ungroup()\n  Stratmeans[i,1] &lt;- Stratified.sample |&gt; summarise(mean(Y))\n}\n\nggplot(Stratmeans, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under stratified sampling\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nf.\n\nmean(Stratmeans$means)\n\n[1] 26.82094\n\n\nThe distribution is approximately normal, but the mean is higher than the population mean.\ng. We oversample from the group that has a higher mean, which pulls the mean of the sampling distribution up. If observations do not have an equal probability of being sampled, the sampling distribution may not be accurate.\n\n\nBonus:\n\npopulation |&gt;\n  group_by(X1) |&gt;\n  summarise(mean(Y))\n\n# A tibble: 5 × 2\n     X1 `mean(Y)`\n  &lt;int&gt;     &lt;dbl&gt;\n1     1      20.0\n2     2      20.0\n3     3      20.0\n4     4      20.0\n5     5      20.0\n\npopulation |&gt;\n  count(X1)\n\n  X1     n\n1  1 19000\n2  2 20100\n3  3 20200\n4  4 22900\n5  5 17800\n\nStratmeans_x1 &lt;- data.frame(means=NA)\n\nfor(i in 1:1000){\n  set.seed(i) \n  Stratified.sample &lt;- population |&gt;  \n                        group_by(X1) |&gt;\n                        slice(sample(1:n(),size=20)) |&gt;\n                        ungroup()\n  Stratmeans_x1[i,1] &lt;- Stratified.sample |&gt; summarise(mean(Y))\n}\n\nggplot(Stratmeans_x1, aes(x=means)) +\n  geom_histogram()+\n  labs(title=\"Sampling distribution of the mean under stratified sampling - X1\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\nmean(Stratmeans_x1$means)\n\n[1] 19.97158\n\n\nThis sampling distribution looks similar to the one we generated for simple random sampling. The distribution is approximately normal and the mean is close to the population mean. In this case, the strata are balanced, and the true mean in each stratum is close to the population mean. We can conclude that regardless of the sampling scheme, the sample must reflect the population for the sampling distribution to be accurate."
-  },
-  {
-    "objectID": "materials/Homework/Reflections/reflections.html",
-    "href": "materials/Homework/Reflections/reflections.html",
-    "title": "Statistics Reflections",
-    "section": "",
-    "text": "In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as “amoral,” but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.\nThis assignment connects to the fourth course learning objective: Make careful and critical decisions about model building and consider real-world implications."
-  },
-  {
-    "objectID": "materials/Homework/Reflections/reflections.html#motivation",
-    "href": "materials/Homework/Reflections/reflections.html#motivation",
-    "title": "Statistics Reflections",
-    "section": "",
-    "text": "In the MIDS program, we emphasize thinking critically about data analysis. Quantitative fields like data science are often viewed as “amoral,” but human judgment always plays a role in data collection and analysis. As data scientists, we must carefully consider the societal factors that play a role in our work. The materials presented with this assignment explore how statistics/data science interact with society at large.\nThis assignment connects to the fourth course learning objective: Make careful and critical decisions about model building and consider real-world implications."
-  },
-  {
-    "objectID": "materials/Homework/Reflections/reflections.html#instructions",
-    "href": "materials/Homework/Reflections/reflections.html#instructions",
-    "title": "Statistics Reflections",
-    "section": "Instructions",
-    "text": "Instructions\nYou are required to complete two statistics reflections during the semester. You can select any material from the list of materials below.\n\nBegin your assignment with a header that includes your name and the title and source of your selected material\nReflect on the material selected. What did it make you think about? How does it affect your work as a data scientist? Note that you are required to engage with the material and provide your thoughts/reactions; you should NOT be summarizing the piece.\nWhile there is no minimum word count for the reflections, you are expected to meaningfully engage with the material (2-3 paragraphs). You can use the suggested questions to get started, but you are not required to answer them in your response.\nYou can use Word or any other text editor to complete this assignment, as long as you submit a PDF to Gradescope. You do not need to use R/Quarto for this assignment.\nIn Gradescope, select the appropriate reflection assignment based on the due date. All of the assignments are already available, so you can complete them at any time!\n\nI am always available if you have any questions or comments about the content presented in these materials. Additionally, if you come across a piece that is not on this list and you would like to use it for a statistics reflection, you are welcome to send me an email. Please include a link to the piece and a brief description of how it connects data science and society.\nNote: It is not appropriate to use ChatGPT for this assignment. The task is to offer your personal reflections/thoughts; there are no right or wrong answers here."
-  },
-  {
-    "objectID": "materials/Homework/Reflections/reflections.html#materials",
-    "href": "materials/Homework/Reflections/reflections.html#materials",
-    "title": "Statistics Reflections",
-    "section": "Materials",
-    "text": "Materials\n\n  \n    \n      \n        A Primer on Non-Binary Gender and Big Data (article)\n      \n    \n    \n      \n        A Primer on Non-Binary Gender and Big Data \n        The author offers several questions you may want to consider in your response: \n        \n          What potential insights might we derive from working with non-binary gender and data?\n          What are the risks to gener minorities in relation to data?\n          What kinds of variation do we see across culture, context, and history?\n          How might non-binary gender and data deal with intersectionality (Click this link to learn more about intersectionality)\n        \n        Additionally, you may want to consider: \n        \n          Is it always useful/important to collect data on gender? In which domains might it be more important than others?\n        \n      \n    \n  \n  \n    \n      \n        How Eugenics Shaped Statistics (article - highly recommended!)\n      \n    \n    \n      \n        How eugenics shaped statistics \n        \n          Consider this quote: \"The separation was everything—not how much, what else might explain it, or why it mattered, just that it was there.\" Reflect on what this means for you as a data scientist\n          The article argues that you cannot separate the science from the scientist. Do you agree?\n          Reflect on the argument that Galton, Pearson, and Fisher's views are \"a product of their time.\"\n        \n        \n      \n    \n  \n  \n    \n      \n        To predict and serve? (article)\n      \n    \n    \n      \n        To predict and serve? This article may be of particular interest to those interested in social justice. The authors work with the Human Rights Data Analysis Group (and Kristian Lum is a Duke alum!) \n        \n          In data analysis, we often use the phrase \"garbage in, garbage out\" to refer to models based on bad data. How does this relate to the problem of using biased data for predictive policing?\n          The last sentence states that data-driven approaches should be inclusive. How do you think this can be done? Is it possible to use biased data without reaching biased predictions?\n          Can you think of other examples in which using data to predict future behavior could do more harm than good?\n\n        \n      \n    \n  \n    \n    \n      \n        Data sonification (podcast)\n      \n    \n    \n      \n        Loud Numbers: Listen to whichever one of the podcast episodes looks most interesting to you. Also, read the FAQs under the What We Do tab. You might also be interested in the Talks and Articles listed under the Community tab. \n        \n          One of the FAQs mentions accessibility. Consider the limitations of only representing data visually and how data sonification may make data more accessible.\n\n          How might we use the other senses (touch, smell, taste) to represent data? Have you seen data represented in any of these ways before?\n\n        \n      \n    \n  \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose (podcast)\n      \n    \n    \n      \n        Fairness in Machine Learning with Sherri Rose  (interview starts at 8:15 and ends at 46:00)\n        \n          Reflect on Dr. Rose's recommendations for ensuring fairness in machine learning\n          Consider Dr. Rose's comments about the \"single metric leaderboard\" and what it means for you as a data scientist.\n        \n      \n    \n  \n    \n    \n      \n        Peter Donnelly: How stats fool juries (video)\n      \n    \n    \n      \n        Peter Donnelly: How stats fool juries (you can skip past the stats jokes and start at 3:30) \n        \n          This talk is from 2007. Can you think of more recent examples of misleading statistics/misuse of statistical principles?\n          How do you think situations like the trial Donnelly describes can be avoided?\n        \n      \n    \n  \n    \n    \n      \n        Here’s how an AI tool may flag parents with disabilities (article)\n      \n    \n    \n      \n        Here’s how an AI tool may flag parents with disabilities\n        \n          Do you think a data-driven approach to child welfare monitoring could be ethical? If so, how do you think the approach described in the article could be modified to avoid pitfalls like the ones described?\n          LA County’s Department of Children and Family Services Director Brandon Nichols is quoted in the article saying that the algorithm being used is beyond the department's expertise. What role can data scientists play in government sectors where algorithms like this are being used?"
-  },
-  {
-    "objectID": "materials/Homework/Unit2/HW3P2.html",
-    "href": "materials/Homework/Unit2/HW3P2.html",
-    "title": "Homework 3 Part 2",
-    "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems. For example, you should write “There are XX observations and each observation represents a _____”; it is insufficient to just show the code.\nThis assignment will use a modified version of a College Completion dataset. You can read more about the dataset here. (or here, if that link doesn’t work for you). The relevant portion of the codebook is provided below."
-  },
-  {
-    "objectID": "materials/Homework/Unit2/HW3P2.html#questions",
-    "href": "materials/Homework/Unit2/HW3P2.html#questions",
-    "title": "Homework 3 Part 2",
-    "section": "Questions",
-    "text": "Questions\nUse the complete case dataset with factored categorical variables created in HW 3 part 1.\n\nFirst, consider the model regressing graduation rate within 150% of normal time on student count and control (public vs private).\n\nFit the model.\nGenerate the residual vs fitted and QQ diagnostic plots for the model. Comment on what you observe in the residuals vs fitted plot and the QQ-plot.\n\nBased on the diagnostic plots, does the linearity assumption appear to be violated?\nBased on the diagnostic plots, does the normality assumption appear to be violated?\nBased on the diagnostic plots, does the homoscedasticity assumption appear to be violated?\nBased on the scatter plot you generated in HW 3 part 1 with these variables, are these diagnostic plots surprising? Why or why not?\n\nGenerate two scatter plots of student count vs graduation rate for private vs public institutions, but use log(student count) on the x-axis for one plot and sqrt(student count) for the other. Based on what you observe in these plots, which transformation might be best to improve linearity?\nFit the model again using the transformation you selected in part c. Generate the diagnostic plots for this model. Comment on what you observe in the residuals vs fitted plot and QQ-plot here compared to what you saw in part b.\nWhat are the adjusted \\(R^2\\) values for the two models (part a and part d)?\nBased on the results for parts a-e, which of these two models do you think is better? Display the summary table and 95% confidence intervals. Then, write the final fitted model.\nWrite an interpretation for the coefficient estimates, p-values, and 95% confidence intervals in the context of the problem. You do not need to write interpretations for the intercept.\nWhat are some possible next steps to further improve this model? You do not need to fit a new model.\n\n\n \n\n\nNext, consider the model that assesses how the relationship between full-time student percentage and graduation rate within 150% of normal time depends on institution control (public vs private), controlling for retention rate and median SAT score.\n\nFit the model and generate the diagnostic plots. Comment on what you observe. Specifically, address the following:\n\nBased on the diagnostic plots, does the linearity assumption appear to be violated?\nBased on the diagnostic plots, does the normality assumption appear to be violated?\nBased on the diagnostic plots, does the homoscedasticity assumption appear to be violated?\n\nDisplay the summary table. Write the fitted models for public and private institutions. Is the relationship between percentage of full-time students and graduation rate stronger for public or private institutions?\nWhat is the adjusted \\(R^2\\) for this model? Write an interpretation for this metric.\nFit the same model but with a log transformation of the outcome. Generate the diagnostic plots. Are the diagnostics improved compared to part a?\n\n\n\nBonus\nOne way to address heteroscedasticity in linear models is by using robust standard errors, which account for non-constant variance. Use this page to learn about robust standard errors and how to use the sandwich and lmtest packages to incorporate them into a linear model in R. Choose the model from 1 or 2 for which robust standard errors would be more appropriate. Refit the model using these packages and compare the results to what you originally observed."
-  },
-  {
-    "objectID": "materials/Homework/Unit1/HW1_key.html",
-    "href": "materials/Homework/Unit1/HW1_key.html",
-    "title": "Homework 1 KEY",
-    "section": "",
-    "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n\nIn a Japanese cohort study, 5,322 male non-smokers and 7,019 male smokers were followed for four years. Of these men, 16 non-smokers and 77 smokers developed lung cancer.\n\nFill in the 2x2 table for this problem:\n\n\n\n\n\n\n\n\n\n\nDeveloped lung cancer\nDid not develop lung cancer\nTotal\n\n\n\n\nSmoker\n77\n6942\n7019\n\n\nNon-smoker\n16\n5306\n5322\n\n\nTotal\n93\n12248\n12341\n\n\n\nWhat is the probability that a randomly-selected non-smoker from this group developed lung cancer?\n\n16/5322\n\n[1] 0.003006389\n\n\nWhat is the marginal probability of developing lung cancer in this group?\n\n93/12341\n\n[1] 0.007535856\n\n\nAre the events “smoker” and “developed lung cancer” independent?\nP(developed lung cancer) = 0.008 (from part b)\nP(developed lung cancer | smoker) = 77/7019 = 0.011\nThese probabilities are not equal, so the two events are not independent.\n\nSuppose a particular disease is prevalent in a population with 60%. The sensitivity and specificity of the medical test for this disease are both 0.9. A patient from this population is visiting the physician and is tested for the disease.\n\nWhat is the probability that a person has the disease given that they had a positive test result?\n\\(P(D+|T+)=\\frac{P(T+|D+)P(D+)}{P(T+)}\\)\n\\(P(T+|D+)=0.9\\) (given)\n\\(P(D+)=0.6\\) (given)\n\\(P(T+)=P(T+|D+)P(D+)+P(T+|D-)P(D-)=0.9*0.6+(1-0.9)*(1-0.6)=0.58\\)\nTherefore, \\(P(D+|T+)=\\frac{0.9*0.6}{0.58}=0.93\\)\nDrop the given statement that the specificity is 0.9. If the sensitivity is 0.9, what is the minimum required specificity of the test to know with at least 95% certainty that the patient has the disease given that they have a positive test?\nWant \\(P(D+|T+) \\ge 0.95\\)\nUsing part a, we drop the (1-0.9) in the denominator calculation and replace with \\(1-s\\) and solve for \\(s\\)\n\\(0.95 \\leq \\frac{0.9*0.6}{(0.9*0.6)+(1-s)(1-0.6)}\\)\n\\(0.95 \\leq \\frac{0.54}{0.94-0.4s}\\)\n\\(0.95(0.94-0.4s) \\leq 0.54\\)\n\\(-0.38s \\leq -0.353\\)\n\\(s \\geq 0.93\\)\n\nA manager at a restaurant is training her new hostess and during the discussion the new employee asks about the typical size of a group that needs to be seated. The manager says company research indicates that one of the following three probability models is appropriate.\n\n\n\nGroup size\n1\n2\n3\n4\n5\n\n\n\n\nModel 1\n0.1\n0.25\n0.2\n0.2\n0.1\n\n\nModel 2\n0.15\n0.35\n0.25\n0.25\n0.1\n\n\nModel 3\n0.1\n0.35\n0.15\n0.3\n0.1\n\n\n\n\nIdentify the correct probability model and explain the problems with the other two models.\nThe third one is the correct probability model. The probabilities of the other two models do not sum to 1.\nWhat is the expected size of a group that needs to be seated? Is this different from the most likely size?\n\\(\\mathbf E[X]=\\sum_x xPr(X=x) = 1*0.1+2*0.35+3*0.15+4*0.3+5*0.1 = 2.95\\)\n\n1*0.1+2*0.35+3*0.15+4*0.3+5*0.1\n\n[1] 2.95\n\n\nThe expected size is the mean size, which is different from the most likely size. The most likely size is given by the group size with the highest probability, which is 2.\n\nA potato chip manufacturer decides whether to purchase a truckload of potatoes by selecting samples and inspecting them to see if they meet the company standards. Suppose that 20 potatoes are randomly selected and the company policy is to purchase the load of potatoes if fewer than 2 of the potatoes are deemed unsatisfactory. Find the probability of purchasing a load of potatoes for which\n\n5% are rotten\n\npbinom(1,20,0.05)\n\n[1] 0.7358395\n\n\n10% are rotten\n\npbinom(1,20,0.1)\n\n[1] 0.391747\n\n\n\nA soup company claims that one of its products contains 480 mg of sodium per serving with a standard deviation of 6 mg. Assuming that the amount of sodium in a particular serving varies according to the normal distribution, what is the chance that a particular serving contains:\n\nfewer than 475 mg of sodium\n\npnorm(475,480,6)\n\n[1] 0.2023284\n\n\nat least 490 mg of sodium\n\n1-pnorm(490,480,6)\n\n[1] 0.04779035\n\n\nFind the interval of sodium levels that contains 80% of the values for the amount of sodium in a particular serving.\n\nqnorm(0.1,480,6)\n\n[1] 472.3107\n\nqnorm(0.9,480,6)\n\n[1] 487.6893"
-  },
-  {
     "objectID": "materials/Homework/Unit1/HW1.html",
     "href": "materials/Homework/Unit1/HW1.html",
     "title": "Homework 1",
     "section": "",
     "text": "Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems.\n\nIn a Japanese cohort study, 5,322 male non-smokers and 7,019 male smokers were followed for four years. Of these men, 16 non-smokers and 77 smokers developed lung cancer.\n\nFill in the 2x2 table for this problem:\n\n\n\n\n\n\n\n\n\n\nDeveloped lung cancer\nDid not develop lung cancer\nTotal\n\n\n\n\nSmoker\n\n\n\n\n\nNon-smoker\n\n\n\n\n\nTotal\n\n\n\n\n\n\nWhat is the probability that a randomly-selected non-smoker from this group developed lung cancer?\nWhat is the marginal probability of developing lung cancer in this group?\nAre the events “smoker” and “developed lung cancer” independent?\n\nSuppose a particular disease is prevalent in a population with 60%. The sensitivity and specificity of the medical test for this disease are both 0.9. A patient from this population is visiting the physician and is tested for the disease.\n\nWhat is the probability that a person has the disease given that they had a positive test result?\nDrop the given statement that the specificity is 0.9. If the sensitivity is 0.9, what is the minimum required specificity of the test to know with at least 95% certainty that the patient has the disease given that they have a positive test?\n\nA manager at a restaurant is training her new hostess and during the discussion the new employee asks about the typical size of a group that needs to be seated. The manager says company research indicates that one of the following three probability models is appropriate.\n\n\n\nGroup size\n1\n2\n3\n4\n5\n\n\n\n\nModel 1\n0.1\n0.25\n0.2\n0.2\n0.1\n\n\nModel 2\n0.15\n0.35\n0.25\n0.25\n0.1\n\n\nModel 3\n0.1\n0.35\n0.15\n0.3\n0.1\n\n\n\n\nIdentify the correct probability model and explain the problems with the other two models.\nWhat is the expected size of a group that needs to be seated? Is this different from the most likely size?\n\nA potato chip manufacturer decides whether to purchase a truckload of potatoes by selecting samples and inspecting them to see if they meet the company standards. Suppose that 20 potatoes are randomly selected and the company policy is to purchase the load of potatoes if fewer than 2 of the potatoes are deemed unsatisfactory. Find the probability of purchasing a load of potatoes for which\n\n5% are rotten\n10% are rotten\n\nA soup company claims that one of its products contains 480 mg of sodium per serving with a standard deviation of 6 mg. Assuming that the amount of sodium in a particular serving varies according to the normal distribution, what is the chance that a particular serving contains:\n\nfewer than 475 mg of sodium\nat least 490 mg of sodium\nFind the interval of sodium levels that contains 80% of the values for the amount of sodium in a particular serving."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "",
+    "text": "Welcome to IDS 702: Data Modeling and Representation!"
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "IDS 702: Data Modeling and Representation",
+    "section": "Course Overview",
+    "text": "Course Overview\nMeeting times: Tuesdays and Thursdays 3:05-4:20 PM, Gross Hall 270\nInstructor  Andrea Lane, PhD  andrea.lane@duke.edu  Gross Hall 223  Office hours: Thurs 4:30-5:30 PM   Teaching Assistants  Kayla Haeussler  kayla.haeussler@duke.edu  Office hours: Weds 12-1 PM, Gross Hall 230K   Atreya Tadepalli  atreya.tadepalli@duke.edu  Office hours: Fri 1-2 PM, Gross Hall 230M  \nClick here to download the syllabus"
   }
 ]
