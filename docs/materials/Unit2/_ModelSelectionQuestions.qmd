@@ -1,0 +1,20 @@
+---
+title: "Model Selection Questions"
+format: pdf
+editor: visual
+---
+
+Discuss the questions below with your group. Submit your answers on Canvas.
+
+In your group, discuss the following based on the video and article:
+
+1.  Summarize the forward, backward, and mixed/stepwise selection procedures.
+2.  Why are the procedures listed above appealing?
+3.  What statistical arguments does Smith make against stepwise selection?
+4.  Consider this sentence: "The standard errors of the coefficient estimates are underestimated, which makes the confidence intervals too narrow, the t statistics too high, and the p-values too low..." Think about the relationship between standard errors and the other quantities mentioned. Why would underestimated standard errors lead to the outcomes listed?
+5.  Explain how big data has renewed the interest in stepwise selection and why Smith argues that big data exacerbates the problems with stepwise selection
+6.  What alternative approaches to model selection does Smith recommend?
+7.  Imagine yourself working on a data science team in the future. A colleague recommends using the following three approaches. Based on the reading, which of these approaches seems reasonable? If none of them seem reasonable, how do you explain this to your colleague and how do you recommend moving forward?
+    -   Fit a model with pre-specified predictors and use backward selection to arrive at a "final model." Interpret the output and draw conclusions based on the final model.
+    -   Fit a model with pre-specified predictors. Remove any variables with p-values that are above 0.05. Re-fit the model and interpret the output.
+    -   Fit simple linear regression models with each predictor individually. Then, fit a multiple linear regression model with the predictors that had significant p-values in the SLR model. Interpret the MLR output.
