@@ -1,5 +1,5 @@
 ---
-title: "IDS 702 HW 3"
+title: "IDS 702 HW 3 Part 1"
 author: "KEY"
 format: pdf
 editor: visual
@@ -98,6 +98,14 @@ colleges_full[which(colleges_full$chronname=="Northeastern University"),
 ```
 
 The distribution of graduation rate within 150% of normal time looks more like what we would expect, with a large proportion of institutions having a rate above \~40%. Looking at Northwestern, we see that the grad_100_value is 0, while grad_150_value is 82.6. This is likely a data error, so grad_150_value seems to have more reliable data.
+
+Note: It could also be valuable to look at a scatter plot to compare values of grade_100_value to grad_150_value. In the plot below, we see that some institutions have very low values of grad_100_value and much higher values of grad_150_value. This seems surprising, so grad_150_value seems more reliable.
+
+```{r}
+ggplot(colleges_full, aes(x=grad_100_value, y=grad_150_value))+
+  geom_point()+
+  ggtitle("Comparing values of graduation time variables")
+```
 
 ### 4
 
@@ -207,7 +215,7 @@ There doesn't seem to be a difference in the relationship between retention and 
 
 ### 5
 
-Students can choose either to combine the levels to make interpretation easier, or say that it is better to leave the levels as is because there is sufficient sample size in each level.
+Students can choose either to combine the levels to make interpretation easier, or say that it is better to leave the levels as is because there is sufficient sample size in each level. Personally, I would probably combine them, particularly based on the trends seen in the plots.
 
 ### 6
 
@@ -237,8 +245,4 @@ Model for public schools: $Y=(\beta_0+\beta_2)+(\beta_1+\beta_5)x_1+\beta_3x_3+\
 
 Model for private schools: $Y=\beta_0+\beta_1x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2)$
 
-## Part 2
-
-### 1
-
-### 
+## 
