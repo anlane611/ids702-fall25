@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Midterm – IDS 702 - Fall 2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">IDS 702 - Fall 2025</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../schedule.html"> 
+<span class="menu-text">Schedule and Course Materials</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#formula-page" id="toc-formula-page" class="nav-link active" data-scroll-target="#formula-page">Formula Page</a></li>
+  <li><a href="#multiple-choice-3-points-each" id="toc-multiple-choice-3-points-each" class="nav-link" data-scroll-target="#multiple-choice-3-points-each">Multiple Choice (3 points each)</a></li>
+  <li><a href="#short-answer" id="toc-short-answer" class="nav-link" data-scroll-target="#short-answer">Short Answer</a>
+  <ul class="collapse">
+  <li><a href="#question-16-12-points" id="toc-question-16-12-points" class="nav-link" data-scroll-target="#question-16-12-points">Question 16 (12 points)</a></li>
+  <li><a href="#question-17-15-points" id="toc-question-17-15-points" class="nav-link" data-scroll-target="#question-17-15-points">Question 17 (15 points)</a></li>
+  </ul></li>
+  <li><a href="#blank-page---end-of-exam" id="toc-blank-page---end-of-exam" class="nav-link" data-scroll-target="#blank-page---end-of-exam">Blank Page - End of exam</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="IDS702_Midterm_2025.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Midterm</h1>
+<p class="subtitle lead">IDS 702 - Fall 2025</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>First name:</td>
+<td>________________</td>
+<td>Last name:</td>
+<td>________________</td>
+</tr>
+<tr class="even">
+<td>Net ID:</td>
+<td>________________</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>I hereby state that I have not communicated with or gained information in any way from my classmates or unauthorized materials during this exam, and that all work is my own.</p>
+<p>Signature: _________________________________</p>
+</blockquote>
+<p><strong>Any potential violation of Duke’s policy on academic integrity will be reported to the Office of Student Conduct &amp; Community Standards. All work on this exam must be your own.</strong></p>
+<ol type="1">
+<li>You have 75 minutes to complete the exam.</li>
+<li>You are <strong>not</strong> allowed a cell phone (even if you intend to use it for checking the time), music device or headphones, notes, books, or other resources, or to communicate with anyone other than the professor or TAs during the exam.</li>
+<li>Write clearly.</li>
+</ol>
+<p>The exam has 17 questions: 15 multiple choice questions and 2 short answer questions. Question 16 has parts a-d and question 17 has parts a-e. <strong>Before you begin, make sure your exam has all questions.</strong></p>
+<div style="page-break-after: always;"></div>
+<section id="formula-page" class="level2">
+<h2 class="anchored" data-anchor-id="formula-page">Formula Page</h2>
+<p><span class="math inline">\(Pr(A|B) = \frac{Pr(A \cap B)}{Pr(B)}\)</span></p>
+<p><span class="math inline">\(Pr(A \cup B)=Pr(A)+Pr(B)-Pr(A \cap B)\)</span></p>
+<p>Independence: <span class="math inline">\(Pr(A|B)=Pr(A)\)</span>, <span class="math inline">\(Pr(A \cap B)=Pr(A)Pr(B)\)</span></p>
+<p>Bayes Theorem: <span class="math inline">\(Pr(B|A)=\frac{Pr(A|B)Pr(B)}{Pr(A)}\)</span></p>
+<p>Total probability: <span class="math inline">\(Pr(A) = Pr(A|B)Pr(B)+Pr(A|B^c)Pr(B^c)\)</span></p>
+<p>General formula for confidence interval: <span class="math inline">\(\bar{x} \pm z* \times \sigma / \sqrt{n}\)</span></p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="multiple-choice-3-points-each" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-choice-3-points-each">Multiple Choice (3 points each)</h2>
+<p>Circle the letter to mark your answer choice.</p>
+<ol type="1">
+<li><p>Which sampling scheme is presented in the image below? (<em>Note for 2025: I will not ask about sampling schemes because we did not cover this like I did in 2024)</em></p>
+<p><img src="samplingimage.png" class="img-fluid" width="541"></p></li>
+</ol>
+<p>a. Simple random sampling</p>
+<p>b. Stratified sampling</p>
+<p>c.&nbsp;Cluster sampling</p>
+<p>d.&nbsp;Multilevel sampling</p>
+<ol start="2" type="1">
+<li>What is the distinction between standard deviation and standard error?</li>
+</ol>
+<p>a. Standard error is the standard deviation of the sampling distribution</p>
+<p>b. Standard deviation is the standard error of the sampling distribution</p>
+<p>c.&nbsp;Standard error is the standard deviation of the population distribution</p>
+<p>d.&nbsp;Standard deviation is the standard error of the population distribution</p>
+<ol start="3" type="1">
+<li>Let <span class="math inline">\(X_1,X_2,...,X_n \stackrel {iid}{\sim} Exp(\lambda)\)</span>, where the PDF of the exponential distribution is given by <span class="math inline">\(f(x_i; \lambda)=\lambda e^{-\lambda x_i}\)</span> for <span class="math inline">\(x_i&gt;0\)</span>. The derivative of the log-likelihood, which is called the score function, is <span class="math inline">\(\frac{n}{\lambda}-\sum_{i=1}^{n} x_i\)</span>. What is the maximum likelihood estimator <span class="math inline">\(\hat{\lambda}\)</span>?</li>
+</ol>
+<p>a. <span class="math inline">\(\frac{\sum_{i=1}^{n}x_i}{\lambda}\)</span></p>
+<p>b. <span class="math inline">\(\frac{n}{\sum_{i=1}^{n} x_i}\)</span></p>
+<p>c.&nbsp;<span class="math inline">\(\frac{\sum_{i=1}^{n} x_i}{n}\)</span></p>
+<p>d.&nbsp;The MLE cannot be calculated because <span class="math inline">\(x_i\)</span> cannot be negative.</p>
+<div style="page-break-after: always;"></div>
+<ol start="4" type="1">
+<li>The dataset <code>mlb</code> has the 2010 salary information (in $1000s) for 828 Major League Baseball players. Based on the histogram of the <code>mlb</code> salaries, can you characterize the distribution of the sample mean of MLB salaries? Assume that individual salaries are independent.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="IDS702_Midterm_2025_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="a">
+<li><p>No, we would need to know the population distribution of the sample mean to characterize the distribution of the sample mean</p></li>
+<li><p>Yes, the sample mean would have a right-skewed distribution</p></li>
+<li><p>Yes, the sample mean would have a normal distribution</p></li>
+<li><p>No, we would need to know the population distribution of MLB salaries to characterize the distribution of the sample mean</p></li>
+</ol>
+<ol start="5" type="1">
+<li>A factory has two machines, A and B. Machine A produces 60% of the items, while Machine B produces 40%. The probability that an item produced by Machine A is defective is 2%, and the probability that an item produced by Machine B is defective is 3%. If a randomly selected item is found to be defective, what is the probability that it was produced by Machine A?</li>
+</ol>
+<p>a. <span class="math inline">\(\frac{(0.6)(0.4)}{(0.02)(0.03)}\)</span></p>
+<p>b. <span class="math inline">\(\frac{(0.6)(0.4)}{(0.02)(0.03)+(0.6)(0.4)}\)</span></p>
+<p>c.&nbsp;<span class="math inline">\(\frac{(0.02)(0.6)}{(0.02)(0.6)+(0.03)(0.4)}\)</span></p>
+<p>d.&nbsp;<span class="math inline">\(\frac{(0.02)}{(0.4)}\)</span></p>
+<div style="page-break-after: always;"></div>
+<ol start="6" type="1">
+<li>Which of the following is true?</li>
+</ol>
+<p>a. Independent events are mutually exclusive</p>
+<p>b. If two events are mutually exclusive, then <span class="math inline">\(P(A\cap B)=P(A)P(B)\)</span></p>
+<p>c.&nbsp;If two events are independent, then <span class="math inline">\(P(A\cap B)=0\)</span></p>
+<p>d.&nbsp;If two events are mutually exclusive, then <span class="math inline">\(P(A \cap B)=0\)</span></p>
+<ol start="7" type="1">
+<li>In which of the following cases would bootstrapping be most useful?</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>You collect data on 250 workers’ salaries across two companies and you want to compare median salary for the two companies.</p></li>
+<li><p>You collect data on 2500 workers’ salaries across two companies and you want to compare mean salary for the two companies.</p></li>
+<li><p>You collect data on 250 workers’ salaries in 2024 and compare the mean salary to the same workers’ mean salaries in 2020.</p></li>
+<li><p>You collect data on 2500 workers’ salaries across five companies and you want to compare mean salary for the five companies.</p></li>
+</ol>
+<ol start="8" type="1">
+<li>You perform an experiment to test the effect of a protein supplement on workout performance. You measure 100 runners’ mile times once without using the protein supplement, and then again one week later after using the protein supplement for seven days. You want to compare the mean mile time with and without the supplement. Is a two-sample t-test appropriate in this case?</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>Yes, because the runners between and within groups are likely independent and the sample size is sufficiently large.</p></li>
+<li><p>No, because the runners between the groups are not independent.</p></li>
+<li><p>No, because the runners within the groups are not independent.</p></li>
+<li><p>No, because we do not have evidence that the mile times are normally distributed.</p></li>
+</ol>
+<ol start="9" type="1">
+<li>Which of the following does NOT affect the calculation of a p-value?</li>
+</ol>
+<p>a. Null hypothesis</p>
+<p>b. Alternative hypothesis</p>
+<p>c.&nbsp;Observed statistic</p>
+<p>d.&nbsp;Significance level <span class="math inline">\(\alpha\)</span></p>
+<div style="page-break-after: always;"></div>
+<ol start="10" type="1">
+<li>What is the difference between <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\hat{\beta}\)</span>?</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p><span class="math inline">\(\beta\)</span> is an estimate that describes the population, while <span class="math inline">\(\hat{\beta}\)</span> is an unknown quantity using the sample</p></li>
+<li><p><span class="math inline">\(\beta\)</span> is an unknown quantity that describes the sample, while <span class="math inline">\(\hat{\beta}\)</span> is an estimate using the population</p></li>
+<li><p><span class="math inline">\(\beta\)</span> is an estimate that describes the sample, while <span class="math inline">\(\hat{\beta}\)</span> is an unknown quantity using the population</p></li>
+<li><p><span class="math inline">\(\beta\)</span> is an unknown quantity that describes the population, while <span class="math inline">\(\hat{\beta}\)</span> is an estimate using the sample</p></li>
+</ol>
+<ol start="11" type="1">
+<li>Which of the following is not considered a fixed quantity in the theoretical representation of the simple linear regression model?</li>
+</ol>
+<p>a. <span class="math inline">\(Y\)</span></p>
+<p>b. <span class="math inline">\(\beta_1\)</span></p>
+<p>c.&nbsp;<span class="math inline">\(X\)</span></p>
+<p>d.&nbsp;<span class="math inline">\(\sigma^2\)</span></p>
+<ol start="12" type="1">
+<li>Which statement is true about <span class="math inline">\(R^2\)</span>?</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p><span class="math inline">\(R^2\)</span> is a proportion because the total variance of <span class="math inline">\(Y\)</span> is always greater than or equal to the sum of squared residuals</p></li>
+<li><p><span class="math inline">\(R^2\)</span> will always decrease when adding predictors to a regression model</p></li>
+<li><p>An <span class="math inline">\(R^2\)</span> value of 0 indicates a perfect model and an <span class="math inline">\(R^2\)</span> value of 1 indicates a poor model fit</p></li>
+<li><p><span class="math inline">\(R^2\)</span> is interpreted as the proportion of variability in the predictor(s) that is explained by the outcome</p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+<ol start="13" type="1">
+<li><p>The plot below indicates that which assumption of linear regression may be violated?</p>
+<p><img src="qqplot.png" class="img-fluid" width="313"></p></li>
+</ol>
+<p>a. Linear relationship between the outcome and predictors</p>
+<p>b. Independence of error terms</p>
+<p>c.&nbsp;Errors are normally distributed</p>
+<p>d.&nbsp;Errors have equal variance</p>
+<ol start="14" type="1">
+<li>Which of the following is NOT true about interaction terms in a linear model?</li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>Interaction terms assess the effect of one predictor on the outcome based on the value of a second predictor</p></li>
+<li><p>Interaction terms should be used if two predictors both have an effect on the outcome</p></li>
+<li><p>Interaction terms can generate different slopes for a continuous predictor for different levels of a categorical predictor</p></li>
+<li><p>Interaction terms can be included in a model based on the research question or exploratory data analysis</p></li>
+</ol>
+<ol start="15" type="1">
+<li>In the model below, <span class="math inline">\(x_1\)</span> is a numeric (continuous) variable, while <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_3\)</span> are indicators for a categorical variable. What is the correct interpretation of the <span class="math inline">\(\hat{\beta}_4\)</span> coefficient estimate?<br>
+<span class="math display">\[Y=\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_3+\beta_4x_1x_2+\beta_5x_1x_3+\epsilon\]</span></li>
+</ol>
+<!-- -->
+<ol type="a">
+<li><p>The difference between the effect of <span class="math inline">\(x_2\)</span> on <span class="math inline">\(Y\)</span> for <span class="math inline">\(x_1\)</span> and the effect of <span class="math inline">\(x_2\)</span> on <span class="math inline">\(Y\)</span> for the reference level</p></li>
+<li><p>The difference between the effect of <span class="math inline">\(x_1\)</span> on <span class="math inline">\(Y\)</span> for <span class="math inline">\(x_2\)</span> and the effect of <span class="math inline">\(x_1\)</span> on <span class="math inline">\(Y\)</span> for the reference level</p></li>
+<li><p>The multiplicative effect of the numeric variable <span class="math inline">\(x_1\)</span> and the categorical variable on <span class="math inline">\(Y\)</span></p></li>
+<li><p>The average increase of <span class="math inline">\(Y\)</span> per unit increase of <span class="math inline">\(x_2\)</span> compared to the reference level of <span class="math inline">\(x_1\)</span></p></li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="short-answer" class="level2">
+<h2 class="anchored" data-anchor-id="short-answer">Short Answer</h2>
+<section id="question-16-12-points" class="level3">
+<h3 class="anchored" data-anchor-id="question-16-12-points">Question 16 (12 points)</h3>
+<p>You conduct a two-sample t-test to compare the mean full-value property tax rate per $10,000 for Boston homes that are bordered by the Charles River vs.&nbsp;those that are not. You obtain the following results:</p>
+<p>Mean tax rate for homes that do not border the river: 409.9</p>
+<p>Mean tax rate for homes that border the river: 386.3</p>
+<p>Sample statistic: 23.6</p>
+<p>p-value: 0.42</p>
+<p>95% confidence interval: [-34.9, 82.2]</p>
+<p>significance level: 0.05</p>
+<p>a. State whether or not the p-value interpretations given below are correct or incorrect. If the interpretation is incorrect, identify why that is the case.</p>
+<ol type="i">
+<li>The probability that the null hypothesis is true is 0.42. Therefore, we can accept the null hypothesis that the mean tax rate is equal for houses that border the river and houses that do not border the river.</li>
+</ol>
+<ol start="2" type="i">
+<li>Assuming that there is a difference in the mean tax rate between houses that border the river and houses that do not, the probability of observing data equal to or more extreme than what we observe is 0.42. Therefore, we reject the null hypothesis that the mean tax rate is equal for houses that border the river and houses that do not border the river.</li>
+</ol>
+<p>b. State whether or not the 95% confidence interval interpretations given below are correct or incorrect. If the interpretation is incorrect, identify why that is the case.</p>
+<ol type="i">
+<li>There is a 95% probability that the true difference in mean tax rate between houses that do not border the river and houses that do is between -34.9 and 82.2.</li>
+</ol>
+<ol start="2" type="i">
+<li>There is a 95% probability that the observed difference in mean tax rate between houses that do not border the river and houses that do is between -34.9 and 82.2.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="question-17-15-points" class="level3">
+<h3 class="anchored" data-anchor-id="question-17-15-points">Question 17 (15 points)</h3>
+<p>A dataset contains information about 134 selected countries. The variables in the dataset are listed below. You want to understand the factors that are related to life expectancy.</p>
+<p><strong>Codebook:</strong></p>
+<dl>
+<dt>Life.expectancy</dt>
+<dd>
+<p>Average life expectancy (years)</p>
+</dd>
+<dt>infant.deaths</dt>
+<dd>
+<p>Number of infant deaths per 1000</p>
+</dd>
+<dt>Hepatitis.B</dt>
+<dd>
+<p>Hepatitis B immunization rate in infants (%)</p>
+</dd>
+<dt>Status</dt>
+<dd>
+<p>Economic categorization (developed or developing)</p>
+</dd>
+<dt>Measles</dt>
+<dd>
+<p>Number of reported measles cases per 1000</p>
+</dd>
+</dl>
+<p>First, you fit a model regressing life expectancy on infant deaths, Measles, Hepatitis B, and Status. Use the output shown below to answer questions a and b.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                      Estimate   Std. Error   t value     Pr(&gt;|t|)
+(Intercept)      71.6389061410 2.4781592912 28.908112 3.287085e-58
+infant.deaths    -0.0296026821 0.0105436221 -2.807639 5.766316e-03
+Measles           0.0002334783 0.0001108739  2.105801 3.715997e-02
+Hepatitis.B       0.0945546739 0.0225639711  4.190516 5.126730e-05
+StatusDeveloping -9.6781992792 1.6134882158 -5.998308 1.879674e-08</code></pre>
+</div>
+</div>
+<p>a. Write the fitted model.</p>
+<p>b. Write an interpretation for the coefficient estimate of the Status variable.</p>
+<p>Next, you fit a model regressing life expectancy on infant deaths, Measles, Hepatitis B, status, and an interaction term for infant deaths and status. Answer questions c-e based on this model.</p>
+<p>c. Write the full theoretical model. Be sure to define each term (e.g., “Y = —–”)</p>
+<div style="page-break-after: always;"></div>
+<p>d. Write the implied theoretical models for developed and developing countries. You do not need to define the terms again.</p>
+<p>Developed:</p>
+<p>Developing:</p>
+<p>e. What is the dimension of the design matrix for this model?</p>
+<div style="page-break-after: always;"></div>
+</section>
+</section>
+<section id="blank-page---end-of-exam" class="level2">
+<h2 class="anchored" data-anchor-id="blank-page---end-of-exam">Blank Page - End of exam</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
