@@ -1,0 +1,47 @@
+---
+title: "Intro to GLMs Group Exercise"
+format: pdf
+---
+
+Answer the questions below and submit your answers on Gradescope by 3:50PM.
+
+This exercise uses a dataset that contains information on patients and whether or not they were diagnosed with heart disease.
+
+[Source and data dictionary](https://archive.ics.uci.edu/dataset/45/heart+disease)
+
+```{r, message=FALSE}
+library(tidyverse)
+
+heart <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/heart.csv")
+```
+
+1.  Provide summary statistics (N and %) for the outcome variable (`target`)
+
+    ```{r}
+    heart |> count(target) |> mutate(perc=(n/sum(n))*100)
+    ```
+
+<!-- -->
+
+2.  Calculate summary statistics for those with and without heart disease for the following variables: age, sex, chest pain type, cholesterol. (which summary statistics are appropriate for each variable?)
+
+    ```{r}
+
+    ```
+
+3.  Use the code below to fit a logistic regression model regressing heart disease status on the predictors listed in #3.
+
+```{r}
+heart_mod1 <- glm(factor(target) ~ age + factor(sex) + factor(cp) + chol,
+                  data=heart,
+                  family="binomial")
+
+summary(heart_mod1) #log-odds scale
+
+exp(heart_mod1$coefficients)
+```
+
+-   Which variables are statistically significantly associated with heart disease status at the 0.05 level?
+-   What are the reference levels for the categorical variables?
+-   Write interpretations for the coefficient estimates. Interpret the coefficient estimates in terms of log odds and odds/odds ratios. Are any of these results surprising?
+-   Obtain confidence intervals for the coefficient estimates on the log odds and the odds scale.
