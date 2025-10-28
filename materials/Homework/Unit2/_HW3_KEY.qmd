@@ -1,5 +1,5 @@
 ---
-title: "IDS 702 HW 3 Part 1"
+title: "IDS 702 HW 3"
 author: "KEY"
 format: pdf
 editor: visual
@@ -245,4 +245,140 @@ Model for public schools: $Y=(\beta_0+\beta_2)+(\beta_1+\beta_5)x_1+\beta_3x_3+\
 
 Model for private schools: $Y=\beta_0+\beta_1x_1+\beta_3x_3+\beta_4x_4+\epsilon$, $\epsilon \sim N(0,\sigma^2)$
 
+## Part 2
+
+### 1
+
+a\.
+
+```{r}
+collegemod1 <- lm(grad_150_value ~ student_count + control_fac,
+                  data=colleges_full)
+```
+
+b\.
+
+```{r}
+plot(collegemod1, which=1:2)
+```
+
+i.  Linearity appears to be violated. The residual vs fitted plot does not show a random cloud shape. There is a big clump in the middle of the plot
+
+ii. Normality does not appear to be violated based on the QQ-plot. The points fall pretty closely along the 45 degree line.
+
+iii. Homoscedasticity/equal variance appears to be violated, though it's hard to tell since linearity is so bad. But there is a decline in variance moving from left to right in the residual vs fitted plot.
+
+iv. No, this is not surprising based on the relevant plot generated in part 1. In that plot, there is not a linear relationship between student count and graduation rate. Many institutions have a lower enrollment total and a few have higher enrollment totals.
+
+c\.
+
+```{r, message=FALSE}
+ggplot(colleges_full, aes(x=log(student_count), y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="Number of students - log transform",y="Grad. rate within 150% normal time",
+       col="Control")
+
+ggplot(colleges_full, aes(x=sqrt(student_count), y=grad_150_value,
+                                   col=control_fac))+
+  geom_point()+
+  labs(x="Number of students - sqrt transform",y="Grad. rate within 150% normal time",
+       col="Control")
+```
+
+Based on the plots, the log transform seems better to meet the linearity assumption. In the sqrt plot, several of the points for private schools are still clustered together.
+
+d\.
+
+```{r}
+collegemod_log <- lm(grad_150_value ~ log(student_count) + control_fac,
+                  data=colleges_full)
+
+plot(collegemod_log, which=1:2)
+```
+
+The residual vs fitted plot is improved compared to the plot in part b, though it's still not a perfect random cloud — many points are clustered in the middle. The QQ-plot is essentially the same as part b, but we already weren't very concerned with normality.
+
+e\.
+
+```{r}
+summary(collegemod1)$adj.r.squared
+summary(collegemod_log)$adj.r.squared
+
+```
+
+f\.
+
+```{r}
+summary(collegemod_log)
+confint(collegemod_log)
+```
+
+Because the assumptions are closer to being met and the $R^2$ value is higher, the model with the log transformation is better, though there is still room for improvement.
+
+Fitted model: $\hat{\text{Graduation rate}}=-14.8+10.3*\text{log(student count)}-23.5*\text{control=Public}$
+
+Note: Students can define terms separately, but outcome must have a "hat" in the fitted model, transformation for student count should be clear, and level of control should be specified
+
+g\.
+
+-   Per unit increase in log(student count), graduation rate within 150% of normal time increases by 10.3, on average, controlling for public vs private status. This relationship is statistically significant ($p<0.001$, 95% CI: \[8.9,11.7\]). OR Per 1% increase in student count, graduation rate within 150% of normal time increases by 10.3/100=0.1, on average, controlling for public vs private status.
+
+-   Public institutions have a graduation rate that is 23.5 percentage points lower than private institutions, on average, controlling for log(student count). This difference is statistically significant ($p<0.001$, 95% CI: \[-27.2,19.9\]).
+
+h\. Adding more relevant variables should improve the model. It is intuitive that more factors would be at play to explain graduation rate than enrollment and public vs private status. This is evidenced by the relatively low $R^2$ value of 0.27, meaning about 27% of variability in graduation rate is explained by log(student count) and public vs private control. Adding variables and accounting for interactions could also improve the model diagnostics.
+
 ## 
+
+### 2
+
+a\.
+
+```{r}
+collegemod2 <- lm(grad_150_value ~ ft_pct*control_fac+retain_value+
+                    med_sat_value,
+                  data=colleges_full)
+
+plot(collegemod2, which=1:2)
+```
+
+i.  Based on the residual vs fitted plot, we don't have strong evidence that linearity is violated.
+ii. Based on the QQ-plot, we have some evidence that the normality assumption is violated, though maybe not super strong evidence.
+iii. Based on the residual vs fitted plot, the homoscedasticity assumption appears to be violated.
+
+b\.
+
+```{r}
+summary(collegemod2)
+```
+
+Public: $\hat{\text{graduation rate}}=(-57.3-34)+(0.03+.34)\text{full time pct}+0.69\text{retention rate}+0.06\text{median SAT score}$
+
+Private: $\hat{\text{graduation rate}}=-57.3+0.03\text{full time pct}+0.69\text{retention rate}+0.06\text{median SAT score}$
+
+Public institutions have a stronger relationship between full time percentage and graduation rate. The coefficient estimate for full time pct is 0.37 for public institutions compared to 0.03 for private institutions.
+
+c\. The adjusted $R^2$ is shown in the output above and it is 0.87. This means that about 87% of the variability in graduation rate within 150% of normal time is explained by the predictors in this model.
+
+d\.
+
+```{r}
+collegemod2_log <- lm(log(grad_150_value) ~ ft_pct*control_fac+retain_value+
+                    med_sat_value,
+                  data=colleges_full)
+
+plot(collegemod2_log, which=1:2)
+```
+
+There does not seem to be an improvement in the diagnostics using the log transformation of the outcome. Homoscedasticity in particular still seems to be violated.
+
+## Bonus
+
+```{r, message=FALSE}
+library(lmtest)
+library(sandwich)
+
+coeftest(collegemod2, vcov. = vcovHC(collegemod2, type = 'HC1'))
+```
+
+The model from number 2 (without the log transformation) is the best candidate for using robust standard errors because this is where heteroscedasticity is the biggest issue. We see that the estimates are nearly identical, but the standard errors are larger using robust standard errors. In this case, any conclusions drawn with p-values would not change using robust standard errors, though we can see that they are generally larger since the standard errors are larger.

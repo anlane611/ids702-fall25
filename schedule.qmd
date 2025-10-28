@@ -597,4 +597,138 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
         <td></td>
   </tr>
    <tr>
-      <th scope="
+      <th scope="row">3</th>
+      <td>10.28</td>
+      <td>Intro to GLMs</td>
+            <td>2 videos: <a href="https://duke.zoom.us/rec/share/HZRffLZELLREzp_XZZl37TQKsmbsfdu2gtPSQTbkCq9zWpa7MCqNAmcihl38zbrM.rFJ1Lak2H8Zm8tZL?startTime=1696129340000"  target="_blank">Intro to GLMs,</a> 
+            <a href="https://duke.zoom.us/rec/share/HZRffLZELLREzp_XZZl37TQKsmbsfdu2gtPSQTbkCq9zWpa7MCqNAmcihl38zbrM.rFJ1Lak2H8Zm8tZL?startTime=1696131094000"  target="_blank">Odds and Odds Ratios</a>
+   </br>
+   Slides for reference:
+               <a href="materials/Unit3/Logistic/IDS702_IntroToGLMs.pdf"  target="_blank">Intro to GLMs</a>, <a href="materials/Unit3/Logistic/IDS702_odds.pdf"  target="_blank">Odds and Odds Ratios</a>
+          </br>
+          Optional/supplementary reading: ISLR 4.2, 4.3 intro and 4.3.1
+            </td>
+        <td>
+          <a href="materials/Unit3/Logistic/_IntroToGLMs_Exercise.qmd" download>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="25" height="25" 
+     fill="currentColor" 
+     class="bi bi-filetype-qmd" 
+     viewBox="0 0 16 16">
+  <!-- File shape -->
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"/>
+  
+  <!-- Q -->
+  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
+  <!-- M -->
+  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
+  <!-- D -->
+  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
+</svg></a>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>10.30</td>
+      <td>Logistic Regression Estimation</td>
+        <td>1 required video: <a href="https://duke.zoom.us/rec/share/Z1p0icdQcHBbtEuIUnR7nBlb5HNfrvkxI_B4K9B5nZASaqNblS-z2T8RipLcf5Ma.Hwkhswod9hFUDS44?startTime=1696351090000"  target="_blank">Logistic Regression,</a> </br> Supplementary videos and reading:
+            <a href="https://www.youtube.com/watch?v=bhTIpGtWtzQ"  target="_blank">Maximum Likelihood vs Least Squares,</a> 
+            <a href="https://www.youtube.com/watch?v=yhogDBEa0uQ"  target="_blank">Logistic Basics,</a> 
+            <a href="https://www.youtube.com/watch?v=J0yuLu3oLuU"  target="_blank">Logistic Regression: Maximum Likelihood,</a> 
+   </br>
+   Slides for reference:
+               <a href="materials/Unit3/Logistic/IDS702_logisticestimation.pdf"  target="_blank">Logistic Regression</a>
+          </br>
+          Optional/supplementary reading: ISLR 4.3.2-4.3.4
+            </td>
+        <td></td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.2</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td>
+          Second statistics reflection
+        <a href="materials/Homework/Reflections/reflections.qmd"  target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+</svg></a>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.4</td>
+      <td>Logistic Assessment</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.6</td>
+      <td>Multinomial Regression</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.9</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td>
+          HW4: Logistic Regression
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.11</td>
+      <td>Ordinal Regression</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.13</td>
+      <td>Poisson Regression</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.16</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td>
+          Project Proposals due
+        </td>
+  </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>11.18</td>
+      <td>Missing Data</td>
+       <td></td>
+        <td>Quiz 2 (GLMs)</td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.20</td>
+      <td>Missing Data</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"><
