@@ -1,0 +1,231 @@
+---
+title: "IDS 702 HW 4"
+author: "KEY"
+format: pdf
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+**Instructions**: Use this template to complete your assignment. When you click "Render," you should get a PDF document that contains both your answers and code. You must show your work/justify your answers to receive credit. Submit your rendered PDF file on Gradescope. **Remember to render frequently**, as this will help you to catch errors in your code before the last minute. You must show your work for all problems, and you must provide a written answer for all problems; it is insufficient to just show the code.
+
+**Add your name in the Author section in the header**
+
+## Load data
+
+```{r}
+library(tidyverse)
+library(openintro)
+library(caret)
+library(pROC)
+
+data("resume")
+```
+
+## 1
+
+a\.
+
+```{r}
+resume <- resume |>
+  mutate(
+    received_callback_fac = factor(received_callback,
+                                   levels=c(0,1),
+                                   labels=c("No","Yes")),
+    race_fac = factor(race),
+    gender_fac = factor(gender),
+    college_degree_fac = factor(college_degree,
+                                levels=c(0,1),
+                                labels=c("No","Yes")),
+    resume_quality_fac = factor(resume_quality)
+  )
+
+resume |>
+  count(received_callback, received_callback_fac)
+
+resume |>
+  count(race, race_fac)
+
+resume |>
+  count(gender, gender_fac)
+
+resume |>
+  count(college_degree, college_degree_fac)
+
+resume |>
+  count(resume_quality, resume_quality_fac)
+```
+
+b\.
+
+```{r}
+resume |> 
+  count(race_fac) |> 
+  mutate(prop=n/sum(n))
+
+resume |> 
+  group_by(received_callback_fac) |> 
+  count(race_fac) |> 
+  mutate(prop=n/sum(n))
+
+resume |> 
+  count(gender_fac) |> 
+  mutate(prop=n/sum(n))
+
+resume |> 
+  group_by(received_callback_fac) |> 
+  count(gender_fac) |> 
+  mutate(prop=n/sum(n))
+
+resume |>
+  count(college_degree_fac) |>
+  mutate(prop=n/sum(n))
+
+resume |>
+  group_by(received_callback_fac) |>
+  count(college_degree_fac) |>
+  mutate(prop=n/sum(n))
+
+resume |>
+  count(resume_quality_fac) |>
+  mutate(prop=n/sum(n))
+
+resume |>
+  group_by(received_callback_fac) |>
+  count(resume_quality_fac) |>
+  mutate(prop=n/sum(n))
+
+resume |>
+  summarise(mean(years_experience), sd(years_experience))
+
+resume |>
+  group_by(received_callback_fac) |>
+  summarise(mean(years_experience), sd(years_experience))
+```
+
++---------------------------------+-----------+-------------------+--------------------------+
+| Variable                        | Overall   | Received Callback | Did not receive callback |
+|                                 |           |                   |                          |
+|                                 | 4870      | 392 (8)           | 4478 (92)                |
++=================================+===========+===================+==========================+
+| Race                            | 2435 (50) | 157 (40)          | 2278 (51)                |
+|                                 |           |                   |                          |
+| Black - N (%)                   | 2435 (50) | 235 (60)          | 2200 (49)                |
+|                                 |           |                   |                          |
+| White - N (%)                   |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Gender                          | 3746 (77) | 309 (79)          | 3437 (77)                |
+|                                 |           |                   |                          |
+| Female - N (%)                  | 1124 (23) | 83 (21)           | 1041 (23)                |
+|                                 |           |                   |                          |
+| Male - N (%)                    |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Has college degree - N (%)      | 3504 (72) | 277 (71)          | 3227 (72)                |
++---------------------------------+-----------+-------------------+--------------------------+
+| Resume Quality                  | 2424 (50) | 178 (45)          | 2246 (50)                |
+|                                 |           |                   |                          |
+| Low - N (%)                     | 2446 (50) | 214 (55)          | 2232 (50)                |
+|                                 |           |                   |                          |
+| High - N (%)                    |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Years of experience - mean (SD) | 7.8 (5)   | 8.9 (5.5)         | 7.8 (5)                  |
++---------------------------------+-----------+-------------------+--------------------------+
+
+Takeaways: Most variables do not seem to have a big difference when it comes to receiving callbacks. The exception to this is race. While White applicants make up 50% of the experimental sample, they receive 60% of the callbacks. Callback rates align with the overall sample for gender. Interestingly, resume quality seems to have little effect, with low quality resumes receiving 45% of the callbacks.
+
+## 2
+
+a\.
+
+```{r}
+resume_mod1 <- glm(received_callback_fac ~
+                     race_fac + gender_fac + college_degree_fac +
+                     resume_quality_fac + years_experience,
+                   data=resume,
+                   family="binomial")
+
+summary(resume_mod1)
+
+exp(coefficients(resume_mod1))
+```
+
+b\.
+
+```{r}
+exp(confint(resume_mod1))
+```
+
+c\.
+
+Gender, having a college degree, and resume quality are not statistically significantly associated with receiving a resume callback (p=0.4, 0.8, and 0.2, respectively). The odds of receiving a callback are 1.6 times higher for White applicants compared to Black applicants, and this is statistically significant (p\<0.001, 95% CI: \[1.3, 1.9\]). Years of experience is also significantly associated with receiving a callback; per additional year of experience, the odds of receiving a callback increase by 4% (p\<0.001, 95% CI: \[1.01,1.06\]).
+
+## 3
+
+a\.
+
+```{r}
+resume_mod2 <- glm(received_callback_fac ~
+                     race_fac*gender_fac + college_degree_fac +
+                     resume_quality_fac + years_experience,
+                   data=resume,
+                   family="binomial")
+
+summary(resume_mod2)
+
+exp(coefficients(resume_mod2))
+
+exp(confint(resume_mod2))
+```
+
+The reference group is Black females. Let $x_1=1$ for race=White, 0=Black; $x_2=1$ for gender=male, 0=female.
+
+-   For White males, $x_1=1$ and $x_2=1$, so the log odds of receiving a callback = 0.44-0.11+0.002=0.332, so the odds of receiving a callback are $exp(0.332)=1.4$.
+
+-   For White females, $x_1=1$ and $x_2=0$, so the log odds of receiving a callback=0.44, so the odds of receiving a callback are $exp(0.44)=1.6$.
+
+-   For Black males, $x_1=0$ and $x_2=1$, so the log odds of receiving a callback = -0.11, so the odds of receiving a callback are $exp(-0.11)=0.9$
+
+-   For Black females, $x_1=0$ and $x_2=0$, so the log odds of receiving a callback = -2.9 (the intercept!), so the odds of receiving a callback are $exp(-2.9)=0.06$
+
+So, White females have the highest odds of receiving a callback.
+
+b\.
+
+```{r}
+resumemod_preds <- ifelse(predict(resume_mod2, type="response")>0.5,1,0)
+resumemod_preds_fac <- factor(resumemod_preds,
+                            levels=c(0,1),
+                            labels=c("No", "Yes"))
+confusionMatrix(table(resumemod_preds_fac, resume$received_callback_fac),
+                positive="Yes",
+                mode="everything")
+```
+
+Using the 0.5 threshold, no observations are predicted to get a callback. Although the accuracy is high (0.92), the kappa is 0 due to the imbalance in the data (only 8% receive a callback).
+
+c\.
+
+```{r}
+roc(resume$received_callback_fac, predict(resume_mod2, type="response"), 
+    print.thres="best", 
+    print.auc=T,
+    legacy.axes=T,
+    plot=T)
+```
+
+```{r}
+resumemod_preds_bestthres <- ifelse(predict(resume_mod2, type="response")>0.087,1,0)
+resumemod_preds_fac_bestthres <- factor(resumemod_preds_bestthres,
+                            levels=c(0,1),
+                            labels=c("No", "Yes"))
+confusionMatrix(table(resumemod_preds_fac_bestthres,
+                      resume$received_callback_fac),
+                positive="Yes",
+                mode="everything")
+```
+
+We now have observations that were predicted to receive a callback. The accuracy decreased, but the kappa increased. The sensitivity and specificity are fairly low at 0.49 and 0.67, respectively. Given that the AUC is 0.58, this may not be a great model for prediction, but we can still trust our inferences!
+
+## 4

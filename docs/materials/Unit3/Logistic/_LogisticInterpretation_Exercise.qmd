@@ -26,19 +26,19 @@ titanic <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/h
 
     ```
 
-2.  Calculate summary statistics for those with and without heart disease for the following variables: age, gender, class. (which summary statistics are appropriate for each variable?). Combine "deck crew," "engineering crew," "restaurant staff," and "victualling crew" into one class category called "crew."
+3.  Calculate summary statistics for those with and without heart disease for the following variables: age, gender, class. (which summary statistics are appropriate for each variable?). Combine "deck crew," "engineering crew," "restaurant staff," and "victualling crew" into one class category called "crew."
 
     ```{r}
 
     ```
 
-3.  Let's create some visuals to explore the data!
+4.  Let's create some visuals to explore the data!
 
     ```{r}
 
     ```
 
-4.  Now let's fit a logistic regression model regressing survival status on age, gender, and class.
+5.  Now let's fit a logistic regression model regressing survival status on age, gender, and class.
 
     ```{r}
     titanic_mod1 <- glm(__________ ~ _________________________,

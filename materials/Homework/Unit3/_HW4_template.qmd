@@ -1,0 +1,109 @@
+---
+title: "IDS 702 HW 4"
+author: "Your Name Here"
+format: pdf
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+**Instructions**: Use this template to complete your assignment. When you click "Render," you should get a PDF document that contains both your answers and code. You must show your work/justify your answers to receive credit. Submit your rendered PDF file on Gradescope. **Remember to render frequently**, as this will help you to catch errors in your code before the last minute. You must show your work for all problems, and you must provide a written answer for all problems; it is insufficient to just show the code.
+
+**Add your name in the Author section in the header**
+
+## Load data
+
+```{r}
+library(tidyverse)
+library(openintro)
+library(caret)
+library(pROC)
+
+data("resume")
+```
+
+## 1
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
++---------------------------------+-----------+-------------------+--------------------------+
+| Variable                        | Overall   | Received Callback | Did not receive callback |
+|                                 |           |                   |                          |
+|                                 | N         | N (%)             | N(%)                     |
++=================================+===========+===================+==========================+
+| **Race**                        |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Black - N (%)                   | 2435 (50) | 157 (40)          |                          |
+|                                 |           |                   |                          |
+| White - N (%)                   | 2435 (50) | 235 (60)          |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| **Gender**                      |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Female - N (%)                  |           |                   |                          |
+|                                 |           |                   |                          |
+| Male - N (%)                    |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Has college degree - N (%)      |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| **Resume Quality**              |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Low - N (%)                     |           |                   |                          |
+|                                 |           |                   |                          |
+| High - N (%)                    |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Years of experience - mean (SD) |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+
+## 2
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+c\.
+
+```{r}
+
+```
+
+## 3
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+c\.
+
+```{r}
+
+```
+
+## 4
