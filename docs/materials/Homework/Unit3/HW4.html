@@ -149,12 +149,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
 <ol type="1">
-<li>First, clean and explore the data:</li>
-</ol>
-<!-- -->
+<li>First, clean and explore the data:
 <ol type="a">
 <li><p>Create factor variables for received callback, race, gender, college degree, and resume quality. Be sure to include both levels and labels if the variable is stored as numeric. Name the new variables originalvar_fac so that you maintain the original variables in the dataset. Use the count function to perform a quality control check comparing the original and new factored variables. (No narrative response required for this question)</p></li>
 <li><p>Fill in the table with appropriate summary statistics to compare the listed variables for those who did and did not receive a callback. Provide a few key takeaways from the table.</p></li>
+</ol></li>
 </ol>
 <table class="caption-top table">
 <colgroup>
@@ -231,19 +230,19 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <ol start="2" type="1">
-<li>Fit an appropriate model regressing callback outcome on race, gender, college degree, resume quality, and years of experience. Why is this model appropriate for this problem?
+<li>Fit an appropriate model regressing callback outcome on race, gender, college degree, resume quality, and years of experience. Why is this type of model appropriate for this problem?
 <ol type="a">
-<li>Display the summary table <strong>and</strong> the coefficient estimates on the odds scale.</li>
-<li>Display the confidence intervals on the odds scale.</li>
-<li>In a few sentences, interpret the output above. Incorporate some odds/odds ratio interpretations, confidence intervals, and p-values, but do not simply list all of the interpretations for everything in the model. Synthesize the interesting/overall results as you would for a report or presentation.</li>
+<li><p>Display 1) the summary table and 2) the coefficient estimates on the odds scale.</p></li>
+<li><p>Display the confidence intervals on the odds scale.</p></li>
+<li><p>In a few sentences, interpret the output above. Incorporate some odds/odds ratio interpretations, confidence intervals, and p-values, but do not simply list all of the interpretations for everything in the model. Synthesize the interesting/overall results as you would for a report or presentation.</p></li>
 </ol></li>
 </ol>
 <!-- -->
 <ol start="3" type="1">
 <li><p>Change the model to include an interaction term for race and gender.</p>
 <ol type="a">
-<li><p>Fit the model and display the coefficient estimates on the odds scale. Calculate and interpret the odds of receiving a callback for 1) White males, 2) White females, 3) Black males, and 4) Black females. Which group has the highest odds of receiving a callback? <em>(Hint: you will need to write out the separate models for each group!)</em></p></li>
-<li><p>Using 0.5 as your cutoff for predicting resume callbacks from the predicted probabilities, what is the accuracy of this model? Generate the confusion matrix. Looking at the confusion matrix, and diagnostic metrics, 1) does 0.5 seem to be the optimal probability cutoff, and 2) does accuracy seem to be the best metric? Why is this the case?</p></li>
+<li><p>Fit the model and display 1) the summary table and 2) the coefficient estimates on the odds scale. Calculate and interpret the odds of receiving a callback for 1) White males, 2) White females, 3) Black males, and 4) Black females. Which group has the highest odds of receiving a callback? <em>(Hint: you will need to write out the separate models for each group!)</em></p></li>
+<li><p>Using 0.5 as your cutoff for predicting resume callbacks from the predicted probabilities, generate the confusion matrix. Looking at the confusion matrix and diagnostic metrics, 1) does 0.5 seem to be the optimal probability cutoff, and 2) does accuracy seem to be the best metric? Why is this the case?</p></li>
 <li><p>Generate the ROC curve and print the optimal threshold on the plot. Generate the confusion matrix again using this probability threshold. What differences do you observe in the confusion matrix and diagnostic metrics?</p></li>
 </ol></li>
 <li><p>Overall, what do you conclude from this analysis, keeping in mind both the models you fit and the summary statistics calculated in the first exercise? Are there any other variables available in the dataset that you think should be included in the model, other interaction term(s) you would add, or additional data you would collect, if possible to improve the analysis?</p></li>
