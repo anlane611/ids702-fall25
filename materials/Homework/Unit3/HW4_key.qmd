@@ -110,25 +110,25 @@ resume |>
 |                                 |           |                   |                          |
 |                                 | 4870      | 392 (8)           | 4478 (92)                |
 +=================================+===========+===================+==========================+
-| Race                            | 2435 (50) | 157 (40)          | 2278 (51)                |
-|                                 |           |                   |                          |
-| Black - N (%)                   | 2435 (50) | 235 (60)          | 2200 (49)                |
-|                                 |           |                   |                          |
-| White - N (%)                   |           |                   |                          |
+| Race                            |           |                   |                          |
 +---------------------------------+-----------+-------------------+--------------------------+
-| Gender                          | 3746 (77) | 309 (79)          | 3437 (77)                |
+| Black - N (%)                   | 2435 (50) | 157 (40)          | 2278 (51)                |
 |                                 |           |                   |                          |
-| Female - N (%)                  | 1124 (23) | 83 (21)           | 1041 (23)                |
+| White - N (%)                   | 2435 (50) | 235 (60)          | 2200 (49)                |
++---------------------------------+-----------+-------------------+--------------------------+
+| Gender                          |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Female - N (%)                  | 3746 (77) | 309 (79)          | 3437 (77)                |
 |                                 |           |                   |                          |
-| Male - N (%)                    |           |                   |                          |
+| Male - N (%)                    | 1124 (23) | 83 (21)           | 1041 (23)                |
 +---------------------------------+-----------+-------------------+--------------------------+
 | Has college degree - N (%)      | 3504 (72) | 277 (71)          | 3227 (72)                |
 +---------------------------------+-----------+-------------------+--------------------------+
-| Resume Quality                  | 2424 (50) | 178 (45)          | 2246 (50)                |
+| Resume Quality                  |           |                   |                          |
++---------------------------------+-----------+-------------------+--------------------------+
+| Low - N (%)                     | 2424 (50) | 178 (45)          | 2246 (50)                |
 |                                 |           |                   |                          |
-| Low - N (%)                     | 2446 (50) | 214 (55)          | 2232 (50)                |
-|                                 |           |                   |                          |
-| High - N (%)                    |           |                   |                          |
+| High - N (%)                    | 2446 (50) | 214 (55)          | 2232 (50)                |
 +---------------------------------+-----------+-------------------+--------------------------+
 | Years of experience - mean (SD) | 7.8 (5)   | 8.9 (5.5)         | 7.8 (5)                  |
 +---------------------------------+-----------+-------------------+--------------------------+
@@ -229,3 +229,5 @@ confusionMatrix(table(resumemod_preds_fac_bestthres,
 We now have observations that were predicted to receive a callback. The accuracy decreased, but the kappa increased. The sensitivity and specificity are fairly low at 0.49 and 0.67, respectively. Given that the AUC is 0.58, this may not be a great model for prediction, but we can still trust our inferences!
 
 ## 4
+
+Based on both models (with and without interaction), race and years of experience are statistically significantly associated with receiving a callback. Gender is not significant, and the interaction between race and gender is not significant. Looking at odds of receiving a callback for each race/gender combination, we see that White females and males have odds of 1.6 and 1.4, respectively, and Black females and males both have odds less than 1, meaning they are more likely to not receive a callback than to receive one. The strength of the model in terms of predictive accuracy is not very good; this can be difficult with a fairly rare outcome like we have in this case. Looking at the data available, it could be interesting to look at different kinds of jobs and whether or not race and gender interact with job types and receiving a callback. For example, it could be interesting to see if men are more likely to receive a callback for titles that imply leadership, like managerial roles.
