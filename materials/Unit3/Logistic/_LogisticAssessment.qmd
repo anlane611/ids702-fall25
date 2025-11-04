@@ -1,0 +1,150 @@
+---
+title: "Logistic Regression Assessment"
+output: html
+editor: visual
+---
+
+## Inference vs prediction
+
+Before we begin any analysis, we have to be clear on our objective. Data science research questions can largely be classified as either **inference** questions or **prediction** questions.
+
+Inference questions focus on quantifying relationships/associations, while prediction questions focus on using input variables to predict the outcome.
+
+In this class, we have focused on conducting inference. Next semester, you will focus on prediction.
+
+Classifying your goal will introduce a different workflow for your analysis. For example, we have not split data into training and testing sets in this class, because we have not been seeking to make predictions.
+
+[This blog post also summarizes the distinction between inference and prediction.](https://www.datascienceblog.net/post/commentary/inference-vs-prediction/)
+
+## The challenge with assessing GLMs
+
+Recall that when we assessed linear regression models, we primarily focused on residual plots to assess whether or not the assumptions appeared to be violated. We needed to do this because, theoretically, if these assumptions are violated, we may not have **accurate estimates** and/or **valid inference** (though we also noted that linear regression is robust to violations!).
+
+We also assessed model performance primarily through adjusted $R^2$ to quantify variance in the outcome that is explained by our predictors.
+
+Unfortunately, generalized linear models like logistic regression can be more difficult to assess. We do not have the same assumptions or nice residual plots like we get with linear regression.
+
+## Linear Regression vs. Logistic Regression
+
+With a partner or small group, discuss the following questions:
+
+1.  What is the distinction between how we estimate coefficients in linear vs. logistic regression?
+2.  Look back at the formulas for $R^2$ and $VIF$. Would these metrics extend to logistic regression?
+3.  Which assumption(s) of linear regression extend(s) to logistic regression?
+
+## Assessing a logistic regression model for inference
+
+1.  Model specification: *Are the appropriate variables in the model, including interaction terms?*
+    -   Can check partial residual plots to assess linearity of log odds for continuous predictors
+2.  Consider multicollinearity and high leverage points
+3.  Consider conducting a goodness-of-fit test to assess overall model fit
+4.  Can compare models with metrics based on likelihood
+
+## What if we check our typical residual plots?
+
+```{r, message=FALSE}
+library(tidyverse)
+library(stringr)
+library(caret)
+library(pROC)
+library(car)
+library(ResourceSelection)
+library(MASS)
+
+titanic <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/titanic.csv")
+
+titanic <- titanic |>
+  mutate(class_combined = case_when(
+    str_detect(class, "crew|staff") ~ "crew",
+    TRUE ~ class
+  ))
+
+titanic_sub <- titanic |>
+  select(c("survived","age","gender","class_combined")) |>
+  na.omit() |>
+  mutate(survived_fac = factor(ifelse(survived=="yes",1,0),
+                               levels=c(0,1),
+                               labels=c("no","yes")))
+
+titanic_mod1 <- glm(survived_fac ~ age+gender+class_combined,
+                  data=titanic_sub,
+                  family="binomial")
+
+plot(titanic_mod1)
+```
+
+### Partial residual plot
+
+```{r}
+car::crPlot(titanic_mod1, "age")
+```
+
+### Multicollinearity and Leverage
+
+```{r}
+
+```
+
+### Goodness-of-fit (Hosmer-Lemeshow test)
+
+This test compares observed and expected frequencies of the outcome. I do not recommend relying on this test too heavily, but it can be part of the assessment process.
+
+```{r}
+ResourceSelection::hoslem.test(titanic_mod1$y, fitted(titanic_mod1))
+```
+
+## Assessing the model with predicted values
+
+We can use predicted values to assess the logistic model in different ways. What are the predicted values in this case?
+
+Consider the linear model vs the logistic model:
+
+Linear: $Y = \beta_0+\beta_1x+\epsilon$
+
+Logistic: $\log(\frac{p}{1-p})=\beta_0+\beta_1x$
+
+```{r}
+head(predict(titanic_mod1))
+
+head(predict(titanic_mod1, type="response"))
+
+range(predict(titanic_mod1))
+
+range(predict(titanic_mod1, type="response"))
+
+head(fitted(titanic_mod1))
+```
+
+A **confusion matrix** allows us to compare our **observed outcome** to the **predicted outcome** based on the probabilities.
+
+Note that to do this, we need to set a probability cutoff to classify the observations. Let's set the cutoff at 0.5. We can generate a confusion matrix with the `caret` package (already loaded above).
+
+The `confusionMatrix` function requires a **table** of observed vs. predicted classes and specification of which value constitutes the "positive" classification.
+
+```{r}
+titanicmod_preds <- ifelse(predict(titanic_mod1, type="response")>0.5,1,0)
+titanicmod_preds_fac <- factor(titanicmod_preds,
+                            levels=c(0,1),
+                            labels=c("no","yes"))
+caret::confusionMatrix(table(titanicmod_preds_fac, titanic_sub$survived_fac),
+                positive="yes",
+                mode="everything")
+```
+
+We can also visualize the model performance with a **Receiver Operator Characteristics Curve (ROC curve).** This curve compares sensitivity and specificity. We can generate one with the `pROC` package (loaded above).
+
+The **Area Under the Curve (AUC)** is another measure of model performance based on the ROC curve.
+
+```{r}
+pROC::roc(titanic_sub$survived_fac, predict(titanic_mod1, type="response"), 
+    print.thres="best", 
+    print.auc=T,
+    legacy.axes=T,
+    plot=T)
+```
+
+## Comparing models with deviance and AIC
+
+### Deviance
+
+**Deviance** is a measure 

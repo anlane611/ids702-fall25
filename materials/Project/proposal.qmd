@@ -1,0 +1,80 @@
+---
+title: "Proposal"
+subtitle: "Due: Sunday, November 16th 11:59 PM"
+editor: visual
+---
+
+## Purpose
+
+The purpose of the team project is to provide an opportunity to complete a data analysis project from start to finish. This includes:
+
+-   Selecting data
+
+-   Writing research questions
+
+-   Performing exploratory data analysis
+
+-   Developing appropriate statistical models
+
+-   Communicating results through a written report and presentation
+
+-   Working with a team
+
+## Teams
+
+See [this sheet](https://duke.box.com/s/jgqg90p91acodf5btita4kfixxzyh283) for your team assignment. You are responsible for dividing the work equitably among team members. Every team member is required to contribute to each portion of the project. Learn from each other and, most importantly, be kind. You will receive individual grades for the project that incorporate feedback from fellow team members.
+
+## Data
+
+Your first step is to select the dataset that you are most interested in analyzing. Below is a list of datasets or sources that you can consider using to find a dataset. You are not required to use these.
+
+Your dataset must have at least 500 observations, 10 variables, and a mix of numeric and categorical variables. You may **not** use a dataset that we have used in class.
+
+1.  [R Data Sources for Regression Analysis](https://rfun.library.duke.edu/blog/data-sources-for-regression-analysis/)
+
+2.  [FiveThirtyEight data](https://data.fivethirtyeight.com/)
+
+3.  [World Health Organization](https://www.who.int/data/gho/)
+
+4.  [The National Bureau of Economic Research](https://www.nber.org/research/data?page=1&perPage=50)
+
+5.  [International Monetary Fund](https://data.imf.org/?sk=388DFA60-1D26-4ADE-B505-A05A558D9A42&sId=1479329328660)
+
+6.  [General Social Survey](https://gss.norc.org/)
+
+7.  [United Nations Data](http://data.un.org/)
+
+8.  [Pew Research](https://www.pewresearch.org/download-datasets/)
+
+9.  [World Inequality Database](https://wid.world/data/)
+
+You are welcome to specify a subset of a particular dataset (e.g., a particular state, country, or region). Be sure to look at the data to understand its scope.
+
+## Proposal
+
+**Use the template for your proposal**
+
+Your proposal should list the following:
+
+1.  Team member names
+2.  2 or 3 datasets of interest (list in order of preference with 1 being the top choice). For each dataset, provide:
+
+-   The source of the data, when and how it was originally collected, and a brief description of the observations (i.e., what does each row represent?). This information is likely found on the website where you found the data, so be sure to cite your source
+
+-   **TWO** **research questions** you are interested in exploring **for each dataset**. Explicitly state the **outcome variables** in the dataset that you will use to answer each question. You are required to use two different types of outcome variables for your research questions. For example, one research question may use a continuous outcome variable while the other uses an ordinal outcome variable. Variable types may include: continuous, binary, ordinal, nominal, or count. The research questions must be related to inference, not prediction (though you will be able to assess predictions in your final report). Consult [this helpful guide](https://www.scribbr.com/research-process/research-question-examples/) for writing a good research question and [this blog post](https://www.datascienceblog.net/post/commentary/inference-vs-prediction/) about the distinction between inference and prediction. Additionally, you will be required to incorporate at least one interaction term into one of your models, so you might consider incorporating this into your research question.
+
+-   a `glimpse()` of each dataset to show the variables
+
+-   Brief exploratory data analysis. The EDA must not exceed 2 pages (1 for each research question) and should include:
+
+    -   One plot for **each** of your outcome variables **by themselves**. Be sure to use appropriate axis labels
+
+    -   exploratory plots for your primary relationship of interest (dependent variable and primary independent variable, if applicable). Whether you have one primary independent variable of interest or multiple will depend on your research question. Be sure to use appropriate axis labels.
+
+4.  The proposal includes a team charter. Discuss the provided questions with your group and include your agreed-upon answers.
+
+Use the template to generate your proposal. Note that you can insert a python code chunk instead of R. I do not mind you using python for data manipulation/cleaning, but you are required to use R code for the analysis and visuals, and you must have all code in one qmd file that will render the pdf.
+
+Use github to share code among group members. As a group, plan the tables and figures you want to generate, and split them up among the group members. Then you can consolidate your code to generate the report.
+
+Submit one proposal per group. **One person will submit and select the other group members in the Gradescope submission**. After you submit, I will provide feedback to help you decide which dataset to choose for your project report.

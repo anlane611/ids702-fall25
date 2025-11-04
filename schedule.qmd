@@ -686,7 +686,25 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
    Slides for reference:
                <a href="materials/Unit3/Logistic/IDS702_logisticmetrics.pdf"  target="_blank">Logistic diagnostics</a>, <a href="materials/Unit3/Logistic/IDS702_logisticmetricspredict.pdf"  target="_blank">Assessing models with prediction</a>
        </td>
-        <td></td>
+        <td>
+          <a href="materials/Unit3/Logistic/_LogisticAssessment.qmd" download>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="25" height="25" 
+     fill="currentColor" 
+     class="bi bi-filetype-qmd" 
+     viewBox="0 0 16 16">
+  <!-- File shape -->
+  <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-2v-1h2a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5z"/>
+  
+  <!-- Q -->
+  <text x="3.2" y="15" font-size="4" font-family="monospace" font-weight="bold">Q</text>
+  <!-- M -->
+  <text x="6.0" y="15" font-size="4" font-family="monospace" font-weight="bold">M</text>
+  <!-- D -->
+  <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
+</svg></a>
+
+        </td>
         <td>
         </td>
   </tr>
@@ -695,22 +713,4 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
       <td>11.6</td>
       <td>Multinomial Regression</td>
        <td>
-         1 video: <a href="https://duke.zoom.us/rec/share/-YWlI2whGCpSudjtMgRcyephtW1Csa3GLtDx2vOxsfsDftw32Rjj4glH9zZxiok3.k4YQKllKvKFN5G6B?startTime=1696877429000"  target="_blank">Multinomial Regression</a> 
-   </br>
-   Slides for reference:
-               <a href="materials/Unit3/IDS702_multinomial.pdf"  target="_blank">Multinomial regression</a> </br>
-  Supplemental reading: ISLR briefly covers multinomial regression in section 4.3.5
-       </td>
-        <td></td>
-        <td>
-        </td>
-  </tr>
-     <tr>
-      <th scope="row"></th>
-      <td>11.9</td>
-      <td></td>
-       <td></td>
-        <td></td>
-      <td> HW4 due 11.9 11:59 PM </br> Questions:
-        <a href="materials/Homework/Unit3/HW4.qmd"  target="_blank">
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" 
+         1 video: <a href="https://duke.zoom.us/rec/share/-YWlI2whGCpSudjtMgRcyephtW1Csa3GLtDx2vOxsfsDftw32Rj

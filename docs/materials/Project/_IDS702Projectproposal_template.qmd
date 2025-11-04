@@ -1,0 +1,105 @@
+---
+title: "Project Proposal"
+author: "ALL group member names here"
+subtitle: "Due November 16 at 11:59pm"
+format: pdf
+editor: visual
+---
+
+#### Load Packages
+
+```{r load-packages, message = FALSE, warning = FALSE}
+library(tidyverse)
+```
+
+# Dataset 1 (top choice)
+
+**Data source:**
+
+**Brief description:**
+
+**Research question 1:**
+
+-   Outcome variable (include the name/description and type of variable):
+
+**Research question 2:**
+
+-   Outcome variable (include the name/description and type of variable):
+
+**Load the data and provide a `glimpse()`**:
+
+```{r data-1, warning=FALSE}
+
+```
+
+**Exploratory Plots:**
+
+```{r plots-1}
+
+```
+
+# Dataset 2
+
+**Data source:**
+
+**Brief description:**
+
+**Research question 1:**
+
+-   Outcome variable (include the name/description and type of variable):
+
+**Research question 2:**
+
+-   Outcome variable (include the name/description and type of variable):
+
+**Load the data and provide a `glimpse()`**:
+
+```{r data-2, warning=FALSE}
+
+```
+
+**Exploratory Plots:**
+
+```{r plots-2}
+
+```
+
+# 
+
+# Dataset 3 (optional)
+
+**Data source:**
+
+**Brief description:**
+
+**Research question 1:**
+
+-   Outcome variable (include the name/description and type of variable):
+
+**Research question 2:**
+
+-   Outcome variable (include the name/description and type of variable):
+
+**Load the data and provide a `glimpse()`**:
+
+```{r data-3, warning=FALSE}
+
+```
+
+**Exploratory Plots:**
+
+```{r plots-3}
+
+```
+
+# 
+
+# Team Charter
+
+#### When will you meet as a team to work on the project components? Will these meetings be held in person or virtually?
+
+#### What is your group policy on missing team meetings (e.g., how much advance notice should be provided)?
+
+#### How will your team communicate (email, Slack, text messages)? What is your policy on appropriate response time (within a certain number of hours? Nights/weekends?)?
+
+#### 
