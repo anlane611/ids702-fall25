@@ -100,4 +100,6 @@ library(tidyverse)
 
 #### What is your group policy on missing team meetings (e.g., how much advance notice should be provided)?
 
-#### How will your team communicate (email, Slack, text messages)? What is your policy on appropriate response time (within a certain number of hours? Nights/week
+#### How will your team communicate (email, Slack, text messages)? What is your policy on appropriate response time (within a certain number of hours? Nights/weekends?)?
+
+#### 

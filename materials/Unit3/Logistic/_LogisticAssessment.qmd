@@ -147,4 +147,48 @@ pROC::roc(titanic_sub$survived_fac, predict(titanic_mod1, type="response"),
 
 ### Deviance
 
-**Deviance** is a measure 
+**Deviance** is a measure based on the **likelihood** that can be used to assess overall model fit or compare models.
+
+$$
+D=-2ln(\hat{L})
+$$ Would higher or lower values be better?
+
+ 
+
+We can perform a hypothesis test to compare deviance, similar to what we did with nested F tests:
+
+Let's compare the models with and without the gender\*class interaction term.
+
+Null hypothesis:
+
+Alternative hypothesis:
+
+```{r}
+titanicmod_reduced <- titanic_mod1
+titanicmod_full <- glm(survived_fac ~ age+gender*class_combined,
+                  data=titanic_sub,
+                  family="binomial")
+
+anova(titanicmod_reduced, titanicmod_full, test="Chisq")
+```
+
+We can also use deviance to get a sense of overall model fit. What would the null model be in this case?
+
+### AIC
+
+The Akaike Information Criterion is a popular tool for comparing models. AIC is beneficial because it adds a penalty term to mitigate overfitting and it can compare models that are not nested.
+
+$$
+AIC=2k-2ln(\hat{L})
+$$
+
+where $k$ is the number of parameters being estimated.
+
+We can use the AIC functions to compare AIC values for different models. Note that it is better statistical practice to specify models to compare *in advance*.
+
+Let's again compare the models with and without the interaction term.
+
+```{r}
+AIC(titanicmod_reduced)
+AIC(titanicmod_full)
+```

@@ -1,0 +1,70 @@
+---
+title: "Multinomial (Logistic) Regression"
+output: html
+editor: visual
+---
+
+## Generalized Linear Models
+
+-   Allow us to fit models with different types of outcomes: binary, nominal, ordinal, count
+
+-   Allow us to **perform inference**, i.e., obtain interpretable estimates, quantify uncertainty of those estimates, conduct hypothesis tests
+
+## Multinomial Regression
+
+Define $\pi_j$ as $P(Y=j)$ for a level $j$ of a nominal categorical variable.
+
+The multinomial model is defined as a set of logistic regression models for each probability $\pi_j$ compared to a baseline level:
+
+$$
+log(\frac{\pi_{ij}}{\pi_{i1}})=\beta_{0j}+\beta_{1j}x_{i1}+...+\beta_{pj}x_{ip}
+$$
+
+What are all of the indices here ( $j$, $p$, and $i$ )?
+
+## Interpretations
+
+Each coefficient estimate has to be interpreted relative to the baseline outcome level
+
+-   If $x_1$ is continuous, $e^{\beta_{1j}}$ is the multiplicative increase/decrease in the **odds** of $Y=j$ vs $Y=1$ (baseline) when increasing $x_1$ by one unit
+
+-   If $x_1$ is categorical, $e^{\beta_{1j}}$ is the odds of $Y=j$ vs $Y=1$ (baseline) for the group with $x_1=1$ compared to the reference group
+
+## Example
+
+```{r, message=FALSE}
+library(tidyverse)
+library(caret)
+library(foreign)
+library(nnet)
+
+
+ml <- read.dta("https://stats.idre.ucla.edu/stat/data/hsbdemo.dta")
+
+ml <- ml |>
+  mutate(prog_ac = relevel(prog, ref="academic"))
+
+ml_mod <- multinom(prog_ac ~ ses + write, data=ml)
+
+summary(ml_mod)
+
+exp(summary(ml_mod)$coefficients)
+```
+
+-   The odds of being in the general track compared to academic are 41% lower for students of middle SES status compared to low.
+
+-   A one point increase in writing score is associated with a 6% decrease in the odds of being in the general program compared to the academic program
+
+```{r}
+z <- summary(ml_mod)$coefficients/summary(ml_mod)$standard.errors
+
+(p <- (1-pnorm(abs(z)))*2)
+```
+
+## Confusion Matrix
+
+```{r}
+confusionMatrix(predict(ml_mod), ml$prog_ac, mode="everything")
+```
+
+## 
