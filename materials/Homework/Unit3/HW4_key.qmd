@@ -105,33 +105,33 @@ resume |>
   summarise(mean(years_experience), sd(years_experience))
 ```
 
-+---------------------------------+-----------+-------------------+--------------------------+
-| Variable                        | Overall   | Received Callback | Did not receive callback |
-|                                 |           |                   |                          |
-|                                 | 4870      | 392 (8)           | 4478 (92)                |
-+=================================+===========+===================+==========================+
-| Race                            |           |                   |                          |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Black - N (%)                   | 2435 (50) | 157 (40)          | 2278 (51)                |
-|                                 |           |                   |                          |
-| White - N (%)                   | 2435 (50) | 235 (60)          | 2200 (49)                |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Gender                          |           |                   |                          |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Female - N (%)                  | 3746 (77) | 309 (79)          | 3437 (77)                |
-|                                 |           |                   |                          |
-| Male - N (%)                    | 1124 (23) | 83 (21)           | 1041 (23)                |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Has college degree - N (%)      | 3504 (72) | 277 (71)          | 3227 (72)                |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Resume Quality                  |           |                   |                          |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Low - N (%)                     | 2424 (50) | 178 (45)          | 2246 (50)                |
-|                                 |           |                   |                          |
-| High - N (%)                    | 2446 (50) | 214 (55)          | 2232 (50)                |
-+---------------------------------+-----------+-------------------+--------------------------+
-| Years of experience - mean (SD) | 7.8 (5)   | 8.9 (5.5)         | 7.8 (5)                  |
-+---------------------------------+-----------+-------------------+--------------------------+
++---------------------------------+--------------+-------------------+--------------------------+
+| Variable                        | Overall      | Received Callback | Did not receive callback |
+|                                 |              |                   |                          |
+|                                 | 4870         | 392 (8)           | 4478 (92)                |
++=================================+==============+===================+==========================+
+| Race                            |              |                   |                          |
++---------------------------------+--------------+-------------------+--------------------------+
+| Black - N (%)                   | 2435 (50)    | 157 (40)          | 2278 (51)                |
+|                                 |              |                   |                          |
+| White - N (%)                   | 2435 (50)    | 235 (60)          | 2200 (49)                |
++---------------------------------+--------------+-------------------+--------------------------+
+| Gender                          |              |                   |                          |
++---------------------------------+--------------+-------------------+--------------------------+
+| Female - N (%)                  | 3746 (77)    | 309 (79)          | 3437 (77)                |
+|                                 |              |                   |                          |
+| Male - N (%)                    | 1124 (23)    | 83 (21)           | 1041 (23)                |
++---------------------------------+--------------+-------------------+--------------------------+
+| Has college degree - N (%)      | 3504 (72)    | 277 (71)          | 3227 (72)                |
++---------------------------------+--------------+-------------------+--------------------------+
+| Resume Quality                  |              |                   |                          |
++---------------------------------+--------------+-------------------+--------------------------+
+| Low - N (%)                     | 2424 (50)    | 178 (45)          | 2246 (50)                |
+|                                 |              |                   |                          |
+| High - N (%)                    | 2446 (50)    | 214 (55)          | 2232 (50)                |
++---------------------------------+--------------+-------------------+--------------------------+
+| Years of experience - mean (SD) | 7.8 (5)      | 8.9 (5.5)         | 7.8 (5)                  |
++---------------------------------+--------------+-------------------+--------------------------+
 
 Takeaways: Most variables do not seem to have a big difference when it comes to receiving callbacks. The exception to this is race. While White applicants make up 50% of the experimental sample, they receive 60% of the callbacks. Callback rates align with the overall sample for gender. Interestingly, resume quality seems to have little effect, with low quality resumes receiving 45% of the callbacks.
 
@@ -181,13 +181,13 @@ exp(confint(resume_mod2))
 
 The reference group is Black females. Let $x_1=1$ for race=White, 0=Black; $x_2=1$ for gender=male, 0=female.
 
--   For White males, $x_1=1$ and $x_2=1$, so the log odds of receiving a callback = 0.44-0.11+0.002=0.332, so the odds of receiving a callback are $exp(0.332)=1.4$.
+-   For White males, $x_1=1$ and $x_2=1$, so the log odds of receiving a callback = -2.87+0.44-0.11+0.002=-2.5, so the odds of receiving a callback are $exp(-2.5)=0.08$.
 
--   For White females, $x_1=1$ and $x_2=0$, so the log odds of receiving a callback=0.44, so the odds of receiving a callback are $exp(0.44)=1.6$.
+-   For White females, $x_1=1$ and $x_2=0$, so the log odds of receiving a callback=-2.87+0.44, so the odds of receiving a callback are $exp(-2.4)=0.09$.
 
--   For Black males, $x_1=0$ and $x_2=1$, so the log odds of receiving a callback = -0.11, so the odds of receiving a callback are $exp(-0.11)=0.9$
+-   For Black males, $x_1=0$ and $x_2=1$, so the log odds of receiving a callback = -2.87-0.11, so the odds of receiving a callback are $exp(-2.98)=0.05$
 
--   For Black females, $x_1=0$ and $x_2=0$, so the log odds of receiving a callback = -2.9 (the intercept!), so the odds of receiving a callback are $exp(-2.9)=0.06$
+-   For Black females, $x_1=0$ and $x_2=0$, so the log odds of receiving a callback = -2.87 (the intercept!), so the odds of receiving a callback are $exp(-2.9)=0.06$
 
 So, White females have the highest odds of receiving a callback.
 
@@ -230,4 +230,4 @@ We now have observations that were predicted to receive a callback. The accuracy
 
 ## 4
 
-Based on both models (with and without interaction), race and years of experience are statistically significantly associated with receiving a callback. Gender is not significant, and the interaction between race and gender is not significant. Looking at odds of receiving a callback for each race/gender combination, we see that White females and males have odds of 1.6 and 1.4, respectively, and Black females and males both have odds less than 1, meaning they are more likely to not receive a callback than to receive one. The strength of the model in terms of predictive accuracy is not very good; this can be difficult with a fairly rare outcome like we have in this case. Looking at the data available, it could be interesting to look at different kinds of jobs and whether or not race and gender interact with job types and receiving a callback. For example, it could be interesting to see if men are more likely to receive a callback for titles that imply leadership, like managerial roles.
+Based on both models (with and without interaction), race and years of experience are statistically significantly associated with receiving a callback. Gender is not significant, and the interaction between race and gender is not significant. Looking at odds of receiving a callback for each race/gender combination, we see that White females and males have odds of .09 and .08, respectively, and Black females and males have odds of 0.06 and 0.05, respectively. The strength of the model in terms of predictive accuracy is not very good; this can be difficult with a fairly rare outcome like we have in this case. Looking at the data available, it could be interesting to look at different kinds of jobs and whether or not race and gender interact with job types and receiving a callback. For example, it could be interesting to see if men are more likely to receive a callback for titles that imply leadership, like managerial roles.

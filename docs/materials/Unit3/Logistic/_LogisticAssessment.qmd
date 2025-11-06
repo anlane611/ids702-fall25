@@ -184,7 +184,7 @@ $$
 
 where $k$ is the number of parameters being estimated.
 
-We can use the AIC functions to compare AIC values for different models. Note that it is better statistical practice to specify models to compare *in advance*.
+We can use the AIC function to compare AIC values for different models. Note that it is better statistical practice to specify models to compare *in advance*.
 
 Let's again compare the models with and without the interaction term.
 

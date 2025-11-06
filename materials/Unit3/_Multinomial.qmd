@@ -1,6 +1,7 @@
 ---
 title: "Multinomial (Logistic) Regression"
-output: html
+author: "Group member names here (omit absent members)"
+output: pdf
 editor: visual
 ---
 
@@ -28,43 +29,20 @@ Each coefficient estimate has to be interpreted relative to the baseline outcome
 
 -   If $x_1$ is continuous, $e^{\beta_{1j}}$ is the multiplicative increase/decrease in the **odds** of $Y=j$ vs $Y=1$ (baseline) when increasing $x_1$ by one unit
 
--   If $x_1$ is categorical, $e^{\beta_{1j}}$ is the odds of $Y=j$ vs $Y=1$ (baseline) for the group with $x_1=1$ compared to the reference group
+-   If $x_1$ is categorical, $e^{\beta_{1j}}$ is the odds of $Y=j$ vs $Y=1$ (baseline) for the group with $x_1=1$ compared to the reference group of the covariate
 
-## Example
+## Exercise
 
-```{r, message=FALSE}
-library(tidyverse)
-library(caret)
-library(foreign)
-library(nnet)
+You are an analyst at a large technology company. The company recently introduced a new health insurance provider for its employees. At the beginning of the year, the employees had to choose one of three different health plan products from this provider. You have been asked to determine which factors influenced the choice in product.
 
+The `health_insurance` data set consists of the following fields:
 
-ml <- read.dta("https://stats.idre.ucla.edu/stat/data/hsbdemo.dta")
+-   `product`: The choice of product of the individual—A, B or C
 
-ml <- ml |>
-  mutate(prog_ac = relevel(prog, ref="academic"))
+-   `age`: The age of the individual when they made the choice
 
-ml_mod <- multinom(prog_ac ~ ses + write, data=ml)
+-   `gender`: The gender of the individual as stated when they made the choice
 
-summary(ml_mod)
+-   `household`: The number of people living with the individual in the same household at the time of the choice
 
-exp(summary(ml_mod)$coefficients)
-```
-
--   The odds of being in the general track compared to academic are 41% lower for students of middle SES status compared to low.
-
--   A one point increase in writing score is associated with a 6% decrease in the odds of being in the general program compared to the academic program
-
-```{r}
-z <- summary(ml_mod)$coefficients/summary(ml_mod)$standard.errors
-
-(p <- (1-pnorm(abs(z)))*2)
-```
-
-## Confusion Matrix
-
-```{r}
-confusionMatrix(predict(ml_mod), ml$prog_ac, mode="everything")
-```
-
-## 
+-   `position_le

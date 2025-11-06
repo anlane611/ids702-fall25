@@ -1,0 +1,99 @@
+---
+title: "Multinomial (Logistic) Regression"
+author: "Exercise answers"
+output: html
+editor: visual
+---
+
+## Generalized Linear Models
+
+-   Allow us to fit models with different types of outcomes: binary, nominal, ordinal, count
+
+-   Allow us to **perform inference**, i.e., obtain interpretable estimates, quantify uncertainty of those estimates, conduct hypothesis tests
+
+## Multinomial Regression
+
+Define $\pi_j$ as $P(Y=j)$ for a level $j$ of a nominal categorical variable.
+
+The multinomial model is defined as a set of logistic regression models for each probability $\pi_j$ compared to a baseline level:
+
+$$
+log(\frac{\pi_{ij}}{\pi_{i1}})=\beta_{0j}+\beta_{1j}x_{i1}+...+\beta_{pj}x_{ip}
+$$
+
+What are all of the indices here ( $j$, $p$, and $i$ )?
+
+$j$ indexes the level of the nominal categorical outcome variable, $p$ indexes the predictors, and $i$ indexes the subjects
+
+## Interpretations
+
+Each coefficient estimate has to be interpreted relative to the baseline outcome level
+
+-   If $x_1$ is continuous, $e^{\beta_{1j}}$ is the multiplicative increase/decrease in the **odds** of $Y=j$ vs $Y=1$ (baseline) when increasing $x_1$ by one unit
+
+-   If $x_1$ is categorical, $e^{\beta_{1j}}$ is the odds of $Y=j$ vs $Y=1$ (baseline) for the group with $x_1=1$ compared to the reference group of the covariate
+
+## Exercise
+
+You are an analyst at a large technology company. The company recently introduced a new health insurance provider for its employees. At the beginning of the year, the employees had to choose one of three different health plan products from this provider. You have been asked to determine which factors influenced the choice in product.
+
+The `health_insurance` data set consists of the following fields:
+
+-   `product`: The choice of product of the individual—A, B or C
+
+-   `age`: The age of the individual when they made the choice
+
+-   `gender`: The gender of the individual as stated when they made the choice
+
+-   `household`: The number of people living with the individual in the same household at the time of the choice
+
+-   `position_level`: Position level in the company at the time they made the choice, where 1 is is the lowest and 5 is the highest
+
+-   `absent`: The number of days the individual was absent from work in the year prior to the choice
+
+```{r, message=FALSE}
+library(caret) #for confusion matrix
+library(nnet) #for multinomial regression
+library(tidyverse)
+
+health_insurance <- read.csv("http://peopleanalytics-regression-book.org/data/health_insurance.csv")
+```
+
+1.  Create factor variables for `product` and `gender` . Then, run the `levels()` function to verify that "A" is the first/reference level.
+
+    ```{r}
+    health_insurance <- health_insurance |>
+      mutate(product_fac = factor(product),
+             gender_fac = factor(gender))
+
+    levels(health_insurance$product_fac)
+    ```
+
+2.  Calculate N and % for each product. Are the levels balanced or imbalanced?
+
+    ```{r}
+    health_insurance |>
+      count(product_fac) |>
+      mutate(prop=n/sum(n))
+    ```
+
+    The levels are balanced, with approximately 1/3 of the observations in each category
+
+3.  Use the code below to fit a multinomial model regressing `product` on all other variables in the dataset.
+
+    ```{r}
+    healthinsurance_mod1 <- nnet::multinom(product ~ age + gender_fac +
+                                            household + position_level + 
+                                            absent, 
+                                          data = health_insurance)
+
+    summary(healthinsurance_mod1)
+
+    odds_scale_coefs <- exp(summary(healthinsurance_mod1)$coefficients)
+
+    data.frame(t(odds_scale_coefs)) #formats coefficients on odds scale so they're easier to see
+    ```
+
+    -   How many coefficient estimates do we obtain from this model fit?
+
+        -   We calculate the number of coefficient estimates in a multinomial model with $(P+1) \times (J-1)$, where $P$ is the number of pr
