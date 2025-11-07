@@ -782,7 +782,13 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
       <th scope="row"></th>
       <td>11.11</td>
       <td>Ordinal Regression</td>
-       <td></td>
+       <td>
+         Watch the three videos about ordinal regression. Dr. Väisänan does a great job of explaining ordinal regression, though the code is in Stata. Focus on the concepts and we will cover the R code for ordinal regression in class. </br>
+       <a href="https://www.youtube.com/watch?v=rPcMcW25PPA&t=1s"  target="_blank">Introduction to Ordinal Regression</a>,  
+       <a href="https://www.youtube.com/watch?v=aiQcFCFtT5k"  target="_blank">Multiple Ordinal Regression</a>, 
+       <a href="https://www.youtube.com/watch?v=iPDwMrw2D30"  target="_blank">Proportional Odds Assumption</a> </br>
+       ISLR does not cover ordinal regression
+       </td>
         <td></td>
         <td>
         </td>
@@ -791,7 +797,15 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
       <th scope="row"></th>
       <td>11.13</td>
       <td>Poisson Regression</td>
-       <td></td>
+       <td>
+        2 videos: <a href="https://duke.zoom.us/rec/share/94ZjFguSnodSRaFLSKinCvAgIIyfi9GU-ABTYrJJpnKydqEJKAyVlSwMSQLTyYtf.2hZvLM5IANdJH-Kb?startTime=1696956001000"  target="_blank">Poisson regression</a>, 
+            <a href="https://duke.zoom.us/rec/share/Zdu73AEr4etcbVTXB6dwskChbMSJOxqmmeHdfW1tZ8NjXZueGIGhwcKMhD3TKm79.q3ILJGptZUPhCq2b?startTime=1698158942000"  target="_blank">Poisson regression with rates</a>
+   </br>
+   Slides for reference:
+               <a href="materials/Unit3/IDS702_poisson.pdf"  target="_blank">Poisson regression</a>, <a href="materials/Unit3/IDS702_poissonrates.pdf"  target="_blank">Poisson regression with rates</a> </br>
+  Supplemental reading: ISLR 4.6.2
+   
+       </td>
         <td></td>
         <td>
         </td>
@@ -825,4 +839,69 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
   <!-- D -->
   <text x="8.8" y="15" font-size="4" font-family="monospace" font-weight="bold">D</text>
 </svg></a>
- 
+          </br>
+          Example:
+        <a href="materials/Project/_IDS702Projectproposal_Example.pdf"  target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-file-earmark" viewBox="0 0 16 16">
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+</svg></a>  
+          
+        </td>
+  </tr>
+     <tr>
+      <th scope="row">4</th>
+      <td>11.18</td>
+      <td>Missing Data</td>
+       <td></td>
+        <td>Quiz 2 (GLMs)</td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.20</td>
+      <td>Missing Data</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.23</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td>
+          HW5: GLMs
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.25</td>
+      <td>Project work day (Last day of class)</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>12.5</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td> Project drafts due (optional)
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>12.13</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td> Final projects, Recorded presentations, and team feedback due 12 PM (Noon)
+        </td>
+  </tr>
+  </tbody>
+</table>
+```

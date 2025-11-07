@@ -96,4 +96,58 @@ health_insurance <- read.csv("http://peopleanalytics-regression-book.org/data/he
 
     -   How many coefficient estimates do we obtain from this model fit?
 
-        -   We calculate the number of coefficient estimates in a multinomial model with $(P+1) \times (J-1)$, where $P$ is the number of pr
+        -   We calculate the number of coefficient estimates in a multinomial model with $(P+1) \times (J-1)$, where $P$ is the number of predictor terms (account for levels of categorical predictors/interaction terms and add one for the intercept), and $J$ is the number of levels of the categorical outcome (subtract one because we don't have estimates for the baseline level). Here, $P=6$ and $J=3$, so we get $7 \times 2=14$ coefficient estimates.
+
+    -   What information do we **not** get from the summary output here that we've seen for the models we've fit before?
+
+        -   We only see estimates and standard errors here, so we don't get t-values and p-values
+
+    -   Write interpretations for the coefficient estimates on the odds scale for `gender=male`, `age`, and `household` for both levels of the outcome shown in the output.
+
+        -   The odds of selecting the B product rather than the A product are 0.09 times lower for males than females, all else held constant (or, the odds are 91% lower)
+
+        -   The odds of selecting the C product rather than the A product are 1.1 times higher for males than females, all else held constant (or, the odds are 10% higher)
+
+        -   Per year increase in age, the odds of selecting the B product compared to the A product increase 1.28 times (or, increase by 28%).
+
+        -   Per year increase in age, the odds of selecting the C product compared to the A product increase 1.3 times (or, increase by 30%).
+
+        -   Per additional household member, the odds of selecting the B product compared to the A product are reduced by 0.38 times (or, decrease by 62%).
+
+        -   Per additional household member, the odds of selecting the C product compared to the A product increase 1.23 times (or, increase by 23%).
+
+4.  Use the code below to generate the p-values for the coefficient estimates. Which factors are statistically significantly associated with the choice of healthcare plan? Are there any cases where a factor is significant for one level compared to the baseline but not for the other level compared to the baseline? (Note: Remember that we never report a p-value of 0! Use something like "p\<0.0001")
+
+    ```{r}
+    z <- summary(healthinsurance_mod1)$coefficients/summary(healthinsurance_mod1)$standard.errors
+
+    (p <- (1-pnorm(abs(z)))*2)
+
+    data.frame(t(p))
+    ```
+
+    Age, household, and position level are significantly associated with product choice for both B compared to A and C compared to A. The difference in odds for males vs females is statistically significant for B compared to A but not for C compared to A.
+
+5.  Generate a plot or two to illustrate some of the compelling results.
+
+    Here are some options to illustrate the difference in selected product based on age, household size, and gender:
+
+```{r}
+ggplot(health_insurance, aes(x=product_fac, y=age))+
+  geom_boxplot()+
+  labs(x="Product", y="Age", title="Distribution of age for each product selection")
+
+ggplot(health_insurance, aes(x=product_fac, y=household))+
+  geom_boxplot()+
+  labs(x="Product", y="Household size", title="Distribution of household size for each product selection")
+
+ggplot(health_insurance, aes(x=product_fac, fill=gender_fac))+
+  geom_bar(position="fill")+
+  labs(x="Product", fill="Gender", title="Proportion of each product selected by each gender category")
+```
+
+## 
+
+### Reference
+
+Exercise adapted from <https://peopleanalytics-regression-book.org/multinomial-logistic-regression-for-nominal-category-outcomes.html>
