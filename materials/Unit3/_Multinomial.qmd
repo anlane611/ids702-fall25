@@ -45,4 +45,67 @@ The `health_insurance` data set consists of the following fields:
 
 -   `household`: The number of people living with the individual in the same household at the time of the choice
 
--   `position_le
+-   `position_level`: Position level in the company at the time they made the choice, where 1 is is the lowest and 5 is the highest
+
+-   `absent`: The number of days the individual was absent from work in the year prior to the choice
+
+```{r, message=FALSE}
+library(caret) #for confusion matrix
+library(nnet) #for multinomial regression
+library(tidyverse)
+
+health_insurance <- read.csv("http://peopleanalytics-regression-book.org/data/health_insurance.csv")
+```
+
+1.  Create factor variables for `product` and `gender`
+
+    ```{r}
+
+    ```
+
+2.  Calculate N and % for each product.
+
+    ```{r}
+
+    ```
+
+3.  Use the code below to fit a multinomial model regressing `product` on all other variables in the dataset.
+
+    ```{r}
+    healthinsurance_mod1 <- nnet::multinom(product ~ age + gender_fac +
+                                            household + position_level + 
+                                            absent, 
+                                          data = health_insurance)
+
+    summary(healthinsurance_mod1)
+
+    odds_scale_coefs <- exp(summary(healthinsurance_mod1)$coefficients)
+
+    data.frame(t(odds_scale_coefs)) #formats coefficients on odds scale so they're easier to see
+    ```
+
+-   How many coefficient estimates do we obtain from this model fit?
+
+-   What information do we **not** get from the summary output here that we've seen for the models we've fit before?
+
+-   Write interpretations for the coefficient estimates on the odds scale for `gender=male`, `age`, and `household` for both levels of the outcome shown in the output.
+
+4.  Use the code below to generate the p-values for the coefficient estimates. Which factors are statistically significantly associated with the choice of healthcare plan? Are there any cases where a factor is significant for one level compared to the baseline but not for the other level compared to the baseline? (Note: Remember that we never report a p-value of 0! Use something like "p\<0.0001")
+
+    ```{r}
+    z <- summary(healthinsurance_mod1)$coefficients/summary(healthinsurance_mod1)$standard.errors
+
+    (p <- (1-pnorm(abs(z)))*2)
+
+    data.frame(t(p))
+    ```
+
+5.  Generate a plot or two to illustrate some of the compelling results.
+
+    ```{r}
+
+    ```
+
+### Reference
+
+Exercise adapted from <https://peopleanalytics-regression-book.org/multinomial-logistic-regression-for-nominal-category-outcomes.html>

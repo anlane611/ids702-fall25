@@ -1,0 +1,161 @@
+---
+title: "Ordinal Regression"
+format: pdf
+editor: visual
+---
+
+## Announcements
+
+-   Project proposal due Sunday, Nov 16th
+
+-   GLMs quiz next Tuesday, Nov 18th
+
+## Cumulative probabilities practice (Wooclap)
+
+## Ordinal Regression (AKA Proportional Odds Model or Cumulative Logit Model)
+
+The ordinal model uses cumulative probabilities:
+
+$$
+logit(P(Y_i \leq j))=\beta_{0j}-\beta_1x_{i1}-...-\beta_{p}x_{ip}
+$$
+
+where $j=1,...J-1$ and $i=1,...,n$
+
+How is this similar to the multinomial model and how is it different?
+
+## Interpretations
+
+-   If $x_1$ is continuous, $e^{\hat{\beta}_{1j}}$ is the multiplicative increase/decrease in the **odds** of being in a higher category when increasing $x_1$ by one unit
+
+-   If $x_1$ is categorical, $e^{\hat{\beta}_{1j}}$ is the odds of being in a higher category for the group with $x_1=1$ compared to the reference group
+
+## Example
+
+A study looks at factors that influence the decision of whether to apply to graduate school. College juniors are asked if they are unlikely, somewhat likely, or very likely to apply to graduate school.
+
+Use the code below to access the data:
+
+```{r}
+library(foreign) #package to access data type
+library(MASS) #package for model
+library(caret) #for confusion matrix
+library(tidyverse)
+
+grad <- read.dta("https://stats.idre.ucla.edu/stat/data/ologit.dta")
+```
+
+Data dictionary:
+
+-   `apply`: response to question "how likely are you to apply to graduate school?" with 3 options: very likely, somewhat likely, unlikely
+
+-   `pared`: parental education status (1=at least one parent has a graduate degree, 0 otherwise)
+
+-   `public`: undergraduate institution type (1=public, 0=private)
+
+-   `gpa`: current undergraduate GPA (4.0 scale)
+
+Take a glimpse of the data. What is the outcome?
+
+Calculate some summary statistics for the data. How many students are in each category of `apply`? What is the average GPA for each category of `apply`?
+
+```{r}
+
+```
+
+### Fitting the model
+
+We can fit the model using the `polr` function in the `MASS` package. Note that the syntax is the same as what we've seen before, but we don't need to specify `family` like we do with `glm`, because the `polr` function is specialized for the ordinal model. The `Hess=TRUE` option just stores the necessary information in the `ord_mod` object for us to access the `summary` information.
+
+```{r}
+ord_mod <- MASS::polr(apply ~ ., data=grad, Hess=TRUE)
+summary(ord_mod)
+```
+
+Recall from the lecture videos that with the ordinal model, we have the same predictor coefficient estimates for each level of the outcome, but different intercepts. This is why we see two components to the `summary` output: the Coefficients table and the Intercepts table.
+
+Notice that the output does not provide p-values by default. We can manually calculate them ourselves and then create a table to show the estimates, standard errors, t values, and p values:
+
+```{r}
+pvals <- pnorm(-abs(summary(ord_mod)$coef[,"t value"]))*2
+ctable <- cbind(summary(ord_mod)$coef,pvals)
+
+ctable
+```
+
+Like other models we have seen, the intercepts are not typically the focus of the interpretations. Let's focus on interpreting the predictor coefficient estimates. First, let's exponentiate the estimates and confidence intervals to interpret on the odds scale.
+
+```{r}
+(exp_coefs <- exp(cbind(OR=coef(ord_mod),confint(ord_mod))))
+```
+
+We can interpret the coefficient estimate of `pared` as follows:
+
+For students whose parents *did* attend college, the odds of being *more* likely (i.e., *very* or *somewhat* likely versus unlikely) to apply to graduate school is 2.85 times that of students whose parents did not go to college, holding all other variables constant. There is a statistically significant relationship between parental education and intention to apply to graduate school ( $p<0.01$, 95% CI for OR: 1.70, 4.82)
+
+With a partner, write the interpretations for the other two predictor variables:
+
+1.  public:
+2.  GPA:
+
+Go Further: What if you wanted to interpret the `gpa` variable per 0.1 increase instead of per 1.0 unit increase?
+
+### Assessment
+
+We can access predicted probabilities of being in each category:
+
+```{r}
+head(ord_mod$fitted.values)
+head(predict(ord_mod))
+```
+
+With your group, generate the confusion matrix to assess the accuracy of the predictions.
+
+```{r, eval=FALSE}
+caret::confusionMatrix()
+```
+
+Finally, we should assess the **proportional odds assumption**. To do this, we can compare the predicted probabilities using the multinomial model, which is a more precise model, to the predicted probabilities with the ordinal model. Note that this is a subjective process because it is difficult to know how different the predicted probabilities should be to conclude that the assumption is violated. It is also useful to think through whether or not it is reasonable to assume that the odds of being in one category vs another would increase proportionally.
+
+To generate predictions, let's create a new data frame with different combinations of the predictor values. It is typically easiest to use different combinations of the categorical variables and hold the continuous predictors constant.
+
+```{r}
+new.data <- data.frame(pared=factor(c(0,1,0,1)),
+                       gpa=mean(dat$gpa),
+                       public=factor(c(0,1,1,0)))
+```
+
+The new data contains a constant value of GPA and each unique combination of the values of parental education and institution type
+
+```{r}
+new.data
+```
+
+Now we can compare predicted probabilities from the ordinal model and the multinomial model
+
+```{r}
+library(nnet) #package for multinomial model
+mult_mod <- nnet::multinom(apply~pared+gpa+public,
+                     data=grad)
+
+predict(ord_mod, new.data, type="probs")
+predict(mult_mod, new.data, type="probs")
+```
+
+Notice that the predicted probabilities for the unlikely category are very similar for both models. We do see some differences for the other two categories, but overall, I would conclude that we do not have strong evidence that the proportional odds assumption is violated.
+
+Generate the confusion matrix for the multinomial model and see how it compares to the confusion matrix you generated for the ordinal model:
+
+```{r, eval=FALSE}
+caret::confusionMatrix()
+```
+
+### Extra: Visualizing effects with ggeffects
+
+```{r}
+library(ggeffects)
+
+ggeffects::predict_response(ord_mod, terms=c("gpa [all]","public")) |> 
+  plot()
+
+ggeffects::predict_response(ord_mod, terms=c("gpa [all]","pa

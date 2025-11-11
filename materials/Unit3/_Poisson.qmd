@@ -1,0 +1,81 @@
+---
+title: "Poisson Regression"
+format: pdf
+editor: visual
+---
+
+### The Poisson Model
+
+We use Poisson Regression to model count outcomes. The model uses the log link function:
+
+$$
+log(\lambda_i)=\beta_{0}+\beta_1x_{i1}+...+\beta_{p}x_{ip}
+$$
+
+where $i=1,...,n$
+
+What is $\lambda$?
+
+### Assumptions
+
+-   Independent observations
+
+-   Linear relationship between $log(\lambda_i)$ and the predictors
+
+-   **Equidispersion**
+
+### Interpretations
+
+-   If $x_1$ is continuous, $e^{\hat{\beta}_{1}}$ is the multiplicative increase/decrease in the **expected count of the outcome** when increasing $x_1$ by one unit
+
+-   If $x_1$ is categorical, $e^{\hat{\beta}_{1}}$ is the multiplicative increase/decrease in the **expected count of the outcome** for $x_1=1$ compared to the reference group
+
+## Example
+
+Let's look at the Bikeshare data in the ISLR2 package:
+
+```{r, message=FALSE}
+library(tidyverse)
+library(ISLR2)
+
+data("Bikeshare")
+# type ?Bikeshare in the console to see the data dictionary and description
+```
+
+Let's create a plot to visualize the relationship between `temp`, `season`, and `bikers`
+
+```{r, eval=FALSE}
+ggplot(Bikeshare, aes(x=temp, y=bikers, col=season))+
+  geom_point()
+
+ggplot(Bikeshare, aes(x=temp, y=bikers, col=season))+
+  geom_jitter()+
+  geom_smooth(method = "glm", method.args = list(family = "poisson"))
+```
+
+### Fitting the model
+
+```{r}
+pois_mod <- glm(bikers ~ temp+factor(season), 
+                data=Bikeshare, 
+                family="poisson")
+summary(pois_mod)
+```
+
+```{r}
+(exp_coefs <- exp(cbind(est=coef(pois_mod),confint(pois_mod))))
+```
+
+-   The expected number of bike rentals is 1.03 times higher in the spring compared to winter ( $p<0.01$, 95% CI: \[1.02,1.04\])
+
+-   For each unit increase in normalized temperature, the expected number of bike rentals increases 15.5 times ( $p<0.01$, 95% CI: \[15.3, 15.8\])
+
+## Exercise
+
+1.  Compare the results we obtained above to a linear model:
+
+-   Fit a linear model regressing the number of bikers on normalized temperature and season. Show the summary table and write an interpretation for the temperature predictor.
+
+-   Generate the diagnostic plots for the linear model. Comment on what you observe, particularly in the Residuals vs. Fitted plot. Which assumption(s) appears to be violated? How would a Poisson model address this/these assumption(s)?
+
+2.  Fit a poisson model regressing bikers on temperature and season and include an interaction term for temperature and season. Use the summary output to calculate the coefficient estimates for temperature **for each season**. Then, exponentiate those calculated estimates. Write interpretations for these values.

@@ -425,8 +425,13 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Race</p>
-<p>Black - N (%)</p>
+<td>Race</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>Black - N (%)</p>
 <p>White - N (%)</p></td>
 <td><p>2435 (50)</p>
 <p>2435 (50)</p></td>
@@ -435,9 +440,14 @@ window.Quarto = {
 <td><p>2278 (51)</p>
 <p>2200 (49)</p></td>
 </tr>
+<tr class="odd">
+<td>Gender</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 <tr class="even">
-<td><p>Gender</p>
-<p>Female - N (%)</p>
+<td><p>Female - N (%)</p>
 <p>Male - N (%)</p></td>
 <td><p>3746 (77)</p>
 <p>1124 (23)</p></td>
@@ -453,8 +463,13 @@ window.Quarto = {
 <td>3227 (72)</td>
 </tr>
 <tr class="even">
-<td><p>Resume Quality</p>
-<p>Low - N (%)</p>
+<td>Resume Quality</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>Low - N (%)</p>
 <p>High - N (%)</p></td>
 <td><p>2424 (50)</p>
 <p>2446 (50)</p></td>
@@ -463,7 +478,7 @@ window.Quarto = {
 <td><p>2246 (50)</p>
 <p>2232 (50)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Years of experience - mean (SD)</td>
 <td>7.8 (5)</td>
 <td>8.9 (5.5)</td>
@@ -603,10 +618,10 @@ race_facwhite:gender_facm 0.5999197 1.69138564</code></pre>
 </div>
 <p>The reference group is Black females. Let <span class="math inline">\(x_1=1\)</span> for race=White, 0=Black; <span class="math inline">\(x_2=1\)</span> for gender=male, 0=female.</p>
 <ul>
-<li><p>For White males, <span class="math inline">\(x_1=1\)</span> and <span class="math inline">\(x_2=1\)</span>, so the log odds of receiving a callback = 0.44-0.11+0.002=0.332, so the odds of receiving a callback are <span class="math inline">\(exp(0.332)=1.4\)</span>.</p></li>
-<li><p>For White females, <span class="math inline">\(x_1=1\)</span> and <span class="math inline">\(x_2=0\)</span>, so the log odds of receiving a callback=0.44, so the odds of receiving a callback are <span class="math inline">\(exp(0.44)=1.6\)</span>.</p></li>
-<li><p>For Black males, <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(x_2=1\)</span>, so the log odds of receiving a callback = -0.11, so the odds of receiving a callback are <span class="math inline">\(exp(-0.11)=0.9\)</span></p></li>
-<li><p>For Black females, <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(x_2=0\)</span>, so the log odds of receiving a callback = -2.9 (the intercept!), so the odds of receiving a callback are <span class="math inline">\(exp(-2.9)=0.06\)</span></p></li>
+<li><p>For White males, <span class="math inline">\(x_1=1\)</span> and <span class="math inline">\(x_2=1\)</span>, so the log odds of receiving a callback = -2.87+0.44-0.11+0.002=-2.5, so the odds of receiving a callback are <span class="math inline">\(exp(-2.5)=0.08\)</span>.</p></li>
+<li><p>For White females, <span class="math inline">\(x_1=1\)</span> and <span class="math inline">\(x_2=0\)</span>, so the log odds of receiving a callback=-2.87+0.44, so the odds of receiving a callback are <span class="math inline">\(exp(-2.4)=0.09\)</span>.</p></li>
+<li><p>For Black males, <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(x_2=1\)</span>, so the log odds of receiving a callback = -2.87-0.11, so the odds of receiving a callback are <span class="math inline">\(exp(-2.98)=0.05\)</span></p></li>
+<li><p>For Black females, <span class="math inline">\(x_1=0\)</span> and <span class="math inline">\(x_2=0\)</span>, so the log odds of receiving a callback = -2.87 (the intercept!), so the odds of receiving a callback are <span class="math inline">\(exp(-2.9)=0.06\)</span></p></li>
 </ul>
 <p>So, White females have the highest odds of receiving a callback.</p>
 <p>b.</p>
@@ -721,6 +736,7 @@ resumemod_preds_fac_bestthres   No  Yes
 </section>
 <section id="section-3" class="level2">
 <h2 class="anchored" data-anchor-id="section-3">4</h2>
+<p>Based on both models (with and without interaction), race and years of experience are statistically significantly associated with receiving a callback. Gender is not significant, and the interaction between race and gender is not significant. Looking at odds of receiving a callback for each race/gender combination, we see that White females and males have odds of .09 and .08, respectively, and Black females and males have odds of 0.06 and 0.05, respectively. The strength of the model in terms of predictive accuracy is not very good; this can be difficult with a fairly rare outcome like we have in this case. Looking at the data available, it could be interesting to look at different kinds of jobs and whether or not race and gender interact with job types and receiving a callback. For example, it could be interesting to see if men are more likely to receive a callback for titles that imply leadership, like managerial roles.</p>
 
 
 </section>
