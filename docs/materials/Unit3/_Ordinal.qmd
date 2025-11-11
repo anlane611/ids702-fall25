@@ -26,9 +26,9 @@ How is this similar to the multinomial model and how is it different?
 
 ## Interpretations
 
--   If $x_1$ is continuous, $e^{\hat{\beta}_{1j}}$ is the multiplicative increase/decrease in the **odds** of being in a higher category when increasing $x_1$ by one unit
+-   If $x_1$ is continuous, $e^{\hat{\beta}_{1}}$ is the multiplicative increase/decrease in the **odds** of being in a higher category when increasing $x_1$ by one unit
 
--   If $x_1$ is categorical, $e^{\hat{\beta}_{1j}}$ is the odds of being in a higher category for the group with $x_1=1$ compared to the reference group
+-   If $x_1$ is categorical, $e^{\hat{\beta}_{1}}$ is the odds of being in a higher category for the group with $x_1=1$ compared to the reference group
 
 ## Example
 
