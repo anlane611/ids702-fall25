@@ -870,7 +870,9 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
       <td>11.18</td>
       <td>Missing Data</td>
        <td></td>
-        <td>Quiz 2 (GLMs)</td>
+        <td>Quiz 2 (GLMs) </br>
+            <a href="materials/Unit3/Relevant Wooclap questions for GLMs.docx"  target="_blank">Relevant Wooclap questions</a>
+        </td>
         <td>
         </td>
   </tr>
@@ -884,4 +886,42 @@ Then, read <a href="materials/Unit2/StepAwayFromStepwise.pdf"  target="_blank">S
         </td>
   </tr>
      <tr>
-      <th sco
+      <th scope="row"></th>
+      <td>11.23</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td>
+          HW5: GLMs
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>11.25</td>
+      <td>Project work day (Last day of class)</td>
+       <td></td>
+        <td></td>
+        <td>
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>12.5</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td> Project drafts due (optional)
+        </td>
+  </tr>
+     <tr>
+      <th scope="row"></th>
+      <td>12.13</td>
+      <td></td>
+       <td></td>
+        <td></td>
+        <td> Final projects, Recorded presentations, and team feedback due 12 PM (Noon)
+        </td>
+  </tr>
+  </tbody>
+</table>
+```
