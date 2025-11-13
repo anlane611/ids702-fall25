@@ -97,4 +97,4 @@ AIC(pois_mod, nb_mod)
 
 -   Generate the diagnostic plots for the linear model. Comment on what you observe, particularly in the Residuals vs. Fitted plot. Which assumption(s) appears to be violated? How would a Poisson model address this/these assumption(s)?
 
-2.  Fit a poisson model regressing bikers on temperature and season and include an interaction term for temperature and season. Use the summary output to calculate the coefficient estimates for temperature **for each season**. Then, exponentiate those calculated estimates. Write interpretations for these va
+2.  Fit a poisson model regressing bikers on temperature and season and include an interaction term for temperature and season. Use the summary output to calculate the coefficient estimates for temperature **for each season**. Then, exponentiate those calculated estimates. Write interpretations for these values.
