@@ -1,0 +1,72 @@
+---
+title: "Homework 5"
+format: html
+subtitle: "Due: Sunday, November 23rd 11:59 PM"
+editor: visual
+---
+
+Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems; it is insufficient to just show the code.
+
+ 
+
+## Data
+
+The exercises use data from an experiment designed to assess the effects of race and gender on job application callback rates. Read more about the experiment and find the codebook [here](https://openintro.org/data/index.php?data=resume).
+
+```{r}
+
+```
+
+## Exercises
+
+1.  First, clean and explore the data:
+    a.  Create factor variables for received callback, race, gender, college degree, and resume quality. Be sure to include both levels and labels if the variable is stored as numeric. Name the new variables originalvar_fac so that you maintain the original variables in the dataset. Use the count function to perform a quality control check comparing the original and new factored variables. (No narrative response required for this question)
+
+    b.  Fill in the table with appropriate summary statistics to compare the listed variables for those who did and did not receive a callback. Provide a few key takeaways from the table.
+
++---------------------------------+------------+-------------------+--------------------------+
+| Variable                        | Overall    | Received Callback | Did not receive callback |
+|                                 |            |                   |                          |
+|                                 | N          | N (%)             | N(%)                     |
++=================================+============+===================+==========================+
+| **Race**                        |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| Black - N (%)                   | 2435 (50)  | 157 (40)          |                          |
+|                                 |            |                   |                          |
+| White - N (%)                   | 2435 (50)  | 235 (60)          |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| **Gender**                      |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| Female - N (%)                  |            |                   |                          |
+|                                 |            |                   |                          |
+| Male - N (%)                    |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| Has college degree - N (%)      |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| **Resume Quality**              |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| Low - N (%)                     |            |                   |                          |
+|                                 |            |                   |                          |
+| High - N (%)                    |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+| Years of experience - mean (SD) |            |                   |                          |
++---------------------------------+------------+-------------------+--------------------------+
+
+2.  Fit an appropriate model regressing callback outcome on race, gender, college degree, resume quality, and years of experience. Why is this type of model appropriate for this problem?
+    a.  Display 1) the summary table and 2) the coefficient estimates on the odds scale.
+
+    b.  Display the confidence intervals on the odds scale.
+
+    c.  In a few sentences, interpret the output above. Incorporate some odds/odds ratio interpretations, confidence intervals, and p-values, but do not simply list all of the interpretations for everything in the model. Synthesize the interesting/overall results as you would for a report or presentation.
+
+<!-- -->
+
+3.  Change the model to include an interaction term for race and gender.
+
+    a.  Fit the model and display 1) the summary table and 2) the coefficient estimates on the odds scale. Calculate and interpret the odds of receiving a callback for 1) White males, 2) White females, 3) Black males, and 4) Black females. Which group has the highest odds of receiving a callback? *(Hint: you will need to write out the separate models for each group!)*
+
+    b.  Using 0.5 as your cutoff for predicting resume callbacks from the predicted probabilities, generate the confusion matrix. Looking at the confusion matrix and diagnostic metrics, 1) does 0.5 seem to be the optimal probability cutoff, and 2) does accuracy seem to be the best metric? Why is this the case?
+
+    c.  Generate the ROC curve and print the optimal threshold on the plot. Generate the confusion matrix again using this probability threshold. What differences do you observe in the confusion matrix and diagnostic metrics?
+
+4.  Overall, what do you conclude from this analysis, keeping in mind both the models you fit and the summary statistics calculated in the first exercise? Are there any other variables available in the dataset that you think should be included in the model, other interaction term(s) you would add, or additional data you would collect, if possible to improve the analysis?
