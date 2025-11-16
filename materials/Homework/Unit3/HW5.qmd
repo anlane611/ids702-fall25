@@ -1,7 +1,7 @@
 ---
 title: "Homework 5"
 format: html
-subtitle: "Due: Sunday, November 23rd 11:59 PM"
+subtitle: "Due: Monday, November 24th 11:59 PM"
 editor: visual
 ---
 
@@ -11,62 +11,58 @@ Using the provided Qmd template, complete the following exercises and submit the
 
 ## Data
 
-The exercises use data from an experiment designed to assess the effects of race and gender on job application callback rates. Read more about the experiment and find the codebook [here](https://openintro.org/data/index.php?data=resume).
+This assignment uses data on global deaths from natural disasters from 1960 to 2014. You can find the original data [here](https://www.kaggle.com/datasets/thedevastator/the-fatal-cost-of-natural-disasters) (except for population counts, which you can find [here](https://data.worldbank.org/indicator/SP.POP.TOTL)).
 
-```{r}
+```{=html}
+Notice the difference in structure between the original data and the version you load below. You can see how exactly I cleaned, reformatted, and combined these datasets by downloading  <a href="CleanDisasterDeathsData.R"  target="_blank">this R script</a>.
+```
 
+```{r, message=FALSE}
+library(tidyverse)
+library(glmmTMB)
+## NOTE: Run install.packages("glmmTMB", type = "source") IN CONSOLE
+
+disaster_deaths <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/disaster_deaths_cleaned.csv")
 ```
 
 ## Exercises
 
-1.  First, clean and explore the data:
-    a.  Create factor variables for received callback, race, gender, college degree, and resume quality. Be sure to include both levels and labels if the variable is stored as numeric. Name the new variables originalvar_fac so that you maintain the original variables in the dataset. Use the count function to perform a quality control check comparing the original and new factored variables. (No narrative response required for this question)
+1.  First, explore the data:
 
-    b.  Fill in the table with appropriate summary statistics to compare the listed variables for those who did and did not receive a callback. Provide a few key takeaways from the table.
+    a.  Generate a scatter plot with `Year` on the x-axis, `Deaths` on the y-axis, and color by `Region`. Comment on what you observe in the plot.
 
-+---------------------------------+------------+-------------------+--------------------------+
-| Variable                        | Overall    | Received Callback | Did not receive callback |
-|                                 |            |                   |                          |
-|                                 | N          | N (%)             | N(%)                     |
-+=================================+============+===================+==========================+
-| **Race**                        |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| Black - N (%)                   | 2435 (50)  | 157 (40)          |                          |
-|                                 |            |                   |                          |
-| White - N (%)                   | 2435 (50)  | 235 (60)          |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| **Gender**                      |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| Female - N (%)                  |            |                   |                          |
-|                                 |            |                   |                          |
-| Male - N (%)                    |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| Has college degree - N (%)      |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| **Resume Quality**              |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| Low - N (%)                     |            |                   |                          |
-|                                 |            |                   |                          |
-| High - N (%)                    |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
-| Years of experience - mean (SD) |            |                   |                          |
-+---------------------------------+------------+-------------------+--------------------------+
+    b.  Calculate the count and proportion of rows/death counts that are zero and nonzero.
 
-2.  Fit an appropriate model regressing callback outcome on race, gender, college degree, resume quality, and years of experience. Why is this type of model appropriate for this problem?
-    a.  Display 1) the summary table and 2) the coefficient estimates on the odds scale.
+2.  First, fit an appropriate model to regress death count on year and region, and allow for the death count over time to vary by region.
 
-    b.  Display the confidence intervals on the odds scale.
+    a.  Display the summary table and the exponentiated coefficient estimates, and interpret the results in a general sense (i.e., do not just interpret every coefficient estimate one by one). Remember that with a large sample size, statistical significance is achieved even with a small effect size. Therefore, consider "practical significance" in addition to statistical significance.
 
-    c.  In a few sentences, interpret the output above. Incorporate some odds/odds ratio interpretations, confidence intervals, and p-values, but do not simply list all of the interpretations for everything in the model. Synthesize the interesting/overall results as you would for a report or presentation.
+    b.  Compare the AIC values between this model and a negative binomial model, as shown in class. What can you say about the assumption of a poisson model from this comparison?
 
-<!-- -->
+3.  Next, fit an appropriate model that incorporates population count to assess the death *rate* over time, again allowing this relationship to vary by region. Display the summary table and the exponentiated coefficient estimates, and interpret the results in a general sense as you did in 2a.
 
-3.  Change the model to include an interaction term for race and gender.
+4.  With such a large proportion of zeros, a better modeling option can be to fit a zero-inflated poisson model. This model fits two submodels simultaneously: one logistic regression model where the outcome is that the count is zero vs nonzero, and a poisson regression model that models the outcome count among the nonzero entries. Use the code below to fit the zero-inflated poisson model. The "Conditional model" part of the summary output refers to modeling the count outcome among the nonzero entries, and the "Zero-inflation model" part refers to the logistic model.
 
-    a.  Fit the model and display 1) the summary table and 2) the coefficient estimates on the odds scale. Calculate and interpret the odds of receiving a callback for 1) White males, 2) White females, 3) Black males, and 4) Black females. Which group has the highest odds of receiving a callback? *(Hint: you will need to write out the separate models for each group!)*
+    Note that the Year variable causes instability here because, being treated as numeric, the magnitude of the variable is large. So, we will first create a variable that counts from the first year in the dataset (1960).
 
-    b.  Using 0.5 as your cutoff for predicting resume callbacks from the predicted probabilities, generate the confusion matrix. Looking at the confusion matrix and diagnostic metrics, 1) does 0.5 seem to be the optimal probability cutoff, and 2) does accuracy seem to be the best metric? Why is this the case?
+    ```{r, eval=FALSE}
+    disaster_deaths <- disaster_deaths |>
+      mutate(Year_1 = Year - min(Year)+1)
 
-    c.  Generate the ROC curve and print the optimal threshold on the plot. Generate the confusion matrix again using this probability threshold. What differences do you observe in the confusion matrix and diagnostic metrics?
+    zip_model_nb <- glmmTMB(
+      Deaths ~ Region*Year_1,
+      ziformula = ~ Region*Year_1,
+      family = poisson,
+      data = disaster_deaths
+    )
 
-4.  Overall, what do you conclude from this analysis, keeping in mind both the models you fit and the summary statistics calculated in the first exercise? Are there any other variables available in the dataset that you think should be included in the model, other interaction term(s) you would add, or additional data you would collect, if possible to improve the analysis?
+    summary(zip_model)
+    ```
+
+    a.  Change family to "nbinom2" in the zero-inflated model code to fit a zero-inflated negative binomial model. Compare the AIC values. What can you say about the assumption of a poisson model from this comparison?
+
+    b.  Compare the results of the most appropriate model based on part a to the model that you fit in #2.
+
+### Bonus
+
+What other modeling assumption could be violated with this dataset, and how could it be addressed? (Hint: a bonus question from a previous question will be helpful!)

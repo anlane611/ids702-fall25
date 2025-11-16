@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -146,11 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus">Bonus</a></li>
-  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
@@ -160,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Homework 5</h1>
-<p class="subtitle lead">Due: Monday, November 24th 11:59 PM</p>
+<p class="subtitle lead">Due: Sunday, November 23rd 11:59 PM</p>
 </div>
 
 
@@ -177,60 +139,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Using the provided Qmd template, complete the following exercises and submit the document with your answers on Gradescope, which you can access through Canvas. You must show your work for all problems, and you must provide a written answer for all problems; it is insufficient to just show the code.</p>
-<p>&nbsp;</p>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>This assignment uses data on global deaths from natural disasters from 1960 to 2014. You can find the original data <a href="https://www.kaggle.com/datasets/thedevastator/the-fatal-cost-of-natural-disasters">here</a> (except for population counts, which you can find <a href="https://data.worldbank.org/indicator/SP.POP.TOTL">here</a>).</p>
-Notice the difference in structure between the original data and the version you load below. You can see how exactly I cleaned, reformatted, and combined these datasets by downloading  <a href="CleanDisasterDeathsData.R" target="_blank">this R script</a>.
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmmTMB)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do">: Run install.packages("glmmTMB", type = "source") IN CONSOLE</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>disaster_deaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/disaster_deaths_cleaned.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<ol type="1">
-<li><p>First, explore the data:</p>
-<ol type="a">
-<li><p>Generate a scatter plot with <code>Year</code> on the x-axis, <code>Deaths</code> on the y-axis, and color by <code>Region</code>. Comment on what you observe in the plot.</p></li>
-<li><p>Calculate the count and proportion of rows/death counts that are zero and nonzero.</p></li>
-</ol></li>
-<li><p>First, fit an appropriate model to regress death count on year and region, and allow for the death count over time to vary by region.</p>
-<ol type="a">
-<li><p>Display the summary table and the exponentiated coefficient estimates, and interpret the results in a general sense (i.e., do not just interpret every coefficient estimate one by one). Remember that with a large sample size, statistical significance is achieved even with a small effect size. Therefore, consider “practical significance” in addition to statistical significance.</p></li>
-<li><p>Compare the AIC values between this model and a negative binomial model, as shown in class. What can you say about the assumption of a poisson model from this comparison?</p></li>
-</ol></li>
-<li><p>Next, fit an appropriate model that incorporates population count to assess the death <em>rate</em> over time, again allowing this relationship to vary by region. Display the summary table and the exponentiated coefficient estimates, and interpret the results in a general sense as you did in 2a.</p></li>
-<li><p>With such a large proportion of zeros, a better modeling option can be to fit a zero-inflated poisson model. This model fits two submodels simultaneously: one logistic regression model where the outcome is that the count is zero vs nonzero, and a poisson regression model that models the outcome count among the nonzero entries. Use the code below to fit the zero-inflated poisson model. The “Conditional model” part of the summary output refers to modeling the count outcome among the nonzero entries, and the “Zero-inflation model” part refers to the logistic model.</p>
-<p>Note that the Year variable causes instability here because, being treated as numeric, the magnitude of the variable is large. So, we will first create a variable that counts from the first year in the dataset (1960).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>disaster_deaths <span class="ot">&lt;-</span> disaster_deaths <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year_1 =</span> Year <span class="sc">-</span> <span class="fu">min</span>(Year)<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>zip_model_nb <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  Deaths <span class="sc">~</span> Region<span class="sc">*</span>Year_1,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ziformula =</span> <span class="sc">~</span> Region<span class="sc">*</span>Year_1,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> poisson,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> disaster_deaths</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(zip_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="a">
-<li><p>Change family to “nbinom2” in the zero-inflated model code to fit a zero-inflated negative binomial model. Compare the AIC values. What can you say about the assumption of a poisson model from this comparison?</p></li>
-<li><p>Compare the results of the most appropriate model based on part a to the model that you fit in #2.</p></li>
-</ol></li>
-</ol>
-<section id="bonus" class="level3">
-<h3 class="anchored" data-anchor-id="bonus">Bonus</h3>
-<p>What other modeling assumption could be violated with this dataset, and how could it be addressed? (Hint: a bonus question from a previous question will be helpful!)</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

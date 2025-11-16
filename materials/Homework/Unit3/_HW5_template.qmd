@@ -1,0 +1,85 @@
+---
+title: "IDS 702 HW 5"
+author: "Your Name Here"
+format: pdf
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+---
+
+**Instructions**: Use this template to complete your assignment. When you click "Render," you should get a PDF document that contains both your answers and code. You must show your work/justify your answers to receive credit. Submit your rendered PDF file on Gradescope. **Remember to render frequently**, as this will help you to catch errors in your code before the last minute. You must show your work for all problems, and you must provide a written answer for all problems; it is insufficient to just show the code.
+
+**Add your name in the Author section in the header**
+
+## Load data
+
+```{r}
+library(MASS)
+library(tidyverse)
+library(glmmTMB)
+## NOTE: Run install.packages("glmmTMB", type = "source") IN CONSOLE
+
+disaster_deaths <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/refs/heads/main/disaster_deaths_cleaned.csv")
+```
+
+## 1
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+## 2
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+## 3
+
+## 4
+
+```{r}
+disaster_deaths <- disaster_deaths |>
+  mutate(Year_1 = Year - min(Year)+1)
+
+zip_model_nb <- glmmTMB(
+  Deaths ~ Region*Year_1,
+  ziformula = ~ Region*Year_1,
+  family = poisson,
+  data = disaster_deaths
+)
+
+summary(zip_model)
+```
+
+a\.
+
+```{r}
+
+```
+
+b\.
+
+```{r}
+
+```
+
+### Bonus

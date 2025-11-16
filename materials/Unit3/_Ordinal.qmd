@@ -158,4 +158,10 @@ library(ggeffects)
 ggeffects::predict_response(ord_mod, terms=c("gpa [all]","public")) |> 
   plot()
 
-ggeffects::predict_response(ord_mod, terms=c("gpa [all]","pare
+ggeffects::predict_response(ord_mod, terms=c("gpa [all]","pared")) |> 
+  plot()
+```
+
+### Reference
+
+Exercise adapted from <https://stats.oarc.ucla.edu/r/dae/ordinal-logistic-regression/>
