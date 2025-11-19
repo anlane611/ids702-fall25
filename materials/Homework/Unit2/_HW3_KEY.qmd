@@ -370,7 +370,7 @@ collegemod2_log <- lm(log(grad_150_value) ~ ft_pct*control_fac+retain_value+
 plot(collegemod2_log, which=1:2)
 ```
 
-There does not seem to be an improvement in the diagnostics using the log transformation of the outcome. Homoscedasticity in particular still seems to be violated.
+There does not seem to be an improvement in the diagnostics using the log transformation of the outcome. Homoscedasticity in particular still seems to be violated. However, the magnitude of the residuals is also much lower, so this could be justified either way (but must be a clear justification).
 
 ## Bonus
 

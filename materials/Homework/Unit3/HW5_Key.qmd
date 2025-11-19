@@ -1,6 +1,6 @@
 ---
 title: "IDS 702 HW 5"
-author: "Your Name Here"
+author: "KEY"
 format: pdf
 editor: visual
 execute:
@@ -29,57 +29,30 @@ disaster_deaths <- read.csv("https://raw.githubusercontent.com/anlane611/dataset
 a\.
 
 ```{r}
-
+ggplot(disaster_deaths, aes(x=Year, y=Deaths, col=Region))+
+  geom_point()
 ```
+
+We see an outlier that stands out from the rest of the data, and we see that many of the points are very small or zero. It is difficult to see a clear trend over time.
 
 b\.
 
 ```{r}
-
+disaster_deaths |>
+  mutate(event = ifelse(Deaths>0,1,0)) |>
+  count(event) |>
+  mutate(prop=n/sum(n))
 ```
+
+8109 (71%) of the rows are 0, and 3276 (29%) of the rows are nonzero.
 
 ## 2
 
 a\.
 
 ```{r}
+disaster_pois_mod <- glm(Deaths ~ Region*Year,
+                         data=disaster_deaths,
+                         family="poisson")
 
-```
-
-b\.
-
-```{r}
-
-```
-
-## 3
-
-```{r}
-
-```
-
-## 4
-
-```{r}
-disaster_deaths <- disaster_deaths |>
-  mutate(Year_1 = Year - min(Year)+1)
-
-zip_model_pois <- glmmTMB(
-  Deaths ~ Region*Year_1,
-  ziformula = ~ Region*Year_1,
-  family = poisson,
-  data = disaster_deaths
-)
-
-summary(zip_model_pois)
-```
-
-a\.
-
-```{r}
-
-```
-
-b\.
-
-```
+summary(d

@@ -74,41 +74,4 @@ Many analysis methods/packages automatically deal with missing data in some way.
 
 ## Your turn!
 
-In your group, research your assigned imputation method and create 1-2 slides in [this google slide deck](https://docs.google.com/presentation/d/1wacToDQEE-4ESyepTzINT2XvWmt5XCf6G2gT3mK9mCA/edit?usp=sharing) with the following information:
-
-1.  Explain the method(s) conceptually, include pros and cons
-2.  Show how you can implement the method in R using the bikeshare dataset that contains simulated missingness. Compare the results of the model without missingness (shown on next slide) to the results obtained with your imputed dataset. Implement the methods with the basic R functions that we've used in the course such as `lm/glm`. Do not use the MICE package to implement the methods.
-
-## Bikeshare model without missingness
-
-```{r, echo=TRUE}
-## use this code to access the data that contains missing values
-bikedat.miss <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/bike_miss.csv", row.names = 1)
-
-
-## compare results to the model that uses the full dataset (use the same variables)
-bikedat <- read.csv("https://raw.githubusercontent.com/anlane611/datasets/main/bike_full.csv")
-```
-
-## Bikeshare model without missingness
-
-```{r, echo=TRUE}
-summary(glm(bikers ~ windspeed + hum + temp, 
-            family="poisson", data=bikedat))
-```
-
-## Imputation Methods
-
-1.  Complete case analysis and mean/median imputation
-
-2.  Hot deck imputation
-
-3.  Cold deck imputation
-
-4.  Regression imputation - deterministic
-
-5.  Stochastic regression imputation - random
-
-6.  Multiple imputation
-
-2, 3, 6: Don't need to implement in R – focus on clearly describing steps and brainstorm ways to implement
+In your group, research your assigned imputation method and create 1-2 slides in [this google slide deck](https://docs.google.com/presentation/d/1wacToDQEE-4ESyepTzINT2XvWmt5XCf6G2gT3mK9mCA/edit?usp=

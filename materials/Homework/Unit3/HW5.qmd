@@ -35,7 +35,7 @@ disaster_deaths <- read.csv("https://raw.githubusercontent.com/anlane611/dataset
 
 2.  First, fit an appropriate model to regress death count on year and region, and allow for the death count over time to vary by region.
 
-    a.  Display the summary table and the exponentiated coefficient estimates, and interpret the results in a general sense (i.e., do not just interpret every coefficient estimate one by one). Remember that with a large sample size, statistical significance is achieved even with a small effect size. Therefore, consider "practical significance" in addition to statistical significance.
+    a.  Display the summary table and the exponentiated coefficient estimates, and interpret the results in a general sense. Note that because you have an interaction term, you should add/subtract the appropriate coefficient estimates before exponentiating).
 
     b.  Compare the AIC values between this model and a negative binomial model, as shown in class. What can you say about the assumption of a poisson model from this comparison?
 
@@ -61,8 +61,8 @@ disaster_deaths <- read.csv("https://raw.githubusercontent.com/anlane611/dataset
 
     a.  Change family to "nbinom2" in the zero-inflated model code to fit a zero-inflated negative binomial model. Compare the AIC values. What can you say about the assumption of a poisson model from this comparison?
 
-    b.  Compare the results of the most appropriate model based on part a to the model that you fit in #2.
+    b.  Compare the results of the most appropriate model based on part a to the model that you fit in #2. (Note that you can extract coefficient estimates using `fixef(zip_model)$cond`
 
 ### Bonus
 
-What other modeling assumption could be violated with this dataset, and how could it be addressed? (Hint: a bonus question from a previous question will be helpful!)
+What other modeling assumption could be violated with this dataset, and how could it be addressed? You do not need to implement this change. (Hint: a bonus question from a previous homework will be helpful!)

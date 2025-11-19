@@ -54,20 +54,24 @@ b\.
 
 ## 3
 
+```{r}
+
+```
+
 ## 4
 
 ```{r}
 disaster_deaths <- disaster_deaths |>
   mutate(Year_1 = Year - min(Year)+1)
 
-zip_model_nb <- glmmTMB(
+zip_model_pois <- glmmTMB(
   Deaths ~ Region*Year_1,
   ziformula = ~ Region*Year_1,
   family = poisson,
   data = disaster_deaths
 )
 
-summary(zip_model)
+summary(zip_model_pois)
 ```
 
 a\.

@@ -1,0 +1,109 @@
+---
+title: "Missing Data"
+output: html
+editor: visual
+---
+
+For this exercise, we will use the titanic3 dataset in the Hmisc library. The dataset contains information about passengers on the Titanic, including whether or not the passenger survived.
+
+```{r}
+library(tidyverse)
+library(Hmisc)
+Hmisc::getHdata(titanic3)
+```
+
+First, let's fit a logistic regression model regressing the `survived` outcome on the predictors `pclass`, `sex`, `parch`, and `age` using complete case analysis (the default method in R). Note that `parch` is the number of parents/children the passenger has aboard. What is the sample size that is used for the model?
+
+```{r}
+complete_mod <- glm(survived ~ pclass+sex+parch+age, 
+                    data=titanic3, family="binomial")
+
+summary(complete_mod)
+```
+
+Now, let's explore the missing data. The Hmisc package has some useful functions for exploring missing data. First, we can generate a plot to show the fraction of missing values for each variable.
+
+```{r}
+na.patterns <- naclus(titanic3)
+
+naplot(na.patterns, 'na per var')
+```
+
+Next, we can generate a plot that shows any hierarchical structure of the missing data.
+
+```{r}
+plot(na.patterns)
+```
+
+This plot indicates that the variable age is missing when body and/or home.dest are also missing.
+
+It is also useful to examine the characteristics of passengers that have missing data for the age variable. Fit a logistic regression model where the outcome is an indicator for whether or not the age variable is missing. Regress this outcome on sex, pclass, survived, and parch. Focusing on the p-values and the signs of the coefficient estimates, what do you observe about the pattern of missingness in the age variable?
+
+```{r}
+titanic3 <- titanic3 |>
+  mutate(age.miss = ifelse(is.na(age),1,0))
+
+age_miss_mod <- glm(age.miss ~ sex+pclass+survived+parch, 
+                    data=titanic3, family="binomial")
+
+summary(age_miss_mod)
+```
+
+### Multiple imputation with the mice package
+
+Recall the general 3-step process of multiple imputation:
+
+1.  Replicate the dataset $m$ times and impute the missing values on each of the $m$ datasets. Note that the imputation method must involve some degree of randomness so that the $m$ complete datasets are not all the same.
+2.  Perform the analysis on each of the $m$ datasets
+3.  Combine the analysis results across the $m$ datasets
+
+The options in the mice function indicate the number of $m$ replicated datasets (5 is the default) and the imputation method to use. "pmm" refers to predictive mean matching. Predictive mean matching combines the regression method and the hot deck imputation that we covered last week by taking a donor value from the observation with the predicted value closest to the predicted value of the observation with missing data. This is beneficial because the imputed values will still be in a plausible range.
+
+Let's use a subset that only contains the predictors age, pclass, parch, sex, and the outcome survived.
+
+```{r}
+
+library(mice)
+library(sjlabelled)
+library(tidyverse)
+
+titanic.sub <- titanic3 |> select(c("age","pclass","parch","sex","survived"))
+titanic.sub <- unlabel(titanic.sub) #unlabel the data (labels cause problem for the mice function)
+titanic.imp <- mice(titanic.sub, m=5, method="pmm", print=FALSE)
+```
+
+The titanic.imp list contains a lot of information about the imputed values. The `imp` element of the list contains the actual imputed values, with an additional index for each variable that has missing data. Age is the only variable in our set with missing values. Note the dimension of this matrix. Each row represents an observation, and each column contains one of the $m=5$ imputed values.
+
+```{r}
+dim(titanic.imp$imp$age)
+```
+
+Now let's visualize the distribution of the observed and imputed values of age. What do you observe in this plot?
+
+```{r}
+
+titanic.comp <- complete(titanic.imp, "long", include=TRUE) #stack the imputed values into one variable and include the observed values
+
+titanic.comp$age.comp <- cci(titanic3$age) #create an indicator for completeness
+
+ggplot(titanic.comp, aes(x= factor(.imp), y=age, fill=age.comp))+
+  geom_boxplot()
+  
+```
+
+Now we can use the `with` function to fit the regression model on each of the imputed datasets
+
+```{r}
+with(titanic.imp, glm(survived ~ pclass + age + sex + parch, family="binomial"))
+```
+
+Finally, we can combine the results from these models using the `pool` function. How do the results compare to the complete case model?
+
+```{r}
+
+imp.mods <- with(titanic.imp, glm(survived ~ pclass + age + sex + parch, 
+                                  family="binomial"))
+summary(pool(imp.mods))
+```
+
+## 
