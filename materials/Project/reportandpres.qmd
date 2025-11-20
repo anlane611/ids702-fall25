@@ -1,0 +1,80 @@
+---
+title: "Final Report and Presentation"
+subtitle: "Due: Saturday, December 13th 12:00 PM"
+---
+
+# Purpose
+
+Now that you have selected and explored a dataset, it is time to carry out your analysis and present your results! You will present your results that address your research questions in two ways: a team report and an individual "elevator pitch" presentation.
+
+# Final Report (completed as a group)
+
+Your report will be an 8-12 page self-contained document describing your analysis. It should be written as a professional document, meaning all code will be hidden and tables and figures will be appropriately formatted. **You are also required to submit a single QMD file that includes your code for the report and analysis.** The report will be split into two parts:
+
+1.  A 4-6 page [data science memo](https://ds4humans.com/40_in_practice/27_data_science_memos.html) (be sure to read that link carefully!). For the memo, you can define your own stakeholder based on your dataset/research questions. It should be someone who would make decisions based on your analysis but not necessarily understand all of the technical details of the work. The memo will contain the following components (again, be sure to read more detail in the link):
+
+-   **Executive Summary/TL;DR**: One or two paragraphs describing the purpose of the analysis and key results
+
+-   **Memo body**: Present results and methods in a top-down format, beginning with problem motivation and results, which will include figures and tables, and then methods *at a high level*. For example, you can state the type of model(s) that you fit and describe the purpose of those models, and you should certainly interpret coefficients, etc in the context of the problem. But things like model diagnostics and other more technical details should not be included in the memo section of the report. The problem motivation should include sufficient and well-informed context, including appropriate citations of external sources. Recommended next steps based on the results, analysis limitations, or both, should be clear to the stakeholder.
+
+2.  A 4-6 page technical appendix. In this section, you will present the nitty gritty details of your data, model(s), and diagnostics. This section will include the following:
+
+-   **Data**: Provide more background on the data, including any cleaning that needed to be done that affects the model (e.g., were levels of a categorical variable combined? Did you exclude missing values? If so, how many?). Data cleaning that does not affect the model, such as creating factor variables, does not need to be mentioned (it is always assumed that *some* cleaning is necessary).
+
+-   **Models**: Describe the process you used to conduct analysis for both research questions. Describe the types of models that you fit and why they were appropriate, and the assumptions for each model. Specify the covariates in each model, and make sure to include both primary independent variables relevant to the research question **and** potential confounding variables. **You are required to use at least one interaction term in one of your models**. Describe how you assessed your models and any changes you made based on the assessment. Finally, present full summary tables that include estimates, standard errors, confidence intervals, and p-values. These should be on the exponential scale for GLMs.
+
+-   **Next steps**: Finally, describe limitations that you could not address and what you might do next to improve the analysis. This can include impractical steps in the context of a class project such as "collect more data on X."
+
+### A few things to keep in mind:
+
+-   You should never refer to actual variable names in the text, tables, or figures. For example, if a variable for height is called "ht\_\_cm," you should always say "height," and the first time you mention it you should state that it is measured in cm. In plots and tables, it should say "height (cm)"
+
+-   The report should be produced in Quarto and rendered to PDF. All tables and figures should use appropriate labels.
+
+-   I recommend using colorblind-friendly color palettes in your figures. It can be even better to differentiate with line types or symbols instead of relying on color.
+
+-   If you have several predictors such that a model summary table takes up an entire page or more, you may go beyond the page limit.
+
+-   The structure of your report will differ, but you can view [this example report](ExampleReport_Factors-Associated-With-Mental-Health-in-Europe) from 2023 (shared with permission) to get an idea of formatting (e.g., hiding all code, including appropriate labels on all plots) and analysis information presented.
+
+-   You can use python for data cleaning, but not for analysis or diagnostics. All code is required to be in a single qmd file, but you can use python by adding a python code chunk (Insert \> Executable cell \> Python)
+
+-   Create a new Quarto document, and add this to the header to suppress code and messages:
+
+    ---
+
+    title: "Nice relevant title for the analysis"
+
+    subtitle: "Group member names"
+
+    execute:
+
+    echo: FALSE
+
+    message: FALSE
+
+    warning: FALSE
+
+    editor: visual
+
+    ---
+
+#### Optional: If you would like me to provide some feedback on your report, you can submit a draft by Friday, December 5.
+
+### Submission
+
+Submit one report and one qmd file per group. **One person will submit and select the other group members in the Gradescope submission**. Be sure to assign pages in Gradescope when you submit.
+
+### Examples
+
+1.  Refer to [this group's report from 2023](ExampleReport_Factors-Associated-With-Mental-Health-in-Europe.pdf), which the group has kindly agreed to share.
+
+# Elevator Pitch Presentations (completed individually)
+
+You will submit an **individual** recorded "elevator pitch" presentation of your analysis. This will be a 2-3 minute presentation video in which you explain the goal and results of your project to a non-technical audience. Imagine that you encounter a stakeholder relevant to your project but without a data science background in an elevator. You have 2-3 minutes to explain to this person what you found in your analysis.
+
+-   You will create one slide to show during your presentation. Each student must have a unique slide.
+
+-   You will focus on **one** of the research questions you addressed in your project report.
+
+-   The presentation should be focused on the motivation and results of your analysis rather than data cleaning or technical details of the model. Prioritize cre

@@ -24,9 +24,8 @@ summary(complete_mod)
 Now, let's explore the missing data. The Hmisc package has some useful functions for exploring missing data. First, we can generate a plot to show the fraction of missing values for each variable.
 
 ```{r}
-na.patterns <- naclus(titanic3)
-
-naplot(na.patterns, 'na per var')
+na.patterns <- Hmisc::naclus(titanic3)
+Hmisc::naplot(na.patterns, 'na per var')
 ```
 
 Next, we can generate a plot that shows any hierarchical structure of the missing data.
@@ -57,7 +56,7 @@ Recall the general 3-step process of multiple imputation:
 2.  Perform the analysis on each of the $m$ datasets
 3.  Combine the analysis results across the $m$ datasets
 
-The options in the mice function indicate the number of $m$ replicated datasets (5 is the default) and the imputation method to use. "pmm" refers to predictive mean matching. Predictive mean matching combines the regression method and the hot deck imputation that we covered last week by taking a donor value from the observation with the predicted value closest to the predicted value of the observation with missing data. This is beneficial because the imputed values will still be in a plausible range.
+The options in the mice function indicate the number of $m$ replicated datasets (5 is the default) and the imputation method to use. "pmm" refers to predictive mean matching. Predictive mean matching combines the regression method and the hot deck imputation method by taking a donor value from the observation with the predicted value closest to the predicted value of the observation with missing data. This is beneficial because the imputed values will still be in a plausible range.
 
 Let's use a subset that only contains the predictors age, pclass, parch, sex, and the outcome survived.
 
@@ -65,7 +64,6 @@ Let's use a subset that only contains the predictors age, pclass, parch, sex, an
 
 library(mice)
 library(sjlabelled)
-library(tidyverse)
 
 titanic.sub <- titanic3 |> select(c("age","pclass","parch","sex","survived"))
 titanic.sub <- unlabel(titanic.sub) #unlabel the data (labels cause problem for the mice function)
@@ -94,7 +92,8 @@ ggplot(titanic.comp, aes(x= factor(.imp), y=age, fill=age.comp))+
 Now we can use the `with` function to fit the regression model on each of the imputed datasets
 
 ```{r}
-with(titanic.imp, glm(survived ~ pclass + age + sex + parch, family="binomial"))
+with(titanic.imp, glm(survived ~ pclass + age + sex + parch, 
+                      family="binomial"))
 ```
 
 Finally, we can combine the results from these models using the `pool` function. How do the results compare to the complete case model?
