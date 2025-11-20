@@ -35,7 +35,7 @@ Your report will be an 8-12 page self-contained document describing your analysi
 
 -   If you have several predictors such that a model summary table takes up an entire page or more, you may go beyond the page limit.
 
--   The structure of your report will differ, but you can view [this example report](ExampleReport_Factors-Associated-With-Mental-Health-in-Europe) from 2023 (shared with permission) to get an idea of formatting (e.g., hiding all code, including appropriate labels on all plots) and analysis information presented.
+-   The structure of your report will differ, but you can view [this example report](ExampleReport_Factors-Associated-With-Mental-Health-in-Europe.pdf) from 2023 (shared with permission) to get an idea of formatting (e.g., hiding all code, including appropriate labels on all plots) and analysis information presented.
 
 -   You can use python for data cleaning, but not for analysis or diagnostics. All code is required to be in a single qmd file, but you can use python by adding a python code chunk (Insert \> Executable cell \> Python)
 
@@ -65,10 +65,6 @@ Your report will be an 8-12 page self-contained document describing your analysi
 
 Submit one report and one qmd file per group. **One person will submit and select the other group members in the Gradescope submission**. Be sure to assign pages in Gradescope when you submit.
 
-### Examples
-
-1.  Refer to [this group's report from 2023](ExampleReport_Factors-Associated-With-Mental-Health-in-Europe.pdf), which the group has kindly agreed to share.
-
 # Elevator Pitch Presentations (completed individually)
 
 You will submit an **individual** recorded "elevator pitch" presentation of your analysis. This will be a 2-3 minute presentation video in which you explain the goal and results of your project to a non-technical audience. Imagine that you encounter a stakeholder relevant to your project but without a data science background in an elevator. You have 2-3 minutes to explain to this person what you found in your analysis.
@@ -77,4 +73,20 @@ You will submit an **individual** recorded "elevator pitch" presentation of your
 
 -   You will focus on **one** of the research questions you addressed in your project report.
 
--   The presentation should be focused on the motivation and results of your analysis rather than data cleaning or technical details of the model. Prioritize cre
+-   The presentation should be focused on the motivation and results of your analysis rather than data cleaning or technical details of the model. Prioritize creating a clear plot/visual that communicates your message.
+
+-   Focus on storytelling. Why is it important/interesting to answer these research questions? What did you find that is compelling?
+
+-   You can use any program you'd like to create your slide (powerpoint, keynote, Quarto, etc.)
+
+-   I am happy to review your slide and offer feedback, but you must send it to me \>3 days before the presentation deadline.
+
+### Submission
+
+Submit one presentation recording on Gradescope. The deadline is the same as the deadline for the report.
+
+# Group Evaluation
+
+You will complete a peer evaluation for your group members. You will be graded on the quality of the feedback you give. **If you have concerns related to your project group before the deadline, please contact me to discuss the concerns.**
+
+## 
